@@ -24,7 +24,7 @@
     <meta name="description" content="博弈论 题目简述 有 \(n\) 个硬币，两位玩家，每次去取 \(l \sim r\) 个，取不到者负，都执行最优策略，哪一方必胜？ 思路 和显然，这个问题就是博弈论中十分经典的 Nim 取子问题 。首先我们发现，对于一种状态，如果后面的任何状态都是必败状态，那么我们可以发现，这个状态就是我们常说的必胜态，因为，无论下一步怎么走，都是无法获胜。而同时，如果一个状态后面有必胜态，那么这个状态就是必败">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Oiclass PUJI 1277 题解">
-<meta property="og:url" content="https://codingcow.lee.mx/posts/16159.html">
+<meta property="og:url" content="https://lixuannan.github.io/posts/16159.html">
 <meta property="og:site_name" content="CodingCow&#39;s Blog">
 <meta property="og:description" content="博弈论 题目简述 有 \(n\) 个硬币，两位玩家，每次去取 \(l \sim r\) 个，取不到者负，都执行最优策略，哪一方必胜？ 思路 和显然，这个问题就是博弈论中十分经典的 Nim 取子问题 。首先我们发现，对于一种状态，如果后面的任何状态都是必败状态，那么我们可以发现，这个状态就是我们常说的必胜态，因为，无论下一步怎么走，都是无法获胜。而同时，如果一个状态后面有必胜态，那么这个状态就是必败">
 <meta property="og:locale" content="zh_CN">
@@ -75,7 +75,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"codingcow.lee.mx","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":135,"cursorChar":"|","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":3},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":true,"offset_factor":2,"lazyload":true},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null},"gtag":null,"woyaola":null,"cnzz":null},"search_path":"/search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"lixuannan.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":135,"cursorChar":"|","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":3},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":true,"offset_factor":2,"lazyload":true},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null},"gtag":null,"woyaola":null,"cnzz":null},"search_path":"/search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -390,7 +390,7 @@ DFS 函数的时间和空间需求优化了我们程序的性能。同时也能�
   <div class="license-box my-3">
     <div class="license-title">
       <div>Oiclass PUJI 1277 题解</div>
-      <div>https://codingcow.lee.mx/posts/16159.html</div>
+      <div>https://lixuannan.github.io/posts/16159.html</div>
     </div>
     <div class="license-meta">
       

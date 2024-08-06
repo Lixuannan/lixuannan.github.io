@@ -24,7 +24,7 @@
     <meta name="description" content="思路 一眼看上去，这题非常非常的难，对吧？？？好吧，我的第一反应就是 DP，但是 DP 似乎并不能非常优雅的解决问题。然后我就想到了马拉车，但是马拉车+特判实现起来实在是有些繁琐。 突然，我猛地发现，如果每个字母的出现次数不超过 \(2\) 次的话，回文串的长度最多就是 \(52\)。也就是说，暴力的时间大约是 \(O(52n)\)，很显然，这是可以非常轻松通过的。那么我们只需要枚举回文串的中心，">
 <meta property="og:type" content="article">
 <meta property="og:title" content="洛谷 P10170 [DTCPC 2024] 小方和小立方 题解">
-<meta property="og:url" content="https://codingcow.lee.mx/posts/14032.html">
+<meta property="og:url" content="https://lixuannan.github.io/posts/14032.html">
 <meta property="og:site_name" content="CodingCow&#39;s Blog">
 <meta property="og:description" content="思路 一眼看上去，这题非常非常的难，对吧？？？好吧，我的第一反应就是 DP，但是 DP 似乎并不能非常优雅的解决问题。然后我就想到了马拉车，但是马拉车+特判实现起来实在是有些繁琐。 突然，我猛地发现，如果每个字母的出现次数不超过 \(2\) 次的话，回文串的长度最多就是 \(52\)。也就是说，暴力的时间大约是 \(O(52n)\)，很显然，这是可以非常轻松通过的。那么我们只需要枚举回文串的中心，">
 <meta property="og:locale" content="zh_CN">
@@ -75,7 +75,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"codingcow.lee.mx","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":135,"cursorChar":"|","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":3},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":true,"offset_factor":2,"lazyload":true},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null},"gtag":null,"woyaola":null,"cnzz":null},"search_path":"/search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"lixuannan.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":135,"cursorChar":"|","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":3},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":true,"offset_factor":2,"lazyload":true},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null},"gtag":null,"woyaola":null,"cnzz":null},"search_path":"/search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -377,7 +377,7 @@ class="math inline">\(O(52n)\)</span>，很显然，这是可以非常轻松通�
   <div class="license-box my-3">
     <div class="license-title">
       <div>洛谷 P10170 [DTCPC 2024] 小方和小立方 题解</div>
-      <div>https://codingcow.lee.mx/posts/14032.html</div>
+      <div>https://lixuannan.github.io/posts/14032.html</div>
     </div>
     <div class="license-meta">
       

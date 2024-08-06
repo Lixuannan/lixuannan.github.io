@@ -24,7 +24,7 @@
     <meta name="description" content="思路 观察到替换数字的过程，实际上就是将两个数字归为一类。借此不难联想到并查集的工作过程，因此我们可以考虑使用并查集解决这个问题。 我们使用并查集维护当前数字所属的集合，初始时对于数字 \(x\)，它位于集合 \(x\) 中。当我们发现本应相同但是并不在同一个集合内的数字时，我们不得不将其合并，并记录下一次操作。在操作的过程中，你不需要去判断究竟是改为了左边的或者右边的数字，只需要知道它们二者同属">
 <meta property="og:type" content="article">
 <meta property="og:title" content="AtCoder ABC206D KAIBUNsyo 题解">
-<meta property="og:url" content="https://codingcow.lee.mx/posts/30504.html">
+<meta property="og:url" content="https://lixuannan.github.io/posts/30504.html">
 <meta property="og:site_name" content="CodingCow&#39;s Blog">
 <meta property="og:description" content="思路 观察到替换数字的过程，实际上就是将两个数字归为一类。借此不难联想到并查集的工作过程，因此我们可以考虑使用并查集解决这个问题。 我们使用并查集维护当前数字所属的集合，初始时对于数字 \(x\)，它位于集合 \(x\) 中。当我们发现本应相同但是并不在同一个集合内的数字时，我们不得不将其合并，并记录下一次操作。在操作的过程中，你不需要去判断究竟是改为了左边的或者右边的数字，只需要知道它们二者同属">
 <meta property="og:locale" content="zh_CN">
@@ -75,7 +75,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"codingcow.lee.mx","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":135,"cursorChar":"|","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":3},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":true,"offset_factor":2,"lazyload":true},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null},"gtag":null,"woyaola":null,"cnzz":null},"search_path":"/search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"lixuannan.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":135,"cursorChar":"|","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":3},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":true,"offset_factor":2,"lazyload":true},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null},"gtag":null,"woyaola":null,"cnzz":null},"search_path":"/search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -377,7 +377,7 @@ class="math inline">\(\mathcal{O}(n \,\alpha(n))\)</span>。</p>
   <div class="license-box my-3">
     <div class="license-title">
       <div>AtCoder ABC206D KAIBUNsyo 题解</div>
-      <div>https://codingcow.lee.mx/posts/30504.html</div>
+      <div>https://lixuannan.github.io/posts/30504.html</div>
     </div>
     <div class="license-meta">
       

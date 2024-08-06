@@ -24,7 +24,7 @@
     <meta name="description" content="思路 首先考虑暴力建边的做法，我们使用 \(\mathcal{O}({t_i}^2)\) 的时间建立公交站的边。然后我们考虑如何计算答案。考虑到每次坐公交车的时候都会进行出租车的结算，于是我们直接累计到最后才向上取整的做法是没有正确性的。 于是我们考虑每次到公交节点的时候就进行向上取整，这样就可以保证 Dijkstra 的正确性。 这样就解决了正确性的问题，然后考虑如何优化公交的建边。我们可以采用">
 <meta property="og:type" content="article">
 <meta property="og:title" content="OiClass TIGAO P3333 路径难题题解">
-<meta property="og:url" content="https://codingcow.lee.mx/posts/24926.html">
+<meta property="og:url" content="https://lixuannan.github.io/posts/24926.html">
 <meta property="og:site_name" content="CodingCow&#39;s Blog">
 <meta property="og:description" content="思路 首先考虑暴力建边的做法，我们使用 \(\mathcal{O}({t_i}^2)\) 的时间建立公交站的边。然后我们考虑如何计算答案。考虑到每次坐公交车的时候都会进行出租车的结算，于是我们直接累计到最后才向上取整的做法是没有正确性的。 于是我们考虑每次到公交节点的时候就进行向上取整，这样就可以保证 Dijkstra 的正确性。 这样就解决了正确性的问题，然后考虑如何优化公交的建边。我们可以采用">
 <meta property="og:locale" content="zh_CN">
@@ -89,7 +89,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"codingcow.lee.mx","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":135,"cursorChar":"|","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":3},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":true,"offset_factor":2,"lazyload":true},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null},"gtag":null,"woyaola":null,"cnzz":null},"search_path":"/search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"lixuannan.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":135,"cursorChar":"|","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":3},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":true,"offset_factor":2,"lazyload":true},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null},"gtag":null,"woyaola":null,"cnzz":null},"search_path":"/search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -381,7 +381,7 @@ class="math inline">\(0\)</span>。这样就解决的建边时间复杂度的问
   <div class="license-box my-3">
     <div class="license-title">
       <div>OiClass TIGAO P3333 路径难题题解</div>
-      <div>https://codingcow.lee.mx/posts/24926.html</div>
+      <div>https://lixuannan.github.io/posts/24926.html</div>
     </div>
     <div class="license-meta">
       

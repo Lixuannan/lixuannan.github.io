@@ -24,7 +24,7 @@
     <meta name="description" content="题意 有一个序列，你可以将它翻转或者将第一个数挪到最后面，求最小的操作使得序列升序的次数。数据保证有解。 思路 首先我们可以看到题目中说保证一定有解，因此我们可以发现挪动的方式一定是将前面的数整体挪到到后面或者翻转后将前面的数移到后面再翻转回来。看一个例子： 13 4 5 6 7 8 9 10 1 2 答案显然是将序列整体翻转后将 2 1 挪到最后面然后再翻转回来，次数为 4。 有了上面的结论，我">
 <meta property="og:type" content="article">
 <meta property="og:title" content="AT_arc132_b Shift and Reverse 题解">
-<meta property="og:url" content="https://codingcow.lee.mx/posts/38985.html">
+<meta property="og:url" content="https://lixuannan.github.io/posts/38985.html">
 <meta property="og:site_name" content="CodingCow&#39;s Blog">
 <meta property="og:description" content="题意 有一个序列，你可以将它翻转或者将第一个数挪到最后面，求最小的操作使得序列升序的次数。数据保证有解。 思路 首先我们可以看到题目中说保证一定有解，因此我们可以发现挪动的方式一定是将前面的数整体挪到到后面或者翻转后将前面的数移到后面再翻转回来。看一个例子： 13 4 5 6 7 8 9 10 1 2 答案显然是将序列整体翻转后将 2 1 挪到最后面然后再翻转回来，次数为 4。 有了上面的结论，我">
 <meta property="og:locale" content="zh_CN">
@@ -75,7 +75,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"codingcow.lee.mx","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":135,"cursorChar":"|","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":3},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":true,"offset_factor":2,"lazyload":true},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null},"gtag":null,"woyaola":null,"cnzz":null},"search_path":"/search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"lixuannan.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":135,"cursorChar":"|","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":3},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":true,"offset_factor":2,"lazyload":true},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null},"gtag":null,"woyaola":null,"cnzz":null},"search_path":"/search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -383,7 +383,7 @@ class="math inline">\(a_1 +1\)</span>。</li>
   <div class="license-box my-3">
     <div class="license-title">
       <div>AT_arc132_b Shift and Reverse 题解</div>
-      <div>https://codingcow.lee.mx/posts/38985.html</div>
+      <div>https://lixuannan.github.io/posts/38985.html</div>
     </div>
     <div class="license-meta">
       

@@ -24,7 +24,7 @@
     <meta name="description" content="思路 首先发现这题是八数码问题的加强版，但是数据量非常大，爆搜+剪枝的方法非常的不可取，于是我们考虑是否可以通过一些神秘的判断方法来判断出是否可以构造出来。 从数据量可以感受出来应该是使用某种接近线性的算法，果断猜测是否是逆序对。把矩阵展开后去掉 \(0\)，然后计算逆序对个数，判断奇偶性即可。 代码 123456789101112131415161718192021222324252627282">
 <meta property="og:type" content="article">
 <meta property="og:title" content="OiClass PU2TI P3042 拓展的奇拼图题解">
-<meta property="og:url" content="https://codingcow.lee.mx/posts/32290.html">
+<meta property="og:url" content="https://lixuannan.github.io/posts/32290.html">
 <meta property="og:site_name" content="CodingCow&#39;s Blog">
 <meta property="og:description" content="思路 首先发现这题是八数码问题的加强版，但是数据量非常大，爆搜+剪枝的方法非常的不可取，于是我们考虑是否可以通过一些神秘的判断方法来判断出是否可以构造出来。 从数据量可以感受出来应该是使用某种接近线性的算法，果断猜测是否是逆序对。把矩阵展开后去掉 \(0\)，然后计算逆序对个数，判断奇偶性即可。 代码 123456789101112131415161718192021222324252627282">
 <meta property="og:locale" content="zh_CN">
@@ -75,7 +75,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"codingcow.lee.mx","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":135,"cursorChar":"|","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":3},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":true,"offset_factor":2,"lazyload":true},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null},"gtag":null,"woyaola":null,"cnzz":null},"search_path":"/search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"lixuannan.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":135,"cursorChar":"|","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":3},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":true,"offset_factor":2,"lazyload":true},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null},"gtag":null,"woyaola":null,"cnzz":null},"search_path":"/search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -371,7 +371,7 @@ class="math inline">\(0\)</span>，然后计算逆序对个数，判断奇偶性
   <div class="license-box my-3">
     <div class="license-title">
       <div>OiClass PU2TI P3042 拓展的奇拼图题解</div>
-      <div>https://codingcow.lee.mx/posts/32290.html</div>
+      <div>https://lixuannan.github.io/posts/32290.html</div>
     </div>
     <div class="license-meta">
       

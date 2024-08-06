@@ -24,7 +24,7 @@
     <meta name="description" content="思路 首先考虑暴力的做法，直接依题意模拟模拟，时间复杂度是 \(\mathcal{O}(nm)\)，显然不能通过。但是我们可以发现这种修改方式似乎很适合预处理，然后我就想到了使用前缀和的做法。然后每次进行替代，但是经过一段时间的调试，无法通过，果断放弃。 我们考虑时间复杂度稍高的分块做法，我们规定块长为 \(\sqrt{n}\)，然后将 \(n\) 次操作分成 \(\sqrt{n}\) 个块，对于">
 <meta property="og:type" content="article">
 <meta property="og:title" content="OiClass TIGAO P3280 牛牛的猜球游戏题解">
-<meta property="og:url" content="https://codingcow.lee.mx/posts/21737.html">
+<meta property="og:url" content="https://lixuannan.github.io/posts/21737.html">
 <meta property="og:site_name" content="CodingCow&#39;s Blog">
 <meta property="og:description" content="思路 首先考虑暴力的做法，直接依题意模拟模拟，时间复杂度是 \(\mathcal{O}(nm)\)，显然不能通过。但是我们可以发现这种修改方式似乎很适合预处理，然后我就想到了使用前缀和的做法。然后每次进行替代，但是经过一段时间的调试，无法通过，果断放弃。 我们考虑时间复杂度稍高的分块做法，我们规定块长为 \(\sqrt{n}\)，然后将 \(n\) 次操作分成 \(\sqrt{n}\) 个块，对于">
 <meta property="og:locale" content="zh_CN">
@@ -75,7 +75,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"codingcow.lee.mx","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":135,"cursorChar":"|","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":3},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":true,"offset_factor":2,"lazyload":true},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null},"gtag":null,"woyaola":null,"cnzz":null},"search_path":"/search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"lixuannan.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":135,"cursorChar":"|","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":3},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":true,"offset_factor":2,"lazyload":true},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null},"gtag":null,"woyaola":null,"cnzz":null},"search_path":"/search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -386,7 +386,7 @@ n)\)</span>，也是非常优的（参考 ty_xyz 的做法）。当然如果你�
   <div class="license-box my-3">
     <div class="license-title">
       <div>OiClass TIGAO P3280 牛牛的猜球游戏题解</div>
-      <div>https://codingcow.lee.mx/posts/21737.html</div>
+      <div>https://lixuannan.github.io/posts/21737.html</div>
     </div>
     <div class="license-meta">
       
