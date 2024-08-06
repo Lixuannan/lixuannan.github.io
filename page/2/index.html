@@ -1,0 +1,1268 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" >
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/images/favicon.png">
+  <link rel="icon" href="/images/favicon.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#71C9CE">
+  <meta name="author" content="CodingCow Lee">
+  <meta name="keywords" content="python,ml,deeplearning,dl,c++,c,pytorch,noi,oi,ioi,noip,csp-j,csp-s,oier,tyoi,oiclass">
+  
+    <meta name="description" content="This is CodingCow&#39;s Blog site">
+<meta property="og:type" content="website">
+<meta property="og:title" content="CodingCow&#39;s Blog">
+<meta property="og:url" content="https://codingcow.lee.mx/page/2/index.html">
+<meta property="og:site_name" content="CodingCow&#39;s Blog">
+<meta property="og:description" content="This is CodingCow&#39;s Blog site">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="CodingCow Lee">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content="ml">
+<meta property="article:tag" content="deeplearning">
+<meta property="article:tag" content="dl">
+<meta property="article:tag" content="c++">
+<meta property="article:tag" content="c">
+<meta property="article:tag" content="pytorch">
+<meta property="article:tag" content="noi">
+<meta property="article:tag" content="oi">
+<meta property="article:tag" content="ioi">
+<meta property="article:tag" content="noip">
+<meta property="article:tag" content="csp-j">
+<meta property="article:tag" content="csp-s">
+<meta property="article:tag" content="oier">
+<meta property="article:tag" content="tyoi">
+<meta property="article:tag" content="oiclass">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>CodingCow&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"codingcow.lee.mx","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":135,"cursorChar":"|","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":3},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":true,"offset_factor":2,"lazyload":true},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null},"gtag":null,"woyaola":null,"cnzz":null},"search_path":"/search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 100vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>CodingCow</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>文章</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/%E6%B8%B8%E8%AE%B0/" target="_self">
+                <i class="iconfont icon-notebook"></i>
+                <span>游记</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3/" target="_self">
+                <i class="iconfont icon-code"></i>
+                <span>算法详解</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/%E9%A2%98%E8%A7%A3/" target="_self">
+                <i class="iconfont icon-book"></i>
+                <span>题解</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/images/banner.jpeg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="没有什么是代码解决不了的   ——CodingCow"></span>
+          
+        </div>
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      <div class="container nopadding-x-md">
+        <div id="board"
+          style="margin-top: 0">
+          
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-10 m-auto">
+                
+
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/posts/9181.html" target="_self">
+          算法详解 - 重链剖分
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/posts/9181.html" target="_self">
+        <div>
+          简介 重链剖分，也被称为树链剖分，一般的，OIer 口中的树链剖分就是指重链剖分。今天我们就来一起学习重链剖分。 概念 重儿子 既然是重链剖分，那么我们就要理解什么是重。我们定义一个点的子节点中子树最大的点为这个点的重儿子。我们可以通过下面的一个例子来理解：  其中，节点 \(1\) 的子节点有三个，分别是 \(3,\,5,\,6\)，它们的子树大小分别是 \(4,\,1,\,2\)，于是我们按照
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2024-04-08 19:50" pubdate>
+              2024-04-08
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3/">#算法详解</a>
+            
+              <a href="/tags/%E9%87%8D%E9%93%BE%E5%89%96%E5%88%86/">#重链剖分</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/posts/44079.html" target="_self">
+          算法详解 - 自适应辛普森法
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/posts/44079.html" target="_self">
+        <div>
+          前置知识 我们可以看道一个奇怪的式子： \[ \int^R_L f(x)\, \textrm{d}x \] 究竟是什么意思呢？其实就是求函数 \(f(x)\) 在 \(L\) 到 \(R\) 之间的定值积分。在讲求值之前，要先讲一下映射、函数和积分。 映射 再讲函数之前，先要讲一讲映射。首先我们考虑有两个非空集合 \(X\) 和 \(Y\)，如果存在一种法则 \(f\)，使得  \(X\) 中的每
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2024-04-02 14:54" pubdate>
+              2024-04-02
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3/">#算法详解</a>
+            
+              <a href="/tags/%E8%87%AA%E9%80%82%E5%BA%94%E8%BE%9B%E6%99%AE%E6%A3%AE%E6%B3%95/">#自适应辛普森法</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/posts/41221.html" target="_self">
+          OiClass P2688 简单计算题解
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/posts/41221.html" target="_self">
+        <div>
+          思路 我们简单导一下柿子： \[ \begin{align*} \sum_{i=0}^{p} \left\lfloor\frac{iq}{p}\right\rfloor &amp;= \left\lfloor\frac{0q}{p}\right\rfloor + \left\lfloor\frac{1q}{p}\right\rfloor + \cdots + \left\lfloor\frac{p
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2024-03-19 18:09" pubdate>
+              2024-03-19
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E9%A2%98%E8%A7%A3/">#题解</a>
+            
+              <a href="/tags/OiClass/">#OiClass</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/posts/38827.html" target="_self">
+          TYOI 省选集训 and 2024 GD 省选游记
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/posts/38827.html" target="_self">
+        <div>
+          集训 Day -INF 知道可以来集训，感觉特别开心，因为可以合法逃学两周！ Day -3 \(\sim\) Day 0 大年初五就从潮州回到广州，收拾了一下东西，年初七大家就到了学校。 很好，又和高中生一起住，不过这次我们来得很早，所以高二还没有开学。一开始宿舍里面只有我、includeCPP、jr_linys 三个人。所以 includeCPP 非常放纵。 Day 1 \(\sim\) Day
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2024-03-01 07:51" pubdate>
+              2024-03-01
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E6%B8%B8%E8%AE%B0/">#游记</a>
+            
+              <a href="/tags/TYOI/">#TYOI</a>
+            
+              <a href="/tags/%E7%9C%81%E9%80%89/">#省选</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/posts/36804.html" target="_self">
+          CF1244C 题解
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/posts/36804.html" target="_self">
+        <div>
+          思路 我们看到题目，给定四个数 \(n\)、\(p\)、\(w\)、\(d\)，求解三元一次不定方程组： \[ \left\{ \begin{array}{l} x\cdot w+y\cdot d=p\\ x+y+z=n \end{array} \right. \] 观察一下你就会发现 \(z\) 的值是你可以随便指定的，因为他只对 \(n\) 产生影响，而不对方程一产生任何贡献。于是我们忽略 \
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2024-02-28 21:31" pubdate>
+              2024-02-28
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E9%A2%98%E8%A7%A3/">#题解</a>
+            
+              <a href="/tags/CodeForces/">#CodeForces</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/posts/26210.html" target="_self">
+          AT_abc255_e 题解
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/posts/26210.html" target="_self">
+        <div>
+          思路 朴素做法 首先我们考虑一定可以有一个点是幸运数，于是我们可以考虑遍历每一个 \(S_i\)，钦定 \(a_i\) 是一个幸运数，然后我们就可以反推出 \(a_1\) 的值。然后我们统计 \(a_1\) 重复被计算出的次数。因为只要有一个 \(a_i\) 被确定了，整个序列就确定了。也就是说，\(a_1\) 的重复次数就是我们要求的最多的幸运数个数，因为他们都是同一个序列。如果我们这样做，时间
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2024-02-28 16:13" pubdate>
+              2024-02-28
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E9%A2%98%E8%A7%A3/">#题解</a>
+            
+              <a href="/tags/AtCoder/">#AtCoder</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/posts/24397.html" target="_self">
+          OiClass 2024 CSP-J 公益赛 #4 题解
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/posts/24397.html" target="_self">
+        <div>
+          引言 这场比赛出题人认为是 \(\approx\) CSP-J + 的难度，预估的平均分在 \(200\) 分左右。比赛的命题思路简单来说就是第一题水题但是考虑在题面里面写很多抽象的东西混淆视听；第二题有些思路的结论题，如果猜出了结论复杂度应该还是非常优秀的；第三题是本场比赛最难的题，算法本身并不难，但是这个思路上有一个优化很难想，这就给很多选手做题带来了很大的困扰，可能无人 AC；第四题是原题加
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2024-02-28 14:25" pubdate>
+              2024-02-28
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E9%A2%98%E8%A7%A3/">#题解</a>
+            
+              <a href="/tags/OiClass/">#OiClass</a>
+            
+              <a href="/tags/%E5%85%AC%E7%9B%8A%E8%B5%9B/">#公益赛</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/posts/44036.html" target="_self">
+          THUWC 2024 游记
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/posts/44036.html" target="_self">
+        <div>
+          Day -INF 大喜，第一年打比赛就直通 THUWC 了，开心到飞起。 Day -7 开始寒假集训前一天，发现重庆天气很冷，极限跑去优衣库不看价格买了一件羽绒服。付款的时候 699 真的蚌埠住了，还好 Mate 60 Pro 专属卡返现了几十块，小回了一波血。 Day -6 \(\sim\) -1 在番禺校区集训，学了一堆树上的算法，感觉很懵。集训还没结束就走了。 Day 0 启程 由于住番禺郊
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2024-02-28 12:52" pubdate>
+              2024-02-28
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E6%B8%B8%E8%AE%B0/">#游记</a>
+            
+              <a href="/tags/THU/">#THU</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/posts/14032.html" target="_self">
+          洛谷 P10170 [DTCPC 2024] 小方和小立方 题解
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/posts/14032.html" target="_self">
+        <div>
+          思路 一眼看上去，这题非常非常的难，对吧？？？好吧，我的第一反应就是 DP，但是 DP 似乎并不能非常优雅的解决问题。然后我就想到了马拉车，但是马拉车+特判实现起来实在是有些繁琐。 突然，我猛地发现，如果每个字母的出现次数不超过 \(2\) 次的话，回文串的长度最多就是 \(52\)。也就是说，暴力的时间大约是 \(O(52n)\)，很显然，这是可以非常轻松通过的。那么我们只需要枚举回文串的中心，
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2024-02-17 19:34" pubdate>
+              2024-02-17
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E9%A2%98%E8%A7%A3/">#题解</a>
+            
+              <a href="/tags/%E6%B4%9B%E8%B0%B7/">#洛谷</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/posts/52460.html" target="_self">
+          洛谷 P10160 [DTCPC 2024] Ultra 题解
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/posts/52460.html" target="_self">
+        <div>
+          题意 给定一个01串，可以将串中的 1010101...010101 替换为 0101010...101010 反之亦然。求可能的最小的 1 的数量。 思路 我们可以发现，如果有连续的多个（\(\geq2\)）\(0\)，那么我们不可能将连续 \(0\) 左侧或右侧的一起处理。因此，为了方便，我们可以将左右两侧分开处理。当我们将左右两侧分到无法再分的程度时，我们再次观察。 容易发现，去除两侧的前导
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2024-02-17 19:06" pubdate>
+              2024-02-17
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E9%A2%98%E8%A7%A3/">#题解</a>
+            
+              <a href="/tags/%E6%B4%9B%E8%B0%B7/">#洛谷</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/posts/53556.html" target="_self">
+          Oiclass PU2TI P3791 棋子题解
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/posts/53556.html" target="_self">
+        <div>
+          思维 我们可以优先考虑以下的三情况：  1 2 3 此时我们会发现 1 和 2 挡住了 3 ，那么此时 1 和 2 必然将先死一个。 1 3 5 此时我们会发现所有棋子都可以先死，因此方案数为棋子数的全排列数，即其阶乘。 1 2 4 此时 1 和 2 挡住了 4 ，只要 1 或 2 先死一个，那么后面的就可以按照方案二的情况来计算。  因此我们可以考虑维护一个像方案二一样的 1 3 5 7 9 .
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2023-12-16 00:00" pubdate>
+              2023-12-16
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E9%A2%98%E8%A7%A3/">#题解</a>
+            
+              <a href="/tags/OiClass/">#OiClass</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/posts/14038.html" target="_self">
+          CF985C 题解
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/posts/14038.html" target="_self">
+        <div>
+          建议升绿 这道题是一道贪心。很容易想到，我们你需要先进行一次排序，然后再进行一些操作。 首先我们可以排除无解的情况，当第 \(n\) 短的木板的长度与最短的木板的长度之差 \(&gt; l\) 时，不可能有任何一种符合题意的方案。这个很好证，有兴趣的朋友可以自己证一下。 然后我们考虑如何制定一个合理的贪心计划。首先我们可以尝试确定一个最大的桶大小，这对后面的操作有很大的帮助。很显然，最大的桶大小就
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2023-12-15 00:00" pubdate>
+              2023-12-15
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E9%A2%98%E8%A7%A3/">#题解</a>
+            
+              <a href="/tags/CodeForces/">#CodeForces</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/posts/9065.html" target="_self">
+          Oiclass PU2TI P3846 杨辉三角题解
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/posts/9065.html" target="_self">
+        <div>
+          打表+卡常题 思路 不难发现，最短路径不外乎以下两种可能：   image-20231216150315312  一种是先一直向下，再一直向右下；而另一种是先一直右下再一直向下。对于 \(k \leq \frac{n}{2}\) 的请况，很显然是选择第一种路线，否则是第二种路线。 我们可以通过一个简单的技巧来将两种路线合一，我们可以发现，其实第二种情况相当于第一种情况中将 \(k\) 改为 \(n
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2023-12-12 19:04" pubdate>
+              2023-12-12
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E9%A2%98%E8%A7%A3/">#题解</a>
+            
+              <a href="/tags/OiClass/">#OiClass</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/posts/13733.html" target="_self">
+          CSP 2023 游记
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/posts/13733.html" target="_self">
+        <div>
+          终于想起来 好吧，鸽了怎么久，还是要来写一下的 初赛 赛时 初赛那天上午，我很早就到了广大附。走进去之后，发现一个 TYOIer 都没有，然后就在门口等队友。吹着上午凛冽的秋风，等啊等，发现他们怎么一直不来啊啊啊啊啊。等到离可以进考场还有 \(5\) 分钟的时候，我就自己走进去了，孤独，又无助。 后来等到考试快要开始，我们的其他队员才陆陆续续地到，听说是因为堵车了（笑死）。 对于早上入门组的初赛，
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2023-12-05 16:20" pubdate>
+              2023-12-05
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E6%B8%B8%E8%AE%B0/">#游记</a>
+            
+              <a href="/tags/CSP/">#CSP</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/posts/41815.html" target="_self">
+          AT_zone2021_e 题解
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/posts/41815.html" target="_self">
+        <div>
+          AT_zone2021_e 题意 由于洛谷的题意太不好理解了，我是看了英文题面才理解的。下面简述一下题意：  首先题目给定两个数 \(R\) 和 \(C\) ，同时给定两个数组 \(A\) 和 \(B\)，\(A\) 的大小是 \(R \times C - 1\) ，\(B\) 的大小是 \(R - 1 \times C\) 。然后计算点 \((1,\, 1)\) 到点 \((R,\, C)\)
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2023-10-20 15:17" pubdate>
+              2023-10-20
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E9%A2%98%E8%A7%A3/">#题解</a>
+            
+              <a href="/tags/AtCoder/">#AtCoder</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/posts/26966.html" target="_self">
+          Oiclass PUJI 1353 题解
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/posts/26966.html" target="_self">
+        <div>
+          贪心 + 大模拟 题目简述 你是一名医生，是这家医院有且只有的一个医生。现在有 \(n\) 个患者要来手术，每个患者有四个属性：\(t\) 指患者到达医院的时间、\(a\) 指患者手术后会支付给你的钱、\(b\) 指患者所需的手术时间、\(p\) 是患者的严重程度，\(p\) 越小，患者就越严重。现在如果一个患者看到一个 \(p\) 值比他更大的患者正在手术，那么他就会很生气，你就会一分钱也得不到
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2023-10-19 17:34" pubdate>
+              2023-10-19
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E9%A2%98%E8%A7%A3/">#题解</a>
+            
+              <a href="/tags/OiClass/">#OiClass</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/posts/54120.html" target="_self">
+          CSP 2023 考场注意事项
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/posts/54120.html" target="_self">
+        <div>
+          考场注意事项 入场问题 首先此次 CSP 是从 5 号门（侧门，也就是更靠近广工西区的那个）进。时间：  J 组 ，早上 7:45 进场，8:10 截止进场，8:25 发卷，11:55 交卷。 S 组 ，13:30 进场，14:10 截止进场，14:25 发卷，18:25 交卷。  考试问题 广附提供了 Noi Linux 2.0 的虚拟机，但是用不明白的还是建议不要用。考场不允许吃东西，但是你可
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2023-10-19 16:27" pubdate>
+              2023-10-19
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E6%9D%82%E9%A1%B9/">#杂项</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/posts/16159.html" target="_self">
+          Oiclass PUJI 1277 题解
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/posts/16159.html" target="_self">
+        <div>
+          博弈论 题目简述 有 \(n\) 个硬币，两位玩家，每次去取 \(l \sim r\) 个，取不到者负，都执行最优策略，哪一方必胜？ 思路 和显然，这个问题就是博弈论中十分经典的 Nim 取子问题 。首先我们发现，对于一种状态，如果后面的任何状态都是必败状态，那么我们可以发现，这个状态就是我们常说的必胜态，因为，无论下一步怎么走，都是无法获胜。而同时，如果一个状态后面有必胜态，那么这个状态就是必败
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2023-10-10 16:56" pubdate>
+              2023-10-10
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E9%A2%98%E8%A7%A3/">#题解</a>
+            
+              <a href="/tags/OiClass/">#OiClass</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/posts/8408.html" target="_self">
+          TYOI 暑假集训游记
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/posts/8408.html" target="_self">
+        <div>
+          TYOI 暑假集训游记 比赛复盘 分数     比赛 排名 分数 是否意外     2023 tyoi 普及模拟训练 01 \(21\) \(150\) 是   2023 tyoi 普及模拟训练 02 \(30\) \(220\) 是   2023 tyoi 普及模拟训练 03 \(13\) \(260\) 否   2023 tyoi 普及模拟训练（B --&gt; C） \(5\) \(180\
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2023-08-22 00:00" pubdate>
+              2023-08-22
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E6%B8%B8%E8%AE%B0/">#游记</a>
+            
+              <a href="/tags/TYOI/">#TYOI</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/posts/5946.html" target="_self">
+          MCOI 2023年6月月赛题解
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/posts/5946.html" target="_self">
+        <div>
+          MCOI 2023 年 6 月月赛题解 引言 这是一场个人认为难度 \(\approx\) J- 级的比赛，除了最后一题是一道非常怪的题以外其他的题目都是比较简单的，但是会有一些坑。由于出题人写 TJ 的时候你们的比赛还没有结束，因此没法评价本场比赛。个人估计应该不会有人 AK，但是这场比赛应该 \(300\) pts 的巨佬不少。下面是各题的题解，写的不好，请多多关照。 T1 - WTX 的文采
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2023-06-08 16:05" pubdate>
+              2023-06-08
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E9%A2%98%E8%A7%A3/">#题解</a>
+            
+              <a href="/tags/MCOI/">#MCOI</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+
+
+  <nav aria-label="navigation">
+    <span class="pagination" id="pagination">
+      <a class="extend prev" rel="prev" href="/"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/#board">3</a><a class="page-number" href="/page/4/#board">4</a><a class="extend next" rel="next" href="/page/3/#board"><i class="iconfont icon-arrowright"></i></a>
+    </span>
+  </nav>
+
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <div style="font-size: 0.85rem"> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> </div> <style>#scroll-top-button i {color: white}</style> <script src="https://cdn.bootcss.com/vue/2.6.11/vue.min.js"></script> <script src="https://lab.magiconch.com/nbnhhsh/nbnhhsh.user.js"></script> <!--<script> if (window.location.host == "codingcow.netlify.app") {window.location.host = "codingcow.tech"}</script>--> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    
+  
+
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

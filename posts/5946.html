@@ -1,0 +1,1273 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" >
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/images/favicon.png">
+  <link rel="icon" href="/images/favicon.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#71C9CE">
+  <meta name="author" content="CodingCow Lee">
+  <meta name="keywords" content="python,ml,deeplearning,dl,c++,c,pytorch,noi,oi,ioi,noip,csp-j,csp-s,oier,tyoi,oiclass">
+  
+    <meta name="description" content="MCOI 2023 年 6 月月赛题解 引言 这是一场个人认为难度 \(\approx\) J- 级的比赛，除了最后一题是一道非常怪的题以外其他的题目都是比较简单的，但是会有一些坑。由于出题人写 TJ 的时候你们的比赛还没有结束，因此没法评价本场比赛。个人估计应该不会有人 AK，但是这场比赛应该 \(300\) pts 的巨佬不少。下面是各题的题解，写的不好，请多多关照。 T1 - WTX 的文采">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MCOI 2023年6月月赛题解">
+<meta property="og:url" content="https://codingcow.lee.mx/posts/5946.html">
+<meta property="og:site_name" content="CodingCow&#39;s Blog">
+<meta property="og:description" content="MCOI 2023 年 6 月月赛题解 引言 这是一场个人认为难度 \(\approx\) J- 级的比赛，除了最后一题是一道非常怪的题以外其他的题目都是比较简单的，但是会有一些坑。由于出题人写 TJ 的时候你们的比赛还没有结束，因此没法评价本场比赛。个人估计应该不会有人 AK，但是这场比赛应该 \(300\) pts 的巨佬不少。下面是各题的题解，写的不好，请多多关照。 T1 - WTX 的文采">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-06-08T08:05:00.000Z">
+<meta property="article:modified_time" content="2024-08-05T11:10:08.000Z">
+<meta property="article:author" content="CodingCow Lee">
+<meta property="article:tag" content="题解">
+<meta property="article:tag" content="MCOI">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>MCOI 2023年6月月赛题解 | CodingCow&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"codingcow.lee.mx","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":135,"cursorChar":"|","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":3},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":true,"offset_factor":2,"lazyload":true},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null},"gtag":null,"woyaola":null,"cnzz":null},"search_path":"/search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>CodingCow</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>文章</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/%E6%B8%B8%E8%AE%B0/" target="_self">
+                <i class="iconfont icon-notebook"></i>
+                <span>游记</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3/" target="_self">
+                <i class="iconfont icon-code"></i>
+                <span>算法详解</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/%E9%A2%98%E8%A7%A3/" target="_self">
+                <i class="iconfont icon-book"></i>
+                <span>题解</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/images/banner.jpeg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="MCOI 2023年6月月赛题解"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        CodingCow Lee
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-06-08 16:05" pubdate>
+          2023年6月8日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          8k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          45 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar category-bar" style="margin-right: -1rem">
+    
+
+
+
+
+
+<div class="category-list">
+  
+  
+</div>
+
+
+  </aside>
+
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">MCOI 2023年6月月赛题解</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="mcoi-2023-年-6-月月赛题解">MCOI 2023 年 6 月月赛题解</h1>
+<h2 id="引言">引言</h2>
+<p>这是一场个人认为难度 <span class="math inline">\(\approx\)</span> J-
+级的比赛，除了最后一题是一道非常怪的题以外其他的题目都是比较简单的，但是会有一些坑。由于出题人写
+TJ
+的时候你们的比赛还没有结束，因此没法评价本场比赛。个人估计应该不会有人
+AK，但是这场比赛应该 <span class="math inline">\(300\)</span> pts
+的巨佬不少。下面是各题的题解，写的不好，请多多关照。</p>
+<h2 id="t1---wtx-的文采">T1 - WTX 的文采</h2>
+<h3 id="思路">思路</h3>
+<p>首先要理解一下题意，出题人保守估计大部分做不出此题的选手是因为看不懂题目里面的式子。所以让我们来看一下这个式子：</p>
+<p><span class="math display">\[
+y_i=\left(\displaystyle\sum_{j=l_i}^{r_i}\ [z_j\ge w]\
+1\right)\times\left(\displaystyle\sum_{j=l_i}^{r_i}\ [z_j\ge w]\
+p_j\right)
+\]</span></p>
+<p>首先我们可以将这个式子按照乘号分成两个部分，我们先行理解左边的部分
+<span class="math inline">\(\sum_{j=l_i} ^ {r_i}\ [z_j \ge
+w]\  1\)</span> 首先我们理解一下这个符号 <span
+class="math inline">\(\sum\)</span> （西格玛，念做：sigma ['sigma]
+）。实际上就是一个求和，或者理解为一个 <code>for</code> 循环，<span
+class="math inline">\(\sum\)</span>
+符号下面的是循环变量的起始值，然后上面的那个数是循环变量的最大值，循环变量每次加一，然后右边的
+<span class="math inline">\([]\)</span>
+里面的内容是后面算式是否累加的条件，也就是说，这个西格玛可以变成下面的一段伪代码（伪代码格式参考《算法导论》（英文名
+<em>Intrudution to Algorithms</em>））：</p>
+<p><span class="math display">\[
+\begin{array}{l}
+ans = 0\\
+for\ j\ = l_i\ to\ r_i\\
+\ \ \ \ if\ z_j \ge w\\
+\ \ \ \ \ \ \ \ ans += 1\\
+\end{array}
+\]</span></p>
+<p>同理，我们可以理解第二块式子的意思，那么就很简单了。</p>
+<p>为了优化多次查询，我们可以写两个前缀和数组，分别是第一块和第二块式子的结果，然后进行查询，计算出结果并输出。</p>
+<p>如果不理解前缀和，可以查看 <a
+target="_blank" rel="noopener" href="https://oi.wiki/basic/prefix-sum/">oi-wiki 的讲解</a></p>
+<h3 id="标程">标程</h3>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-type">unsigned</span> <span class="hljs-type">long</span> <span class="hljs-type">long</span> n, m, w, x, z[<span class="hljs-number">10000009</span>], p[<span class="hljs-number">10000009</span>], l, r, y;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>	cin &gt;&gt; n &gt;&gt; m &gt;&gt; w;<br>	<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++) &#123;<br>		cin &gt;&gt; x &gt;&gt; p[i];<br>		<span class="hljs-keyword">if</span> (x &gt;= w) &#123;<br>			p[i] += p[i - <span class="hljs-number">1</span>];<br>			z[i] = z[i - <span class="hljs-number">1</span>] + <span class="hljs-number">1</span>;<br>		&#125; <span class="hljs-keyword">else</span> &#123;<br>			p[i] = p[i - <span class="hljs-number">1</span>];<br>			z[i] = z[i - <span class="hljs-number">1</span>];<br>		&#125;<br>	&#125;<br>	<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= m; i++) &#123;<br>		cin &gt;&gt; l &gt;&gt; r;<br>		<span class="hljs-keyword">if</span> (l &gt; r) &#123;<br>			<span class="hljs-built_in">swap</span>(l, r);<br>		&#125;<br>		cout &lt;&lt; (z[r] - z[l - <span class="hljs-number">1</span>]) * (p[r] - p[l - <span class="hljs-number">1</span>]) &lt;&lt; endl;<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="t2---wtx-的蛋糕">T2 - WTX 的蛋糕</h2>
+<h3 id="思路-1">思路</h3>
+<p>首先我们抽象一下题目，在一个三维空间内，有一个无穷大的物体，同时有一条直线，用这条将这个物体切成若干份，求切
+<span class="math inline">\(n\)</span>
+刀后这个三维空间内的物体的块数。由于题目中并没有说明物体是否可移动，所以我们假定物体是可以移动的，因为这样可以使物体的块数最大化。</p>
+<p>我们考虑对一块完整的物体的情况，很显然，一刀最多把它切成两块。不能再多了，因为<del>再多一点就快爆炸</del>。那么我们如果在每次切完之后将物体摆放好，使得每一小块都可以被这条直线切到，那么我们就实现的小块的数量最大化。由于我们只能切
+<span class="math inline">\(n\)</span>
+刀，所以我们可以发现，物体的最多数量是 <span class="math inline">\(2 ^
+n\)</span> ，那么这就很简单了，对吧？</p>
+<p>不对！！！我们观察一下题目的数据范围，达到了惊人的 <span
+class="math inline">\(10 ^ {18}\)</span> 。要知道，c++
+语言内置的最大的整数数据结构 <code>__int128</code> 也只能存储 <span
+class="math inline">\(2 ^ {128}\)</span> 啊，这 <span
+class="math inline">\(2 ^ {1e18}\)</span> 要怎么存呢？</p>
+<p>再多看一眼<del>就快爆炸</del>题目就可以发现题目<strong>非常良心</strong>的让我们将最终结果对一个很大的质数
+<span class="math inline">\(1e9 + 7\)</span>
+取模，也就是说不会产生数据溢出的情况，但是因为这个模数的存在，我们无法调用
+STL 函数 <code>pow(int n, int m)</code>
+所以我们需要自己写一个幂函数。</p>
+<p>但是话又说回来，这个幂函数采用通常的写法时间是肯定会超限的，因为常规的幂函数写法时间复杂度是线性的
+<span class="math inline">\(O(n)\)</span> ，很显然，对于 <span
+class="math inline">\(10 ^ {18}\)</span> 来说，这个运算至少需要 <span
+class="math inline">\(2000\ ms\)</span> 才能完成，但是题目的时间限制只有
+<span class="math inline">\(250\ ms\)</span> ，是当前算法的 <span
+class="math inline">\(4\)</span> 倍有余。那这该怎么办呢？</p>
+<p>这时候我们需要引入一个算法：快速幂（ quick power )</p>
+<p>首先我们看一个例子：<span class="math inline">\(2 ^ {10}\)</span>
+，我们按照算式展开应该是这样的 <span class="math inline">\(\underbrace
+{2 \times 2 \times...\times2\times2} _{10\ 个\ 2}\)</span>
+那么有没有一种方法可以减少一下运算呢，我们会发现，<span
+class="math inline">\(2 ^ {10}\)</span> 应该是等于 <span
+class="math inline">\(2 ^ {5} \times 2 ^ {5}\)</span>
+的，折这一点上过小学二年级应该都知道，那么我们只需要计算 <span
+class="math inline">\(2 ^ 5\)</span>
+就可以了，以此类推，我们就会发现，实际上我们只需要进行最多 <span
+class="math inline">\(\lfloor\log_2n\rfloor + 1\)</span>
+次运算就可以计算出来 <span class="math inline">\(2 ^ n\)</span>
+的精确数值，这种思路在算法导论中被称为<strong>分治</strong>。下面介绍两种快速幂的实现思路</p>
+<h4 id="快速幂思路-1">快速幂思路 1</h4>
+<p>使用递归实现分治算法，伪代码如下：</p>
+<p><span class="math display">\[
+\begin{array}{l}
+QUICK\_POW(a, b, m)\\
+\ \ \ \ if\ b\ == 0\\
+\ \ \ \ \ \ \ \ return\ 1\\
+\ \ \ \ if\ b\ ==\ 1\\
+\ \ \ \ \ \ \ \ return\ a\ \%\ m\\
+\ \ \ \ temp = QUICK\_POW(a, \lfloor b\ ÷\ 2 \rfloor, m)\ \%\ m\\
+\ \ \ \ if\ b\ \%\ 2==1\\
+\ \ \ \ \ \ \ \ return\ (temp \times temp \times a)\ \%\ m\\
+\ \ \ \ return\ (temp \times temp)\ \%\ m
+\end{array}
+\]</span></p>
+<p>这种方法实现思路较为简单，直接模拟即可，但是这种算法由于递归的存在，时间上不如递推算法，同时对空间的要求比较高，如果遇见特别大的指数，有可能爆栈</p>
+<h4 id="快速幂思路-2">快速幂思路 2</h4>
+<p>使用递推的方式实现分治算法，伪代码如下：</p>
+<p><span class="math display">\[
+\begin{array}{l}
+QUICK\_POW(a, b, m)\\
+\ \ \ \ ans = 1\\
+\ \ \ \ while\ b&gt;0\\
+\ \ \ \ \ \ \ \ if\ b\ \%\ 2\ ==\ 1\\
+\ \ \ \ \ \ \ \ \ \ \ \ ans=(ans \times a)\ \%\ m\\
+\ \ \ \ \ \ \ \ a = (a \times a)\ \%\ m\\
+\ \ \ \ \ \ \ \ b = \lfloor b\ ÷\ 2\rfloor\\
+\ \ \ \ return\ ans\ \%\ m
+\end{array}
+\]</span></p>
+<p>这种代码书写方法在内存占用上较为优秀，同时时间上用于没有调用栈的操作，更快一些。</p>
+<p>根据上面的思路，只需要将其用你熟练的语言实现一下即可</p>
+<h3 id="标程-1">标程</h3>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> int long long</span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">qpow</span><span class="hljs-params">(<span class="hljs-type">int</span> x, <span class="hljs-type">int</span> p, <span class="hljs-type">int</span> m)</span> </span>&#123;<br>	<span class="hljs-type">int</span> ans = <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">while</span> (p) &#123;<br>        <span class="hljs-keyword">if</span> (p &amp; <span class="hljs-number">1</span>) &#123;<br>            ans = (ans * x) % m;<br>        &#125;<br>        x = (x * x) % m;<br>        p &gt;&gt;= <span class="hljs-number">1</span>;<br>    &#125;<br>    <span class="hljs-keyword">return</span> ans % m;<br>&#125;<br><br><span class="hljs-type">int</span> n, ans;<br><br><span class="hljs-function"><span class="hljs-type">signed</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    cin &gt;&gt; n;<br>    ans = <span class="hljs-built_in">qpow</span>(<span class="hljs-number">2</span>, n, <span class="hljs-number">1000000007</span>);<br>    cout &lt;&lt; ans;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="t3---wtx-的追逐">T3 - WTX 的追逐</h2>
+<h3 id="思路-2">思路</h3>
+<p>这道题显然很简单，是一个单源最短路问题，但是终点的选的有点奇怪，如果是
+<code>t</code> 或者 <code>c</code>
+就是终点，也就是说这道题没有办法使用<strong>双向广搜</strong>或者<strong>A*</strong>算法之类极其高效的算法，由于又存在障碍物，所以我们也不能使用<strong>贪心优先搜索（
+GBFS
+）</strong>这种虽然快但是有可能不准确的算法，我们剩下两种寻路算法：<strong>广度优先搜索（
+BFS ）</strong>和<strong>深度优先搜索（ DFS
+）</strong>。下面我们分析这两种算法的可行性和性能。</p>
+<h4 id="对深度优先搜索分析">对深度优先搜索分析</h4>
+<p>首先我们观察一下深度优先搜索的特性，这里引用我们 TYOI
+一位老队员的比喻：<em>深搜就像一头牛，不撞南墙不回头</em>
+。根据这句话，我们可以发现深度优先搜索似乎在找到最短路径之前有可能花费很多时间进行其他路线的寻找，这将浪费很多时间。同时因为深度优先搜索通常是使用递归实现的，这种算法在矩阵很大很大的情况下可能会出现内存超限或者爆栈的情况。不过
+DFS
+也不是完全没有优点，对于这道题或者其他需要输出路径的情况，递归的调用方式对输出路径来说更加的方便。综上所述，深度优先搜索并不适合此题，不过，<strong>良心</strong>的出题人为使用
+DFS 的选手准备了 <span class="math inline">\(25\ pts\)</span>
+的部分分，感动吧。┭┮﹏┭┮</p>
+<h4 id="对广度优先搜索分析">对广度优先搜索分析</h4>
+<p>我们首先再次观察一下广度优先搜索的特性，我们会发现，广度优先搜索有点像洪水（
+flood ），会匀速的蔓延到四周的节点。根据这个特性，我们会发现，BFS
+找到的第一条路径一定是最短的路径之一，所以我们在找到第一条路径的时候就可以退出搜索，然后输出路径。但是这种算法对于记录路径来说会有一些困难。不过如果你学过<strong>树结构</strong>的存储的话，你会发现我们可以借鉴树的存储方法，使用一个二维数组
+<code>father[][]</code>
+来记录每一个节点的前驱。用这种方法来记录一条可行的路径，但是你需要注意的是起点的前驱应当设置为一个奇怪的值，比如一个不可能出现的点的坐标，如：<span
+class="math inline">\((-1, -1)\)</span> 。</p>
+<p>接下来是实现的方法，下面给出两个关键的函数的伪代码，首先是广搜函数：</p>
+<p><span class="math display">\[
+\begin{array}{l}
+a[n][m] = map\\
+vis[n][m] = a\ array\ mark\ which\ point\ has\ been\ walked\ and\ which\
+not\\
+s.x = starting\ point&#39;s\ x\ axis\\
+s.y = starting\ point&#39;s\ y\ axis\\
+x\_axis\_ofset=[0, 0, -1, 1]\\
+y\_axis\_ofset=[-1, 1 , 0, 0]\\
+BFS()\\
+\ \ \ \ q.push(s.x, s.y)\\
+\ \ \ \ father[s.x][s.y] = \{-1, -1\}\\
+\ \ \ \ while\ not\ q.empty()\\
+\ \ \ \ \ \ \ \ front=q.front()\\
+\ \ \ \ \ \ \ \ if\ a[front.x][front.y] == &#39;C&#39;\ or\
+a[front.x][front.y] == &#39;T&#39;\\
+\ \ \ \ \ \ \ \ \ \ \ \ OUTPUT(front.x, front.y)\\
+\ \ \ \ \ \ \ \ \ \ \ \ return\\
+\ \ \ \ \ \ \ \ for\ i=0\ to\ 3\\
+\ \ \ \ \ \ \ \ \ \ \ \ x\_next=front.x+x\_axis\_ofset[i]\\
+\ \ \ \ \ \ \ \ \ \ \ \ y\_next=front.y+y\_axis\_ofset[i]\\
+\ \ \ \ \ \ \ \ \ \ \ \ if\ not\ (a[x\_next][y\_next]==&#39;\#&#39;\ or\
+vis[x\_next][y\_next])\\
+\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ q.push(\{x\_next,y\_next\})\\
+\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ vis[x\_next][y\_next]=true\\
+\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ father[x\_next][y\_next] = front\\
+\end{array}
+\]</span></p>
+<p>其次是输出函数：</p>
+<p><span class="math display">\[
+\begin{array}{l}
+father[n][m]=a\ array\ storage\ the\ father\ of\ a\ point\\
+OUTPUT(x, y)\\
+\ \ \ \ if\ x==-1\ and\ y==-1\\
+\ \ \ \ \ \ \ \ return\\
+\ \ \ \ OUTPUT(father[x][y].x, father[x][y].y)\\
+\ \ \ \ if\ father[x][y].x == -1\ and\ father[x][y].y==-1\\
+\ \ \ \ \ \ \ \ PRINT(&quot;(\%d,\ \%d)&quot;,\ x,\ y)\\
+\ \ \ \ else\\
+\ \ \ \ \ \ \ \ PRINT(&quot;(\%d,\ \%d)\ -&gt;\ &quot;,\ x,\ y)\\
+\end{array}
+\]</span></p>
+<p>剩下的部分就是输入和一些简单的处理了，大家可以用自己喜欢的语言实现一下</p>
+<h3 id="标程-2">标程</h3>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;queue&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-keyword">struct</span> <span class="hljs-title class_">point</span> &#123;<br>    <span class="hljs-type">int</span> x, y;<br><br>    <span class="hljs-keyword">inline</span> <span class="hljs-type">bool</span> <span class="hljs-keyword">operator</span>==(<span class="hljs-type">const</span> point a) <span class="hljs-type">const</span> &#123;<br>        <span class="hljs-keyword">return</span> a.x == x &amp;&amp; a.y == y;<br>    &#125;<br>&#125;;<br><br><span class="hljs-type">int</span> r, c, l, xx[] = &#123;<span class="hljs-number">-1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>&#125;, yy[] = &#123;<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">-1</span>, <span class="hljs-number">1</span>&#125;;<br>point s, t, father[<span class="hljs-number">109</span>][<span class="hljs-number">109</span>];<br><span class="hljs-type">char</span> a[<span class="hljs-number">109</span>][<span class="hljs-number">109</span>];<br><span class="hljs-type">bool</span> vis[<span class="hljs-number">109</span>][<span class="hljs-number">109</span>];<br>queue&lt;point&gt; q;<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">out</span><span class="hljs-params">(<span class="hljs-type">int</span> x, <span class="hljs-type">int</span> y)</span> </span>&#123;<br>    <span class="hljs-keyword">if</span> (father[x][y] == (point) &#123;<span class="hljs-number">-1</span>, <span class="hljs-number">-1</span>&#125;) &#123;<br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;(%d, %d) -&gt; &quot;</span>, x, y);<br>        <span class="hljs-keyword">return</span>;<br>    &#125;<br>    <span class="hljs-built_in">out</span>(father[x][y].x, father[x][y].y);<br>    <span class="hljs-keyword">if</span> (x == t.x &amp;&amp; y == t.y) &#123;<br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;(%d, %d)&quot;</span>, x, y);<br>    &#125; <span class="hljs-keyword">else</span> &#123;<br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;(%d, %d) -&gt; &quot;</span>, x, y);<br>    &#125;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">bfs</span><span class="hljs-params">()</span> </span>&#123;<br>    q.<span class="hljs-built_in">push</span>(s);<br>    vis[s.x][s.y] = <span class="hljs-literal">true</span>;<br>    father[s.x][s.y] = (point) &#123;<span class="hljs-number">-1</span>, <span class="hljs-number">-1</span>&#125;;<br>    <span class="hljs-keyword">while</span> (!q.<span class="hljs-built_in">empty</span>()) &#123;<br>        point front = q.<span class="hljs-built_in">front</span>();<br>        q.<span class="hljs-built_in">pop</span>();<br>        <span class="hljs-keyword">if</span> (a[front.x][front.y] == <span class="hljs-string">&#x27;T&#x27;</span> || a[front.x][front.y] == <span class="hljs-string">&#x27;C&#x27;</span>) &#123;<br>            t.x = front.x, t.y = front.y;<br>            <span class="hljs-built_in">out</span>(front.x, front.y);<br>            <span class="hljs-keyword">return</span>;<br>        &#125;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">4</span>; i++) &#123;<br>            <span class="hljs-type">int</span> x = front.x + xx[i], y = front.y + yy[i];<br>            <span class="hljs-keyword">if</span> (x &lt;= <span class="hljs-number">0</span> || y &lt;= <span class="hljs-number">0</span> || x &gt; r || y &gt; c || vis[x][y] || a[x][y] == <span class="hljs-string">&#x27;#&#x27;</span>) &#123;<br>                <span class="hljs-keyword">continue</span>;<br>            &#125;<br>            father[x][y] = front;<br>            vis[x][y] = <span class="hljs-literal">true</span>;<br>            q.<span class="hljs-built_in">push</span>((point) &#123;x, y&#125;);<br>        &#125;<br>    &#125;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>    cin &gt;&gt; r &gt;&gt; c;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= r; i++) &#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">1</span>; j &lt;= c; j++) &#123;<br>            cin &gt;&gt; a[i][j];<br>            <span class="hljs-keyword">if</span> (a[i][j] == <span class="hljs-string">&#x27;W&#x27;</span>) &#123;<br>                s.x = i, s.y = j;<br>            &#125;<br>        &#125;<br>    &#125;<br>    <span class="hljs-built_in">bfs</span>();<br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="t4---wtx-的小车车">T4 - WTX 的小车车</h2>
+<h3 id="思路-3">思路</h3>
+<p>这道题是解析几何的一个问题，首先我们看一下题，注意提示里面说了 WTX
+的图纸只有一种可能。那么我们分析一下，一个三角形的重心与这个三角形的外接圆的圆心或者说外心相同，那么这个三角形是什么三角形呢？</p>
+<p>首先我们了解一下三角形的重心是什么？根据百度百科的说法，三角形的重心是三角形三条中线的交点，我们可以举一个例子，如<strong>图-1</strong>，我们在平面直角坐标系
+<span class="math inline">\(xOy\)</span> 中作任意 <span
+class="math inline">\(\triangle ABC\)</span> ，作 <span
+class="math inline">\(\triangle ABC\)</span> 的三条中线 <span
+class="math inline">\(AD\)</span> ，<span
+class="math inline">\(BE\)</span>，<span
+class="math inline">\(CF\)</span>，得到一个交点 <span
+class="math inline">\(G\)</span> ，这个点就是我们的三角形的重心</p>
+<figure>
+<img
+src="https://cdn.jsdmirror.com/gh/lixuannan/img/image-20230527205159077.png" srcset="/img/loading.gif" lazyload
+alt="图-1" />
+<figcaption aria-hidden="true">图-1</figcaption>
+</figure>
+<p>那么三角形的外接圆的圆心要怎么求呢，我们查阅教科书可以发现，三角形的外心就是三角形三条中垂线的交点，如<strong>图-2</strong>，图中的点
+<span class="math inline">\(D\)</span> 就是三角形的外心</p>
+<figure>
+<img
+src="https://cdn.jsdmirror.com/gh/lixuannan/img/image-20230527205719705.png" srcset="/img/loading.gif" lazyload
+alt="图-2" />
+<figcaption aria-hidden="true">图-2</figcaption>
+</figure>
+<p>那么我们考虑在什么情况下中线的交点会和中垂线的交点重合？我们会发现，为了使中垂线与中线重合，三角形的中线必须要是三角形形的高线，也就是一边到对应点的垂线，那么符合这个标准的是什么三角形呢？我们想一想就会发现，只有正三角形可以满足这个要求。在正三角形中，三角形的三条中线是完全与中垂线重合的，那么这个时候三角形的重心就和外心就重合了，如<strong>图-3</strong>，点
+<span class="math inline">\(G\)</span> 就是三角形的重心兼外心</p>
+<figure>
+<img
+src="https://cdn.jsdmirror.com/gh/lixuannan/img/image-20230527210623903.png" srcset="/img/loading.gif" lazyload
+alt="图-3" />
+<figcaption aria-hidden="true">图-3</figcaption>
+</figure>
+<p>那么现在我们已经知道了 WTX
+的图纸上面的框架是正三角形，那么我们要怎么统计这个正三角形的数量呢？讲到这里，不知道你有没有想起来一道经典的哈希表（散列表）题目
+<strong><em>四轮车</em></strong>
+呢？我们可以用一个哈希表来保存一些点，然后爆搜两个点，计算另一个点，然后统计数量，时间复杂度为
+<span class="math inline">\(O(n ^ 2)\)</span>
+。是我力所能及的最优时间复杂度了，希望赛时能有巨佬写出更优秀的代码。</p>
+<p>话说回来已知正三角形的两个顶点，怎么计算第三个顶点的坐标呢？</p>
+<p>如<strong>图-4</strong>，首先作任意两点 <span
+class="math inline">\(A\)</span> ，<span
+class="math inline">\(B\)</span> 。连接 <span
+class="math inline">\(A\)</span>，<span
+class="math inline">\(B\)</span>，并分别以 <span
+class="math inline">\(A\)</span>，<span class="math inline">\(B\)</span>
+为圆心，<span class="math inline">\(AB\)</span>
+为半径做两个圆，我们就会发现，两个圆相交的两个点 <span
+class="math inline">\(C\)</span> 和 <span
+class="math inline">\(D\)</span> 就是以 <span
+class="math inline">\(A\)</span> 和 <span
+class="math inline">\(B\)</span> 为两顶点可能的两个正三角形的顶点了</p>
+<figure>
+<img
+src="https://cdn.jsdmirror.com/gh/lixuannan/img/image-20230527211936465.png" srcset="/img/loading.gif" lazyload
+alt="图-4" />
+<figcaption aria-hidden="true">图-4</figcaption>
+</figure>
+<p>但是，我们要怎么求这两个圆的交点呢？我们首先复习一下<a
+target="_blank" rel="noopener" href="https://book.pep.com.cn/1421001127202/mobile/#p=114">高中数学选择性必修第一册
+B 版第 103 页起的关于圆及其方程的内容</a>。我们会发现，圆的方程是 <span
+class="math inline">\((x-a) ^ 2 + (y-b) ^ 2=r ^ 2\)</span>
+，那么我们可以尝试联立两个圆的方程，尝试求出这个二元二次方程组的两个根，但是我们稍微查阅一下相关资料就可以发现，对于这个二元二次方程组，我们通常会把他化简为一些更高次的方程，但是这些高次的方程由于没有通用的求根公式，所以求起来会十分的难受。综上所述，这个方法是很复杂的，我们需要寻求一个更加简便的方法。不过，我们也可以尝试用这种方法，看看究竟行不行。</p>
+<p>下面提供几种思路，各位也可以使用其他高级的方法解决这个问题。</p>
+<h4 id="求坐标思路一">求坐标思路一</h4>
+<p>我们会发现，正三角形的顶点是其对边的垂线（或者中垂线）上的一点。那么这一点到他对边的距离是多少呢，我们做一个图就可以看出来，如<strong>图-5</strong>，已知图中的
+线段 <span class="math inline">\(AB\)</span>，如何求线段 <span
+class="math inline">\(CD\)</span> 的长度呢？很显然，由于图中的 <span
+class="math inline">\(\angle \alpha = 90\degree\)</span> 或者说 <span
+class="math inline">\(CD \bot AB\)</span>
+我们可以很方便的使用勾股定理来解决这个问题，我们首先根据勾股定理列出一条方程
+<span class="math inline">\(|AD| ^ 2 + |CD| ^ 2=|AC| ^ 2\)</span> ，由于
+<span class="math inline">\(AC=AB=BC\)</span> 且 <span
+class="math inline">\(D\)</span> 是 <span
+class="math inline">\(AB\)</span> 的二等分点（终点）
+所以我们可以将方程化简为这种形式 <span
+class="math inline">\(\left(\frac{1}{2}|AB|\right) ^ 2 + |CD| ^ 2= |AB|
+^ 2\)</span> 那么现在我们将方程稍加化简整理，得到 <span
+class="math inline">\(|CD| = \sqrt{\frac{5}{4} \cdot |AB| ^ 2}\)</span>
+。好的，现在我们已经获得了线段 <span class="math inline">\(CD\)</span>
+的长度了，那么我们要怎么得到 直线 <span
+class="math inline">\(CD\)</span> 的方程（解析式）呢？</p>
+<figure>
+<img
+src="https://cdn.jsdmirror.com/gh/lixuannan/img/image-20230528084233129.png" srcset="/img/loading.gif" lazyload
+alt="图-5" />
+<figcaption aria-hidden="true">图-5</figcaption>
+</figure>
+<p>首先我们复习一下<a
+target="_blank" rel="noopener" href="https://book.pep.com.cn/1421001127202/mobile/#p=82">高中数学选择性必修第一册
+B 版第 79
+页起关于直线及其方程的内容</a>。我们可以得知，表达一条直线有很多种方式，比如点斜式方程（<span
+class="math inline">\(y - y_0 = k\cdot(x -
+x_0)\)</span>）、斜截式方程（<span class="math inline">\(y = kx +
+b\)</span>）、两点式方程（<span class="math inline">\(\frac{y - y_1}{y_2
+- y_1} = \frac{x - x_1}{x_2 - x_1}\)</span>）等等……
+很显然，在我们的这道题目中，需要使用点斜式方程，因为直线 <span
+class="math inline">\(CD\)</span> 的斜率以及点 <span
+class="math inline">\(D\)</span>
+的坐标是极其好求的，所以这种方法会比较简便。</p>
+<p>首先我们解决一个比较简单的问题，点 <span
+class="math inline">\(D\)</span> 的坐标要怎么求？由于点 <span
+class="math inline">\(D\)</span> 是线段 <span
+class="math inline">\(AB\)</span>
+的中点，所以我们可以很方便的使用中点公式 <span
+class="math inline">\((\frac{x_2 - x_1}{2}, \frac{y_2 -
+y_1}{2})\)</span> ，那么这里我们假设 <span class="math inline">\(A:(x_1,
+y_1)\)</span>， <span class="math inline">\(B:(x_2,
+y_2)\)</span>，带入公式可得 <span class="math inline">\(D:(\frac{x_2 -
+x_1}{2}, \frac{y_2-y_1}{2})\)</span> 。</p>
+<p>然后是斜率的问题，我们根据垂线的性质可以得到假设现在有两条直线，他们的斜率分别是
+<span class="math inline">\(k_1\)</span> 和 <span
+class="math inline">\(k_2\)</span> ，如果两直线垂直，那么 <span
+class="math inline">\(k_1 \cdot k_2=-1\)</span> ，或者说 <span
+class="math inline">\(k_1 = -\frac{1}{k_2}\)</span>
+，也就是说两直线垂直，斜率互为负倒数。既然如此，那么 <span
+class="math inline">\(CD\)</span> 的斜率是否可求了呢？没错，首先我们假设
+<span class="math inline">\(AB\)</span> 的斜率为 <span
+class="math inline">\(k\)</span>，且 <span class="math inline">\(A:(x_1,
+y_1)\)</span>， <span class="math inline">\(B:(x_2, y_2)\)</span>，由于
+<span class="math inline">\(A\)</span> 和 <span
+class="math inline">\(B\)</span>
+两点的坐标已知，那么我们很容易通过直线的斜截式方程得到 <span
+class="math inline">\(k = \frac{y_2 - y_1}{x_2 - x_1}\)</span>，那么
+<span class="math inline">\(CD\)</span> 的斜率 <span
+class="math inline">\(k_1\)</span> 就应当等于 <span
+class="math inline">\(\frac{y2-y_1}{x_2 - x_1}\)</span> 的负倒数 <span
+class="math inline">\(-\frac{x_2 - x_1}{y_2 - y_1}\)</span> 。</p>
+<p>既然两个问题都解决了，那么我们假设 <span
+class="math inline">\(D:(x_3, y_3)\)</span>
+，将计算出来的结果带入直线的点斜式方程 <span class="math inline">\(y -
+y_0 = k \cdot (x - x_0)\)</span> 中，我们可以得到 <span
+class="math inline">\(y - y_3 = -\frac{x_2 - x_1}{y_2 - y_1}\cdot (x -
+x_3)\)</span> ，将点 <span class="math inline">\(D\)</span>
+的坐标代入方程可得 <span class="math inline">\(y - \frac{y_2 - y_1}{2} =
+-\frac{x_2 - x_1}{y_2 - y_1}\cdot (x - \frac{x_2 - x_1}{2})\)</span>
+。那么，是时候公布正确答案了，这条方程就是大名鼎鼎的<strong>中垂线方程</strong>！！！</p>
+<p>现在一个问题又出现了，已知一条直线和一个点和一个距离，如何求直线上的另一点的坐标？</p>
+<p>我这边的思路是这样子的，如<strong>图-6</strong>，我们会发现，如果我们以这个距离为半径，已知点为圆心，可以做出一个圆，而这个圆与我们的直线的交点就是我们想要求的两个点。</p>
+<p>那么怎么求一个圆与直线的交点呢？下面介绍两种方法，方程法和向量法</p>
+<h5 id="方程法">方程法</h5>
+<p>方程法顾名思义，就是通过解方程来得到结果，首先我们要知道我们使用什么方程来计算，那么我们首先确认圆的方程，这里为了方便使用圆标准方程
+<span class="math inline">\((x - a) ^ 2 + (y - b) ^ 2 = r ^ 2\)</span>
+。然后是较难确定的直线的方程，难确定的原因主要是直线的方程实在是太多种多样了，就课本里面的就有整整五种！我们这里选的直线的一般式方程
+<span class="math inline">\(ax + by + c = 0\)</span>
+，需要注意的是，圆的方程中的常数 <span class="math inline">\(a\)</span>
+和 <span class="math inline">\(b\)</span> 与直线方程内的常数 <span
+class="math inline">\(a\)</span> 和 <span
+class="math inline">\(b\)</span>
+在大多数情况下是不会相等的，因此为了方便，我们将其加上下标后联立，得到一个这样的方程组：</p>
+<p><span class="math display">\[
+\left\{
+\begin{array}{l}
+a_1x+b_1y+c = 0\ \\
+(x - a_2)^2 + (y - b_2) ^ 2 = r ^ 2\
+\end{array}
+\right.
+\]</span></p>
+<p>解得</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs routeros">x =<br><br>- c - (b1*(b2 - a2<span class="hljs-number">*b1</span> - b1<span class="hljs-number">*c</span> + (- a2 ^ 2 - 2<span class="hljs-number">*a2</span><span class="hljs-number">*b1</span><span class="hljs-number">*b2</span> - 2<span class="hljs-number">*a2</span><span class="hljs-number">*c</span> - b1 ^ 2<span class="hljs-number">*b2</span> ^ 2 + b1 ^ 2*r ^ 2 - 2<span class="hljs-number">*b1</span><span class="hljs-number">*b2</span><span class="hljs-number">*c</span> - c ^ 2 + r ^ 2) ^ (1/2)))/(b1 ^ 2 + 1)<br><br>  (b1*(a2<span class="hljs-number">*b1</span> - b2 + b1<span class="hljs-number">*c</span> + (- a2 ^ 2 - 2<span class="hljs-number">*a2</span><span class="hljs-number">*b1</span><span class="hljs-number">*b2</span> - 2<span class="hljs-number">*a2</span><span class="hljs-number">*c</span> - b1 ^ 2<span class="hljs-number">*b2</span> ^ 2 + b1 ^ 2*r ^ 2 - 2<span class="hljs-number">*b1</span><span class="hljs-number">*b2</span><span class="hljs-number">*c</span> - c ^ 2 + r ^ 2) ^ (1/2)))/(b1 ^ 2 + 1) - c<br><br><br>y =<br><br> (b2 - a2<span class="hljs-number">*b1</span> - b1<span class="hljs-number">*c</span> + (- a2 ^ 2 - 2<span class="hljs-number">*a2</span><span class="hljs-number">*b1</span><span class="hljs-number">*b2</span> - 2<span class="hljs-number">*a2</span><span class="hljs-number">*c</span> - b1 ^ 2<span class="hljs-number">*b2</span> ^ 2 + b1 ^ 2*r ^ 2 - 2<span class="hljs-number">*b1</span><span class="hljs-number">*b2</span><span class="hljs-number">*c</span> - c ^ 2 + r ^ 2) ^ (1/2))/(b1 ^ 2 + 1)<br><br>-(a2<span class="hljs-number">*b1</span> - b2 + b1<span class="hljs-number">*c</span> + (- a2 ^ 2 - 2<span class="hljs-number">*a2</span><span class="hljs-number">*b1</span><span class="hljs-number">*b2</span> - 2<span class="hljs-number">*a2</span><span class="hljs-number">*c</span> - b1 ^ 2<span class="hljs-number">*b2</span> ^ 2 + b1 ^ 2*r ^ 2 - 2<span class="hljs-number">*b1</span><span class="hljs-number">*b2</span><span class="hljs-number">*c</span> - c ^ 2 + r ^ 2) ^ (1/2))/(b1 ^ 2 + 1)<br></code></pre></td></tr></table></figure>
+<p>稍微整理一下得</p>
+<p><span class="math display">\[
+\left\{
+\begin{array}{l}
+x=\left(\begin {array} { c } -c-\frac { b _ { 1 }  \left(b _ { 2 } - a _
+{ 2 }  b_{1} -b _ { 1 } c + \sqrt{ -{ a_{ 2 } } ^ 2-2a_{ 2 } b_{ 1 } b_{
+2 } -2a_{2} c- { b_{ 1 } }  ^ 2 { b _ { 2 } }  ^  2+{b_{1 } } ^ 2r ^
+2-2b_{ 1 } b_{ 2 } c-c ^ 2+r  ^  2} \right) }{ {b_{1} } ^ 2+1}\\
+\frac{b_{1}\left(a_{2}b_{1}-b_{2}+b_{1}c+\sqrt{-{a_{2}} ^ 2-2a_{2} b_{1}
+b_{2} -2a_{2} c-{b_{1}} ^ 2{b_{2}} ^ 2+{b_{1}} ^ 2r ^ 2-2b_{1} b_{2} c-c
+^ 2+r ^ 2} \right) }{ {b_{1} } ^ 2+1} -c \end{array} \right )\\
+y = \left(\begin{array}{c} \frac{b_{2} -a_{2} b_{1}
+-b_{1}c+\sqrt{-{a_{2}} ^ 2-2a_{2}b_{1}b_{2}-2a_{2}c-{b_{1}} ^ 2{b_{2}} ^
+2+{b_{1}} ^ 2r ^ 2-2b_{1}b_{2}c-c ^ 2+r ^ 2}}{ {b_{1} } ^ 2+1}\\
+-\frac{a_{2}b_{1}-b_{2}+b_{1}c+\sqrt{-{a_{2}} ^
+2-2a_{2}b_{1}b_{2}-2a_{2}c-{b_{1}} ^ 2{b_{2}} ^ 2+{b_{1}} ^ 2r ^
+2-2b_{1}b_{2}c-c ^ 2+r ^ 2}}{ {b_{1} } ^ 2+1} \end{array}\right)
+\end{array}
+\right.
+\]</span></p>
+<p>至于我是怎么解出来的吧，肯定不是手解的，毕竟这么长的式子，我的草稿纸都写不下，你说要怎么算出来这样的式子。这里需要借用一个工具：<a
+target="_blank" rel="noopener" href="https://matlab.mathworks.com">MatLab</a>
+打开网站后，你需要注册一个账户，然后就会有每个星期 <span
+class="math inline">\(20\)</span> 个小时时间在线使用 MatLab
+软件，软件的使用方法类似 Python Shell。</p>
+<p>打开后，你会见到一个控制台，我们首先定义变量</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs matlab">syms a1 b1 a2 b2 c r x y<br></code></pre></td></tr></table></figure>
+<p>接着输入我们的方程组</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs matlab">f = [a1 * x + b1 * y + c == <span class="hljs-number">0</span>, (x - a2)  ^  <span class="hljs-number">2</span> + (y - b2)  ^  <span class="hljs-number">2</span> == r  ^  <span class="hljs-number">2</span>]<br></code></pre></td></tr></table></figure>
+<p>然后求解</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs matlab">solve(f, [x, y])<br></code></pre></td></tr></table></figure>
+<p>之后你会得到一个变量 <code>ans</code> ，你需要从这个结构体中获得
+<span class="math inline">\(x\)</span> 和 <span
+class="math inline">\(y\)</span> 的解，注意不能输入 <code>ans.x</code>
+直接输出，这样会把 <span class="math inline">\(y\)</span>
+的解覆盖掉，我也不知道为什么。</p>
+<p>你需要使用两个变量，比如 <code>xans</code> 和 <code>yans</code>
+来转存结构体里面的数据，代码如下</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs matlab">xans = <span class="hljs-built_in">ans</span>.x<br>yans = <span class="hljs-built_in">ans</span>.y<br></code></pre></td></tr></table></figure>
+<p>然后你可以输入 <code>xans</code> 或者 <code>yans</code> 查看 <span
+class="math inline">\(x\)</span> 的解或者 <span
+class="math inline">\(y\)</span> 的解，或者你也可以输入
+<code>latex(xans)</code> 或者 <code>latex(yans)</code> 将 <span
+class="math inline">\(x\)</span> 的解或者 <span
+class="math inline">\(y\)</span> 的解转化为优雅的 <span
+class="math inline">\(\LaTeX\)</span> 代码</p>
+<h5 id="向量法">向量法</h5>
+<p>向量法比较巧妙，但是我看不懂，想学习的同学可以去看一下这一篇<a
+target="_blank" rel="noopener" href="https://blog.csdn.net/qq_40998706/article/details/87521165">文章</a></p>
+<h4 id="求坐标思路二">求坐标思路二</h4>
+<p>我们写出两个圆的标准方程，并将其联立，尝试使用 MatLab 对其求根</p>
+<p><span class="math display">\[
+\left\{
+\begin{array}{l}
+(x - a_1) ^ 2 + (y - b_1) ^ 2 = r ^ 2\\
+(x - a_2) ^ 2 + (y - b_2) ^ 2 = r ^ 2
+\end{array}
+\right.
+\]</span></p>
+<p>我们求得的根如下</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-attribute">xans</span> =<br><br>-(<span class="hljs-number">2</span>*b1*(b1/<span class="hljs-number">2</span> + b2/<span class="hljs-number">2</span> - (a1*(-(a1<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span> - <span class="hljs-number">2</span>*a1*a2 + a2<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span> + b1<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span> - <span class="hljs-number">2</span>*b1*b2 + b2<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span> - <span class="hljs-number">4</span>*r<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span>)/(a1<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span> - <span class="hljs-number">2</span>*a1*a2 + a2<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span> + b1<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span> - <span class="hljs-number">2</span>*b1*b2 + b2<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span>))<span class="hljs-regexp"> ^</span> (<span class="hljs-number">1</span>/<span class="hljs-number">2</span>))/<span class="hljs-number">2</span> + (a2*(-(a1<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span> - <span class="hljs-number">2</span>*a1*a2 + a2<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span> + b1<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span> - <span class="hljs-number">2</span>*b1*b2 + b2<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span> - <span class="hljs-number">4</span>*r<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span>)/(a1<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span> - <span class="hljs-number">2</span>*a1*a2 + a2<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span> + b1<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span> - <span class="hljs-number">2</span>*b1*b2 + b2<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span>))<span class="hljs-regexp"> ^</span> (<span class="hljs-number">1</span>/<span class="hljs-number">2</span>))/<span class="hljs-number">2</span>) - <span class="hljs-number">2</span>*b2*(b1/<span class="hljs-number">2</span> + b2/<span class="hljs-number">2</span> - (a1*(-(a1<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span> - <span class="hljs-number">2</span>*a1*a2 + a2<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span> + b1<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span> - <span class="hljs-number">2</span>*b1*b2 + b2<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span> - <span class="hljs-number">4</span>*r<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span>)/(a1<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span> - <span class="hljs-number">2</span>*a1*a2 + a2<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span> + b1<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span> - <span class="hljs-number">2</span>*b1*b2 + b2<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span>))<span class="hljs-regexp"> ^</span> (<span class="hljs-number">1</span>/<span class="hljs-number">2</span>))/<span class="hljs-number">2</span> + (a2*(-(a1<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span> - <span class="hljs-number">2</span>*a1*a2 + a2<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span> + b1<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span> - <span class="hljs-number">2</span>*b1*b2 + b2<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span> - <span class="hljs-number">4</span>*r<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span>)/(a1<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span> - <span class="hljs-number">2</span>*a1*a2 + a2<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span> + b1<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span> - <span class="hljs-number">2</span>*b1*b2 + b2<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span>))<span class="hljs-regexp"> ^</span> (<span class="hljs-number">1</span>/<span class="hljs-number">2</span>))/<span class="hljs-number">2</span>) - a1<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span> + a2<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span> - b1<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span> + b2<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span>)/(<span class="hljs-number">2</span>*a1 - <span class="hljs-number">2</span>*a2)<br><br>-(<span class="hljs-number">2</span>*b1*(b1/<span class="hljs-number">2</span> + b2/<span class="hljs-number">2</span> + (a1*(-(a1<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span> - <span class="hljs-number">2</span>*a1*a2 + a2<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span> + b1<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span> - <span class="hljs-number">2</span>*b1*b2 + b2<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span> - <span class="hljs-number">4</span>*r<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span>)/(a1<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span> - <span class="hljs-number">2</span>*a1*a2 + a2<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span> + b1<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span> - <span class="hljs-number">2</span>*b1*b2 + b2<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span>))<span class="hljs-regexp"> ^</span> (<span class="hljs-number">1</span>/<span class="hljs-number">2</span>))/<span class="hljs-number">2</span> - (a2*(-(a1<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span> - <span class="hljs-number">2</span>*a1*a2 + a2<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span> + b1<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span> - <span class="hljs-number">2</span>*b1*b2 + b2<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span> - <span class="hljs-number">4</span>*r<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span>)/(a1<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span> - <span class="hljs-number">2</span>*a1*a2 + a2<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span> + b1<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span> - <span class="hljs-number">2</span>*b1*b2 + b2<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span>))<span class="hljs-regexp"> ^</span> (<span class="hljs-number">1</span>/<span class="hljs-number">2</span>))/<span class="hljs-number">2</span>) - <span class="hljs-number">2</span>*b2*(b1/<span class="hljs-number">2</span> + b2/<span class="hljs-number">2</span> + (a1*(-(a1<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span> - <span class="hljs-number">2</span>*a1*a2 + a2<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span> + b1<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span> - <span class="hljs-number">2</span>*b1*b2 + b2<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span> - <span class="hljs-number">4</span>*r<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span>)/(a1<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span> - <span class="hljs-number">2</span>*a1*a2 + a2<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span> + b1<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span> - <span class="hljs-number">2</span>*b1*b2 + b2<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span>))<span class="hljs-regexp"> ^</span> (<span class="hljs-number">1</span>/<span class="hljs-number">2</span>))/<span class="hljs-number">2</span> - (a2*(-(a1<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span> - <span class="hljs-number">2</span>*a1*a2 + a2<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span> + b1<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span> - <span class="hljs-number">2</span>*b1*b2 + b2<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span> - <span class="hljs-number">4</span>*r<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span>)/(a1<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span> - <span class="hljs-number">2</span>*a1*a2 + a2<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span> + b1<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span> - <span class="hljs-number">2</span>*b1*b2 + b2<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span>))<span class="hljs-regexp"> ^</span> (<span class="hljs-number">1</span>/<span class="hljs-number">2</span>))/<span class="hljs-number">2</span>) - a1<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span> + a2<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span> - b1<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span> + b2<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span>)/(<span class="hljs-number">2</span>*a1 - <span class="hljs-number">2</span>*a2)<br><br><br>yans =<br><br>b1/<span class="hljs-number">2</span> + b2/<span class="hljs-number">2</span> - (a1*(-(a1<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span> - <span class="hljs-number">2</span>*a1*a2 + a2<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span> + b1<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span> - <span class="hljs-number">2</span>*b1*b2 + b2<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span> - <span class="hljs-number">4</span>*r<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span>)/(a1<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span> - <span class="hljs-number">2</span>*a1*a2 + a2<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span> + b1<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span> - <span class="hljs-number">2</span>*b1*b2 + b2<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span>))<span class="hljs-regexp"> ^</span> (<span class="hljs-number">1</span>/<span class="hljs-number">2</span>))/<span class="hljs-number">2</span> + (a2*(-(a1<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span> - <span class="hljs-number">2</span>*a1*a2 + a2<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span> + b1<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span> - <span class="hljs-number">2</span>*b1*b2 + b2<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span> - <span class="hljs-number">4</span>*r<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span>)/(a1<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span> - <span class="hljs-number">2</span>*a1*a2 + a2<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span> + b1<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span> - <span class="hljs-number">2</span>*b1*b2 + b2<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span>))<span class="hljs-regexp"> ^</span> (<span class="hljs-number">1</span>/<span class="hljs-number">2</span>))/<span class="hljs-number">2</span><br><br>b1/<span class="hljs-number">2</span> + b2/<span class="hljs-number">2</span> + (a1*(-(a1<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span> - <span class="hljs-number">2</span>*a1*a2 + a2<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span> + b1<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span> - <span class="hljs-number">2</span>*b1*b2 + b2<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span> - <span class="hljs-number">4</span>*r<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span>)/(a1<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span> - <span class="hljs-number">2</span>*a1*a2 + a2<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span> + b1<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span> - <span class="hljs-number">2</span>*b1*b2 + b2<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span>))<span class="hljs-regexp"> ^</span> (<span class="hljs-number">1</span>/<span class="hljs-number">2</span>))/<span class="hljs-number">2</span> - (a2*(-(a1<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span> - <span class="hljs-number">2</span>*a1*a2 + a2<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span> + b1<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span> - <span class="hljs-number">2</span>*b1*b2 + b2<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span> - <span class="hljs-number">4</span>*r<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span>)/(a1<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span> - <span class="hljs-number">2</span>*a1*a2 + a2<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span> + b1<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span> - <span class="hljs-number">2</span>*b1*b2 + b2<span class="hljs-regexp"> ^</span> <span class="hljs-number">2</span>))<span class="hljs-regexp"> ^</span> (<span class="hljs-number">1</span>/<span class="hljs-number">2</span>))/<span class="hljs-number">2</span><br></code></pre></td></tr></table></figure>
+<p>简单整理后如下</p>
+<p><span class="math display">\[
+\left\{
+\begin{array}{l}
+x = \left(\begin{array}{c}
+-\frac{2\,b_{1}\,\left(\frac{b_{1}}{2}+\frac{b_{2}}{2}-\frac{a_{1}\,\sqrt{-\frac{
+{a_{1}}^2-2\,a_{1}\,a_{2}+{a_{2}}^2+{b_{1}}^2-2\,b_{1}\,b_{2}+{b_{2}}^2-4\,r^2}{
+{a_{1}}^2-2\,a_{1}\,a_{2}+{a_{2}}^2+{b_{1}}^2-2\,b_{1}\,b_{2}+{b_{2}}^2}}}{2}+\frac{a_{2}\,\sqrt{-\frac{
+{a_{1}}^2-2\,a_{1}\,a_{2}+{a_{2}}^2+{b_{1}}^2-2\,b_{1}\,b_{2}+{b_{2}}^2-4\,r^2}{
+{a_{1}}^2-2\,a_{1}\,a_{2}+{a_{2}}^2+{b_{1}}^2-2\,b_{1}\,b_{2}+{b_{2}}^2}}}{2}\right)-2\,b_{2}\,\left(\frac{b_{1}}{2}+\frac{b_{2}}{2}-\frac{a_{1}\,\sqrt{-\frac{
+{a_{1}}^2-2\,a_{1}\,a_{2}+{a_{2}}^2+{b_{1}}^2-2\,b_{1}\,b_{2}+{b_{2}}^2-4\,r^2}{
+{a_{1}}^2-2\,a_{1}\,a_{2}+{a_{2}}^2+{b_{1}}^2-2\,b_{1}\,b_{2}+{b_{2}}^2}}}{2}+\frac{a_{2}\,\sqrt{-\frac{
+{a_{1}}^2-2\,a_{1}\,a_{2}+{a_{2}}^2+{b_{1}}^2-2\,b_{1}\,b_{2}+{b_{2}}^2-4\,r^2}{
+{a_{1}}^2-2\,a_{1}\,a_{2}+{a_{2}}^2+{b_{1}}^2-2\,b_{1}\,b_{2}+{b_{2}}^2}}}{2}\right)-{a_{1}}^2+{a_{2}}^2-{b_{1}}^2+{b_{2}}^2}{2\,a_{1}-2\,a_{2}}\\
+-\frac{2\,b_{1}\,\left(\frac{b_{1}}{2}+\frac{b_{2}}{2}+\frac{a_{1}\,\sqrt{-\frac{
+{a_{1}}^2-2\,a_{1}\,a_{2}+{a_{2}}^2+{b_{1}}^2-2\,b_{1}\,b_{2}+{b_{2}}^2-4\,r^2}{
+{a_{1}}^2-2\,a_{1}\,a_{2}+{a_{2}}^2+{b_{1}}^2-2\,b_{1}\,b_{2}+{b_{2}}^2}}}{2}-\frac{a_{2}\,\sqrt{-\frac{
+{a_{1}}^2-2\,a_{1}\,a_{2}+{a_{2}}^2+{b_{1}}^2-2\,b_{1}\,b_{2}+{b_{2}}^2-4\,r^2}{
+{a_{1}}^2-2\,a_{1}\,a_{2}+{a_{2}}^2+{b_{1}}^2-2\,b_{1}\,b_{2}+{b_{2}}^2}}}{2}\right)-2\,b_{2}\,\left(\frac{b_{1}}{2}+\frac{b_{2}}{2}+\frac{a_{1}\,\sqrt{-\frac{
+{a_{1}}^2-2\,a_{1}\,a_{2}+{a_{2}}^2+{b_{1}}^2-2\,b_{1}\,b_{2}+{b_{2}}^2-4\,r^2}{
+{a_{1}}^2-2\,a_{1}\,a_{2}+{a_{2}}^2+{b_{1}}^2-2\,b_{1}\,b_{2}+{b_{2}}^2}}}{2}-\frac{a_{2}\,\sqrt{-\frac{
+{a_{1}}^2-2\,a_{1}\,a_{2}+{a_{2}}^2+{b_{1}}^2-2\,b_{1}\,b_{2}+{b_{2}}^2-4\,r^2}{
+{a_{1}}^2-2\,a_{1}\,a_{2}+{a_{2}}^2+{b_{1}}^2-2\,b_{1}\,b_{2}+{b_{2}}^2}}}{2}\right)-{a_{1}}^2+{a_{2}}^2-{b_{1}}^2+{b_{2}}^2}{2\,a_{1}-2\,a_{2}}
+\end{array}\right)
+\\
+y = \left(\begin{array}{c}
+\frac{b_{1}}{2}+\frac{b_{2}}{2}-\frac{a_{1}\,\sqrt{-\frac{
+{a_{1}}^2-2\,a_{1}\,a_{2}+{a_{2}}^2+{b_{1}}^2-2\,b_{1}\,b_{2}+{b_{2}}^2-4\,r^2}{
+{a_{1}}^2-2\,a_{1}\,a_{2}+{a_{2}}^2+{b_{1}}^2-2\,b_{1}\,b_{2}+{b_{2}}^2}}}{2}+\frac{a_{2}\,\sqrt{-\frac{
+{a_{1}}^2-2\,a_{1}\,a_{2}+{a_{2}}^2+{b_{1}}^2-2\,b_{1}\,b_{2}+{b_{2}}^2-4\,r^2}{
+{a_{1}}^2-2\,a_{1}\,a_{2}+{a_{2}}^2+{b_{1}}^2-2\,b_{1}\,b_{2}+{b_{2}}^2}}}{2}\\
+\frac{b_{1}}{2}+\frac{b_{2}}{2}+\frac{a_{1}\,\sqrt{-\frac{
+{a_{1}}^2-2\,a_{1}\,a_{2}+{a_{2}}^2+{b_{1}}^2-2\,b_{1}\,b_{2}+{b_{2}}^2-4\,r^2}{
+{a_{1}}^2-2\,a_{1}\,a_{2}+{a_{2}}^2+{b_{1}}^2-2\,b_{1}\,b_{2}+{b_{2}}^2}}}{2}-\frac{a_{2}\,\sqrt{-\frac{
+{a_{1}}^2-2\,a_{1}\,a_{2}+{a_{2}}^2+{b_{1}}^2-2\,b_{1}\,b_{2}+{b_{2}}^2-4\,r^2}{
+{a_{1}}^2-2\,a_{1}\,a_{2}+{a_{2}}^2+{b_{1}}^2-2\,b_{1}\,b_{2}+{b_{2}}^2}}}{2}
+\end{array}\right)
+\end{array}
+\right.
+\]</span></p>
+<p>很显然，我们求出了结果，但，就这么长一条式子，着实有些头痛。</p>
+<p>现在我们已经求得了坐标，我们就可以通过一个哈希表（散列表）来存储每一个节点，然后查询，累加，得到结果，最后输出注意答案需要除以
+<span class="math inline">\(3\)</span> 因为三角形有 <span
+class="math inline">\(3\)</span>
+个顶点，而我们的程序会重复的计算每个节点，因此会计算真实答案的三倍。</p>
+<h3 id="标程-3">标程</h3>
+<p>我们的标程使用方法二进行计算，虽然式子很长，但是代码量稍微少一些，主要是出题人很懒，代码不长，就
+<span class="math inline">\(222\)</span> 行，老天保佑赛时有人 <span
+class="math inline">\(\color{green}{AC}\)</span></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;vector&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;cmath&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-keyword">struct</span> <span class="hljs-title class_">point</span> &#123;<br>    <span class="hljs-type">double</span> x, y;<br>&#125;;<br><br><span class="hljs-keyword">struct</span> <span class="hljs-title class_">node</span> &#123;<br>    <span class="hljs-type">double</span> x1, y1, x2, y2;<br>&#125;;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">hashx</span><span class="hljs-params">(<span class="hljs-type">double</span> x, <span class="hljs-type">double</span> y)</span> </span>&#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-built_in">abs</span>(<span class="hljs-built_in">int</span>(x + y) % <span class="hljs-number">1007</span>);<br>&#125;<br><br><span class="hljs-function">node <span class="hljs-title">calc</span><span class="hljs-params">(point a, point b)</span> </span>&#123;<br>    <span class="hljs-type">double</span> a1 = a.x, b1 = a.y, a2 = b.x, b2 = b.y, r = <span class="hljs-built_in">sqrt</span>((a1 - a2) * (a1 - a2) + (b1 - b2) * (b1 - b2));<br>    <span class="hljs-type">double</span> x1, y1, x2, y2;<br>    x1 = -(<span class="hljs-number">2</span> * b1 * (b1 / <span class="hljs-number">2</span> + b2 / <span class="hljs-number">2</span> - (a1 * <span class="hljs-built_in">sqrt</span>(-((a1 * a1) - <span class="hljs-number">2</span> * a1 * a2 + (a2 * a2) + (b1 * b1) - <span class="hljs-number">2</span> * b1 * b2 +<br>                                                    (b2 * b2) - <span class="hljs-number">4</span> * (r * r)) /<br>                                                  ((a1 * a1) - <span class="hljs-number">2</span> * a1 * a2 + (a2 * a2) + (b1 * b1) - <span class="hljs-number">2</span> * b1 * b2 +<br>                                                   (b2 * b2)))) / <span class="hljs-number">2</span> + (a2 * <span class="hljs-built_in">sqrt</span>(-((a1 * a1) - <span class="hljs-number">2</span> * a1 * a2 + (a2 * a2) +<br>                                                                                   (b1 * b1) - <span class="hljs-number">2</span> * b1 * b2 + (b2 * b2) -<br>                                                                                   <span class="hljs-number">4</span> * (r * r)) /<br>                                                                                 ((a1 * a1) - <span class="hljs-number">2</span> * a1 * a2 + (a2 * a2) +<br>                                                                                  (b1 * b1) - <span class="hljs-number">2</span> * b1 * b2 +<br>                                                                                  (b2 * b2)))) / <span class="hljs-number">2</span>) - <span class="hljs-number">2</span> * b2 *<br>                                                                                                      (b1 / <span class="hljs-number">2</span> + b2 / <span class="hljs-number">2</span> -<br>                                                                                                       (a1 *<br>                                                                                                        <span class="hljs-built_in">sqrt</span>(-((a1 *<br>                                                                                                                a1) -<br>                                                                                                               <span class="hljs-number">2</span> * a1 *<br>                                                                                                               a2 +<br>                                                                                                               (a2 *<br>                                                                                                                a2) +<br>                                                                                                               (b1 *<br>                                                                                                                b1) -<br>                                                                                                               <span class="hljs-number">2</span> * b1 *<br>                                                                                                               b2 +<br>                                                                                                               (b2 *<br>                                                                                                                b2) -<br>                                                                                                               <span class="hljs-number">4</span> * (r *<br>                                                                                                                    r)) /<br>                                                                                                             ((a1 *<br>                                                                                                               a1) -<br>                                                                                                              <span class="hljs-number">2</span> * a1 *<br>                                                                                                              a2 + (a2 *<br>                                                                                                                    a2) +<br>                                                                                                              (b1 *<br>                                                                                                               b1) -<br>                                                                                                              <span class="hljs-number">2</span> * b1 *<br>                                                                                                              b2 + (b2 *<br>                                                                                                                    b2)))) /<br>                                                                                                       <span class="hljs-number">2</span> + (a2 *<br>                                                                                                            <span class="hljs-built_in">sqrt</span>(-((a1 *<br>                                                                                                                    a1) -<br>                                                                                                                   <span class="hljs-number">2</span> *<br>                                                                                                                   a1 *<br>                                                                                                                   a2 +<br>                                                                                                                   (a2 *<br>                                                                                                                    a2) +<br>                                                                                                                   (b1 *<br>                                                                                                                    b1) -<br>                                                                                                                   <span class="hljs-number">2</span> *<br>                                                                                                                   b1 *<br>                                                                                                                   b2 +<br>                                                                                                                   (b2 *<br>                                                                                                                    b2) -<br>                                                                                                                   <span class="hljs-number">4</span> *<br>                                                                                                                   (r *<br>                                                                                                                    r)) /<br>                                                                                                                 ((a1 *<br>                                                                                                                   a1) -<br>                                                                                                                  <span class="hljs-number">2</span> *<br>                                                                                                                  a1 *<br>                                                                                                                  a2 +<br>                                                                                                                  (a2 *<br>                                                                                                                   a2) +<br>                                                                                                                  (b1 *<br>                                                                                                                   b1) -<br>                                                                                                                  <span class="hljs-number">2</span> *<br>                                                                                                                  b1 *<br>                                                                                                                  b2 +<br>                                                                                                                  (b2 *<br>                                                                                                                   b2)))) /<br>                                                                                                           <span class="hljs-number">2</span>) -<br>           (a1 * a1) + (a2 * a2) - (b1 * b1) + (b2 * b2)) / (<span class="hljs-number">2</span> * a1 - <span class="hljs-number">2</span> * a2);<br>    x2 = -(<span class="hljs-number">2</span> * b1 * (b1 / <span class="hljs-number">2</span> + b2 / <span class="hljs-number">2</span> + (a1 * <span class="hljs-built_in">sqrt</span>(-((a1 * a1) - <span class="hljs-number">2</span> * a1 * a2 + (a2 * a2) + (b1 * b1) - <span class="hljs-number">2</span> * b1 * b2 +<br>                                                    (b2 * b2) - <span class="hljs-number">4</span> * (r * r)) /<br>                                                  ((a1 * a1) - <span class="hljs-number">2</span> * a1 * a2 + (a2 * a2) + (b1 * b1) - <span class="hljs-number">2</span> * b1 * b2 +<br>                                                   (b2 * b2)))) / <span class="hljs-number">2</span> - (a2 * <span class="hljs-built_in">sqrt</span>(-((a1 * a1) - <span class="hljs-number">2</span> * a1 * a2 + (a2 * a2) +<br>                                                                                   (b1 * b1) - <span class="hljs-number">2</span> * b1 * b2 + (b2 * b2) -<br>                                                                                   <span class="hljs-number">4</span> * (r * r)) /<br>                                                                                 ((a1 * a1) - <span class="hljs-number">2</span> * a1 * a2 + (a2 * a2) +<br>                                                                                  (b1 * b1) - <span class="hljs-number">2</span> * b1 * b2 +<br>                                                                                  (b2 * b2)))) / <span class="hljs-number">2</span>) - <span class="hljs-number">2</span> * b2 *<br>                                                                                                      (b1 / <span class="hljs-number">2</span> + b2 / <span class="hljs-number">2</span> +<br>                                                                                                       (a1 *<br>                                                                                                        <span class="hljs-built_in">sqrt</span>(-((a1 *<br>                                                                                                                a1) -<br>                                                                                                               <span class="hljs-number">2</span> * a1 *<br>                                                                                                               a2 +<br>                                                                                                               (a2 *<br>                                                                                                                a2) +<br>                                                                                                               (b1 *<br>                                                                                                                b1) -<br>                                                                                                               <span class="hljs-number">2</span> * b1 *<br>                                                                                                               b2 +<br>                                                                                                               (b2 *<br>                                                                                                                b2) -<br>                                                                                                               <span class="hljs-number">4</span> * (r *<br>                                                                                                                    r)) /<br>                                                                                                             ((a1 *<br>                                                                                                               a1) -<br>                                                                                                              <span class="hljs-number">2</span> * a1 *<br>                                                                                                              a2 + (a2 *<br>                                                                                                                    a2) +<br>                                                                                                              (b1 *<br>                                                                                                               b1) -<br>                                                                                                              <span class="hljs-number">2</span> * b1 *<br>                                                                                                              b2 + (b2 *<br>                                                                                                                    b2)))) /<br>                                                                                                       <span class="hljs-number">2</span> - (a2 *<br>                                                                                                            <span class="hljs-built_in">sqrt</span>(-((a1 *<br>                                                                                                                    a1) -<br>                                                                                                                   <span class="hljs-number">2</span> *<br>                                                                                                                   a1 *<br>                                                                                                                   a2 +<br>                                                                                                                   (a2 *<br>                                                                                                                    a2) +<br>                                                                                                                   (b1 *<br>                                                                                                                    b1) -<br>                                                                                                                   <span class="hljs-number">2</span> *<br>                                                                                                                   b1 *<br>                                                                                                                   b2 +<br>                                                                                                                   (b2 *<br>                                                                                                                    b2) -<br>                                                                                                                   <span class="hljs-number">4</span> *<br>                                                                                                                   (r *<br>                                                                                                                    r)) /<br>                                                                                                                 ((a1 *<br>                                                                                                                   a1) -<br>                                                                                                                  <span class="hljs-number">2</span> *<br>                                                                                                                  a1 *<br>                                                                                                                  a2 +<br>                                                                                                                  (a2 *<br>                                                                                                                   a2) +<br>                                                                                                                  (b1 *<br>                                                                                                                   b1) -<br>                                                                                                                  <span class="hljs-number">2</span> *<br>                                                                                                                  b1 *<br>                                                                                                                  b2 +<br>                                                                                                                  (b2 *<br>                                                                                                                   b2)))) /<br>                                                                                                           <span class="hljs-number">2</span>) -<br>           (a1 * a1) + (a2 * a2) - (b1 * b1) + (b2 * b2)) / (<span class="hljs-number">2</span> * a1 - <span class="hljs-number">2</span> * a2);<br>    y1 = b1 / <span class="hljs-number">2</span> + b2 / <span class="hljs-number">2</span> - (a1 * <span class="hljs-built_in">sqrt</span>(-((a1 * a1) - <span class="hljs-number">2</span> * a1 * a2 + (a2 * a2) + (b1 * b1) - <span class="hljs-number">2</span> * b1 * b2 + (b2 * b2) -<br>                                        <span class="hljs-number">4</span> * (r * r)) /<br>                                      ((a1 * a1) - <span class="hljs-number">2</span> * a1 * a2 + (a2 * a2) + (b1 * b1) - <span class="hljs-number">2</span> * b1 * b2 + (b2 * b2)))) /<br>                           <span class="hljs-number">2</span> + (a2 * <span class="hljs-built_in">sqrt</span>(-((a1 * a1) - <span class="hljs-number">2</span> * a1 * a2 + (a2 * a2) + (b1 * b1) - <span class="hljs-number">2</span> * b1 * b2 + (b2 * b2) -<br>                                            <span class="hljs-number">4</span> * (r * r)) /<br>                                          ((a1 * a1) - <span class="hljs-number">2</span> * a1 * a2 + (a2 * a2) + (b1 * b1) - <span class="hljs-number">2</span> * b1 * b2 +<br>                                           (b2 * b2)))) / <span class="hljs-number">2</span>;<br>    y2 = b1 / <span class="hljs-number">2</span> + b2 / <span class="hljs-number">2</span> + (a1 * <span class="hljs-built_in">sqrt</span>(-((a1 * a1) - <span class="hljs-number">2</span> * a1 * a2 + (a2 * a2) + (b1 * b1) - <span class="hljs-number">2</span> * b1 * b2 + (b2 * b2) -<br>                                        <span class="hljs-number">4</span> * (r * r)) /<br>                                      ((a1 * a1) - <span class="hljs-number">2</span> * a1 * a2 + (a2 * a2) + (b1 * b1) - <span class="hljs-number">2</span> * b1 * b2 + (b2 * b2)))) /<br>                           <span class="hljs-number">2</span> - (a2 * <span class="hljs-built_in">sqrt</span>(-((a1 * a1) - <span class="hljs-number">2</span> * a1 * a2 + (a2 * a2) + (b1 * b1) - <span class="hljs-number">2</span> * b1 * b2 + (b2 * b2) -<br>                                            <span class="hljs-number">4</span> * (r * r)) /<br>                                          ((a1 * a1) - <span class="hljs-number">2</span> * a1 * a2 + (a2 * a2) + (b1 * b1) - <span class="hljs-number">2</span> * b1 * b2 +<br>                                           (b2 * b2)))) / <span class="hljs-number">2</span>;<br>    <span class="hljs-keyword">return</span> (node) &#123;x1, y1, x2, y2&#125;;<br>&#125;<br><br><span class="hljs-type">int</span> n;<br>vector&lt;point&gt; a;<br>vector&lt;point&gt; v[<span class="hljs-number">1009</span>];<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">add</span><span class="hljs-params">(<span class="hljs-type">double</span> x, <span class="hljs-type">double</span> y)</span> </span>&#123;<br>    <span class="hljs-type">int</span> hx = <span class="hljs-built_in">hashx</span>(x, y);<br>    a.<span class="hljs-built_in">push_back</span>((point) &#123;x, y&#125;);<br>    v[hx].<span class="hljs-built_in">push_back</span>((point) &#123;x, y&#125;);<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">find</span><span class="hljs-params">(<span class="hljs-type">double</span> x, <span class="hljs-type">double</span> y)</span> </span>&#123;<br>    <span class="hljs-type">int</span> hx = <span class="hljs-built_in">hashx</span>(x, y);<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; v[hx].<span class="hljs-built_in">size</span>(); i++) &#123;<br>        <span class="hljs-keyword">if</span> (<span class="hljs-built_in">abs</span>(<span class="hljs-built_in">abs</span>(v[hx][i].x) - <span class="hljs-built_in">abs</span>(x)) &lt;= <span class="hljs-number">0.03</span> &amp;&amp; <span class="hljs-built_in">abs</span>(<span class="hljs-built_in">abs</span>(v[hx][i].y) - <span class="hljs-built_in">abs</span>(y)) &lt;= <span class="hljs-number">0.03</span>) &#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br><br><span class="hljs-type">double</span> x, y;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    cin &gt;&gt; n;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++) &#123;<br>        cin &gt;&gt; x &gt;&gt; y;<br>        <span class="hljs-built_in">add</span>(x, y);<br>    &#125;<br>    <span class="hljs-type">int</span> ans = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; a.<span class="hljs-built_in">size</span>(); i++) &#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt; a.<span class="hljs-built_in">size</span>(); j++) &#123;<br>            <span class="hljs-keyword">if</span> (<span class="hljs-built_in">abs</span>(<span class="hljs-built_in">abs</span>(a[i].x) - <span class="hljs-built_in">abs</span>(a[j].x)) &lt;= <span class="hljs-number">0.03</span> &amp;&amp; <span class="hljs-built_in">abs</span>(<span class="hljs-built_in">abs</span>(a[i].y) - <span class="hljs-built_in">abs</span>(a[j].y)) &lt;= <span class="hljs-number">0.03</span>) &#123;<br>                <span class="hljs-keyword">continue</span>;<br>            &#125;<br>            node points = <span class="hljs-built_in">calc</span>(a[i], a[j]);<br>            <span class="hljs-type">double</span> x1 = points.x1, x2 = points.x2, y1 = points.y1, y2 = points.y2;<br>            ans += <span class="hljs-built_in">find</span>(x1, y1) + <span class="hljs-built_in">find</span>(x2, y2);<br>        &#125;<br>    &#125;<br>    cout &lt;&lt; (ans / <span class="hljs-number">6</span>);<br>&#125;<br><br></code></pre></td></tr></table></figure>
+<h2 id="总结">总结</h2>
+<p>总的来说这场比赛由于是我出的第一场公开赛，多少有一些瑕疵，不过我个人还是乐在其中的，不知各位看完题解感觉如何，反正我整篇题解写下来近万字还是非常流畅的。最后，感谢
+MCOI 的全体工作人员以及站长对比赛的大力支持，<span
+class="math inline">\(\huge{此致敬礼}\)</span> 。</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E9%A2%98%E8%A7%A3/" class="print-no-link">#题解</a>
+      
+        <a href="/tags/MCOI/" class="print-no-link">#MCOI</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>MCOI 2023年6月月赛题解</div>
+      <div>https://codingcow.lee.mx/posts/5946.html</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>CodingCow Lee</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年6月8日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
+                    <i class="iconfont icon-cc-nc"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
+                    <i class="iconfont icon-cc-sa"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/posts/8408.html" title="TYOI 暑假集训游记">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">TYOI 暑假集训游记</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/posts/19144.html" title="Oiclass PUJI Circle 题解">
+                        <span class="hidden-mobile">Oiclass PUJI Circle 题解</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments">
+      
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#comments', function() {
+      var light = 'github-light';
+      var dark = 'github-dark';
+      var schema = document.documentElement.getAttribute('data-user-color-scheme');
+      if (schema === 'dark') {
+        schema = dark;
+      } else {
+        schema = light;
+      }
+      window.UtterancesThemeLight = light;
+      window.UtterancesThemeDark = dark;
+      var s = document.createElement('script');
+      s.setAttribute('src', 'https://utteranc.es/client.js');
+      s.setAttribute('repo', 'Lixuannan/blog_comments');
+      s.setAttribute('issue-term', 'pathname');
+      
+      s.setAttribute('label', 'comments');
+      
+      s.setAttribute('theme', schema);
+      s.setAttribute('crossorigin', 'anonymous');
+      document.getElementById('comments').appendChild(s);
+    })
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <div style="font-size: 0.85rem"> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> </div> <style>#scroll-top-button i {color: white}</style> <script src="https://cdn.bootcss.com/vue/2.6.11/vue.min.js"></script> <script src="https://lab.magiconch.com/nbnhhsh/nbnhhsh.user.js"></script> <!--<script> if (window.location.host == "codingcow.netlify.app") {window.location.host = "codingcow.tech"}</script>--> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    
+      <script  src="/js/img-lazyload.js" ></script>
+    
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

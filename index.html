@@ -1,0 +1,1265 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" >
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/images/favicon.png">
+  <link rel="icon" href="/images/favicon.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#71C9CE">
+  <meta name="author" content="CodingCow Lee">
+  <meta name="keywords" content="python,ml,deeplearning,dl,c++,c,pytorch,noi,oi,ioi,noip,csp-j,csp-s,oier,tyoi,oiclass">
+  
+    <meta name="description" content="This is CodingCow&#39;s Blog site">
+<meta property="og:type" content="website">
+<meta property="og:title" content="CodingCow&#39;s Blog">
+<meta property="og:url" content="https://codingcow.lee.mx/index.html">
+<meta property="og:site_name" content="CodingCow&#39;s Blog">
+<meta property="og:description" content="This is CodingCow&#39;s Blog site">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="CodingCow Lee">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content="ml">
+<meta property="article:tag" content="deeplearning">
+<meta property="article:tag" content="dl">
+<meta property="article:tag" content="c++">
+<meta property="article:tag" content="c">
+<meta property="article:tag" content="pytorch">
+<meta property="article:tag" content="noi">
+<meta property="article:tag" content="oi">
+<meta property="article:tag" content="ioi">
+<meta property="article:tag" content="noip">
+<meta property="article:tag" content="csp-j">
+<meta property="article:tag" content="csp-s">
+<meta property="article:tag" content="oier">
+<meta property="article:tag" content="tyoi">
+<meta property="article:tag" content="oiclass">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>CodingCow&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"codingcow.lee.mx","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":135,"cursorChar":"|","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":3},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":true,"offset_factor":2,"lazyload":true},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null},"gtag":null,"woyaola":null,"cnzz":null},"search_path":"/search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 100vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>CodingCow</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>文章</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/%E6%B8%B8%E8%AE%B0/" target="_self">
+                <i class="iconfont icon-notebook"></i>
+                <span>游记</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3/" target="_self">
+                <i class="iconfont icon-code"></i>
+                <span>算法详解</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/%E9%A2%98%E8%A7%A3/" target="_self">
+                <i class="iconfont icon-book"></i>
+                <span>题解</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/images/banner.jpeg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="没有什么是代码解决不了的   ——CodingCow"></span>
+          
+        </div>
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      <div class="container nopadding-x-md">
+        <div id="board"
+          style="margin-top: 0">
+          
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-10 m-auto">
+                
+
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+          <i class="index-pin iconfont icon-top" title="Pin on top"></i>
+        
+        <a href="/posts/54641.html" target="_self">
+          OiClass 公益赛宣传
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/posts/54641.html" target="_self">
+        <div>
+          OiClass 公益赛宣传  活动意义  为了增强 oiClass 社区活跃度，提升 oiClass 用户的 oi 水平，促进 oier 之间的联结互动，特别开展本公益活动，希望大家踊跃参加。 oier 水平的提升，不仅在学，更在练，多打比赛无疑是提升水平的有效渠道。 本次活动由 TYOI 高水平选手进行命题和验题，由 chxulong 把控题目质量，题目难度控制在 CSP-J 水平，对于冲刺本年
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2024-02-25 16:46" pubdate>
+              2024-02-25
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/OiClass/">#OiClass</a>
+            
+              <a href="/tags/%E5%AE%A3%E4%BC%A0/">#宣传</a>
+            
+              <a href="/tags/%E5%85%AC%E7%9B%8A%E8%B5%9B/">#公益赛</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/posts/28582.html" target="_self">
+          CF1368E Ski Accidents 题解
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/posts/28582.html" target="_self">
+        <div>
+          思路 首先我们看到题中给出，这个图是一个 DAG，因此很容易的就可以想到拓扑排序。那么我们在思考一下，如何满足题目中给出的删除的点不超过 \(\frac{4}{7}n\) 的要求。我们可以举一个例子，看到下面的二叉树：  如果我们按照拓扑排序遍历，每次遍历到深度对 \(3\) 取模为 \(0\) 的节点，就删除。那么很显然，这个策略可以正常的分割出符合条件的链。同时，对于这个具有 \(7\) 个节
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2024-08-05 19:10" pubdate>
+              2024-08-05
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E9%A2%98%E8%A7%A3/">#题解</a>
+            
+              <a href="/tags/CodeForces/">#CodeForces</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/posts/21737.html" target="_self">
+          OiClass TIGAO P3280 牛牛的猜球游戏题解
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/posts/21737.html" target="_self">
+        <div>
+          思路 首先考虑暴力的做法，直接依题意模拟模拟，时间复杂度是 \(\mathcal{O}(nm)\)，显然不能通过。但是我们可以发现这种修改方式似乎很适合预处理，然后我就想到了使用前缀和的做法。然后每次进行替代，但是经过一段时间的调试，无法通过，果断放弃。 我们考虑时间复杂度稍高的分块做法，我们规定块长为 \(\sqrt{n}\)，然后将 \(n\) 次操作分成 \(\sqrt{n}\) 个块，对于
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2024-07-12 15:07" pubdate>
+              2024-07-12
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E9%A2%98%E8%A7%A3/">#题解</a>
+            
+              <a href="/tags/OiClass/">#OiClass</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/posts/7145.html" target="_self">
+          OiClass TIGAO P3279 牛牛的方程式题解
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/posts/7145.html" target="_self">
+        <div>
+          思路 首先观察一下方程：\(ax+by+cz=d\)。观察可以得到，他有整数解当且仅当 \(\gcd(a,\, b,\, c) \equiv 0 \pmod d\)，也就是说 \(d\) 被 \(a,\, b,\, c\) 的最大公因数整除。显然这是正确的。 但是通过以上的思路，我们只能通过小样例，在面对大样例的时候这个方法仍然有些力不从心。在 \(a,\,b,\,c\) 三者之中如果出现了 \(
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2024-07-12 14:48" pubdate>
+              2024-07-12
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E9%A2%98%E8%A7%A3/">#题解</a>
+            
+              <a href="/tags/OiClass/">#OiClass</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/posts/24926.html" target="_self">
+          OiClass TIGAO P3333 路径难题题解
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/posts/24926.html" target="_self">
+        <div>
+          思路 首先考虑暴力建边的做法，我们使用 \(\mathcal{O}({t_i}^2)\) 的时间建立公交站的边。然后我们考虑如何计算答案。考虑到每次坐公交车的时候都会进行出租车的结算，于是我们直接累计到最后才向上取整的做法是没有正确性的。 于是我们考虑每次到公交节点的时候就进行向上取整，这样就可以保证 Dijkstra 的正确性。 这样就解决了正确性的问题，然后考虑如何优化公交的建边。我们可以采用
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2024-07-10 16:06" pubdate>
+              2024-07-10
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/posts/32290.html" target="_self">
+          OiClass PU2TI P3042 拓展的奇拼图题解
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/posts/32290.html" target="_self">
+        <div>
+          思路 首先发现这题是八数码问题的加强版，但是数据量非常大，爆搜+剪枝的方法非常的不可取，于是我们考虑是否可以通过一些神秘的判断方法来判断出是否可以构造出来。 从数据量可以感受出来应该是使用某种接近线性的算法，果断猜测是否是逆序对。把矩阵展开后去掉 \(0\)，然后计算逆序对个数，判断奇偶性即可。 代码 123456789101112131415161718192021222324252627282
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2024-07-08 16:49" pubdate>
+              2024-07-08
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/OiClass/">#OiClass</a>
+            
+              <a href="/tags/%E2%80%9C%E9%A2%98%E8%A7%A3%E2%80%9D/">#“题解”</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/posts/21158.html" target="_self">
+          OiClass PU2TI P3186 小美的排队次数 题解
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/posts/21158.html" target="_self">
+        <div>
+          思路 以下格式模仿睿智的官方题解。  \(10\,\%\) 做法：呵呵，对于这种神奇的算法还是表示不明觉厉。 \(40\,\%\) 做法：呵呵，依题意模拟计数即可。 \(100\,\%\) 做法：呵呵，随便做即可。考虑以下先做一轮，观察一下有什么性质。手磨样例，一轮以后是 1, 2, 3, 5, 4, 6 发现每一次只可能交换相邻的两个数，于是猜测逆序对。简单再次手磨以下， 1, 2, 3, 5,
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2024-06-19 16:38" pubdate>
+              2024-06-19
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E9%A2%98%E8%A7%A3/">#题解</a>
+            
+              <a href="/tags/OiClass/">#OiClass</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/posts/51536.html" target="_self">
+          SPOJ SETSTACK 题解
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/posts/51536.html" target="_self">
+        <div>
+          题意 有一个装着集合的栈，需要你实现以下操作：  PUSH. 将把空集 \(\{\}\) 推到堆栈上。 DUP. 将复制最顶层的集合（弹出堆栈，然后将该集合推入堆栈两次）。 UNION. 会弹出堆栈两次，然后将两个集合的联合值推入堆栈。 INTERSECT. 会弹出堆栈两次，然后将两个集合的交集推到堆栈上。 ADD. 会弹出堆栈两次，将第一个集合加入第二个集合，然后将得到的集合推到堆栈上。  对于
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2024-06-12 17:43" pubdate>
+              2024-06-12
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E9%A2%98%E8%A7%A3/">#题解</a>
+            
+              <a href="/tags/SPOJ/">#SPOJ</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/posts/57531.html" target="_self">
+          SPOJ MARTIAN 题解
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/posts/57531.html" target="_self">
+        <div>
+          思路 首先简单理解一下题目，会发现题目就是在网格上选择若干列（或列的上面一段）以及若干行（或行的左边一段）似的这些被选中的列和行之间的和最大。具体可以看题目的这张图：  很明显这是一个 DP 问题，于是我们着手设计状态转移方程。首先我们先分别预处理出纵向的和横向的两个前缀和分别是 \(y_{i,\,j}\) 和 \(b_{i,\,j}\)，字母对应题目的矿物名称首字母。然后我们设状态 \(f_{i
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2024-06-04 20:45" pubdate>
+              2024-06-04
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E9%A2%98%E8%A7%A3/">#题解</a>
+            
+              <a href="/tags/SPOJ/">#SPOJ</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/posts/30504.html" target="_self">
+          AtCoder ABC206D KAIBUNsyo 题解
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/posts/30504.html" target="_self">
+        <div>
+          思路 观察到替换数字的过程，实际上就是将两个数字归为一类。借此不难联想到并查集的工作过程，因此我们可以考虑使用并查集解决这个问题。 我们使用并查集维护当前数字所属的集合，初始时对于数字 \(x\)，它位于集合 \(x\) 中。当我们发现本应相同但是并不在同一个集合内的数字时，我们不得不将其合并，并记录下一次操作。在操作的过程中，你不需要去判断究竟是改为了左边的或者右边的数字，只需要知道它们二者同属
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2024-06-04 20:22" pubdate>
+              2024-06-04
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E9%A2%98%E8%A7%A3/">#题解</a>
+            
+              <a href="/tags/AtCoder/">#AtCoder</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/posts/47712.html" target="_self">
+          OiClass PUJI P3827 函数 题解
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/posts/47712.html" target="_self">
+        <div>
+          思路 首先化简一下公式： \[ \begin{align*} f(n,\,r)&amp;={\rm C}^r_n (n - r)!\\ &amp;=\frac{A^r_n(n - r)!}{r!}\\ &amp;=\frac{n!}{r!}\\ &amp;=\prod _{i=r + 1}^n i \end{align*} \] 但是数据范围很大，于是我们考虑使用数据结构来优化这个查询。第一感觉是
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2024-05-21 19:23" pubdate>
+              2024-05-21
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E9%A2%98%E8%A7%A3/">#题解</a>
+            
+              <a href="/tags/OiClass/">#OiClass</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/posts/9199.html" target="_self">
+          CF1612D X-Magic Pair 题解
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/posts/9199.html" target="_self">
+        <div>
+          思路 我们首先假定 \(a &lt; b\) ，那么我们可以通过题目给定的方式将 \((a,\,b)\) 转移到：  \((b - a,\,b)\) \((a,\,b- a)\)  这是显然的。但是我们发现如果我们转化为 \((b - a,\, a)\)，那么下一步就会转移到：  \(((b - a) - (b - a),\, a) = (0,\,a)\) \((b - a,\, a - (b -
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2024-05-17 17:26" pubdate>
+              2024-05-17
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E9%A2%98%E8%A7%A3/">#题解</a>
+            
+              <a href="/tags/CodeForces/">#CodeForces</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/posts/7177.html" target="_self">
+          UVA929 Number Maze 题解
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/posts/7177.html" target="_self">
+        <div>
+          思路 简单看一下题目，可以理解为在网格上寻找从点 \((1,\,1)\) 到点 \((n,\,m)\) 的最短路，其中权值为点权。 我们可以考虑直接使用 Dijkstra 算法在网格上跑一遍最短路算法，求得答案。下面简述一下 Dijkstra 算法的过程：  创建一个大小与顶点数量相等的数组 \(f\)，用于存储起始点到各个顶点的当前最短距离估计值。 将起始点的距离值设置为起始点的点权，其他点的距
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2024-05-15 17:18" pubdate>
+              2024-05-15
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E9%A2%98%E8%A7%A3/">#题解</a>
+            
+              <a href="/tags/UVA/">#UVA</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/posts/38985.html" target="_self">
+          AT_arc132_b Shift and Reverse 题解
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/posts/38985.html" target="_self">
+        <div>
+          题意 有一个序列，你可以将它翻转或者将第一个数挪到最后面，求最小的操作使得序列升序的次数。数据保证有解。 思路 首先我们可以看到题目中说保证一定有解，因此我们可以发现挪动的方式一定是将前面的数整体挪到到后面或者翻转后将前面的数移到后面再翻转回来。看一个例子： 13 4 5 6 7 8 9 10 1 2 答案显然是将序列整体翻转后将 2 1 挪到最后面然后再翻转回来，次数为 4。 有了上面的结论，我
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2024-05-14 17:30" pubdate>
+              2024-05-14
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E9%A2%98%E8%A7%A3/">#题解</a>
+            
+              <a href="/tags/AtCoder/">#AtCoder</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/posts/33139.html" target="_self">
+          Luogu P2568 GCD 题解
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/posts/33139.html" target="_self">
+        <div>
+          思路 首先我们可以根据题意列出式子： \[ \sum_{p \in {\mathbb P}}\sum_{i = 1}^{n} \sum_{j=1}^n [\gcd(i, j)=p] \] 根据一些神秘的直觉，可以将式子化简成下面的样子： \[ \sum_{p \in {\mathbb P}} \sum_{i = 1}^{\left\lfloor\frac n p\right\rfloor}\sum
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2024-05-08 16:46" pubdate>
+              2024-05-08
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E9%A2%98%E8%A7%A3/">#题解</a>
+            
+              <a href="/tags/%E6%B4%9B%E8%B0%B7/">#洛谷</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/posts/undefined.html" target="_self">
+          TYCPC 游记
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/posts/undefined.html" target="_self">
+        <div>
+          感受 感觉出题人就是 ___ ，出的全是人类智慧题，罚时吃饱了！ T1 不会。 T2 分解质因数秒了，就是有点担心 unordered_map 常数太大，不过卡过去了，不慌。 T3 排序建图后然后直接分联通块就可以了。但是不知道关掉同步流以后 puts 不可以和 cout 一起用，多吃了一发罚时，大悲。 T4 可以发现，一棵树上的任何一个节点（除根节点）一定入度是 \(1\)，于是对总度数倒序排序
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2024-05-07 19:55" pubdate>
+              2024-05-07
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/OiClass/">#OiClass</a>
+            
+              <a href="/tags/%E6%B8%B8%E8%AE%B0/">#游记</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/posts/48509.html" target="_self">
+          Luogu P1495 题解
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/posts/48509.html" target="_self">
+        <div>
+          思路 首先看一下题目，可以理解为求解下面的方程： \[ \left\{ \begin{array}{c} x \equiv b_1 \pmod {a_1} \\ x \equiv b_2 \pmod {a_2} \\ \cdots \\ x \equiv b_n \pmod {a_n} \\ \end{array} \right. \] 很显然可以用中国剩余定理求解，下面讲一下具体过程。  求出
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2024-04-29 21:15" pubdate>
+              2024-04-29
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E9%A2%98%E8%A7%A3/">#题解</a>
+            
+              <a href="/tags/%E6%B4%9B%E8%B0%B7/">#洛谷</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/posts/49007.html" target="_self">
+          2024 成都七中多校联训游记
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/posts/49007.html" target="_self">
+        <div>
+          Day 0 早上 6:00 准时起床，跑到番禺校区门口。看到我们的公务车，感觉很高级。   IMG_0834(20240329-202147)  结果我们五个学生在车上等 lily 一个人，相当抽象啊。 到了机场先和番禺的人一起办了值机，然后越秀的说刚出发蚌埠住了。等啊等，看了 \(20 \rm min\)​​ 的 B 站，感觉他们可能还要很久。准备启动，然后刚进游戏，他们来了！！！受不了一点。
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2024-04-10 20:51" pubdate>
+              2024-04-10
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E6%B8%B8%E8%AE%B0/">#游记</a>
+            
+              <a href="/tags/%E6%88%90%E9%83%BD%E4%B8%83%E4%B8%AD/">#成都七中</a>
+            
+              <a href="/tags/%E5%A4%9A%E6%A0%A1%E8%81%94%E8%AE%AD/">#多校联训</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/posts/8218.html" target="_self">
+          2024 成都七中多校联训内容
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/posts/8218.html" target="_self">
+        <div>
+          前言 这是较为完整的训练内容，当然有若干场训练并没有整理出题单，而是写在了 PPT 里面，懒了，不搬了。其次有一场讲评的录屏是不完整的，这个要怪讲评人。 比赛 题目原题均在 ACCoders，被 CodingCow 搬到了 OiClass（有些没搬），题面可能略有修改，数据并非原数据，是重新造的。 2024 多校集训 C 层 - 冲刺 NOIP 模拟 1 题目  P9006 操作 P9007 染色
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2024-04-10 16:48" pubdate>
+              2024-04-10
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E6%88%90%E9%83%BD%E4%B8%83%E4%B8%AD/">#成都七中</a>
+            
+              <a href="/tags/%E5%A4%9A%E6%A0%A1%E8%81%94%E8%AE%AD/">#多校联训</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/posts/29158.html" target="_self">
+          算法详解 - 素数
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/posts/29158.html" target="_self">
+        <div>
+          定义 素数，又被称为质数。我们一般定义质数为除了 \(1\) 和自身之外没有其他因数的数，特别的 $1 $ 不是质数。 判断 试除法 我们考虑如何判断质数，一种很显然的思路就是枚举这个数的因数。假设这个数是 \(x\)，则我们可以枚举 \([2,\,\sqrt{x}]\) 之间的整数，判断是否可以整除，如果没有找到一个可以整除的数，那么可以认为这是一个质数。时间复杂度是 \(O(\sqrt{x})
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2024-04-09 14:58" pubdate>
+              2024-04-09
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3/">#算法详解</a>
+            
+              <a href="/tags/%E7%B4%A0%E6%95%B0/">#素数</a>
+            
+              <a href="/tags/%E8%B4%A8%E6%95%B0/">#质数</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+
+
+  <nav aria-label="navigation">
+    <span class="pagination" id="pagination">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/#board">2</a><a class="page-number" href="/page/3/#board">3</a><a class="page-number" href="/page/4/#board">4</a><a class="extend next" rel="next" href="/page/2/#board"><i class="iconfont icon-arrowright"></i></a>
+    </span>
+  </nav>
+
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <div style="font-size: 0.85rem"> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> </div> <style>#scroll-top-button i {color: white}</style> <script src="https://cdn.bootcss.com/vue/2.6.11/vue.min.js"></script> <script src="https://lab.magiconch.com/nbnhhsh/nbnhhsh.user.js"></script> <!--<script> if (window.location.host == "codingcow.netlify.app") {window.location.host = "codingcow.tech"}</script>--> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    
+  
+
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
