@@ -21,12 +21,12 @@
   <meta name="author" content="CodingCow Lee">
   <meta name="keywords" content="python,ml,deeplearning,dl,c++,c,pytorch,noi,oi,ioi,noip,csp-j,csp-s,oier,tyoi,oiclass">
   
-    <meta name="description" content="这道题简直拓宽了回文这个词的定义天哪，我见回文数，回文分解，回文日，还真的没有见过回文词，而且这个词还毫无任何美感可言，其他回文可都是很优雅的呀。不吐槽了，进入正题 1. 划分阶段这里定义两个字符串，$a$ 和 $b$ ，$a$ 是输入的字符串，$b$ 是 $a$ 的反串。对于这两个字符串，一共有  $2 \times a.length()$ 种状态，也可以说有 $a.length() + b.l">
+    <meta name="description" content="这道题简直拓宽了回文这个词的定义 天哪，我见回文数，回文分解，回文日，还真的没有见过回文词，而且这个词还毫无任何美感可言，其他回文可都是很优雅的呀。不吐槽了，进入正题 1. 划分阶段 这里定义两个字符串，\(a\) 和 \(b\) ，\(a\) 是输入的字符串，\(b\) 是 \(a\) 的反串。对于这两个字符串，一共有 \(2 \times a.length()\) 种状态，也可以说有 \(a.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Oiclass P1928 题解">
 <meta property="og:url" content="https://codingcow.lee.mx/posts/2faeff2f.html">
 <meta property="og:site_name" content="CodingCow&#39;s Blog">
-<meta property="og:description" content="这道题简直拓宽了回文这个词的定义天哪，我见回文数，回文分解，回文日，还真的没有见过回文词，而且这个词还毫无任何美感可言，其他回文可都是很优雅的呀。不吐槽了，进入正题 1. 划分阶段这里定义两个字符串，$a$ 和 $b$ ，$a$ 是输入的字符串，$b$ 是 $a$ 的反串。对于这两个字符串，一共有  $2 \times a.length()$ 种状态，也可以说有 $a.length() + b.l">
+<meta property="og:description" content="这道题简直拓宽了回文这个词的定义 天哪，我见回文数，回文分解，回文日，还真的没有见过回文词，而且这个词还毫无任何美感可言，其他回文可都是很优雅的呀。不吐槽了，进入正题 1. 划分阶段 这里定义两个字符串，\(a\) 和 \(b\) ，\(a\) 是输入的字符串，\(b\) 是 \(a\) 的反串。对于这两个字符串，一共有 \(2 \times a.length()\) 种状态，也可以说有 \(a.">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-01-12T03:48:00.000Z">
 <meta property="article:modified_time" content="2024-08-05T11:10:08.000Z">
@@ -260,7 +260,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          780 字
+          778 字
         
       </span>
     
@@ -337,21 +337,64 @@
             
               <div class="markdown-body">
                 
-                <h1 id="这道题简直拓宽了回文这个词的定义"><a href="#这道题简直拓宽了回文这个词的定义" class="headerlink" title="这道题简直拓宽了回文这个词的定义"></a>这道题简直拓宽了<strong>回文</strong>这个词的定义</h1><p>天哪，我见回文数，回文分解，回文日，还真的没有见过回文词，而且这个词还毫无任何美感可言，其他回文可都是很优雅的呀。不吐槽了，进入正题</p>
-<h2 id="1-划分阶段"><a href="#1-划分阶段" class="headerlink" title="1. 划分阶段"></a>1. 划分阶段</h2><p>这里定义两个字符串，$a$ 和 $b$ ，$a$ 是输入的字符串，$b$ 是 $a$ 的反串。对于这两个字符串，一共有  $2 \times a.length()$ 种状态，也可以说有 $a.length() + b.length()$ 种状态</p>
-<h2 id="2-确定状态和状态变量"><a href="#2-确定状态和状态变量" class="headerlink" title="2. 确定状态和状态变量"></a>2. <strong>确定状态和状态变量</strong></h2><p>状态变量用一个二维数组 $f$ ，对于一个状态 $f_{i,\ j}$ 他表示的是字符串 $a$ 的前 $i$ 个字符的子串和字符串 $b$ 的前 $j$ 个字符最长公共子序列的长度，额，为什么是最长公共子序列呢？我们可以发现，对于这两个字符串，他们的最长公共子序列实际上就是可以回文的部分，通过计算这一部分，我们就可以反向计算出我们需要添加多少个字符 从而使这个字符串整个变得回文。</p>
-<h2 id="3-确定状态转移方程"><a href="#3-确定状态转移方程" class="headerlink" title="3. 确定状态转移方程"></a>3. 确定状态转移方程</h2><p>直接复制粘贴 LCS 的就 OK 了，简单贴一下吧：</p>
+                <h1
+id="这道题简直拓宽了回文这个词的定义">这道题简直拓宽了<strong>回文</strong>这个词的定义</h1>
+<p>天哪，我见回文数，回文分解，回文日，还真的没有见过回文词，而且这个词还毫无任何美感可言，其他回文可都是很优雅的呀。不吐槽了，进入正题</p>
+<h2 id="划分阶段">1. 划分阶段</h2>
+<p>这里定义两个字符串，<span class="math inline">\(a\)</span> 和 <span
+class="math inline">\(b\)</span> ，<span
+class="math inline">\(a\)</span> 是输入的字符串，<span
+class="math inline">\(b\)</span> 是 <span
+class="math inline">\(a\)</span> 的反串。对于这两个字符串，一共有 <span
+class="math inline">\(2 \times a.length()\)</span> 种状态，也可以说有
+<span class="math inline">\(a.length() + b.length()\)</span> 种状态</p>
+<h2 id="确定状态和状态变量">2. <strong>确定状态和状态变量</strong></h2>
+<p>状态变量用一个二维数组 <span class="math inline">\(f\)</span>
+，对于一个状态 <span class="math inline">\(f_{i,\ j}\)</span>
+他表示的是字符串 <span class="math inline">\(a\)</span> 的前 <span
+class="math inline">\(i\)</span> 个字符的子串和字符串 <span
+class="math inline">\(b\)</span> 的前 <span
+class="math inline">\(j\)</span>
+个字符最长公共子序列的长度，额，为什么是最长公共子序列呢？我们可以发现，对于这两个字符串，他们的最长公共子序列实际上就是可以回文的部分，通过计算这一部分，我们就可以反向计算出我们需要添加多少个字符
+从而使这个字符串整个变得回文。</p>
+<h2 id="确定状态转移方程">3. 确定状态转移方程</h2>
+<p>直接复制粘贴 LCS 的就 OK 了，简单贴一下吧：</p>
 <blockquote>
-<p>  决策很简单呢，如果相同，那么就 $+1$ 如果不同，那么就选择复制 $f_{i-1,\ j}$ 和 $f_{i,\ j-1}$ 中大的那一个，很简单，写出方程如下：<br>  $$<br>  f_{i,\ j} &#x3D; \left{<br>  \begin{array}{lr}<br>  a_i &#x3D; b_j\ \ \ \ f_{i - 1,\ j-1} + 1\<br>  a_i ≠ b_j\ \ \ \ \max(f_{i-1,\ j},\ f_{i,\ j-1})<br>  \end{array}<br>  \right.<br>  $$</p>
+<p>决策很简单呢，如果相同，那么就 <span
+class="math inline">\(+1\)</span> 如果不同，那么就选择复制 <span
+class="math inline">\(f_{i-1,\ j}\)</span> 和 <span
+class="math inline">\(f_{i,\ j-1}\)</span>
+中大的那一个，很简单，写出方程如下： <span class="math display">\[
+  f_{i,\ j} = \left\{
+  \begin{array}{lr}
+  a_i = b_j\ \ \ \ f_{i - 1,\ j-1} + 1\\
+  a_i ≠ b_j\ \ \ \ \max(f_{i-1,\ j},\ f_{i,\ j-1})
+  \end{array}
+  \right.
+  \]</span></p>
 </blockquote>
-<h2 id="4-边界"><a href="#4-边界" class="headerlink" title="4. 边界"></a>4. 边界</h2><p>对于这道题，边界也是非常简单，和 LCS 一模一样，根本不用赋值，这是在上一篇中的解释：</p>
+<h2 id="边界">4. 边界</h2>
+<p>对于这道题，边界也是非常简单，和 LCS
+一模一样，根本不用赋值，这是在上一篇中的解释：</p>
 <blockquote>
-<p>  初始值想都不用想，全都是 蛋（$0$），那么也就很简单了，什么都不用干，只需要创建数组，完事儿</p>
+<p>初始值想都不用想，全都是 蛋（<span
+class="math inline">\(0\)</span>），那么也就很简单了，什么都不用干，只需要创建数组，完事儿</p>
 </blockquote>
-<p>额，好像和没有解释一样，还是讲一下吧。你想一下，我们的 LCS 在什么字符都没有，也就是 $f_{i,\ 0}$ 和 $f_{0,\ i}$ 的时候，他必定没有任何字符可以与他形成最长公共子序列，所以这两列（行）就一定是 $0$ 而有因为全局数组的初始值就是 $0$ 所以什么都不需要干。</p>
-<h2 id="5-实现"><a href="#5-实现" class="headerlink" title="5. 实现"></a>5. 实现</h2><p>实现依旧是很简单，实际上只需要把 LCS 的代码稍加修改即可，也就是把 $b$ 串设定为 $a$ 串的反串，输出的时候输出 $a.length()-f_{a.length(),\ a.length()}$ 即可，而又因为题目中已经给到了我们字符串的长度，所以只需要输出 $n-f_{n,\ n}$ 即可。除了不是很优雅，这道题简直是非常妙。代码如下：</p>
+<p>额，好像和没有解释一样，还是讲一下吧。你想一下，我们的 LCS
+在什么字符都没有，也就是 <span class="math inline">\(f_{i,\ 0}\)</span>
+和 <span class="math inline">\(f_{0,\ i}\)</span>
+的时候，他必定没有任何字符可以与他形成最长公共子序列，所以这两列（行）就一定是
+<span class="math inline">\(0\)</span> 而有因为全局数组的初始值就是
+<span class="math inline">\(0\)</span> 所以什么都不需要干。</p>
+<h2 id="实现">5. 实现</h2>
+<p>实现依旧是很简单，实际上只需要把 LCS 的代码稍加修改即可，也就是把
+<span class="math inline">\(b\)</span> 串设定为 <span
+class="math inline">\(a\)</span> 串的反串，输出的时候输出 <span
+class="math inline">\(a.length()-f_{a.length(),\ a.length()}\)</span>
+即可，而又因为题目中已经给到了我们字符串的长度，所以只需要输出 <span
+class="math inline">\(n-f_{n,\ n}\)</span>
+即可。除了不是很优雅，这道题简直是非常妙。代码如下：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;algorithm&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br>string a, b;<br><span class="hljs-type">int</span> n, f[<span class="hljs-number">5009</span>][<span class="hljs-number">5009</span>];<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    cin &gt;&gt; n &gt;&gt; a;<br>    b = a;<br>    <span class="hljs-built_in">reverse</span>(a.<span class="hljs-built_in">begin</span>(), a.<span class="hljs-built_in">end</span>());<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++) &#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">1</span>; j &lt;= n; j++) &#123;<br>            <span class="hljs-keyword">if</span> (a[i - <span class="hljs-number">1</span>] == b[j - <span class="hljs-number">1</span>]) &#123;<br>                f[i][j] = f[i - <span class="hljs-number">1</span>][j - <span class="hljs-number">1</span>] + <span class="hljs-number">1</span>;<br>            &#125; <span class="hljs-keyword">else</span> &#123;<br>                f[i][j] = <span class="hljs-built_in">max</span>(f[i - <span class="hljs-number">1</span>][j], f[i][j - <span class="hljs-number">1</span>]);<br>            &#125;<br>        &#125;<br>    &#125;<br>    cout &lt;&lt; n - f[n][n];<br>&#125;<br></code></pre></td></tr></table></figure>
-
 
                 
               </div>
