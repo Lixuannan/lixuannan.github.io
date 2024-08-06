@@ -21,12 +21,12 @@
   <meta name="author" content="CodingCow Lee">
   <meta name="keywords" content="python,ml,deeplearning,dl,c++,c,pytorch,noi,oi,ioi,noip,csp-j,csp-s,oier,tyoi,oiclass">
   
-    <meta name="description" content="这次是 LIS 的兄弟 LCS（最长公共子序列） 一个词概括，模板题。但是，模板题也很难啊啊啊啊啊啊。又是经典的五步： 1. 划分状态 假设 \(a\) 和 \(b\) 是本次主角字符串（好想把他们拉出去斩了） ，那么一共有 \(a.length() \times b.length()\) 种状态，每一种状态表示下标 \(i\) 之前的 \(a\) 的子串（即 a.substr(0, i)）与下标">
+    <meta name="description" content="这次是 LIS 的兄弟 LCS（最长公共子序列）一个词概括，模板题。但是，模板题也很难啊啊啊啊啊啊。又是经典的五步： 1. 划分状态假设 $a$ 和 $b$ 是本次主角字符串（好想把他们拉出去斩了） ，那么一共有 $a.length() \times b.length()$ 种状态，每一种状态表示下标 $i$ 之前的 $a$ 的子串（即 a.substr(0, i)）与下标 $j$ 前的 $b$">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Oiclass P1241 题解">
 <meta property="og:url" content="https://codingcow.lee.mx/posts/bb1b6679.html">
 <meta property="og:site_name" content="CodingCow&#39;s Blog">
-<meta property="og:description" content="这次是 LIS 的兄弟 LCS（最长公共子序列） 一个词概括，模板题。但是，模板题也很难啊啊啊啊啊啊。又是经典的五步： 1. 划分状态 假设 \(a\) 和 \(b\) 是本次主角字符串（好想把他们拉出去斩了） ，那么一共有 \(a.length() \times b.length()\) 种状态，每一种状态表示下标 \(i\) 之前的 \(a\) 的子串（即 a.substr(0, i)）与下标">
+<meta property="og:description" content="这次是 LIS 的兄弟 LCS（最长公共子序列）一个词概括，模板题。但是，模板题也很难啊啊啊啊啊啊。又是经典的五步： 1. 划分状态假设 $a$ 和 $b$ 是本次主角字符串（好想把他们拉出去斩了） ，那么一共有 $a.length() \times b.length()$ 种状态，每一种状态表示下标 $i$ 之前的 $a$ 的子串（即 a.substr(0, i)）与下标 $j$ 前的 $b$">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-01-12T03:19:00.000Z">
 <meta property="article:modified_time" content="2024-08-05T11:10:08.000Z">
@@ -260,7 +260,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          532 字
+          534 字
         
       </span>
     
@@ -337,56 +337,14 @@
             
               <div class="markdown-body">
                 
-                <h1 id="这次是-lis-的兄弟-lcs最长公共子序列">这次是 <strong>LIS</strong>
-的兄弟 <strong>LCS</strong>（最长公共子序列）</h1>
-<p>一个词概括，模板题。但是，模板题也很难啊啊啊啊啊啊。又是经典的五步：</p>
-<h2 id="划分状态">1. 划分状态</h2>
-<p>假设 <span class="math inline">\(a\)</span> 和 <span
-class="math inline">\(b\)</span>
-是本次主角字符串（好想把他们拉出去斩了） ，那么一共有 <span
-class="math inline">\(a.length() \times b.length()\)</span>
-种状态，每一种状态表示下标 <span class="math inline">\(i\)</span> 之前的
-<span class="math inline">\(a\)</span> 的子串（即
-<code>a.substr(0, i)</code>）与下标 <span
-class="math inline">\(j\)</span> 前的 <span
-class="math inline">\(b\)</span> 的子串（即
-<code>b.substr(0, j)</code>）的最长公共子序列的长度。</p>
-<h2 id="确定状态和状态变量">2. 确定状态和状态变量</h2>
-<p>状态就是 （1） 里面说的，那么状态变量我用一个二维数组 <span
-class="math inline">\(f\)</span> ，也就是说 <span
-class="math inline">\(f_{i,\ j}\)</span> 就是一个表示下标 <span
-class="math inline">\(i\)</span> 之前的 <span
-class="math inline">\(a\)</span> 的子串（即
-<code>a.substr(0, i)</code>）与下标 <span
-class="math inline">\(j\)</span> 前的 <span
-class="math inline">\(b\)</span> 的子串（即
-<code>b.substr(0, j)</code>）的最长公共子序列的长度的状态</p>
-<h2 id="写出状态转移方程并确定决策">3. 写出状态转移方程并确定决策</h2>
-<p>决策很简单呢，如果相同，那么就 <span
-class="math inline">\(+1\)</span> 如果不同，那么就选择复制 <span
-class="math inline">\(f_{i-1,\ j}\)</span> 和 <span
-class="math inline">\(f_{i,\ j-1}\)</span>
-中大的那一个，很简单，写出方程如下： <span class="math display">\[
-f_{i,\ j} = \left\{
-\begin{array}{lr}
-a_i = b_j\ \ \ \ f_{i - 1,\ j-1} + 1\\
-a_i ≠ b_j\ \ \ \ \max(f_{i-1,\ j},\ f_{i,\ j-1})
-\end{array}
-\right.
-\]</span></p>
-<h2 id="初始值">4. 初始值</h2>
-<p>初始值想都不用想，全都是 蛋（<span
-class="math inline">\(0\)</span>），那么也就很简单了，什么都不用干，只需要创建数组，完事儿</p>
-<h2 id="实现">5. 实现</h2>
-<p>实现直接模拟就可以
-AC，注意一点，如果想我一样图方便把循环的原始值设置成 <span
-class="math inline">\(0\)</span>
-的话，会有一个问题，你在继承值的时候涉及到 <span
-class="math inline">\(-1\)</span>
-的操作，这就会导致数组越界，轻则算不准，重则 RE <span
-class="math inline">\(0\ pts\)</span>
-，避完坑之后就可以放心打代码了，如下：</p>
+                <h1 id="这次是-LIS-的兄弟-LCS（最长公共子序列）"><a href="#这次是-LIS-的兄弟-LCS（最长公共子序列）" class="headerlink" title="这次是 LIS 的兄弟 LCS（最长公共子序列）"></a>这次是 <strong>LIS</strong> 的兄弟 <strong>LCS</strong>（最长公共子序列）</h1><p>一个词概括，模板题。但是，模板题也很难啊啊啊啊啊啊。又是经典的五步：</p>
+<h2 id="1-划分状态"><a href="#1-划分状态" class="headerlink" title="1. 划分状态"></a>1. 划分状态</h2><p>假设 $a$ 和 $b$ 是本次主角字符串（好想把他们拉出去斩了） ，那么一共有 $a.length() \times b.length()$ 种状态，每一种状态表示下标 $i$ 之前的 $a$ 的子串（即 <code>a.substr(0, i)</code>）与下标 $j$ 前的 $b$ 的子串（即 <code>b.substr(0, j)</code>）的最长公共子序列的长度。</p>
+<h2 id="2-确定状态和状态变量"><a href="#2-确定状态和状态变量" class="headerlink" title="2. 确定状态和状态变量"></a>2. 确定状态和状态变量</h2><p>状态就是 （1） 里面说的，那么状态变量我用一个二维数组 $f$ ，也就是说 $f_{i,\ j}$ 就是一个表示下标 $i$ 之前的 $a$ 的子串（即 <code>a.substr(0, i)</code>）与下标 $j$ 前的 $b$ 的子串（即 <code>b.substr(0, j)</code>）的最长公共子序列的长度的状态</p>
+<h2 id="3-写出状态转移方程并确定决策"><a href="#3-写出状态转移方程并确定决策" class="headerlink" title="3. 写出状态转移方程并确定决策"></a>3. 写出状态转移方程并确定决策</h2><p>决策很简单呢，如果相同，那么就 $+1$ 如果不同，那么就选择复制 $f_{i-1,\ j}$ 和 $f_{i,\ j-1}$ 中大的那一个，很简单，写出方程如下：<br>$$<br>f_{i,\ j} &#x3D; \left{<br>\begin{array}{lr}<br>a_i &#x3D; b_j\ \ \ \ f_{i - 1,\ j-1} + 1\<br>a_i ≠ b_j\ \ \ \ \max(f_{i-1,\ j},\ f_{i,\ j-1})<br>\end{array}<br>\right.<br>$$</p>
+<h2 id="4-初始值"><a href="#4-初始值" class="headerlink" title="4. 初始值"></a>4. 初始值</h2><p>初始值想都不用想，全都是 蛋（$0$），那么也就很简单了，什么都不用干，只需要创建数组，完事儿</p>
+<h2 id="5-实现"><a href="#5-实现" class="headerlink" title="5. 实现"></a>5. 实现</h2><p>实现直接模拟就可以 AC，注意一点，如果想我一样图方便把循环的原始值设置成 $0$ 的话，会有一个问题，你在继承值的时候涉及到 $-1$ 的操作，这就会导致数组越界，轻则算不准，重则 RE $0\ pts$ ，避完坑之后就可以放心打代码了，如下：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-type">int</span> f[<span class="hljs-number">2009</span>][<span class="hljs-number">2009</span>];<br>string a, b;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    cin &gt;&gt; a &gt;&gt; b;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= a.<span class="hljs-built_in">length</span>(); i++) &#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">1</span>; j &lt;= b.<span class="hljs-built_in">length</span>(); j++) &#123;<br>            <span class="hljs-keyword">if</span> (a[i - <span class="hljs-number">1</span>] == b[j - <span class="hljs-number">1</span>]) &#123;<br>                f[i][j] = f[i - <span class="hljs-number">1</span>][j - <span class="hljs-number">1</span>] + <span class="hljs-number">1</span>;<br>            &#125; <span class="hljs-keyword">else</span> &#123;<br>                f[i][j] = <span class="hljs-built_in">max</span>(f[i - <span class="hljs-number">1</span>][j], f[i][j - <span class="hljs-number">1</span>]);<br>            &#125;<br>        &#125;<br>    &#125;<br>    cout &lt;&lt; f[a.<span class="hljs-built_in">length</span>()][b.<span class="hljs-built_in">length</span>()];<br>&#125;<br></code></pre></td></tr></table></figure>
+
 
                 
               </div>

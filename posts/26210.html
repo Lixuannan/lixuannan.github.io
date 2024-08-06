@@ -21,12 +21,12 @@
   <meta name="author" content="CodingCow Lee">
   <meta name="keywords" content="python,ml,deeplearning,dl,c++,c,pytorch,noi,oi,ioi,noip,csp-j,csp-s,oier,tyoi,oiclass">
   
-    <meta name="description" content="思路 朴素做法 首先我们考虑一定可以有一个点是幸运数，于是我们可以考虑遍历每一个 \(S_i\)，钦定 \(a_i\) 是一个幸运数，然后我们就可以反推出 \(a_1\) 的值。然后我们统计 \(a_1\) 重复被计算出的次数。因为只要有一个 \(a_i\) 被确定了，整个序列就确定了。也就是说，\(a_1\) 的重复次数就是我们要求的最多的幸运数个数，因为他们都是同一个序列。如果我们这样做，时间">
+    <meta name="description" content="思路朴素做法首先我们考虑一定可以有一个点是幸运数，于是我们可以考虑遍历每一个 $S_i$，钦定 $a_i$ 是一个幸运数，然后我们就可以反推出 $a_1$ 的值。然后我们统计 $a_1$ 重复被计算出的次数。因为只要有一个 $a_i$ 被确定了，整个序列就确定了。也就是说，$a_1$ 的重复次数就是我们要求的最多的幸运数个数，因为他们都是同一个序列。如果我们这样做，时间复杂度是 $\mathcal">
 <meta property="og:type" content="article">
 <meta property="og:title" content="AT_abc255_e 题解">
 <meta property="og:url" content="https://codingcow.lee.mx/posts/26210.html">
 <meta property="og:site_name" content="CodingCow&#39;s Blog">
-<meta property="og:description" content="思路 朴素做法 首先我们考虑一定可以有一个点是幸运数，于是我们可以考虑遍历每一个 \(S_i\)，钦定 \(a_i\) 是一个幸运数，然后我们就可以反推出 \(a_1\) 的值。然后我们统计 \(a_1\) 重复被计算出的次数。因为只要有一个 \(a_i\) 被确定了，整个序列就确定了。也就是说，\(a_1\) 的重复次数就是我们要求的最多的幸运数个数，因为他们都是同一个序列。如果我们这样做，时间">
+<meta property="og:description" content="思路朴素做法首先我们考虑一定可以有一个点是幸运数，于是我们可以考虑遍历每一个 $S_i$，钦定 $a_i$ 是一个幸运数，然后我们就可以反推出 $a_1$ 的值。然后我们统计 $a_1$ 重复被计算出的次数。因为只要有一个 $a_i$ 被确定了，整个序列就确定了。也就是说，$a_1$ 的重复次数就是我们要求的最多的幸运数个数，因为他们都是同一个序列。如果我们这样做，时间复杂度是 $\mathcal">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-02-28T08:13:00.000Z">
 <meta property="article:modified_time" content="2024-08-05T11:10:08.000Z">
@@ -260,7 +260,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          656 字
+          663 字
         
       </span>
     
@@ -337,67 +337,17 @@
             
               <div class="markdown-body">
                 
-                <h2 id="思路">思路</h2>
-<h3 id="朴素做法">朴素做法</h3>
-<p>首先我们考虑一定可以有一个点是幸运数，于是我们可以考虑遍历每一个
-<span class="math inline">\(S_i\)</span>，钦定 <span
-class="math inline">\(a_i\)</span> 是一个幸运数，然后我们就可以反推出
-<span class="math inline">\(a_1\)</span> 的值。然后我们统计 <span
-class="math inline">\(a_1\)</span> 重复被计算出的次数。因为只要有一个
-<span class="math inline">\(a_i\)</span>
-被确定了，整个序列就确定了。也就是说，<span
-class="math inline">\(a_1\)</span>
-的重复次数就是我们要求的最多的幸运数个数，因为他们都是同一个序列。如果我们这样做，时间复杂度是
-<span
-class="math inline">\(\mathcal{O}(n^2m)\)</span>，很显然无法通过本题。</p>
-<h3 id="优化做法">优化做法</h3>
-<p>我们考虑如何优化这个算法。我们回顾一下计算 <span
-class="math inline">\(a_1\)</span> 值的过程。我们假设已经确定了 <span
-class="math inline">\(a_x\)</span> 的值：</p>
+                <h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><h3 id="朴素做法"><a href="#朴素做法" class="headerlink" title="朴素做法"></a>朴素做法</h3><p>首先我们考虑一定可以有一个点是幸运数，于是我们可以考虑遍历每一个 $S_i$，钦定 $a_i$ 是一个幸运数，然后我们就可以反推出 $a_1$ 的值。然后我们统计 $a_1$ 重复被计算出的次数。因为只要有一个 $a_i$ 被确定了，整个序列就确定了。也就是说，$a_1$ 的重复次数就是我们要求的最多的幸运数个数，因为他们都是同一个序列。如果我们这样做，时间复杂度是 $\mathcal{O}(n^2m)$，很显然无法通过本题。</p>
+<h3 id="优化做法"><a href="#优化做法" class="headerlink" title="优化做法"></a>优化做法</h3><p>我们考虑如何优化这个算法。我们回顾一下计算 $a_1$ 值的过程。我们假设已经确定了 $a_x$ 的值：</p>
 <ul>
-<li>如果 <span class="math inline">\(x\)</span>
-是<strong>奇数</strong>，那么很显然 <span class="math display">\[
-  \begin{align}
-  a_x &amp;= S_{x - 1}-S_{x-2}+S_{x-3}-\cdots+S_{1}-a_1\\
-  a_1 &amp;= (-1)^{x-1}\left(a_x - \left(S_{x -
-1}-S_{x-2}+S_{x-3}-\cdots+S_{1}\right)\right)
-  \end{align}
-  \]</span></li>
-<li>如果 <span class="math inline">\(x\)</span>
-是<strong>偶数</strong>，那么仍然很显然的是式子是 <span
-class="math display">\[
-  \begin{align}
-  a_x &amp;= S_{x-1}-S_{x-2}+S_{x-3}-\cdots-S_1+a_1\\
-  a_1 &amp;= (-1)^{x-1}\left(a_x -
-\left(S_{x-1}-S_{x-2}+S_{x-3}-\cdots-S_1\right)\right)
-  \end{align}
-  \]</span></li>
+<li>如果 $x$ 是<strong>奇数</strong>，那么很显然<br>  $$<br>  \begin{align}<br>  a_x &amp;&#x3D; S_{x - 1}-S_{x-2}+S_{x-3}-\cdots+S_{1}-a_1\<br>  a_1 &amp;&#x3D; (-1)^{x-1}\left(a_x - \left(S_{x - 1}-S_{x-2}+S_{x-3}-\cdots+S_{1}\right)\right)<br>  \end{align}<br>  $$</li>
+<li>如果 $x$ 是<strong>偶数</strong>，那么仍然很显然的是式子是<br>  $$<br>  \begin{align}<br>  a_x &amp;&#x3D; S_{x-1}-S_{x-2}+S_{x-3}-\cdots-S_1+a_1\<br>  a_1 &amp;&#x3D; (-1)^{x-1}\left(a_x - \left(S_{x-1}-S_{x-2}+S_{x-3}-\cdots-S_1\right)\right)<br>  \end{align}<br>  $$</li>
 </ul>
-<p>很显然，由于 <span class="math inline">\(S_i\)</span> 不会改变，<span
-class="math inline">\(\pm a_1\)</span>
-之前的一长串式子也不会改变，因此我们可以考虑预处理 <span
-class="math inline">\(\pm a_1\)</span> 前面的式子，然后 <span
-class="math inline">\(\mathcal{O}(1)\)</span> 求值。</p>
-<p>让我们设 <span class="math inline">\(f_{i,\,0}\)</span> 为此时 <span
-class="math inline">\(S_i\)</span> 系数为负的情况，<span
-class="math inline">\(f_{i,\,1}\)</span> 为此时 <span
-class="math inline">\(S_{i}\)</span>
-系数为正的情况。聪明的你可能发现了，<span
-class="math inline">\(f_{i,\,0}\)</span>
-在最终计算时不需要的，但是在预处理的过程中，这是必要的。很容易推出状态转移方程
-<span class="math display">\[
-\begin{array}{c}
-f_{i,\,0}=f_{i-1,\,1}-S_i\\
-f_{i,\,1}=f_{i-1,\,0}+S_i
-\end{array}
-\]</span> 则对于选定的 <span
-class="math inline">\(a_x\)</span>，其对应的 <span
-class="math inline">\(a_1=(-1)^{x-1}(a_x - f_{x-1,\,0})\)</span>。</p>
-<p>我们可以 <span class="math inline">\(\mathcal{O}(n)\)</span>
-预处理，然后采用朴素做法的思路统计答案，总复杂度为 <span
-class="math inline">\(\mathcal{O}(nm)\)</span>，可以通过。</p>
-<h2 id="代码">代码</h2>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;map&gt;</span></span><br><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> int long long</span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-type">int</span> n, m, s[<span class="hljs-number">100009</span>], x[<span class="hljs-number">20</span>], f[<span class="hljs-number">100009</span>][<span class="hljs-number">2</span>];<br>map&lt;<span class="hljs-type">int</span>, <span class="hljs-type">int</span>&gt; mp;<br><br><span class="hljs-function"><span class="hljs-type">signed</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    cin &gt;&gt; n &gt;&gt; m;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt; n; i++) &#123;<br>        cin &gt;&gt; s[i];<br>    &#125;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= m; i++) &#123;<br>        cin &gt;&gt; x[i];<br>    &#125;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++) &#123;<br>        f[i][<span class="hljs-number">0</span>] = f[i - <span class="hljs-number">1</span>][<span class="hljs-number">1</span>] + s[i];<br>        f[i][<span class="hljs-number">1</span>] = f[i - <span class="hljs-number">1</span>][<span class="hljs-number">0</span>] - s[i];<br>    &#125;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= m; i++) &#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">1</span>; j &lt;= n; j++) &#123;<br>            mp[(j &amp; <span class="hljs-number">1</span> ? <span class="hljs-number">1</span> : <span class="hljs-number">-1</span>) * (x[i] - f[j - <span class="hljs-number">1</span>][<span class="hljs-number">0</span>])] += <span class="hljs-number">1</span>;<br>        &#125;<br>    &#125;<br>    <span class="hljs-type">int</span> ans = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> &amp;[i, j]: mp) &#123;<br>        ans = <span class="hljs-built_in">max</span>(ans, j);<br>    &#125;<br>    cout &lt;&lt; ans;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>很显然，由于 $S_i$ 不会改变，$\pm a_1$ 之前的一长串式子也不会改变，因此我们可以考虑预处理 $\pm a_1$ 前面的式子，然后 $\mathcal{O}(1)$ 求值。</p>
+<p>让我们设 $f_{i,,0}$ 为此时 $S_i$ 系数为负的情况，$f_{i,,1}$ 为此时 $S_{i}$ 系数为正的情况。聪明的你可能发现了，$f_{i,,0}$ 在最终计算时不需要的，但是在预处理的过程中，这是必要的。很容易推出状态转移方程<br>$$<br>\begin{array}{c}<br>f_{i,,0}&#x3D;f_{i-1,,1}-S_i\<br>f_{i,,1}&#x3D;f_{i-1,,0}+S_i<br>\end{array}<br>$$<br>则对于选定的 $a_x$，其对应的 $a_1&#x3D;(-1)^{x-1}(a_x - f_{x-1,,0})$。</p>
+<p>我们可以 $\mathcal{O}(n)$ 预处理，然后采用朴素做法的思路统计答案，总复杂度为 $\mathcal{O}(nm)$，可以通过。</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;map&gt;</span></span><br><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> int long long</span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-type">int</span> n, m, s[<span class="hljs-number">100009</span>], x[<span class="hljs-number">20</span>], f[<span class="hljs-number">100009</span>][<span class="hljs-number">2</span>];<br>map&lt;<span class="hljs-type">int</span>, <span class="hljs-type">int</span>&gt; mp;<br><br><span class="hljs-function"><span class="hljs-type">signed</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    cin &gt;&gt; n &gt;&gt; m;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt; n; i++) &#123;<br>        cin &gt;&gt; s[i];<br>    &#125;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= m; i++) &#123;<br>        cin &gt;&gt; x[i];<br>    &#125;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++) &#123;<br>        f[i][<span class="hljs-number">0</span>] = f[i - <span class="hljs-number">1</span>][<span class="hljs-number">1</span>] + s[i];<br>        f[i][<span class="hljs-number">1</span>] = f[i - <span class="hljs-number">1</span>][<span class="hljs-number">0</span>] - s[i];<br>    &#125;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= m; i++) &#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">1</span>; j &lt;= n; j++) &#123;<br>            mp[(j &amp; <span class="hljs-number">1</span> ? <span class="hljs-number">1</span> : <span class="hljs-number">-1</span>) * (x[i] - f[j - <span class="hljs-number">1</span>][<span class="hljs-number">0</span>])] += <span class="hljs-number">1</span>;<br>        &#125;<br>    &#125;<br>    <span class="hljs-type">int</span> ans = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> &amp;[i, j]: mp) &#123;<br>        ans = <span class="hljs-built_in">max</span>(ans, j);<br>    &#125;<br>    cout &lt;&lt; ans;<br>&#125;<br></code></pre></td></tr></table></figure>
+
 
                 
               </div>

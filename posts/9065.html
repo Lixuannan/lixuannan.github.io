@@ -21,19 +21,22 @@
   <meta name="author" content="CodingCow Lee">
   <meta name="keywords" content="python,ml,deeplearning,dl,c++,c,pytorch,noi,oi,ioi,noip,csp-j,csp-s,oier,tyoi,oiclass">
   
-    <meta name="description" content="打表+卡常题 思路 不难发现，最短路径不外乎以下两种可能：   image-20231216150315312  一种是先一直向下，再一直向右下；而另一种是先一直右下再一直向下。对于 \(k \leq \frac{n}{2}\) 的请况，很显然是选择第一种路线，否则是第二种路线。 我们可以通过一个简单的技巧来将两种路线合一，我们可以发现，其实第二种情况相当于第一种情况中将 \(k\) 改为 \(n">
+    <meta name="description" content="打表+卡常题思路不难发现，最短路径不外乎以下两种可能：  一种是先一直向下，再一直向右下；而另一种是先一直右下再一直向下。对于 $k \leq \frac{n}{2}$ 的请况，很显然是选择第一种路线，否则是第二种路线。 我们可以通过一个简单的技巧来将两种路线合一，我们可以发现，其实第二种情况相当于第一种情况中将 $k$ 改为 $n - k + 1$ 的情况（像抬杠的可以自己去算一下，这个是真的，">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Oiclass PU2TI P3846 杨辉三角题解">
 <meta property="og:url" content="https://codingcow.lee.mx/posts/9065.html">
 <meta property="og:site_name" content="CodingCow&#39;s Blog">
-<meta property="og:description" content="打表+卡常题 思路 不难发现，最短路径不外乎以下两种可能：   image-20231216150315312  一种是先一直向下，再一直向右下；而另一种是先一直右下再一直向下。对于 \(k \leq \frac{n}{2}\) 的请况，很显然是选择第一种路线，否则是第二种路线。 我们可以通过一个简单的技巧来将两种路线合一，我们可以发现，其实第二种情况相当于第一种情况中将 \(k\) 改为 \(n">
+<meta property="og:description" content="打表+卡常题思路不难发现，最短路径不外乎以下两种可能：  一种是先一直向下，再一直向右下；而另一种是先一直右下再一直向下。对于 $k \leq \frac{n}{2}$ 的请况，很显然是选择第一种路线，否则是第二种路线。 我们可以通过一个简单的技巧来将两种路线合一，我们可以发现，其实第二种情况相当于第一种情况中将 $k$ 改为 $n - k + 1$ 的情况（像抬杠的可以自己去算一下，这个是真的，">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdmirror.com/gh/lixuannan/img//image-20231216150315312.png">
+<meta property="og:image" content="https://cdn.jsdmirror.com/gh/lixuannan/img//image-20231216152605743.png">
 <meta property="article:published_time" content="2023-12-12T11:04:00.000Z">
 <meta property="article:modified_time" content="2024-08-05T11:10:08.000Z">
 <meta property="article:author" content="CodingCow Lee">
 <meta property="article:tag" content="题解">
 <meta property="article:tag" content="OiClass">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cdn.jsdmirror.com/gh/lixuannan/img//image-20231216150315312.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
@@ -337,115 +340,31 @@
             
               <div class="markdown-body">
                 
-                <h1 id="打表卡常题">打表+卡常题</h1>
-<h2 id="思路">思路</h2>
-<p>不难发现，最短路径不外乎以下两种可能：</p>
-<figure>
-<img
-src="https://cdn.jsdmirror.com/gh/lixuannan/img//image-20231216150315312.png" srcset="/img/loading.gif" lazyload
-alt="image-20231216150315312" />
-<figcaption aria-hidden="true">image-20231216150315312</figcaption>
-</figure>
-<p>一种是先一直向下，再一直向右下；而另一种是先一直右下再一直向下。对于
-<span class="math inline">\(k \leq \frac{n}{2}\)</span>
-的请况，很显然是选择第一种路线，否则是第二种路线。</p>
-<p>我们可以通过一个简单的技巧来将两种路线合一，我们可以发现，其实第二种情况相当于第一种情况中将
-<span class="math inline">\(k\)</span> 改为 <span
-class="math inline">\(n - k + 1\)</span>
-的情况（像抬杠的可以自己去算一下，这个是真的，怎么证的还在想）。那么我们可以只考虑第一种情况。</p>
-<p>首先是值为 <span class="math inline">\(1\)</span>
-的那一段路径，很容易发现，由于他是走到 <span class="math inline">\(n -
-k\)</span> 层的，因此这段路径的数字之和为 <span class="math inline">\(1
-\times (n - k)=n - k\)</span>
-。接下来考虑如何计算剩下部分的数字和。没有头绪？那就打表吧！于是我们对于从
-<span class="math inline">\((1,\, n - k)\)</span> 到 <span
-class="math inline">\((n, k)\)</span> 的路径和记为 <span
-class="math inline">\(f_{n,\, k}\)</span> ，我们可以计算出这样的一个
-<span class="math inline">\(f\)</span> 数组：</p>
-<figure>
-<img
-src="https://cdn.jsdmirror.com/gh/lixuannan/img//image-20231216152605743.png" srcset="/img/loading.gif" lazyload
-alt="image-20231216152605743" />
-<figcaption aria-hidden="true">image-20231216152605743</figcaption>
-</figure>
-<p>有眼睛就能看出来，<span class="math inline">\(f_{i,\,j} = {i \choose
-j-1}\)</span> 。那么这就好办了啊，直接计算即可！</p>
-<p>但是怎么算呢？我们如果直接计算组合数，很明显复杂度（含逆元的计算）是
-<span class="math inline">\(\mathcal{O}(k\log p)\)</span> 的。在题目
-<span class="math inline">\(1 \leq n, k, p \leq 10^9\)</span>
-的数据范围下，你不超时谁超时（除非评测机单核性能起飞）！那么我们此时可以考虑使用
-<strong><a target="_blank" rel="noopener" href="https://oi.wiki/math/number-theory/lucas/">Lucas
-定理</a></strong> ，下面简述一下 Lucas 定理的内容（<span
-class="math inline">\(p\)</span> 为质数）： <span
-class="math display">\[
-{\rm Lucas}(n,\, m,\,p) = {n \choose m}\, {\rm mod}\,p = \left\{
-\begin{array}{l}1\,\,\,\,\,m=0
-\newline
-{n\, {\rm mod} \,p \choose m\,{\rm mod\, p}} \times {\rm Lucas}(n \div
-p,\, m \div p,\, p)\,{\rm mod} \, p \end{array}
-\right.
-\]</span> 通过这个定理，我们可以在 <span
-class="math inline">\(\mathcal{O}(\log ^2 p)\)</span>
-左右的时间求出组合数取模的值（含逆元）。</p>
+                <h1 id="打表-卡常题"><a href="#打表-卡常题" class="headerlink" title="打表+卡常题"></a>打表+卡常题</h1><h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>不难发现，最短路径不外乎以下两种可能：</p>
+<p><img src="https://cdn.jsdmirror.com/gh/lixuannan/img//image-20231216150315312.png" srcset="/img/loading.gif" lazyload alt="image-20231216150315312"></p>
+<p>一种是先一直向下，再一直向右下；而另一种是先一直右下再一直向下。对于 $k \leq \frac{n}{2}$ 的请况，很显然是选择第一种路线，否则是第二种路线。</p>
+<p>我们可以通过一个简单的技巧来将两种路线合一，我们可以发现，其实第二种情况相当于第一种情况中将 $k$ 改为 $n - k + 1$ 的情况（像抬杠的可以自己去算一下，这个是真的，怎么证的还在想）。那么我们可以只考虑第一种情况。</p>
+<p>首先是值为 $1$ 的那一段路径，很容易发现，由于他是走到 $n - k$ 层的，因此这段路径的数字之和为 $1 \times (n - k)&#x3D;n - k$ 。接下来考虑如何计算剩下部分的数字和。没有头绪？那就打表吧！于是我们对于从 $(1,, n - k)$ 到 $(n, k)$ 的路径和记为 $f_{n,, k}$ ，我们可以计算出这样的一个 $f$ 数组：</p>
+<p><img src="https://cdn.jsdmirror.com/gh/lixuannan/img//image-20231216152605743.png" srcset="/img/loading.gif" lazyload alt="image-20231216152605743"></p>
+<p> 有眼睛就能看出来，$f_{i,,j} &#x3D; {i \choose j-1}$ 。那么这就好办了啊，直接计算即可！</p>
+<p>但是怎么算呢？我们如果直接计算组合数，很明显复杂度（含逆元的计算）是 $\mathcal{O}(k\log p)$ 的。在题目 $1 \leq n, k, p \leq 10^9$ 的数据范围下，你不超时谁超时（除非评测机单核性能起飞）！那么我们此时可以考虑使用 <strong><a target="_blank" rel="noopener" href="https://oi.wiki/math/number-theory/lucas/">Lucas 定理</a></strong> ，下面简述一下 Lucas 定理的内容（$p$ 为质数）：<br>$$<br>{\rm Lucas}(n,, m,,p) &#x3D; {n \choose m}, {\rm mod},p &#x3D; \left{ \begin{array}{l}1,,,,,m&#x3D;0<br>\newline<br>{n, {\rm mod} ,p \choose m,{\rm mod, p}} \times {\rm Lucas}(n \div p,, m \div p,, p),{\rm mod} , p \end{array}<br>\right.<br>$$<br>通过这个定理，我们可以在 $\mathcal{O}(\log ^2 p)$ 左右的时间求出组合数取模的值（含逆元）。</p>
 <p>下面我们再来讲一下其中的组合数又要怎么求？</p>
 <p>我们可以将正常的组合数程序加上取模，就像这样：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">C</span><span class="hljs-params">(<span class="hljs-type">int</span> n, <span class="hljs-type">int</span> m, <span class="hljs-type">int</span> p)</span> </span>&#123;<br>	<span class="hljs-keyword">if</span> (n &lt; m) &#123;<br>		<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>	&#125;<br>	<span class="hljs-keyword">if</span> (m &gt; n - m) &#123;<br>		m = n - m;<br>	&#125;<br>	<span class="hljs-type">int</span> a = <span class="hljs-number">1</span>, b = <span class="hljs-number">1</span>; <span class="hljs-comment">// a 为分子、b 为分母</span><br>	<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; m; i++) &#123;<br>		a = (a * (n - i)) % p;<br>		b = (b * (i + <span class="hljs-number">1</span>)) % p;<br>	&#125;<br>	<span class="hljs-keyword">return</span> ((a % p) / (b % p)) % p;<br>&#125;<br></code></pre></td></tr></table></figure>
-<p>然后尝试带入某一个数，然后……错啦啊啊啊！原因也非常的简单，我们考虑此时有两个数：<span
-class="math inline">\(a=4\)</span>，<span
-class="math inline">\(b=2\)</span>，计算 <span class="math inline">\(a
-\div b \, {\rm mod} \, 2\)</span>
-的值，如果先将分子分母取模，那么直接就无意义了，但是很显然这个式子的答案为
-<span class="math inline">\(0\)</span> 。</p>
-<p>为了解决这个问题，我们将引入一个东西，称为<strong><a
-target="_blank" rel="noopener" href="https://oi.wiki/math/number-theory/inverse/">逆元</a></strong>。我们可以这样理解，根据小学的知识，除以一个数等于乘以它的倒数，也就是说
-<span class="math inline">\(a \div b = a \times \frac{1}{b}\)</span>
-。而我们假设 <span class="math inline">\(x\)</span> 的倒数为 <span
-class="math inline">\(\frac{1}{x}\)</span> ，很容易发现 <span
-class="math inline">\(x \times \frac{1}{x} = 1\)</span>
-。也就是说，我们可以这样定义：<strong>一个数和另一个数的乘积为 <span
-class="math inline">\(1\)</span>
-，则成这两个数互为倒数</strong>。那么我们可以尝试将这个概念往模运算推广，我们可以尝试定义一个模
-<span class="math inline">\(p\)</span> 意义下的倒数，假定 <span
-class="math inline">\(x\)</span> 为 <span
-class="math inline">\(a\)</span> 的倒数，那么： <span
-class="math display">\[
-ax \equiv 1\, {\rm mod}\, p
-\]</span> 此时我们称 <span class="math inline">\(x\)</span> 为 <span
-class="math inline">\(a\)</span> 的乘法逆元，记为 <span
-class="math inline">\(a^{-1}\)</span> 。</p>
-<p>那么下一步我们考虑如何求解乘法逆元，根据 <strong><a
-target="_blank" rel="noopener" href="https://oi.wiki/math/number-theory/fermat/#%E8%B4%B9%E9%A9%AC%E5%B0%8F%E5%AE%9A%E7%90%86">费马小定理</a></strong>
-，我们可以得知：<strong>若 <span class="math inline">\(p\)</span>
-为质数且 <span class="math inline">\(a\)</span> 与 <span
-class="math inline">\(p\)</span> 互质（<span
-class="math inline">\(\gcd(a,\, p)=1\)</span>），则 <span
-class="math inline">\(a^{p-1} \equiv 1\,{\rm mod} \, p\)</span></strong>
-。又因为 <span class="math inline">\(ax \equiv 1 \,{\rm mod}
-\,p\)</span> ，所以 <span class="math inline">\(ax \equiv a^{p-1}\,{\rm
-mod} \, p\)</span> 。又根据 <strong><a
-target="_blank" rel="noopener" href="https://oi.wiki/math/number-theory/basic/#%E5%90%8C%E4%BD%99">同余的性质</a></strong>
-，可知 <span class="math inline">\(x \equiv a^{p-2} \, {\rm mod }\,
-p\)</span>
-。至此，我们可以再次化简以下，借助同余方程的一个特殊解，计算出 <span
-class="math inline">\(a\)</span> 在模 <span
-class="math inline">\(p\)</span> （<span
-class="math inline">\(p\)</span> 为质数）意义下的逆元，即 <span
-class="math inline">\(a^{-1} = a^{p - 2}\)</span> 。</p>
-<p>根据上面的式子，我们就可以在 <span class="math inline">\(\mathcal{O}
-(\log p)\)</span> 的时间复杂度内计算出逆元（借助<strong><a
-target="_blank" rel="noopener" href="https://oi.wiki/math/binary-exponentiation/">快速幂</a></strong>）。那么我们就可以将组合数的代码改成这样：</p>
+
+<p>然后尝试带入某一个数，然后……错啦啊啊啊！原因也非常的简单，我们考虑此时有两个数：$a&#x3D;4$，$b&#x3D;2$，计算 $a \div b , {\rm mod} , 2$ 的值，如果先将分子分母取模，那么直接就无意义了，但是很显然这个式子的答案为 $0$ 。</p>
+<p>为了解决这个问题，我们将引入一个东西，称为**<a target="_blank" rel="noopener" href="https://oi.wiki/math/number-theory/inverse/">逆元</a><strong>。我们可以这样理解，根据小学的知识，除以一个数等于乘以它的倒数，也就是说 $a \div b &#x3D; a \times \frac{1}{b}$ 。而我们假设 $x$ 的倒数为 $\frac{1}{x}$ ，很容易发现 $x \times \frac{1}{x} &#x3D; 1$ 。也就是说，我们可以这样定义：</strong>一个数和另一个数的乘积为 $1$ ，则成这两个数互为倒数**。那么我们可以尝试将这个概念往模运算推广，我们可以尝试定义一个模 $p$ 意义下的倒数，假定 $x$ 为 $a$ 的倒数，那么：<br>$$<br>ax \equiv 1, {\rm mod}, p<br>$$<br>此时我们称 $x$ 为 $a$ 的乘法逆元，记为 $a^{-1}$ 。</p>
+<p>那么下一步我们考虑如何求解乘法逆元，根据 <strong><a target="_blank" rel="noopener" href="https://oi.wiki/math/number-theory/fermat/#%E8%B4%B9%E9%A9%AC%E5%B0%8F%E5%AE%9A%E7%90%86">费马小定理</a></strong> ，我们可以得知：<strong>若 $p$ 为质数且 $a$ 与 $p$ 互质（$\gcd(a,, p)&#x3D;1$），则 $a^{p-1} \equiv 1,{\rm mod} , p$</strong> 。又因为 $ax \equiv 1 ,{\rm mod} ,p$ ，所以 $ax \equiv a^{p-1},{\rm mod} , p$ 。又根据 <strong><a target="_blank" rel="noopener" href="https://oi.wiki/math/number-theory/basic/#%E5%90%8C%E4%BD%99">同余的性质</a></strong> ，可知 $x \equiv a^{p-2} , {\rm mod }, p$ 。至此，我们可以再次化简以下，借助同余方程的一个特殊解，计算出 $a$ 在模 $p$ （$p$ 为质数）意义下的逆元，即 $a^{-1} &#x3D; a^{p - 2}$ 。</p>
+<p>根据上面的式子，我们就可以在 $\mathcal{O} (\log p)$ 的时间复杂度内计算出逆元（借助**<a target="_blank" rel="noopener" href="https://oi.wiki/math/binary-exponentiation/">快速幂</a>**）。那么我们就可以将组合数的代码改成这样：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">C</span><span class="hljs-params">(<span class="hljs-type">int</span> n, <span class="hljs-type">int</span> m, <span class="hljs-type">int</span> p)</span> </span>&#123;<br>	<span class="hljs-keyword">if</span> (n &lt; m) &#123;<br>		<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>	&#125;<br>	<span class="hljs-keyword">if</span> (m &gt; n - m) &#123;<br>		m = n - m;<br>	&#125;<br>	<span class="hljs-type">int</span> a = <span class="hljs-number">1</span>, b = <span class="hljs-number">1</span>;<br>	<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; m; i++) &#123;<br>		a = (a * (n - i)) % p;<br>		b = (b * (i + <span class="hljs-number">1</span>)) % p;<br>	&#125;<br>	<span class="hljs-keyword">return</span> (<span class="hljs-type">int</span>)(a * <span class="hljs-built_in">qpow</span>(b, p - <span class="hljs-number">2</span>, p)) % p;<br>&#125;<br></code></pre></td></tr></table></figure>
+
 <p>至此，我们已经完成了题目的所有推导，实现即可。</p>
-<h2 id="实现">实现：</h2>
-<p>看起来，我们只需要在模板的基础上，调用一下函数输出即可。但是，如果你提交一下就会发现，你获得了
-<span class="math inline">\(40 \rm pts\)</span>
-的好成绩！啊？！不是时间复杂度能过吗？是的，但是需要常数优化！</p>
-<p>我们观察一下代码，发现其中包含大量的递归及除法（含取模）内容。对于
-<code>long long</code> <span class="math inline">\(64\)</span>
-位的大小来说，这些除法和内存寻址实在是太慢啦！因此，我们只需要关闭
-<code>long long</code> 即可 <span style="color: green">AC</span></p>
-<h3 id="ac-code">AC Code :</h3>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><br><span class="hljs-comment">//#define int long long</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> endl <span class="hljs-string">&#x27;\n&#x27;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">qpow</span><span class="hljs-params">(<span class="hljs-type">int</span> a, <span class="hljs-type">int</span> b, <span class="hljs-type">int</span> p)</span> </span>&#123;<br>	<span class="hljs-type">int</span> ans = <span class="hljs-number">1</span>;<br>	a %= p;<br>	<span class="hljs-keyword">while</span> (b) &#123;<br>		<span class="hljs-keyword">if</span> (b &amp; <span class="hljs-number">1</span>) &#123;<br>			ans = (ans * a) % p;<br>		&#125;<br>		b &gt;&gt;= <span class="hljs-number">1</span>;<br>		a = (a * a) % p;<br>	&#125;<br>	<span class="hljs-keyword">return</span> ans % p;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">C</span><span class="hljs-params">(<span class="hljs-type">int</span> n, <span class="hljs-type">int</span> m, <span class="hljs-type">int</span> p)</span> </span>&#123;<br>	<span class="hljs-keyword">if</span> (n &lt; m) &#123;<br>		<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>	&#125;<br>	<span class="hljs-keyword">if</span> (m &gt; n - m) &#123;<br>		m = n - m;<br>	&#125;<br>	<span class="hljs-type">int</span> a = <span class="hljs-number">1</span>, b = <span class="hljs-number">1</span>;<br>	<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; m; i++) &#123;<br>		a = (a * (n - i)) % p;<br>		b = (b * (i + <span class="hljs-number">1</span>)) % p;<br>	&#125;<br>	<span class="hljs-keyword">return</span> (<span class="hljs-type">int</span>)(a * <span class="hljs-built_in">qpow</span>(b, p - <span class="hljs-number">2</span>, p)) % p;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">Lucas</span><span class="hljs-params">(<span class="hljs-type">int</span> n, <span class="hljs-type">int</span> m, <span class="hljs-type">int</span> p)</span> </span>&#123;<br>	<span class="hljs-keyword">if</span> (m == <span class="hljs-number">0</span>) &#123;<br>		<span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;<br>	&#125;<br>	<span class="hljs-keyword">return</span> (<span class="hljs-built_in">C</span>(n % p, m % p, p) * <span class="hljs-built_in">Lucas</span>(n / p, m / p, p)) % p;<br>&#125;<br><br><span class="hljs-type">int</span> t, n, m, p;<br><br><span class="hljs-function"><span class="hljs-type">signed</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>	ios::<span class="hljs-built_in">sync_with_stdio</span>(<span class="hljs-literal">false</span>);<br>	cin.<span class="hljs-built_in">tie</span>(<span class="hljs-number">0</span>); cout.<span class="hljs-built_in">tie</span>(<span class="hljs-number">0</span>);<br>	cin &gt;&gt; t;<br>	<span class="hljs-keyword">while</span> (t--) &#123;<br>		cin &gt;&gt; n &gt;&gt; m &gt;&gt; p;<br>		n += <span class="hljs-number">1</span>;<br>		m += <span class="hljs-number">1</span>;<br>		m = <span class="hljs-built_in">min</span>(m, n - m + <span class="hljs-number">1</span>);<br>		cout &lt;&lt; (n - m + <span class="hljs-built_in">Lucas</span>(n, m - <span class="hljs-number">1</span>, p)) % p &lt;&lt; endl;<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="实现："><a href="#实现：" class="headerlink" title="实现："></a>实现：</h2><p>看起来，我们只需要在模板的基础上，调用一下函数输出即可。但是，如果你提交一下就会发现，你获得了 $40 \rm pts$ 的好成绩！啊？！不是时间复杂度能过吗？是的，但是需要常数优化！</p>
+<p>我们观察一下代码，发现其中包含大量的递归及除法（含取模）内容。对于 <code>long long</code> $64$ 位的大小来说，这些除法和内存寻址实在是太慢啦！因此，我们只需要关闭 <code>long long</code> 即可 <span style="color: green">AC</span> </p>
+<h3 id="AC-Code"><a href="#AC-Code" class="headerlink" title="AC Code :"></a>AC Code :</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><br><span class="hljs-comment">//#define int long long</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> endl <span class="hljs-string">&#x27;\n&#x27;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">qpow</span><span class="hljs-params">(<span class="hljs-type">int</span> a, <span class="hljs-type">int</span> b, <span class="hljs-type">int</span> p)</span> </span>&#123;<br>	<span class="hljs-type">int</span> ans = <span class="hljs-number">1</span>;<br>	a %= p;<br>	<span class="hljs-keyword">while</span> (b) &#123;<br>		<span class="hljs-keyword">if</span> (b &amp; <span class="hljs-number">1</span>) &#123;<br>			ans = (ans * a) % p;<br>		&#125;<br>		b &gt;&gt;= <span class="hljs-number">1</span>;<br>		a = (a * a) % p;<br>	&#125;<br>	<span class="hljs-keyword">return</span> ans % p;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">C</span><span class="hljs-params">(<span class="hljs-type">int</span> n, <span class="hljs-type">int</span> m, <span class="hljs-type">int</span> p)</span> </span>&#123;<br>	<span class="hljs-keyword">if</span> (n &lt; m) &#123;<br>		<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>	&#125;<br>	<span class="hljs-keyword">if</span> (m &gt; n - m) &#123;<br>		m = n - m;<br>	&#125;<br>	<span class="hljs-type">int</span> a = <span class="hljs-number">1</span>, b = <span class="hljs-number">1</span>;<br>	<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; m; i++) &#123;<br>		a = (a * (n - i)) % p;<br>		b = (b * (i + <span class="hljs-number">1</span>)) % p;<br>	&#125;<br>	<span class="hljs-keyword">return</span> (<span class="hljs-type">int</span>)(a * <span class="hljs-built_in">qpow</span>(b, p - <span class="hljs-number">2</span>, p)) % p;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">Lucas</span><span class="hljs-params">(<span class="hljs-type">int</span> n, <span class="hljs-type">int</span> m, <span class="hljs-type">int</span> p)</span> </span>&#123;<br>	<span class="hljs-keyword">if</span> (m == <span class="hljs-number">0</span>) &#123;<br>		<span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;<br>	&#125;<br>	<span class="hljs-keyword">return</span> (<span class="hljs-built_in">C</span>(n % p, m % p, p) * <span class="hljs-built_in">Lucas</span>(n / p, m / p, p)) % p;<br>&#125;<br><br><span class="hljs-type">int</span> t, n, m, p;<br><br><span class="hljs-function"><span class="hljs-type">signed</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>	ios::<span class="hljs-built_in">sync_with_stdio</span>(<span class="hljs-literal">false</span>);<br>	cin.<span class="hljs-built_in">tie</span>(<span class="hljs-number">0</span>); cout.<span class="hljs-built_in">tie</span>(<span class="hljs-number">0</span>);<br>	cin &gt;&gt; t;<br>	<span class="hljs-keyword">while</span> (t--) &#123;<br>		cin &gt;&gt; n &gt;&gt; m &gt;&gt; p;<br>		n += <span class="hljs-number">1</span>;<br>		m += <span class="hljs-number">1</span>;<br>		m = <span class="hljs-built_in">min</span>(m, n - m + <span class="hljs-number">1</span>);<br>		cout &lt;&lt; (n - m + <span class="hljs-built_in">Lucas</span>(n, m - <span class="hljs-number">1</span>, p)) % p &lt;&lt; endl;<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+
 
                 
               </div>
