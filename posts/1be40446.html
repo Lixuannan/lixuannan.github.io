@@ -21,19 +21,21 @@
   <meta name="author" content="CodingCow Lee">
   <meta name="keywords" content="python,ml,deeplearning,dl,c++,c,pytorch,noi,oi,ioi,noip,csp-j,csp-s,oier,tyoi,oiclass">
   
-    <meta name="description" content="这道题思路稍稍有那么一点绕 先理解一下题目，交叉着一点还是挺难理解的，我们把样例的图片画出来的话大概是这样的：   截屏2023-01-05 14.38.33  我们仔细观察一下，会发现，不交叉的的几项在下面（南岸）形成了一个上升序列（也可以说是不下降序列），那么求有多少项不交叉是不是可以改成当北岸按升序排好时南岸的数的最长不下降子序列的长度？这就很好理解了。先把北岸排序，让南岸跟着动，然后求南岸">
+    <meta name="description" content="这道题思路稍稍有那么一点绕先理解一下题目，交叉着一点还是挺难理解的，我们把样例的图片画出来的话大概是这样的：  我们仔细观察一下，会发现，不交叉的的几项在下面（南岸）形成了一个上升序列（也可以说是不下降序列），那么求有多少项不交叉是不是可以改成当北岸按升序排好时南岸的数的最长不下降子序列的长度？这就很好理解了。先把北岸排序，让南岸跟着动，然后求南岸的最长不下降子序列的长度就可以得到答案了，下面就直">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Oiclass P1229 题解">
 <meta property="og:url" content="https://lixuannan.github.io/posts/1be40446.html">
 <meta property="og:site_name" content="CodingCow&#39;s Blog">
-<meta property="og:description" content="这道题思路稍稍有那么一点绕 先理解一下题目，交叉着一点还是挺难理解的，我们把样例的图片画出来的话大概是这样的：   截屏2023-01-05 14.38.33  我们仔细观察一下，会发现，不交叉的的几项在下面（南岸）形成了一个上升序列（也可以说是不下降序列），那么求有多少项不交叉是不是可以改成当北岸按升序排好时南岸的数的最长不下降子序列的长度？这就很好理解了。先把北岸排序，让南岸跟着动，然后求南岸">
+<meta property="og:description" content="这道题思路稍稍有那么一点绕先理解一下题目，交叉着一点还是挺难理解的，我们把样例的图片画出来的话大概是这样的：  我们仔细观察一下，会发现，不交叉的的几项在下面（南岸）形成了一个上升序列（也可以说是不下降序列），那么求有多少项不交叉是不是可以改成当北岸按升序排好时南岸的数的最长不下降子序列的长度？这就很好理解了。先把北岸排序，让南岸跟着动，然后求南岸的最长不下降子序列的长度就可以得到答案了，下面就直">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdmirror.com/gh/lixuannan/img/%E6%88%AA%E5%B1%8F2023-01-05%2014.38.33.png">
 <meta property="article:published_time" content="2023-01-05T06:41:00.000Z">
 <meta property="article:modified_time" content="2024-08-06T10:37:46.000Z">
 <meta property="article:author" content="CodingCow Lee">
 <meta property="article:tag" content="题解">
 <meta property="article:tag" content="OiClass">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cdn.jsdmirror.com/gh/lixuannan/img/%E6%88%AA%E5%B1%8F2023-01-05%2014.38.33.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
@@ -284,7 +286,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          344 字
+          337 字
         
       </span>
     
@@ -361,19 +363,11 @@
             
               <div class="markdown-body">
                 
-                <h1 id="这道题思路稍稍有那么一点绕">这道题思路稍稍有那么一点绕</h1>
-<p>先理解一下题目，交叉着一点还是挺难理解的，我们把样例的图片画出来的话大概是这样的：</p>
-<figure>
-<img
-src="https://cdn.jsdmirror.com/gh/lixuannan/img/%E6%88%AA%E5%B1%8F2023-01-05%2014.38.33.png" srcset="/img/loading.gif" lazyload
-alt="截屏2023-01-05 14.38.33" />
-<figcaption aria-hidden="true">截屏2023-01-05 14.38.33</figcaption>
-</figure>
-<p>我们仔细观察一下，会发现，不交叉的的几项在下面（南岸）形成了一个上升序列（也可以说是不下降序列），那么求有多少项不交叉是不是可以改成当北岸按升序排好时南岸的数的最长不下降子序列的长度？这就很好理解了。先把北岸排序，让南岸跟着动，然后求南岸的最长不下降子序列的长度就可以得到答案了，下面就直接放代码了，最长不下降子序列（<strong>LIS</strong>）可以看<a
-target="_blank" rel="noopener" href="https://codingcow.netlify.app/post/oiclass%20p1226%20%E9%A2%98%E8%A7%A3">这篇文章</a>（也是我写的）</p>
+                <h1 id="这道题思路稍稍有那么一点绕"><a href="#这道题思路稍稍有那么一点绕" class="headerlink" title="这道题思路稍稍有那么一点绕"></a>这道题思路稍稍有那么一点绕</h1><p>先理解一下题目，交叉着一点还是挺难理解的，我们把样例的图片画出来的话大概是这样的：</p>
+<p><img src="https://cdn.jsdmirror.com/gh/lixuannan/img/%E6%88%AA%E5%B1%8F2023-01-05%2014.38.33.png" srcset="/img/loading.gif" lazyload alt="截屏2023-01-05 14.38.33"></p>
+<p>我们仔细观察一下，会发现，不交叉的的几项在下面（南岸）形成了一个上升序列（也可以说是不下降序列），那么求有多少项不交叉是不是可以改成当北岸按升序排好时南岸的数的最长不下降子序列的长度？这就很好理解了。先把北岸排序，让南岸跟着动，然后求南岸的最长不下降子序列的长度就可以得到答案了，下面就直接放代码了，最长不下降子序列（<strong>LIS</strong>）可以看<a target="_blank" rel="noopener" href="https://codingcow.netlify.app/post/oiclass%20p1226%20%E9%A2%98%E8%A7%A3">这篇文章</a>（也是我写的）</p>
 <p>OK，直接看代码吧：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;algorithm&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-keyword">struct</span> <span class="hljs-title class_">country</span> &#123;<br>    <span class="hljs-type">int</span> n, s;<br>&#125; a[<span class="hljs-number">5009</span>];<br><br><span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">cmp</span><span class="hljs-params">(country a, country b)</span> </span>&#123;<br>    <span class="hljs-keyword">return</span> a.n &lt; b.n;<br>&#125;<br><br><span class="hljs-type">int</span> n, x, y, ans, f[<span class="hljs-number">5009</span>];<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    cin &gt;&gt; x &gt;&gt; y &gt;&gt; n;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++) &#123;<br>        cin &gt;&gt; a[i].n &gt;&gt; a[i].s;<br>        f[i] = <span class="hljs-number">1</span>;<br>    &#125;<br>    <span class="hljs-built_in">sort</span>(a + <span class="hljs-number">1</span>, a + n + <span class="hljs-number">1</span>, cmp);<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">2</span>; i &lt;= n; i++) &#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">1</span>; j &lt; i; j++) &#123;<br>            <span class="hljs-keyword">if</span> (a[j].s &lt; a[i].s) &#123;<br>                f[i] = <span class="hljs-built_in">max</span>(f[i], f[j] + <span class="hljs-number">1</span>);<br>                ans = <span class="hljs-built_in">max</span>(ans, f[i]);<br>            &#125;<br>        &#125;<br>    &#125;<br>    cout &lt;&lt; ans;<br>&#125;<br></code></pre></td></tr></table></figure>
-
                 
               </div>
             
