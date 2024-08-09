@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Sitemap: https://lixuannan.guthub.io/sitemap.txt
+Sitemap: https://lixuannan.guthub.io/sitemap.xml
