@@ -21,25 +21,24 @@
   <meta name="author" content="CodingCow Lee">
   <meta name="keywords" content="python,ml,deeplearning,dl,c++,c,pytorch,noi,oi,ioi,noip,csp-j,csp-s,oier,tyoi,oiclass">
   
-    <meta name="description" content="思路 首先看一下题目，可以理解为求解下面的方程： \[ \left\{ \begin{array}{c} x \equiv b_1 \pmod {a_1} \\ x \equiv b_2 \pmod {a_2} \\ \cdots \\ x \equiv b_n \pmod {a_n} \\ \end{array} \right. \] 很显然可以用中国剩余定理求解，下面讲一下具体过程。  求出">
+    <meta name="description" content="Week 1 Day0 5点多开始回学校了 宿舍被分在在5楼 爬楼梯。。 睡上铺 好热，全身是汗，回机房了 晚上没干啥 就改了一道之前比赛的题 吃宵夜要爬上食堂4楼 回宿舍 好热 睡上铺好热 Day1 上午8点离线打比赛 T1 一眼质 但是一开始打错了 成人机了 T2 一眼水 T3 题面又臭又长 最后没打完 没交 T4 假做法骗了87分 T1 100AC T2 100AC T3 - T4 87WA">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Luogu P1495 题解">
-<meta property="og:url" content="https://lixuannan.github.io/posts/48509.html">
+<meta property="og:title" content="2024 暑假集训记 - 转载自 CYY">
+<meta property="og:url" content="https://lixuannan.github.io/posts/29143.html">
 <meta property="og:site_name" content="CodingCow&#39;s Blog">
-<meta property="og:description" content="思路 首先看一下题目，可以理解为求解下面的方程： \[ \left\{ \begin{array}{c} x \equiv b_1 \pmod {a_1} \\ x \equiv b_2 \pmod {a_2} \\ \cdots \\ x \equiv b_n \pmod {a_n} \\ \end{array} \right. \] 很显然可以用中国剩余定理求解，下面讲一下具体过程。  求出">
+<meta property="og:description" content="Week 1 Day0 5点多开始回学校了 宿舍被分在在5楼 爬楼梯。。 睡上铺 好热，全身是汗，回机房了 晚上没干啥 就改了一道之前比赛的题 吃宵夜要爬上食堂4楼 回宿舍 好热 睡上铺好热 Day1 上午8点离线打比赛 T1 一眼质 但是一开始打错了 成人机了 T2 一眼水 T3 题面又臭又长 最后没打完 没交 T4 假做法骗了87分 T1 100AC T2 100AC T3 - T4 87WA">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-04-29T13:15:00.000Z">
-<meta property="article:modified_time" content="2024-08-06T10:37:46.000Z">
+<meta property="article:published_time" content="2024-08-09T01:52:00.000Z">
+<meta property="article:modified_time" content="2024-08-09T02:07:36.000Z">
 <meta property="article:author" content="CodingCow Lee">
-<meta property="article:tag" content="题解">
-<meta property="article:tag" content="洛谷">
+<meta property="article:tag" content="游记">
 <meta name="twitter:card" content="summary_large_image">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>Luogu P1495 题解 | CodingCow&#39;s Blog</title>
+  <title>2024 暑假集训记 - 转载自 CYY | CodingCow&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -256,7 +255,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Luogu P1495 题解"></span>
+            <span id="subtitle" data-typed-text="2024 暑假集训记 - 转载自 CYY"></span>
           
         </div>
 
@@ -272,8 +271,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-04-29 21:15" pubdate>
-          2024年4月29日 晚上
+        <time datetime="2024-08-09 09:52" pubdate>
+          2024年8月9日 上午
         </time>
       </span>
     
@@ -284,7 +283,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          266 字
+          308 字
         
       </span>
     
@@ -356,31 +355,52 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">Luogu P1495 题解</h1>
+            <h1 id="seo-header">2024 暑假集训记 - 转载自 CYY</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="思路">思路</h2>
-<p>首先看一下题目，可以理解为求解下面的方程：</p>
-<p><span class="math display">\[
-\left\{ \begin{array}{c} x \equiv b_1 \pmod {a_1} \\ x \equiv b_2 \pmod
-{a_2} \\ \cdots \\ x \equiv b_n \pmod {a_n} \\ \end{array} \right.
-\]</span></p>
-<p>很显然可以用中国剩余定理求解，下面讲一下具体过程。</p>
-<ul>
-<li>求出 <span class="math inline">\(as = \prod a_i\)</span>。</li>
-<li>对于每一个方程，求出 <span class="math inline">\(mi = \frac {as}
-{a_i}\)</span>，用 <code>exgcd</code> 求出 <span
-class="math inline">\(mi\)</span> 在 <span class="math inline">\(\mod
-a_i\)</span> 意义下的逆元。</li>
-<li>更新答案为 <span class="math inline">\(ans + b_i \times mi \times
-inv\)</span>，注意对 <span class="math inline">\(as\)</span> 取模。</li>
-</ul>
-<p>简单实现即可，注意对于 Luogu 版本的数据，需要使用
-<code>__int128</code> 通过，应该是卡掉 <code>exgcd</code> 了。</p>
-<h2 id="代码">代码</h2>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> int long long</span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br>__int128 n, a[<span class="hljs-number">20</span>], b[<span class="hljs-number">20</span>], ans;<br><br><span class="hljs-function">__int128 <span class="hljs-title">exgcd</span><span class="hljs-params">(__int128 a, __int128 b, __int128 &amp;x, __int128 &amp;y)</span> </span>&#123;<br>    <span class="hljs-keyword">if</span> (b == <span class="hljs-number">0</span>) &#123;<br>        x = <span class="hljs-number">1</span>, y = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">return</span> a;<br>    &#125;<br>    __int128 d = <span class="hljs-built_in">exgcd</span>(b, a % b, x, y);<br>    __int128 t = x;<br>    x = y;<br>    y = t - a / b * y;<br>    <span class="hljs-keyword">return</span> d;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">signed</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-type">int</span> tmp;<br>    cin &gt;&gt; tmp;<br>    n = tmp;<br>    __int128 as = <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++) &#123;<br>        cin &gt;&gt; tmp;<br>        a[i] = tmp;<br>        cin &gt;&gt; tmp;<br>        b[i] = tmp;<br>        as = as * a[i];<br>    &#125;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++) &#123;<br>        __int128 mi = as / a[i], b, y;<br>        <span class="hljs-built_in">exgcd</span>(mi, a[i], b, y);<br>        ans = (ans + ::b[i] * mi * b) % as;<br>    &#125;<br>    cout &lt;&lt; (<span class="hljs-type">int</span>) ((ans % as + as) % as);<br>&#125;<br></code></pre></td></tr></table></figure>
+                <h1 id="week-1">Week 1</h1>
+<h2 id="day0">Day0</h2>
+<p>5点多开始回学校了</p>
+<p>宿舍被分在在5楼 爬楼梯。。</p>
+<p>睡上铺</p>
+<p>好热，全身是汗，回机房了</p>
+<p>晚上没干啥 就改了一道之前比赛的题</p>
+<p>吃宵夜要爬上食堂4楼</p>
+<p>回宿舍 好热 睡上铺好热</p>
+<h2 id="day1">Day1</h2>
+<p>上午8点离线打比赛</p>
+<p>T1 一眼质 但是一开始打错了 成人机了</p>
+<p>T2 一眼水</p>
+<p>T3 题面又臭又长 最后没打完 没交</p>
+<p>T4 假做法骗了87分</p>
+<p>T1 100AC T2 100AC T3 - T4 87WA</p>
+<p>rk1</p>
+<p><img
+src="https://cdn.luogu.com.cn/upload/image_hosting/rxky46i4.png" srcset="/img/loading.gif" lazyload /></p>
+<p>中午吃饭还是要上4楼 还跟高中抢饭</p>
+<p>下午T3 T4一道也改不出来 我是人机</p>
+<p>操场门不对齐。。 还要自己搬球门</p>
+<p>晚上体锻快给我整死了。。</p>
+<p>好像一天爬了58层楼</p>
+<h2 id="day2">Day2</h2>
+<p>小腿有点痛</p>
+<p>学字符串哈希 难度还能接受</p>
+<p>晚上体锻还好</p>
+<h2 id="day3">Day3</h2>
+<p>KMP + 字典树</p>
+<p>太困难了 KMP。。</p>
+<p>脑子晕了</p>
+<p>字典树还好</p>
+<p>偷对面机房耳机听歌被发现了。。 还回去了 听不了了</p>
+<p>今晚不用体锻了 太好了。</p>
+<h2 id="day4">Day4</h2>
+<p>AC自动机 已经学不懂了T_T</p>
+<p>成入机了</p>
+<p>在宿舍玩12人局狼人杀，一个宿舍十几个人</p>
+<p>决赛圈我1狼成功拿下4好人 全场100%胜率 不收徒</p>
+<p>晚上听学长谈成长经历的讲座</p>
 
                 
               </div>
@@ -393,9 +413,7 @@ inv\)</span>，注意对 <span class="math inline">\(as\)</span> 取模。</li>
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E9%A2%98%E8%A7%A3/" class="print-no-link">#题解</a>
-      
-        <a href="/tags/%E6%B4%9B%E8%B0%B7/" class="print-no-link">#洛谷</a>
+        <a href="/tags/%E6%B8%B8%E8%AE%B0/" class="print-no-link">#游记</a>
       
     </div>
   
@@ -407,8 +425,8 @@ inv\)</span>，注意对 <span class="math inline">\(as\)</span> 取模。</li>
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Luogu P1495 题解</div>
-      <div>https://lixuannan.github.io/posts/48509.html</div>
+      <div>2024 暑假集训记 - 转载自 CYY</div>
+      <div>https://lixuannan.github.io/posts/29143.html</div>
     </div>
     <div class="license-meta">
       
@@ -420,7 +438,7 @@ inv\)</span>，注意对 <span class="math inline">\(as\)</span> 取模。</li>
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年4月29日</div>
+          <div>2024年8月9日</div>
         </div>
       
       
@@ -464,18 +482,12 @@ inv\)</span>，注意对 <span class="math inline">\(as\)</span> 取模。</li>
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/posts/61466.html" title="TYCPC 游记">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">TYCPC 游记</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/posts/49007.html" title="2024 成都七中多校联训游记">
-                        <span class="hidden-mobile">2024 成都七中多校联训游记</span>
+                      <a href="/posts/31541.html" title="OiClass PUJI P2232 Friends 题解">
+                        <span class="hidden-mobile">OiClass PUJI P2232 Friends 题解</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

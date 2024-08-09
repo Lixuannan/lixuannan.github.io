@@ -21,25 +21,25 @@
   <meta name="author" content="CodingCow Lee">
   <meta name="keywords" content="python,ml,deeplearning,dl,c++,c,pytorch,noi,oi,ioi,noip,csp-j,csp-s,oier,tyoi,oiclass">
   
-    <meta name="description" content="感受 感觉出题人就是 ___ ，出的全是人类智慧题，罚时吃饱了！ T1 不会。 T2 分解质因数秒了，就是有点担心 unordered_map 常数太大，不过卡过去了，不慌。 T3 排序建图后然后直接分联通块就可以了。但是不知道关掉同步流以后 puts 不可以和 cout 一起用，多吃了一发罚时，大悲。 T4 可以发现，一棵树上的任何一个节点（除根节点）一定入度是 \(1\)，于是对总度数倒序排序">
+    <meta name="description" content="思路 容易发现枚举添加的是哪个字符是很好的，但是我们需要解决哈希的问题。 考虑拼凑，不难发现，对于 ABXC 去掉 X 之后的 AB C 这个字符串，他的哈希是 AB 的哈希乘上 C 的位权。于是我们分类讨论一下删去的字符在哪个位置，然后分别处理即可。 但是在统计答案的时候仍然有很多细节。首先是不能在每次都记录字串，因为取字串的函数复杂度并不优秀。我们需要记录答案的哈希值，然后每次先对比哈希值，如">
 <meta property="og:type" content="article">
-<meta property="og:title" content="TYCPC 游记">
-<meta property="og:url" content="https://lixuannan.github.io/posts/undefined.html">
+<meta property="og:title" content="OiClass PUJI P2232 Friends 题解">
+<meta property="og:url" content="https://lixuannan.github.io/posts/31541.html">
 <meta property="og:site_name" content="CodingCow&#39;s Blog">
-<meta property="og:description" content="感受 感觉出题人就是 ___ ，出的全是人类智慧题，罚时吃饱了！ T1 不会。 T2 分解质因数秒了，就是有点担心 unordered_map 常数太大，不过卡过去了，不慌。 T3 排序建图后然后直接分联通块就可以了。但是不知道关掉同步流以后 puts 不可以和 cout 一起用，多吃了一发罚时，大悲。 T4 可以发现，一棵树上的任何一个节点（除根节点）一定入度是 \(1\)，于是对总度数倒序排序">
+<meta property="og:description" content="思路 容易发现枚举添加的是哪个字符是很好的，但是我们需要解决哈希的问题。 考虑拼凑，不难发现，对于 ABXC 去掉 X 之后的 AB C 这个字符串，他的哈希是 AB 的哈希乘上 C 的位权。于是我们分类讨论一下删去的字符在哪个位置，然后分别处理即可。 但是在统计答案的时候仍然有很多细节。首先是不能在每次都记录字串，因为取字串的函数复杂度并不优秀。我们需要记录答案的哈希值，然后每次先对比哈希值，如">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-05-07T11:55:00.000Z">
-<meta property="article:modified_time" content="2024-08-06T10:37:46.000Z">
+<meta property="article:published_time" content="2024-08-07T00:29:00.000Z">
+<meta property="article:modified_time" content="2024-08-09T02:07:36.000Z">
 <meta property="article:author" content="CodingCow Lee">
+<meta property="article:tag" content="题解">
 <meta property="article:tag" content="OiClass">
-<meta property="article:tag" content="游记">
 <meta name="twitter:card" content="summary_large_image">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>TYCPC 游记 | CodingCow&#39;s Blog</title>
+  <title>OiClass PUJI P2232 Friends 题解 | CodingCow&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -256,7 +256,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="TYCPC 游记"></span>
+            <span id="subtitle" data-typed-text="OiClass PUJI P2232 Friends 题解"></span>
           
         </div>
 
@@ -272,8 +272,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-05-07 19:55" pubdate>
-          2024年5月7日 晚上
+        <time datetime="2024-08-07 08:29" pubdate>
+          2024年8月7日 早上
         </time>
       </span>
     
@@ -284,7 +284,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          362 字
+          511 字
         
       </span>
     
@@ -356,52 +356,20 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">TYCPC 游记</h1>
+            <h1 id="seo-header">OiClass PUJI P2232 Friends 题解</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="感受">感受</h2>
-<p>感觉出题人就是 ___ ，出的全是人类智慧题，罚时吃饱了！</p>
-<h3 id="t1">T1</h3>
-<p>不会。</p>
-<h3 id="t2">T2</h3>
-<p>分解质因数秒了，就是有点担心 <code>unordered_map</code>
-常数太大，不过卡过去了，不慌。</p>
-<h3 id="t3">T3</h3>
-<p>排序建图后然后直接分联通块就可以了。但是不知道关掉同步流以后
-<code>puts</code> 不可以和 <code>cout</code>
-一起用，多吃了一发罚时，大悲。</p>
-<h3 id="t4">T4</h3>
-<p>可以发现，一棵树上的任何一个节点（除根节点）一定入度是 <span
-class="math inline">\(1\)</span>，于是对总度数倒序排序，然后直接建树就可以了，如果度数没用完，就是无解，否则直接输出。</p>
-<h3 id="t5">T5</h3>
-<p>纯纯找规律题，一开始找到了一个正确但是不完全的规律，最后放弃。</p>
-<p>突然找到了正确的规律，一遍过掉了 <span class="math inline">\(f_i =
-3f_{i - 1} - f_{i - 2}\)</span>。</p>
-<h3 id="t6-sim-t7">T6 <span class="math inline">\(\sim\)</span> T7</h3>
-<p>会不了一点。</p>
-<h3 id="t8">T8</h3>
-<p>写一个辅助程序从大样例里面提取出 <span
-class="math inline">\(26\)</span> 个字母即可，水题。</p>
-<h3 id="t9">T9</h3>
-<p>水题，小学生都会。没看到 <code>ull</code>
-又奉献了一发罚时，呜呜呜呜呜。</p>
-<h3 id="t10">T10</h3>
-<p>容易发现其实就是所有正数的和，特判一下没有正数的情况就是最大的负数即可，特判错了又周一发罚时。</p>
-<h3 id="t11-sim-t12">T11 <span class="math inline">\(\sim\)</span>
-T12</h3>
-<p>做不出来。</p>
-<h2 id="总结">总结</h2>
-<p>精准控分，成功去不了 GDCPC。都怪罚时太多，服了啊啊啊！</p>
-<p>放一个非常不好评价的颁奖典礼：</p>
-
-
-<div style="position: relative; width: 100%; height: 0; padding-bottom: 75%;">
-<iframe  src="//player.bilibili.com/player.html?bvid=BV18s421K7ju&page=1" scrolling="no" border="0" style="position:absolute; height: 100%; width: 100%;" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
-</div>
-
-
+                <h2 id="思路">思路</h2>
+<p>容易发现枚举添加的是哪个字符是很好的，但是我们需要解决哈希的问题。</p>
+<p>考虑拼凑，不难发现，对于 <code>ABXC</code> 去掉 <code>X</code> 之后的
+<code>AB C</code> 这个字符串，他的哈希是 <code>AB</code> 的哈希乘上
+<code>C</code>
+的位权。于是我们分类讨论一下删去的字符在哪个位置，然后分别处理即可。</p>
+<p>但是在统计答案的时候仍然有很多细节。首先是不能在每次都记录字串，因为取字串的函数复杂度并不优秀。我们需要记录答案的哈希值，然后每次先对比哈希值，如果不同再更新答案。这样在去重的同时可以解决取子串不快的问题。</p>
+<h2 id="代码">代码</h2>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-type">int</span> n;<br><span class="hljs-type">unsigned</span> <span class="hljs-type">long</span> <span class="hljs-type">long</span> hs[<span class="hljs-number">2000009</span>], pw[<span class="hljs-number">2000009</span>];<br>string s;<br><br><span class="hljs-function"><span class="hljs-type">unsigned</span> <span class="hljs-type">long</span> <span class="hljs-type">long</span> <span class="hljs-title">Hash</span><span class="hljs-params">(<span class="hljs-type">int</span> l, <span class="hljs-type">int</span> r)</span> </span>&#123;<br>	<span class="hljs-keyword">return</span> hs[r] - hs[l - <span class="hljs-number">1</span>] * pw[r - l + <span class="hljs-number">1</span>];<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">signed</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>	ios::<span class="hljs-built_in">sync_with_stdio</span>(<span class="hljs-literal">false</span>);<br>	cin.<span class="hljs-built_in">tie</span>(<span class="hljs-literal">nullptr</span>);<br>	cout.<span class="hljs-built_in">tie</span>(<span class="hljs-literal">nullptr</span>);<br>	cin &gt;&gt; n &gt;&gt; s;<br>	<span class="hljs-keyword">if</span> ((s.<span class="hljs-built_in">size</span>() &amp; <span class="hljs-number">1</span>) == <span class="hljs-number">0</span>) &#123;<br>		cout &lt;&lt; <span class="hljs-string">&quot;NOT POSSIBLE&quot;</span>;<br>		<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>	&#125;<br>	pw[<span class="hljs-number">0</span>] = <span class="hljs-number">1</span>;<br>	<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++) &#123;<br>		pw[i] = pw[i - <span class="hljs-number">1</span>] * <span class="hljs-number">38734667</span>;<br>		hs[i] = hs[i - <span class="hljs-number">1</span>] * <span class="hljs-number">38734667</span> + s[i - <span class="hljs-number">1</span>] - <span class="hljs-string">&#x27;A&#x27;</span>;<br>	&#125;<br>	<span class="hljs-type">int</span> cnt = <span class="hljs-number">0</span>;<br>	<span class="hljs-type">unsigned</span> <span class="hljs-type">long</span> <span class="hljs-type">long</span> hashs = <span class="hljs-number">1</span>;<br>	string str;<br>	<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) &#123;<br>		<span class="hljs-type">unsigned</span> <span class="hljs-type">long</span> <span class="hljs-type">long</span> h1, h2;<br>		<span class="hljs-keyword">if</span> (i == <span class="hljs-number">0</span>) &#123;<br>			h1 = <span class="hljs-built_in">Hash</span>(<span class="hljs-number">2</span>, (n &gt;&gt; <span class="hljs-number">1</span>) + <span class="hljs-number">1</span>), h2 = <span class="hljs-built_in">Hash</span>((n &gt;&gt; <span class="hljs-number">1</span>) + <span class="hljs-number">2</span>, n);<br>		&#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (i &gt; (n &gt;&gt; <span class="hljs-number">1</span>)) &#123;<br>			h1 = <span class="hljs-built_in">Hash</span>(<span class="hljs-number">1</span>, (n &gt;&gt; <span class="hljs-number">1</span>)), h2 = <span class="hljs-built_in">Hash</span>((n &gt;&gt; <span class="hljs-number">1</span>) + <span class="hljs-number">1</span>, i) * pw[n - (i + <span class="hljs-number">2</span>) + <span class="hljs-number">1</span>] + <span class="hljs-built_in">Hash</span>(i + <span class="hljs-number">2</span>, n);<br>		&#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (i == (n &gt;&gt; <span class="hljs-number">1</span>)) &#123;<br>			h1 = <span class="hljs-built_in">Hash</span>(<span class="hljs-number">1</span>, (n &gt;&gt; <span class="hljs-number">1</span>)), h2 = <span class="hljs-built_in">Hash</span>((n &gt;&gt; <span class="hljs-number">1</span>) + <span class="hljs-number">2</span>, n);<br>		&#125; <span class="hljs-keyword">else</span> &#123;<br>			h1 = <span class="hljs-built_in">Hash</span>(<span class="hljs-number">1</span>, i) * pw[(n &gt;&gt; <span class="hljs-number">1</span>) + <span class="hljs-number">1</span> - (i + <span class="hljs-number">2</span>) + <span class="hljs-number">1</span>] + <span class="hljs-built_in">Hash</span>(i + <span class="hljs-number">2</span>, (n &gt;&gt; <span class="hljs-number">1</span>) + <span class="hljs-number">1</span>), h2 = <span class="hljs-built_in">Hash</span>((n &gt;&gt; <span class="hljs-number">1</span>) + <span class="hljs-number">2</span>, n);<br>		&#125;<br>		<span class="hljs-keyword">if</span> (h1 == h2) &#123;<br>			<span class="hljs-keyword">if</span> (h1 == hashs) &#123;<br>				<span class="hljs-keyword">continue</span>;<br>			&#125;<br>			string s;<br>			<span class="hljs-keyword">if</span> (i == <span class="hljs-number">0</span>) &#123;<br>				s = ::s.<span class="hljs-built_in">substr</span>(<span class="hljs-number">1</span>, n &gt;&gt; <span class="hljs-number">1</span>);<br>			&#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (i &gt; (n &gt;&gt; <span class="hljs-number">1</span>)) &#123;<br>				s = ::s.<span class="hljs-built_in">substr</span>(<span class="hljs-number">0</span>, n &gt;&gt; <span class="hljs-number">1</span>);<br>			&#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (i == (n &gt;&gt; <span class="hljs-number">1</span>)) &#123;<br>				s = ::s.<span class="hljs-built_in">substr</span>(<span class="hljs-number">0</span>, n &gt;&gt; <span class="hljs-number">1</span>);<br>			&#125; <span class="hljs-keyword">else</span> &#123;<br>				s = ::s.<span class="hljs-built_in">substr</span>((n &gt;&gt; <span class="hljs-number">1</span>) + <span class="hljs-number">1</span>, n &gt;&gt; <span class="hljs-number">1</span>);<br>			&#125;<br>			cnt += <span class="hljs-number">1</span>;<br>			hashs = h1;<br>			str = s;<br>			<span class="hljs-keyword">if</span> (cnt &gt; <span class="hljs-number">1</span>) &#123;<br>				cout &lt;&lt; <span class="hljs-string">&quot;NOT UNIQUE&quot;</span>;<br>				<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>			&#125;<br>		&#125;<br>	&#125;<br>	cout &lt;&lt; (cnt &gt; <span class="hljs-number">0</span> ? str : <span class="hljs-string">&quot;NOT POSSIBLE&quot;</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
 
                 
               </div>
@@ -414,9 +382,9 @@ T12</h3>
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/OiClass/" class="print-no-link">#OiClass</a>
+        <a href="/tags/%E9%A2%98%E8%A7%A3/" class="print-no-link">#题解</a>
       
-        <a href="/tags/%E6%B8%B8%E8%AE%B0/" class="print-no-link">#游记</a>
+        <a href="/tags/OiClass/" class="print-no-link">#OiClass</a>
       
     </div>
   
@@ -428,8 +396,8 @@ T12</h3>
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>TYCPC 游记</div>
-      <div>https://lixuannan.github.io/posts/undefined.html</div>
+      <div>OiClass PUJI P2232 Friends 题解</div>
+      <div>https://lixuannan.github.io/posts/31541.html</div>
     </div>
     <div class="license-meta">
       
@@ -441,7 +409,7 @@ T12</h3>
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年5月7日</div>
+          <div>2024年8月7日</div>
         </div>
       
       
@@ -485,9 +453,9 @@ T12</h3>
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/posts/33139.html" title="Luogu P2568 GCD 题解">
+                      <a href="/posts/29143.html" title="2024 暑假集训记 - 转载自 CYY">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Luogu P2568 GCD 题解</span>
+                        <span class="hidden-mobile">2024 暑假集训记 - 转载自 CYY</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -495,8 +463,8 @@ T12</h3>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/posts/48509.html" title="Luogu P1495 题解">
-                        <span class="hidden-mobile">Luogu P1495 题解</span>
+                      <a href="/posts/21737.html" title="OiClass TIGAO P3280 牛牛的猜球游戏题解">
+                        <span class="hidden-mobile">OiClass TIGAO P3280 牛牛的猜球游戏题解</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
