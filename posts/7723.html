@@ -21,39 +21,26 @@
   <meta name="author" content="CodingCow Lee">
   <meta name="keywords" content="python,ml,deeplearning,dl,c++,c,pytorch,noi,oi,ioi,noip,csp-j,csp-s,oier,tyoi,oiclass">
   
-    <meta name="description" content="This is CodingCow&#39;s Blog site">
+    <meta name="description" content="基本配置 在安装完系统后，你是不能上网的。你需要输入 sudo systemctl enable --now NetworkManager 即可。需要注意的是，这个命令是大小写区分的，一定不要敲错大小写。 图形界面 Linux 图形系统（Linux Graphics System）是一个用于提供图形用户界面（GUI）的基础设施，它允许用户在 Linux 操作系统上以图形方式与计算机进行交互。 常见">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CodingCow&#39;s Blog">
-<meta property="og:url" content="https://lixuannan.github.io/posts/0.html">
+<meta property="og:title" content="构建超强 OI 系统之配置 Arch Linux">
+<meta property="og:url" content="https://lixuannan.github.io/posts/7723.html">
 <meta property="og:site_name" content="CodingCow&#39;s Blog">
-<meta property="og:description" content="This is CodingCow&#39;s Blog site">
+<meta property="og:description" content="基本配置 在安装完系统后，你是不能上网的。你需要输入 sudo systemctl enable --now NetworkManager 即可。需要注意的是，这个命令是大小写区分的，一定不要敲错大小写。 图形界面 Linux 图形系统（Linux Graphics System）是一个用于提供图形用户界面（GUI）的基础设施，它允许用户在 Linux 操作系统上以图形方式与计算机进行交互。 常见">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-08-22T12:27:52.670Z">
-<meta property="article:modified_time" content="2024-08-22T12:46:40.000Z">
+<meta property="article:published_time" content="2024-08-23T12:58:00.000Z">
+<meta property="article:modified_time" content="2024-08-22T13:06:52.000Z">
 <meta property="article:author" content="CodingCow Lee">
-<meta property="article:tag" content="python">
-<meta property="article:tag" content="ml">
-<meta property="article:tag" content="deeplearning">
-<meta property="article:tag" content="dl">
-<meta property="article:tag" content="c++">
-<meta property="article:tag" content="c">
-<meta property="article:tag" content="pytorch">
-<meta property="article:tag" content="noi">
-<meta property="article:tag" content="oi">
-<meta property="article:tag" content="ioi">
-<meta property="article:tag" content="noip">
-<meta property="article:tag" content="csp-j">
-<meta property="article:tag" content="csp-s">
-<meta property="article:tag" content="oier">
-<meta property="article:tag" content="tyoi">
-<meta property="article:tag" content="oiclass">
+<meta property="article:tag" content="系统">
+<meta property="article:tag" content="Arch Linux">
+<meta property="article:tag" content="OI">
 <meta name="twitter:card" content="summary_large_image">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>CodingCow&#39;s Blog</title>
+  <title>构建超强 OI 系统之配置 Arch Linux | CodingCow&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -270,7 +257,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text=""></span>
+            <span id="subtitle" data-typed-text="构建超强 OI 系统之配置 Arch Linux"></span>
           
         </div>
 
@@ -286,8 +273,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-08-22 20:27" pubdate>
-          2024年8月22日 晚上
+        <time datetime="2024-08-23 20:58" pubdate>
+          2024年8月23日 晚上
         </time>
       </span>
     
@@ -298,7 +285,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          0 字
+          215 字
         
       </span>
     
@@ -309,7 +296,7 @@
         
         
         
-          1 分钟
+          2 分钟
         
       </span>
     
@@ -370,12 +357,29 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header"></h1>
+            <h1 id="seo-header">构建超强 OI 系统之配置 Arch Linux</h1>
             
             
               <div class="markdown-body">
                 
-                
+                <h2 id="基本配置">基本配置</h2>
+<p>在安装完系统后，你是不能上网的。你需要输入
+<code>sudo systemctl enable --now NetworkManager</code>
+即可。需要注意的是，这个命令是大小写区分的，一定不要敲错大小写。</p>
+<h2 id="图形界面">图形界面</h2>
+<p>Linux 图形系统（Linux Graphics
+System）是一个用于提供图形用户界面（GUI）的基础设施，它允许用户在 Linux
+操作系统上以图形方式与计算机进行交互。</p>
+<p>常见的 Linux 图形系统有 GNOME、XFCE4、KDE 等等。</p>
+<h2 id="安装-gnome">安装 GNOME</h2>
+<p>这里介绍 GNOME 的安装方式。后文的所有操作也都是基于 GNOME 的。</p>
+<p>安装 GNOME 是非常简单的，只需需要简单的键入命令
+<code>sudo pacman -S gnome gnome-extra gdm</code> 并运行即可。</p>
+<p>然后输入 <code>sudo systemctl enable gdm</code> 并重启即可。</p>
+<p>然后你将进入一个可以使用的正常系统啦！！！</p>
+<h2 id="预告">预告</h2>
+<p>下一篇将介绍如何美化 GNOME.</p>
+
                 
               </div>
             
@@ -383,6 +387,17 @@
             <div>
               <div class="post-metas my-3">
   
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E7%B3%BB%E7%BB%9F/" class="print-no-link">#系统</a>
+      
+        <a href="/tags/Arch-Linux/" class="print-no-link">#Arch Linux</a>
+      
+        <a href="/tags/OI/" class="print-no-link">#OI</a>
+      
+    </div>
   
 </div>
 
@@ -392,8 +407,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div></div>
-      <div>https://lixuannan.github.io/posts/0.html</div>
+      <div>构建超强 OI 系统之配置 Arch Linux</div>
+      <div>https://lixuannan.github.io/posts/7723.html</div>
     </div>
     <div class="license-meta">
       
@@ -405,7 +420,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年8月22日</div>
+          <div>2024年8月23日</div>
         </div>
       
       
