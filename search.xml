@@ -4,29 +4,6 @@
   
   
   <entry>
-    <title>构建超强 OI 系统之配置 Arch Linux</title>
-    <link href="/posts/7723.html"/>
-    <url>/posts/7723.html</url>
-    
-    <content type="html"><![CDATA[<h2 id="基本配置">基本配置</h2><p>在安装完系统后，你是不能上网的。你需要输入<code>sudo systemctl enable --now NetworkManager</code>即可。需要注意的是，这个命令是大小写区分的，一定不要敲错大小写。</p><h2 id="图形界面">图形界面</h2><p>Linux 图形系统（Linux GraphicsSystem）是一个用于提供图形用户界面（GUI）的基础设施，它允许用户在 Linux操作系统上以图形方式与计算机进行交互。</p><p>常见的 Linux 图形系统有 GNOME、XFCE4、KDE 等等。</p><h2 id="安装-gnome">安装 GNOME</h2><p>这里介绍 GNOME 的安装方式。后文的所有操作也都是基于 GNOME 的。</p><p>安装 GNOME 是非常简单的，只需需要简单的键入命令<code>sudo pacman -S gnome gnome-extra gdm</code> 并运行即可。</p><p>然后输入 <code>sudo systemctl enable gdm</code> 并重启即可。</p><p>然后你将进入一个可以使用的正常系统啦！！！</p><h2 id="预告">预告</h2><p>下一篇将介绍如何美化 GNOME.</p>]]></content>
-    
-    
-    
-    <tags>
-      
-      <tag>系统</tag>
-      
-      <tag>Arch Linux</tag>
-      
-      <tag>OI</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
     <title>CF1368E Ski Accidents 题解</title>
     <link href="/posts/28582.html"/>
     <url>/posts/28582.html</url>
@@ -40,6 +17,29 @@
       <tag>题解</tag>
       
       <tag>CodeForces</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>构建超强 OI 系统之配置 Arch Linux</title>
+    <link href="/posts/7723.html"/>
+    <url>/posts/7723.html</url>
+    
+    <content type="html"><![CDATA[<h2 id="基本配置">基本配置</h2><p>在安装完系统后，你是不能上网的。你需要输入<code>sudo systemctl enable --now NetworkManager</code>即可。需要注意的是，这个命令是大小写区分的，一定不要敲错大小写。</p><h2 id="图形界面">图形界面</h2><p>Linux 图形系统（Linux GraphicsSystem）是一个用于提供图形用户界面（GUI）的基础设施，它允许用户在 Linux操作系统上以图形方式与计算机进行交互。</p><p>常见的 Linux 图形系统有 GNOME、XFCE4、KDE 等等。</p><h2 id="安装-yay">安装 yay</h2><h3 id="添加软件源">添加软件源</h3><p>在安装 yay 这个东西之前首先要为系统添加 <code>archlinuxcn</code>软件源。这个软件源是 Arch Linux中文社区为中文用户方便使用而构建的软件源，包含大量十分好用的软件包。我们可以在<code>/etc/pacman.conf</code>文件的末尾添加下面的两行内容来添加这个软件源，注意使用 root用户修改（<code>sudo nano /etc/pacman.conf</code>）：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs conf">[archlinuxcn]<br>Server = https://repo.archlinuxcn.org/$arch<br></code></pre></td></tr></table></figure><p>但是由于这个软件源并不是官方的软件源，我们需要安装对应的 GPGkey，以使得系统信任来自这个软件源的软件包：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> pacman -Syu archlinuxcn-keyring archlinuxcn-mirrorlist-git<br></code></pre></td></tr></table></figure><p>上面的命令同时也会更新系统，十分方便。</p><p>然后再次使用 root 用户编辑<code>/etc/pacman.conf</code>，并将里面的这两行取消注释（删除前面的<code>#</code> 号）</p><p><imgsrc="https://cdn.jsdmirror.cn/gh/lixuannan/img/Screenshot%20from%202024-08-23%2015-48-00.png" srcset="/img/loading.gif" lazyload /></p><p>这样做可以在 64 位系统里面支持 32 位软件包，方便 steam之类的弱智软件的安装。</p><h3 id="安装">安装</h3><p>直接使用命令 <code>sudo pacman -S yay</code> 来安装。</p><h2 id="安装-gnome">安装 GNOME</h2><p>这里介绍 GNOME 的安装方式。后文的所有操作也都是基于 GNOME 的。</p><p>安装 GNOME 是非常简单的，只需需要简单的键入命令<code>sudo pacman -S gnome gnome-extra gdm</code> 并运行即可。</p><p>然后输入 <code>sudo systemctl enable gdm</code> 并重启即可。</p><p>然后你将进入一个可以使用的正常系统啦！！！</p><h2 id="安装-virtualboxvm-增强工具">安装 VirtualBoxVM 增强工具</h2><p><imgsrc="https://cdn.jsdmirror.cn/gh/lixuannan/img/vm9999.png" srcset="/img/loading.gif" lazyload /></p><p>点击图片中的按钮然后回到系统中。然后打开文件管理器，切到刚刚系统自动插入的光碟，然后单击Run Software 并输入密码。一路同意即可。</p><p><imgsrc="https://cdn.jsdmirror.cn/gh/lixuannan/img/Screenshot%20from%202024-08-23%2016-00-42.png" srcset="/img/loading.gif" lazyload /></p><p>然后重启虚拟机就会生效。</p><h2 id="中文化">中文化</h2><h3 id="安装字体">安装字体</h3><p>在切换语言之前，你一定要完成的事情就是安装字体。我们使用下面的命令安装安装各种你可能需要也可能不需要的字体：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> pacman -S noto-fonts ttf-ubuntu-font-family ttf-dejavu gnu-free-fonts ttf-roboto ttf-droid ttf-fira-code ttf-fira-mono adobe-source-sans-fonts tex-gyre-fonts adobe-source-han-sans-otc-fonts adobe-source-han-serif-otc-fonts noto-fonts-cjk noto-fonts-emoji<br>yay -S ttf-ms-fonts ttf-cm-unicode tex-gyre-math-fonts ttf-mac-fonts<br></code></pre></td></tr></table></figure><h3 id="安装输入法">安装输入法</h3><p>对于 Arch Linux 来说，输入法的选择是多种多样的，详细可以看<ahref="https://wiki.archlinuxcn.org/wiki/%E8%BE%93%E5%85%A5%E6%B3%95">官方维基</a>。</p><p>下文将介绍如何安装 Fcitx5输入法并配置中文。其实也很简单，打开终端，使用命令<code>sudo pacman -S fcitx5-im fcitx5-chinese-addons</code> 安装 Fcitx5输入法以及中文插件。然后重启。</p><p>重启后你会在右上角看到键盘标志，你需要点击它并点击Configure，你会打开一个这样的配置界面。</p><p><imgsrc="https://cdn.jsdmirror.cn/gh/lixuannan/img/Screenshot%20from%202024-08-23%2016-11-04.png" srcset="/img/loading.gif" lazyload /></p><p>在右手边搜索 Pinyin 并使用 <imgsrc="https://cdn.jsdmirror.cn/gh/lixuannan/img/Screenshot%20from%202024-08-23%2016-12-07.png" srcset="/img/loading.gif" lazyload />中的左箭头将 Pinyin 选项右边移动到左边即可。</p><p>然后中文输入法就设置好啦！</p><h3 id="设置区域与本地化设置">设置区域与本地化设置</h3><p>首先使用命令 <code>sudo nano /etc/locale.gen</code>打开文件名取消下面这一行的注释（注意这一行在很下面）</p><p><imgsrc="https://cdn.jsdmirror.cn/gh/lixuannan/img/Screenshot%20from%202024-08-23%2016-14-49.png" srcset="/img/loading.gif" lazyload /></p><p>然后使用命令 <code>sudo locale-gen</code> 来生成本地化缓存。</p><p>最后使用 root 权限编辑文件 <code>/etc/locale.conf</code>并将文件改为下面的样子：</p><p><imgsrc="https://cdn.jsdmirror.cn/gh/lixuannan/img/Screenshot%20from%202024-08-23%2016-18-11.png" srcset="/img/loading.gif" lazyload /></p><p>保存并重启即可生效。</p><h2 id="预告">预告</h2><p>下一篇将介绍如何美化 GNOME.</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>系统</tag>
+      
+      <tag>Arch Linux</tag>
+      
+      <tag>OI</tag>
       
     </tags>
     
@@ -1605,22 +1605,22 @@
   
   
   <entry>
-    <title>about</title>
+    <title></title>
     <link href="/"/>
     <url>/</url>
     
-    <content type="html"><![CDATA[<p>好吧，今天终于想起来写简介了。哈哈哈哈</p><p>首先讲一下现在我是干什么的吧，我现在是一个TYOIer。平常就喜欢切切水题，写写 TJ，研究一些奇怪的数学。除了在 TYOI之外我还在学校的宣传部干活（最没错，我是一个初中生）。现在主要的工作就是在学校水课，然后回家出去拍拍照，写一写代码。除了做题以外我的大部分代码都是写在了github 上，大家可以去看一下我的 github 主页，有很多很好玩的项目。</p><p>现在这个博客主要是记录一些我的题解、项目、分享一些摄影的经历。以后可能在B 站也会有一些内容的分享，大家可以去关注的 B 站账号呀~</p>]]></content>
+    <content type="html"><![CDATA[!(function() {  /** 计时起始时间，自行修改 **/  var start = new Date("2022/08/01 12:23:04");  function update() {    var now = new Date();    now.setTime(now.getTime()+250);    days = (now - start) / 1000 / 60 / 60 / 24;    dnum = Math.floor(days);    hours = (now - start) / 1000 / 60 / 60 - (24 * dnum);    hnum = Math.floor(hours);    if(String(hnum).length === 1 ){      hnum = "0" + hnum;    }    minutes = (now - start) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);    mnum = Math.floor(minutes);    if(String(mnum).length === 1 ){      mnum = "0" + mnum;    }    seconds = (now - start) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);    snum = Math.round(seconds);    if(String(snum).length === 1 ){      snum = "0" + snum;    }    document.getElementById("timeDate").innerHTML = "本站安全运行&nbsp"+dnum+"&nbsp天";    document.getElementById("times").innerHTML = hnum + "&nbsp小时&nbsp" + mnum + "&nbsp分&nbsp" + snum + "&nbsp秒";  }  update();  setInterval(update, 1000);})();]]></content>
     
   </entry>
   
   
   
   <entry>
-    <title></title>
+    <title>about</title>
     <link href="/"/>
     <url>/</url>
     
-    <content type="html"><![CDATA[!(function() {  /** 计时起始时间，自行修改 **/  var start = new Date("2022/08/01 12:23:04");  function update() {    var now = new Date();    now.setTime(now.getTime()+250);    days = (now - start) / 1000 / 60 / 60 / 24;    dnum = Math.floor(days);    hours = (now - start) / 1000 / 60 / 60 - (24 * dnum);    hnum = Math.floor(hours);    if(String(hnum).length === 1 ){      hnum = "0" + hnum;    }    minutes = (now - start) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);    mnum = Math.floor(minutes);    if(String(mnum).length === 1 ){      mnum = "0" + mnum;    }    seconds = (now - start) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);    snum = Math.round(seconds);    if(String(snum).length === 1 ){      snum = "0" + snum;    }    document.getElementById("timeDate").innerHTML = "本站安全运行&nbsp"+dnum+"&nbsp天";    document.getElementById("times").innerHTML = hnum + "&nbsp小时&nbsp" + mnum + "&nbsp分&nbsp" + snum + "&nbsp秒";  }  update();  setInterval(update, 1000);})();]]></content>
+    <content type="html"><![CDATA[<p>好吧，今天终于想起来写简介了。哈哈哈哈</p><p>首先讲一下现在我是干什么的吧，我现在是一个TYOIer。平常就喜欢切切水题，写写 TJ，研究一些奇怪的数学。除了在 TYOI之外我还在学校的宣传部干活（最没错，我是一个初中生）。现在主要的工作就是在学校水课，然后回家出去拍拍照，写一写代码。除了做题以外我的大部分代码都是写在了github 上，大家可以去看一下我的 github 主页，有很多很好玩的项目。</p><p>现在这个博客主要是记录一些我的题解、项目、分享一些摄影的经历。以后可能在B 站也会有一些内容的分享，大家可以去关注的 B 站账号呀~</p>]]></content>
     
   </entry>
   
