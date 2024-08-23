@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>构建超强 OI 系统之美化 Arch Linux &amp; 美化 GNOME &amp; 美化 Fcitx</title>
+    <link href="/posts/63759.html"/>
+    <url>/posts/63759.html</url>
+    
+    <content type="html"><![CDATA[<h2 id="前期准备">前期准备</h2><p>我们首先需要下载一些文件，这些文件存储在 Github上面，如果你在大陆，那么可能需要一些魔法来访问。</p><p>如果你的系统没有安装 <code>git</code> 那么你需要使用命令<code>sudo pacman -S git</code>。</p><p>然后我们需要下载以下几个软件：</p><ul><li><ahref="https://github.com/vinceliuice/WhiteSur-gtk-theme">vinceliuice/WhiteSur-gtk-theme</a>，使用命令<code>git clone https://github.com/vinceliuice/WhiteSur-gtk-theme.git</code>。</li><li><ahref="https://github.com/vinceliuice/WhiteSur-icon-theme">vinceliuice/WhiteSur-icon-theme</a>，使用命令<code>git clone https://github.com/vinceliuice/WhiteSur-icon-theme.git</code>。</li><li><ahref="https://github.com/vinceliuice/WhiteSur-cursors">vinceliuice/WhiteSur-cursors</a>，使用命令<code>git clone https://github.com/vinceliuice/WhiteSur-cursors.</code>。</li><li><ahref="https://github.com/vinceliuice/WhiteSur-wallpapers">vinceliuice/WhiteSur-wallpapers</a>，使用命令<code>git clone https://github.com/vinceliuice/WhiteSur-wallpapers.git</code>。</li><li><ahref="https://github.com/thep0y/fcitx5-themes-candlelight">thep0y/fcitx5-themes-candlelight</a>，使用命令<code>git clone https://github.com/thep0y/fcitx5-themes-candlelight</code>。</li></ul><p>这些东西将用于系统的美化。</p><h2 id="安装主题">安装主题</h2><p>切换到刚刚下载的 <code>WhiteSur-gtk-theme</code>目录中并输入下面的命令安装主题：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">./install.sh -m<br>./install.sh -m -N glassy<br></code></pre></td></tr></table></figure><p>然后在启动台打开</p><p>然后我们来安装图标，切换到 <code>WhiteSur-icon-theme</code>并在终端运行 <code>./install.sh</code>。</p><p>壁纸也是好系统的必要组成部分，我们切换到目录<code>WhiteSur-wallpapers</code>，然后运行<code>sudo ./install.sh</code>。</p><p>然后是我个人认为很丑的光标，切换入目录<code>WhiteSur-cursor</code>，然后运行 <code>./install.sh</code>命令。</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>系统</tag>
+      
+      <tag>OI</tag>
+      
+      <tag>Arch Linux</tag>
+      
+      <tag>GNOME</tag>
+      
+      <tag>美化</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>CF1368E Ski Accidents 题解</title>
     <link href="/posts/28582.html"/>
     <url>/posts/28582.html</url>
@@ -37,9 +64,9 @@
       
       <tag>系统</tag>
       
-      <tag>Arch Linux</tag>
-      
       <tag>OI</tag>
+      
+      <tag>Arch Linux</tag>
       
     </tags>
     
@@ -60,9 +87,9 @@
       
       <tag>系统</tag>
       
-      <tag>Arch Linux</tag>
-      
       <tag>OI</tag>
+      
+      <tag>Arch Linux</tag>
       
     </tags>
     
@@ -121,9 +148,9 @@
     
     <tags>
       
-      <tag>题解</tag>
-      
       <tag>OiClass</tag>
+      
+      <tag>题解</tag>
       
     </tags>
     
@@ -142,9 +169,9 @@
     
     <tags>
       
-      <tag>题解</tag>
-      
       <tag>OiClass</tag>
+      
+      <tag>题解</tag>
       
     </tags>
     
@@ -163,9 +190,9 @@
     
     <tags>
       
-      <tag>题解</tag>
-      
       <tag>OiClass</tag>
+      
+      <tag>题解</tag>
       
     </tags>
     
@@ -197,9 +224,9 @@
     
     <tags>
       
-      <tag>题解</tag>
-      
       <tag>OiClass</tag>
+      
+      <tag>题解</tag>
       
     </tags>
     
@@ -218,9 +245,9 @@
     
     <tags>
       
-      <tag>题解</tag>
-      
       <tag>OiClass</tag>
+      
+      <tag>题解</tag>
       
     </tags>
     
@@ -302,9 +329,9 @@
     
     <tags>
       
-      <tag>题解</tag>
-      
       <tag>OiClass</tag>
+      
+      <tag>题解</tag>
       
     </tags>
     
@@ -558,9 +585,9 @@
     
     <tags>
       
-      <tag>题解</tag>
-      
       <tag>OiClass</tag>
+      
+      <tag>题解</tag>
       
     </tags>
     
@@ -644,9 +671,9 @@
     
     <tags>
       
-      <tag>题解</tag>
-      
       <tag>OiClass</tag>
+      
+      <tag>题解</tag>
       
       <tag>公益赛</tag>
       
@@ -753,9 +780,9 @@
     
     <tags>
       
-      <tag>题解</tag>
-      
       <tag>OiClass</tag>
+      
+      <tag>题解</tag>
       
     </tags>
     
@@ -795,9 +822,9 @@
     
     <tags>
       
-      <tag>题解</tag>
-      
       <tag>OiClass</tag>
+      
+      <tag>题解</tag>
       
     </tags>
     
@@ -858,9 +885,9 @@
     
     <tags>
       
-      <tag>题解</tag>
-      
       <tag>OiClass</tag>
+      
+      <tag>题解</tag>
       
     </tags>
     
@@ -898,9 +925,9 @@
     
     <tags>
       
-      <tag>题解</tag>
-      
       <tag>OiClass</tag>
+      
+      <tag>题解</tag>
       
     </tags>
     
@@ -961,9 +988,9 @@
     
     <tags>
       
-      <tag>题解</tag>
-      
       <tag>OiClass</tag>
+      
+      <tag>题解</tag>
       
     </tags>
     
@@ -982,9 +1009,9 @@
     
     <tags>
       
-      <tag>题解</tag>
-      
       <tag>OiClass</tag>
+      
+      <tag>题解</tag>
       
     </tags>
     
@@ -1003,9 +1030,9 @@
     
     <tags>
       
-      <tag>题解</tag>
-      
       <tag>OiClass</tag>
+      
+      <tag>题解</tag>
       
     </tags>
     
@@ -1024,9 +1051,9 @@
     
     <tags>
       
-      <tag>题解</tag>
-      
       <tag>OiClass</tag>
+      
+      <tag>题解</tag>
       
     </tags>
     
@@ -1045,9 +1072,9 @@
     
     <tags>
       
-      <tag>题解</tag>
-      
       <tag>OiClass</tag>
+      
+      <tag>题解</tag>
       
     </tags>
     
@@ -1066,9 +1093,9 @@
     
     <tags>
       
-      <tag>题解</tag>
-      
       <tag>OiClass</tag>
+      
+      <tag>题解</tag>
       
     </tags>
     
@@ -1087,9 +1114,9 @@
     
     <tags>
       
-      <tag>题解</tag>
-      
       <tag>OiClass</tag>
+      
+      <tag>题解</tag>
       
     </tags>
     
@@ -1108,9 +1135,9 @@
     
     <tags>
       
-      <tag>题解</tag>
-      
       <tag>OiClass</tag>
+      
+      <tag>题解</tag>
       
     </tags>
     
@@ -1129,9 +1156,9 @@
     
     <tags>
       
-      <tag>题解</tag>
-      
       <tag>OiClass</tag>
+      
+      <tag>题解</tag>
       
     </tags>
     
@@ -1150,9 +1177,9 @@
     
     <tags>
       
-      <tag>题解</tag>
-      
       <tag>OiClass</tag>
+      
+      <tag>题解</tag>
       
     </tags>
     
@@ -1171,9 +1198,9 @@
     
     <tags>
       
-      <tag>题解</tag>
-      
       <tag>OiClass</tag>
+      
+      <tag>题解</tag>
       
     </tags>
     
@@ -1192,9 +1219,9 @@
     
     <tags>
       
-      <tag>题解</tag>
-      
       <tag>OiClass</tag>
+      
+      <tag>题解</tag>
       
     </tags>
     
@@ -1213,9 +1240,9 @@
     
     <tags>
       
-      <tag>题解</tag>
-      
       <tag>OiClass</tag>
+      
+      <tag>题解</tag>
       
     </tags>
     
@@ -1234,9 +1261,9 @@
     
     <tags>
       
-      <tag>题解</tag>
-      
       <tag>OiClass</tag>
+      
+      <tag>题解</tag>
       
     </tags>
     
@@ -1255,9 +1282,9 @@
     
     <tags>
       
-      <tag>题解</tag>
-      
       <tag>OiClass</tag>
+      
+      <tag>题解</tag>
       
     </tags>
     
@@ -1276,9 +1303,9 @@
     
     <tags>
       
-      <tag>题解</tag>
-      
       <tag>OiClass</tag>
+      
+      <tag>题解</tag>
       
     </tags>
     
@@ -1297,9 +1324,9 @@
     
     <tags>
       
-      <tag>题解</tag>
-      
       <tag>OiClass</tag>
+      
+      <tag>题解</tag>
       
     </tags>
     
@@ -1318,9 +1345,9 @@
     
     <tags>
       
-      <tag>题解</tag>
-      
       <tag>OiClass</tag>
+      
+      <tag>题解</tag>
       
     </tags>
     
@@ -1339,9 +1366,9 @@
     
     <tags>
       
-      <tag>题解</tag>
-      
       <tag>OiClass</tag>
+      
+      <tag>题解</tag>
       
     </tags>
     
@@ -1360,9 +1387,9 @@
     
     <tags>
       
-      <tag>题解</tag>
-      
       <tag>OiClass</tag>
+      
+      <tag>题解</tag>
       
     </tags>
     
@@ -1381,9 +1408,9 @@
     
     <tags>
       
-      <tag>题解</tag>
-      
       <tag>OiClass</tag>
+      
+      <tag>题解</tag>
       
     </tags>
     
@@ -1402,9 +1429,9 @@
     
     <tags>
       
-      <tag>题解</tag>
-      
       <tag>OiClass</tag>
+      
+      <tag>题解</tag>
       
     </tags>
     
@@ -1423,9 +1450,9 @@
     
     <tags>
       
-      <tag>题解</tag>
-      
       <tag>OiClass</tag>
+      
+      <tag>题解</tag>
       
     </tags>
     
@@ -1444,9 +1471,9 @@
     
     <tags>
       
-      <tag>题解</tag>
-      
       <tag>OiClass</tag>
+      
+      <tag>题解</tag>
       
     </tags>
     
@@ -1465,9 +1492,9 @@
     
     <tags>
       
-      <tag>题解</tag>
-      
       <tag>OiClass</tag>
+      
+      <tag>题解</tag>
       
     </tags>
     
@@ -1486,9 +1513,9 @@
     
     <tags>
       
-      <tag>题解</tag>
-      
       <tag>OiClass</tag>
+      
+      <tag>题解</tag>
       
     </tags>
     
@@ -1507,9 +1534,9 @@
     
     <tags>
       
-      <tag>题解</tag>
-      
       <tag>OiClass</tag>
+      
+      <tag>题解</tag>
       
     </tags>
     
@@ -1605,22 +1632,22 @@
   
   
   <entry>
-    <title></title>
+    <title>about</title>
     <link href="/"/>
     <url>/</url>
     
-    <content type="html"><![CDATA[!(function() {  /** 计时起始时间，自行修改 **/  var start = new Date("2022/08/01 12:23:04");  function update() {    var now = new Date();    now.setTime(now.getTime()+250);    days = (now - start) / 1000 / 60 / 60 / 24;    dnum = Math.floor(days);    hours = (now - start) / 1000 / 60 / 60 - (24 * dnum);    hnum = Math.floor(hours);    if(String(hnum).length === 1 ){      hnum = "0" + hnum;    }    minutes = (now - start) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);    mnum = Math.floor(minutes);    if(String(mnum).length === 1 ){      mnum = "0" + mnum;    }    seconds = (now - start) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);    snum = Math.round(seconds);    if(String(snum).length === 1 ){      snum = "0" + snum;    }    document.getElementById("timeDate").innerHTML = "本站安全运行&nbsp"+dnum+"&nbsp天";    document.getElementById("times").innerHTML = hnum + "&nbsp小时&nbsp" + mnum + "&nbsp分&nbsp" + snum + "&nbsp秒";  }  update();  setInterval(update, 1000);})();]]></content>
+    <content type="html"><![CDATA[<p>好吧，今天终于想起来写简介了。哈哈哈哈</p><p>首先讲一下现在我是干什么的吧，我现在是一个TYOIer。平常就喜欢切切水题，写写 TJ，研究一些奇怪的数学。除了在 TYOI之外我还在学校的宣传部干活（最没错，我是一个初中生）。现在主要的工作就是在学校水课，然后回家出去拍拍照，写一写代码。除了做题以外我的大部分代码都是写在了github 上，大家可以去看一下我的 github 主页，有很多很好玩的项目。</p><p>现在这个博客主要是记录一些我的题解、项目、分享一些摄影的经历。以后可能在B 站也会有一些内容的分享，大家可以去关注的 B 站账号呀~</p>]]></content>
     
   </entry>
   
   
   
   <entry>
-    <title>about</title>
+    <title></title>
     <link href="/"/>
     <url>/</url>
     
-    <content type="html"><![CDATA[<p>好吧，今天终于想起来写简介了。哈哈哈哈</p><p>首先讲一下现在我是干什么的吧，我现在是一个TYOIer。平常就喜欢切切水题，写写 TJ，研究一些奇怪的数学。除了在 TYOI之外我还在学校的宣传部干活（最没错，我是一个初中生）。现在主要的工作就是在学校水课，然后回家出去拍拍照，写一写代码。除了做题以外我的大部分代码都是写在了github 上，大家可以去看一下我的 github 主页，有很多很好玩的项目。</p><p>现在这个博客主要是记录一些我的题解、项目、分享一些摄影的经历。以后可能在B 站也会有一些内容的分享，大家可以去关注的 B 站账号呀~</p>]]></content>
+    <content type="html"><![CDATA[!(function() {  /** 计时起始时间，自行修改 **/  var start = new Date("2022/08/01 12:23:04");  function update() {    var now = new Date();    now.setTime(now.getTime()+250);    days = (now - start) / 1000 / 60 / 60 / 24;    dnum = Math.floor(days);    hours = (now - start) / 1000 / 60 / 60 - (24 * dnum);    hnum = Math.floor(hours);    if(String(hnum).length === 1 ){      hnum = "0" + hnum;    }    minutes = (now - start) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);    mnum = Math.floor(minutes);    if(String(mnum).length === 1 ){      mnum = "0" + mnum;    }    seconds = (now - start) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);    snum = Math.round(seconds);    if(String(snum).length === 1 ){      snum = "0" + snum;    }    document.getElementById("timeDate").innerHTML = "本站安全运行&nbsp"+dnum+"&nbsp天";    document.getElementById("times").innerHTML = hnum + "&nbsp小时&nbsp" + mnum + "&nbsp分&nbsp" + snum + "&nbsp秒";  }  update();  setInterval(update, 1000);})();]]></content>
     
   </entry>
   
