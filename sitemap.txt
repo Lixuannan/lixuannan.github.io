@@ -17,7 +17,6 @@ https://lixuannan.github.io/posts/52544bc3
 https://lixuannan.github.io/posts/16159
 https://lixuannan.github.io/posts/26966
 https://lixuannan.github.io/posts/9065
-https://lixuannan.github.io/posts/14038
 https://lixuannan.github.io/posts/53556
 https://lixuannan.github.io/posts/c0f28fe
 https://lixuannan.github.io/posts/372de39
@@ -44,6 +43,7 @@ https://lixuannan.github.io/posts/47712
 https://lixuannan.github.io/posts/33139
 https://lixuannan.github.io/posts/51536
 https://lixuannan.github.io/posts/21158
+https://lixuannan.github.io/posts/14038
 https://lixuannan.github.io/posts/30504
 https://lixuannan.github.io/posts/57531
 https://lixuannan.github.io/posts/24926
@@ -79,7 +79,6 @@ https://lixuannan.github.io/about/
 https://lixuannan.github.io/
 https://lixuannan.github.io/tags/%E9%A2%98%E8%A7%A3/
 https://lixuannan.github.io/tags/OiClass/
-https://lixuannan.github.io/tags/CodeForces/
 https://lixuannan.github.io/tags/%E6%B8%B8%E8%AE%B0/
 https://lixuannan.github.io/tags/CSP/
 https://lixuannan.github.io/tags/MCOI/
@@ -87,6 +86,7 @@ https://lixuannan.github.io/tags/%E6%B4%9B%E8%B0%B7/
 https://lixuannan.github.io/tags/%E5%AE%A3%E4%BC%A0/
 https://lixuannan.github.io/tags/%E5%85%AC%E7%9B%8A%E8%B5%9B/
 https://lixuannan.github.io/tags/AtCoder/
+https://lixuannan.github.io/tags/CodeForces/
 https://lixuannan.github.io/tags/THU/
 https://lixuannan.github.io/tags/TYOI/
 https://lixuannan.github.io/tags/%E7%9C%81%E9%80%89/
