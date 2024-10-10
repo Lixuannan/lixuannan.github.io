@@ -21,12 +21,12 @@
   <meta name="author" content="CodingCow Lee">
   <meta name="keywords" content="python,ml,deeplearning,dl,c++,c,pytorch,noi,oi,ioi,noip,csp-j,csp-s,oier,tyoi,oiclass">
   
-    <meta name="description" content="这道题需要两次动规 (LIS DP)OK，再再再再是经典的五步 1. 划分状态在这道题，我用每个人划分状态，每个人有两个状态，分别是以这个人结尾的最长不下降子序列长度和以这个人开头的最长不下降自序列的长度 2. 确定状态和状态变量我使用三个数组 $a,\ b,\ c$ 分别：存储输入的数据、存储状态一（以这个人结尾的最长不下降子序列长度）、存储状态二（以这个人开头的最长不下降自序列的长度）。状态如">
+    <meta name="description" content="这道题需要两次动规 (LIS DP) OK，再再再再是经典的五步 1. 划分状态 在这道题，我用每个人划分状态，每个人有两个状态，分别是以这个人结尾的最长不下降子序列长度和以这个人开头的最长不下降自序列的长度 2. 确定状态和状态变量 我使用三个数组 \(a,\ b,\ c\) 分别：存储输入的数据、存储状态一（以这个人结尾的最长不下降子序列长度）、存储状态二（以这个人开头的最长不下降自序列的长度">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Oiclass P1227 题解">
 <meta property="og:url" content="https://lixuannan.github.io/posts/e6e1674">
 <meta property="og:site_name" content="CodingCow&#39;s Blog">
-<meta property="og:description" content="这道题需要两次动规 (LIS DP)OK，再再再再是经典的五步 1. 划分状态在这道题，我用每个人划分状态，每个人有两个状态，分别是以这个人结尾的最长不下降子序列长度和以这个人开头的最长不下降自序列的长度 2. 确定状态和状态变量我使用三个数组 $a,\ b,\ c$ 分别：存储输入的数据、存储状态一（以这个人结尾的最长不下降子序列长度）、存储状态二（以这个人开头的最长不下降自序列的长度）。状态如">
+<meta property="og:description" content="这道题需要两次动规 (LIS DP) OK，再再再再是经典的五步 1. 划分状态 在这道题，我用每个人划分状态，每个人有两个状态，分别是以这个人结尾的最长不下降子序列长度和以这个人开头的最长不下降自序列的长度 2. 确定状态和状态变量 我使用三个数组 \(a,\ b,\ c\) 分别：存储输入的数据、存储状态一（以这个人结尾的最长不下降子序列长度）、存储状态二（以这个人开头的最长不下降自序列的长度">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-01-05T07:56:00.000Z">
 <meta property="article:modified_time" content="2024-08-06T10:37:46.000Z">
@@ -155,35 +155,48 @@
           
           
           
-            <li class="nav-item">
-              <a class="nav-link" href="/tags/%E6%B8%B8%E8%AE%B0/" target="_self">
-                <i class="iconfont icon-notebook"></i>
-                <span>游记</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/tags/%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3/" target="_self">
-                <i class="iconfont icon-code"></i>
-                <span>算法详解</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/tags/%E9%A2%98%E8%A7%A3/" target="_self">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="iconfont icon-book"></i>
-                <span>题解</span>
+                <span>专题</span>
               </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/tags/%E6%9E%84%E5%BB%BA%E8%B6%85%E5%BC%BA-OI-%E7%B3%BB%E7%BB%9F/" target="_self">
+                    
+                    <span>构建超强 OI 系统</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/tags/%E6%B8%B8%E8%AE%B0/" target="_self">
+                    
+                    <span>游记</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/tags/%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3/" target="_self">
+                    
+                    <span>算法详解</span>
+                  </a>
+                
+                  
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/tags/%E9%A2%98%E8%A7%A3/" target="_self">
+                    
+                    <span></span>
+                  </a>
+                
+              </div>
             </li>
           
         
@@ -286,7 +299,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          477 字
+          472 字
         
       </span>
     
@@ -363,13 +376,36 @@
             
               <div class="markdown-body">
                 
-                <h1 id="这道题需要两次动规-LIS-DP"><a href="#这道题需要两次动规-LIS-DP" class="headerlink" title="这道题需要两次动规 (LIS DP)"></a>这道题需要两次动规 (<strong>LIS DP</strong>)</h1><p>OK，再再再再是经典的五步</p>
-<h2 id="1-划分状态"><a href="#1-划分状态" class="headerlink" title="1. 划分状态"></a>1. 划分状态</h2><p>在这道题，我用每个人划分状态，每个人有两个状态，分别是以这个人结尾的最长不下降子序列长度和以这个人开头的最长不下降自序列的长度</p>
-<h2 id="2-确定状态和状态变量"><a href="#2-确定状态和状态变量" class="headerlink" title="2. 确定状态和状态变量"></a>2. 确定状态和状态变量</h2><p>我使用三个数组 $a,\ b,\ c$ 分别：存储输入的数据、存储状态一（以这个人结尾的最长不下降子序列长度）、存储状态二（以这个人开头的最长不下降自序列的长度）。状态如上</p>
-<h2 id="3-确定决策并写出状态转移方程"><a href="#3-确定决策并写出状态转移方程" class="headerlink" title="3. 确定决策并写出状态转移方程"></a>3. 确定决策并写出状态转移方程</h2><p>决策很简单，就按最长不下降自序列（<strong>LIS</strong>）长度计算的方法来回算两边就可以算出两种状态了（状态的定义见上文），两种状态分别放在数组 $b,\ c$ 之中。状态转移方程：<br>$$<br>\begin{array}{lr}<br>0&lt;j≤n\<br>b_i&#x3D;\max(b_i,b_j+1)<br>\<br>c_i&#x3D;\max(c_i,c_j+1)\<br>\end{array}<br>$$</p>
-<h2 id="4-边界条件"><a href="#4-边界条件" class="headerlink" title="4. 边界条件"></a>4. 边界条件</h2><p>$$<br>b_i&#x3D;c_i&#x3D;1<br>$$</p>
-<h2 id="5-实现"><a href="#5-实现" class="headerlink" title="5. 实现"></a>5. 实现</h2><p>代码实际上很简单，一次正序的 LIS 和一次倒叙的 LIS 就可以求出所有状态，再来比较哪一个人左右两边正确排序的人最多（$ans&#x3D;\max(ans,\ b_i+c_i-1)$），输出即可，代码如下：</p>
+                <h1 id="这道题需要两次动规-lis-dp">这道题需要两次动规 (<strong>LIS
+DP</strong>)</h1>
+<p>OK，再再再再是经典的五步</p>
+<h2 id="划分状态">1. 划分状态</h2>
+<p>在这道题，我用每个人划分状态，每个人有两个状态，分别是以这个人结尾的最长不下降子序列长度和以这个人开头的最长不下降自序列的长度</p>
+<h2 id="确定状态和状态变量">2. 确定状态和状态变量</h2>
+<p>我使用三个数组 <span class="math inline">\(a,\ b,\ c\)</span>
+分别：存储输入的数据、存储状态一（以这个人结尾的最长不下降子序列长度）、存储状态二（以这个人开头的最长不下降自序列的长度）。状态如上</p>
+<h2 id="确定决策并写出状态转移方程">3. 确定决策并写出状态转移方程</h2>
+<p>决策很简单，就按最长不下降自序列（<strong>LIS</strong>）长度计算的方法来回算两边就可以算出两种状态了（状态的定义见上文），两种状态分别放在数组
+<span class="math inline">\(b,\ c\)</span> 之中。状态转移方程： <span
+class="math display">\[
+\begin{array}{lr}
+0&lt;j≤n\\
+b_i=\max(b_i,b_j+1)
+\\
+c_i=\max(c_i,c_j+1)\\
+\end{array}
+\]</span></p>
+<h2 id="边界条件">4. 边界条件</h2>
+<p><span class="math display">\[
+b_i=c_i=1
+\]</span></p>
+<h2 id="实现">5. 实现</h2>
+<p>代码实际上很简单，一次正序的 LIS 和一次倒叙的 LIS
+就可以求出所有状态，再来比较哪一个人左右两边正确排序的人最多（<span
+class="math inline">\(ans=\max(ans,\
+b_i+c_i-1)\)</span>），输出即可，代码如下：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-type">int</span> n, ans, a[<span class="hljs-number">109</span>], b[<span class="hljs-number">109</span>], c[<span class="hljs-number">109</span>];<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    cin &gt;&gt; n;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++) &#123;<br>        cin &gt;&gt; a[i];<br>        b[i] = c[i] = <span class="hljs-number">1</span>;<br>    &#125;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = n - <span class="hljs-number">1</span>; i &gt;= <span class="hljs-number">1</span>; i--) &#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = n; j &gt;= i - <span class="hljs-number">1</span>; j--) &#123;<br>            <span class="hljs-keyword">if</span> (a[i] &gt; a[j]) &#123;<br>                b[i] = <span class="hljs-built_in">max</span>(b[i], b[j] + <span class="hljs-number">1</span>);<br>            &#125;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">2</span>; i &lt;= n; i++) &#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">1</span>; j &lt;= i; j++) &#123;<br>            <span class="hljs-keyword">if</span> (a[i] &gt; a[j]) &#123;<br>                c[i] = <span class="hljs-built_in">max</span>(c[i], c[j] + <span class="hljs-number">1</span>);<br>            &#125;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++) &#123;<br>        ans = <span class="hljs-built_in">max</span>(b[i] + c[i] - <span class="hljs-number">1</span>, ans);<br>    &#125;<br>    cout &lt;&lt; n - ans &lt;&lt; endl;<br>&#125;<br></code></pre></td></tr></table></figure>
+
                 
               </div>
 

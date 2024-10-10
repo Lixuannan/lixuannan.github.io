@@ -21,12 +21,12 @@
   <meta name="author" content="CodingCow Lee">
   <meta name="keywords" content="python,ml,deeplearning,dl,c++,c,pytorch,noi,oi,ioi,noip,csp-j,csp-s,oier,tyoi,oiclass">
   
-    <meta name="description" content="这道题真的离谱1. 划分阶段对于这道题目，我以每一个字母为一个阶段，表示第一个字符串的前 $i$  个字母和第二个字符串的前 $j$ 个字母之间的编辑距离（定义见题目） 2. 状态和状态变量定义数组 $f$ 用于存储状态，即 $f_{i,\ j}$ 表示一个阶段（也就是(1) 里面提到的阶段），同时 $a,b$ 分别是输入的两个字符串 3. 确定状态转移方程这就是最难的部分，先从 $f_{i,\">
+    <meta name="description" content="这道题真的离谱 1. 划分阶段 对于这道题目，我以每一个字母为一个阶段，表示第一个字符串的前 \(i\) 个字母和第二个字符串的前 \(j\) 个字母之间的编辑距离（定义见题目） 2. 状态和状态变量 定义数组 \(f\) 用于存储状态，即 \(f_{i,\ j}\) 表示一个阶段（也就是(1) 里面提到的阶段），同时 \(a,b\) 分别是输入的两个字符串 3. 确定状态转移方程 这就是最难的部">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Oiclass P1242 题解">
 <meta property="og:url" content="https://lixuannan.github.io/posts/3594619a">
 <meta property="og:site_name" content="CodingCow&#39;s Blog">
-<meta property="og:description" content="这道题真的离谱1. 划分阶段对于这道题目，我以每一个字母为一个阶段，表示第一个字符串的前 $i$  个字母和第二个字符串的前 $j$ 个字母之间的编辑距离（定义见题目） 2. 状态和状态变量定义数组 $f$ 用于存储状态，即 $f_{i,\ j}$ 表示一个阶段（也就是(1) 里面提到的阶段），同时 $a,b$ 分别是输入的两个字符串 3. 确定状态转移方程这就是最难的部分，先从 $f_{i,\">
+<meta property="og:description" content="这道题真的离谱 1. 划分阶段 对于这道题目，我以每一个字母为一个阶段，表示第一个字符串的前 \(i\) 个字母和第二个字符串的前 \(j\) 个字母之间的编辑距离（定义见题目） 2. 状态和状态变量 定义数组 \(f\) 用于存储状态，即 \(f_{i,\ j}\) 表示一个阶段（也就是(1) 里面提到的阶段），同时 \(a,b\) 分别是输入的两个字符串 3. 确定状态转移方程 这就是最难的部">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-01-12T01:39:00.000Z">
 <meta property="article:modified_time" content="2024-08-06T10:37:46.000Z">
@@ -155,35 +155,48 @@
           
           
           
-            <li class="nav-item">
-              <a class="nav-link" href="/tags/%E6%B8%B8%E8%AE%B0/" target="_self">
-                <i class="iconfont icon-notebook"></i>
-                <span>游记</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/tags/%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3/" target="_self">
-                <i class="iconfont icon-code"></i>
-                <span>算法详解</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/tags/%E9%A2%98%E8%A7%A3/" target="_self">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="iconfont icon-book"></i>
-                <span>题解</span>
+                <span>专题</span>
               </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/tags/%E6%9E%84%E5%BB%BA%E8%B6%85%E5%BC%BA-OI-%E7%B3%BB%E7%BB%9F/" target="_self">
+                    
+                    <span>构建超强 OI 系统</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/tags/%E6%B8%B8%E8%AE%B0/" target="_self">
+                    
+                    <span>游记</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/tags/%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3/" target="_self">
+                    
+                    <span>算法详解</span>
+                  </a>
+                
+                  
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/tags/%E9%A2%98%E8%A7%A3/" target="_self">
+                    
+                    <span></span>
+                  </a>
+                
+              </div>
             </li>
           
         
@@ -286,7 +299,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          623 字
+          629 字
         
       </span>
     
@@ -363,24 +376,74 @@
             
               <div class="markdown-body">
                 
-                <h1 id="这道题真的离谱"><a href="#这道题真的离谱" class="headerlink" title="这道题真的离谱"></a>这道题真的离谱</h1><h2 id="1-划分阶段"><a href="#1-划分阶段" class="headerlink" title="1. 划分阶段"></a>1. 划分阶段</h2><p>对于这道题目，我以每一个字母为一个阶段，表示第一个字符串的前 $i$  个字母和第二个字符串的前 $j$ 个字母之间的编辑距离（定义见题目）</p>
-<h2 id="2-状态和状态变量"><a href="#2-状态和状态变量" class="headerlink" title="2. 状态和状态变量"></a>2. 状态和状态变量</h2><p>定义数组 $f$ 用于存储状态，即 $f_{i,\ j}$ 表示一个阶段（也就是(1) 里面提到的阶段），同时 $a,b$ 分别是输入的两个字符串</p>
-<h2 id="3-确定状态转移方程"><a href="#3-确定状态转移方程" class="headerlink" title="3. 确定状态转移方程"></a>3. 确定状态转移方程</h2><p>这就是最难的部分，先从 $f_{i,\ j}$ 的三种可能性看起，他们可能有以下三种状态：<br>$$<br>\left{<br>\begin{array}{lr}<br>a_i&#x3D;”\ “\<br>b_j&#x3D;”\ “\<br>a_i≠”\ “\ &amp;&amp;\ b_j≠”\ “<br>\end{array}<br>\right.<br>$$</p>
-<p>那么先从第一种，也就是当 $a_i$ 是空格，而 $b_j$ 不是的时候，在这个时候，状态转移方程应该如下：<br>$$<br>f_{i,\ j} &#x3D; f_{i - 1,\ j} + k\ \ （k\ 与题目中的定义相同）<br>$$</p>
-<p>然后是第二种，也就是 $b_j$ 是空格，但是 $a_i$ 不是空格的时候，方程如下：<br>$$<br>f_{i,\ j} &#x3D; f_{i,\ j-1} + k\ \ \ （k\ 的定义与题目中相同）<br>$$<br>然后是最后一种，实际上也是最简单的一种：<br>$$<br>f_{i,\ j} &#x3D; f_{i - 1,\ j- 1} + |a_i-b_j|<br>$$<br>行，这就是所有的状态转移方程，总结一下，如下：<br>$$<br>f_{i,\ j} &#x3D;<br>\left{<br>\begin{array}{lr}<br>a_i &#x3D;”\ “\ \ \ f_{i - 1,\ j} + k\<br>b_j&#x3D;”\ “ \ \ \ f_{i,\ j - 1} + k\<br>a_i≠”\ “\ &amp;&amp;\ b_j≠”\ “\ \ \ \ f_{i-1,\ j-1} + |a_i - b_j|<br>\end{array}<br>\right.<br>$$</p>
-<h2 id="4-边界条件"><a href="#4-边界条件" class="headerlink" title="4. 边界条件"></a>4. 边界条件</h2><p>观察样例可以发现，边界条件就是这样的：<br>$$<br>\begin{array}{lr}<br>f_{i,\ 0} &#x3D; f_{i-1,\ 0} + k\<br>f_{0,\ j} &#x3D; f_{0,\ j-1} + k\<br>\end{array}<br>$$</p>
-<h2 id="5-实现"><a href="#5-实现" class="headerlink" title="5. 实现"></a>5. 实现</h2><p>终于到了最最最最最最简单的一步：实现（手动洒花</p>
+                <h1 id="这道题真的离谱">这道题真的离谱</h1>
+<h2 id="划分阶段">1. 划分阶段</h2>
+<p>对于这道题目，我以每一个字母为一个阶段，表示第一个字符串的前 <span
+class="math inline">\(i\)</span> 个字母和第二个字符串的前 <span
+class="math inline">\(j\)</span> 个字母之间的编辑距离（定义见题目）</p>
+<h2 id="状态和状态变量">2. 状态和状态变量</h2>
+<p>定义数组 <span class="math inline">\(f\)</span> 用于存储状态，即
+<span class="math inline">\(f_{i,\ j}\)</span> 表示一个阶段（也就是(1)
+里面提到的阶段），同时 <span class="math inline">\(a,b\)</span>
+分别是输入的两个字符串</p>
+<h2 id="确定状态转移方程">3. 确定状态转移方程</h2>
+<p>这就是最难的部分，先从 <span class="math inline">\(f_{i,\ j}\)</span>
+的三种可能性看起，他们可能有以下三种状态： <span class="math display">\[
+\left\{
+\begin{array}{lr}
+a_i=&quot;\ &quot;\\
+b_j=&quot;\ &quot;\\
+a_i≠&quot;\ &quot;\ \&amp;\&amp;\ b_j≠&quot;\ &quot;
+\end{array}
+\right.
+\]</span></p>
+<p>那么先从第一种，也就是当 <span class="math inline">\(a_i\)</span>
+是空格，而 <span class="math inline">\(b_j\)</span>
+不是的时候，在这个时候，状态转移方程应该如下： <span
+class="math display">\[
+f_{i,\ j} = f_{i - 1,\ j} + k\ \ （k\ 与题目中的定义相同）
+\]</span></p>
+<p>然后是第二种，也就是 <span class="math inline">\(b_j\)</span>
+是空格，但是 <span class="math inline">\(a_i\)</span>
+不是空格的时候，方程如下： <span class="math display">\[
+f_{i,\ j} = f_{i,\ j-1} + k\ \ \ （k\ 的定义与题目中相同）
+\]</span> 然后是最后一种，实际上也是最简单的一种： <span
+class="math display">\[
+f_{i,\ j} = f_{i - 1,\ j- 1} + |a_i-b_j|
+\]</span> 行，这就是所有的状态转移方程，总结一下，如下： <span
+class="math display">\[
+f_{i,\ j} =
+\left\{
+\begin{array}{lr}
+a_i =&quot;\ &quot;\ \ \ f_{i - 1,\ j} + k\\
+b_j=&quot;\ &quot; \ \ \ f_{i,\ j - 1} + k\\
+a_i≠&quot;\ &quot;\ \&amp;\&amp;\ b_j≠&quot;\ &quot;\ \ \ \ f_{i-1,\
+j-1} + |a_i - b_j|
+\end{array}
+\right.
+\]</span></p>
+<h2 id="边界条件">4. 边界条件</h2>
+<p>观察样例可以发现，边界条件就是这样的： <span class="math display">\[
+\begin{array}{lr}
+f_{i,\ 0} = f_{i-1,\ 0} + k\\
+f_{0,\ j} = f_{0,\ j-1} + k\\
+\end{array}
+\]</span></p>
+<p>## 5. 实现</p>
+<p>终于到了最最最最最最简单的一步：实现（手动洒花</p>
 <p>实现真的很简单，只需要以下几步：</p>
 <ul>
 <li>输入</li>
 <li>给边界条件赋值</li>
-<li>计算，也就是取 $f_{i,\ j}$ 三种可能性之中值最小的一种给 $f_{i,\ j}$ 赋值</li>
-<li>输出，把 $f_{a.length(),\ b.length()}$ 输出</li>
+<li>计算，也就是取 <span class="math inline">\(f_{i,\ j}\)</span>
+三种可能性之中值最小的一种给 <span class="math inline">\(f_{i,\
+j}\)</span> 赋值</li>
+<li>输出，把 <span class="math inline">\(f_{a.length(),\
+b.length()}\)</span> 输出</li>
 <li>等 AC</li>
 </ul>
 <p>下面是实际代码：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;iostream&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-type">int</span> k, f[<span class="hljs-number">2009</span>][<span class="hljs-number">2009</span>];<br>string a, b;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    cin &gt;&gt; a &gt;&gt; b &gt;&gt; k;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= a.<span class="hljs-built_in">length</span>(); i++) &#123;<br>        f[i][<span class="hljs-number">0</span>] = k + f[i - <span class="hljs-number">1</span>][<span class="hljs-number">0</span>];<br>    &#125;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= b.<span class="hljs-built_in">length</span>(); i++) &#123;<br>        f[<span class="hljs-number">0</span>][i] = k + f[<span class="hljs-number">0</span>][i - <span class="hljs-number">1</span>];<br>    &#125;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= a.<span class="hljs-built_in">length</span>(); i++) &#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">1</span>; j &lt;= b.<span class="hljs-built_in">length</span>(); j++) &#123;<br>            f[i][j] = <span class="hljs-built_in">min</span>(f[i - <span class="hljs-number">1</span>][j - <span class="hljs-number">1</span>] + <span class="hljs-built_in">abs</span>((<span class="hljs-type">int</span>) a[i - <span class="hljs-number">1</span>] - (<span class="hljs-type">int</span>) b[j - <span class="hljs-number">1</span>]), <span class="hljs-built_in">min</span>(f[i - <span class="hljs-number">1</span>][j] + k, f[i][j - <span class="hljs-number">1</span>] + k));<br>        &#125;<br>    &#125;<br>    cout &lt;&lt; f[a.<span class="hljs-built_in">length</span>()][b.<span class="hljs-built_in">length</span>()];<br>&#125;<br></code></pre></td></tr></table></figure>
-
 
                 
               </div>

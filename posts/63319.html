@@ -21,14 +21,13 @@
   <meta name="author" content="CodingCow Lee">
   <meta name="keywords" content="python,ml,deeplearning,dl,c++,c,pytorch,noi,oi,ioi,noip,csp-j,csp-s,oier,tyoi,oiclass">
   
-    <meta name="description" content="构建超强 OI 系统之开发环境环境的配置常用的环境有 Python、C&#x2F;C++、LaTeX 等等。下面介绍以下几种环境的安装方法。 Python直接在终端运行 sudo pacman -S python 即可，如果你要安装 Python2，可以使用 sudo pacman -S python2。 C&#x2F;C++对于大部分的编译器直接使用 pacman 安装即可，比如 gcc 可以直">
+    <meta name="description" content="构建超强 OI 系统之开发环境 环境的配置 常用的环境有 Python、C&#x2F;C++、LaTeX 等等。下面介绍以下几种环境的安装方法。 Python 直接在终端运行 sudo pacman -S python 即可，如果你要安装 Python2，可以使用 sudo pacman -S python2。 C&#x2F;C++ 对于大部分的编译器直接使用 pacman 安装即可，比如 gcc 可以直接使用 pa">
 <meta property="og:type" content="article">
 <meta property="og:title" content="构建超强 OI 系统之开发环境">
 <meta property="og:url" content="https://lixuannan.github.io/posts/63319">
 <meta property="og:site_name" content="CodingCow&#39;s Blog">
-<meta property="og:description" content="构建超强 OI 系统之开发环境环境的配置常用的环境有 Python、C&#x2F;C++、LaTeX 等等。下面介绍以下几种环境的安装方法。 Python直接在终端运行 sudo pacman -S python 即可，如果你要安装 Python2，可以使用 sudo pacman -S python2。 C&#x2F;C++对于大部分的编译器直接使用 pacman 安装即可，比如 gcc 可以直">
+<meta property="og:description" content="构建超强 OI 系统之开发环境 环境的配置 常用的环境有 Python、C&#x2F;C++、LaTeX 等等。下面介绍以下几种环境的安装方法。 Python 直接在终端运行 sudo pacman -S python 即可，如果你要安装 Python2，可以使用 sudo pacman -S python2。 C&#x2F;C++ 对于大部分的编译器直接使用 pacman 安装即可，比如 gcc 可以直接使用 pa">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://cdn.jsdmirror.cn/gh/lixuannan/img/vi-vim-cheat-sheet-sch1.gif">
 <meta property="article:published_time" content="2024-10-10T09:57:00.000Z">
 <meta property="article:modified_time" content="2024-10-10T12:34:42.324Z">
 <meta property="article:author" content="CodingCow Lee">
@@ -37,7 +36,6 @@
 <meta property="article:tag" content="Arch Linux">
 <meta property="article:tag" content="OI">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://cdn.jsdmirror.cn/gh/lixuannan/img/vi-vim-cheat-sheet-sch1.gif">
 <meta name="twitter:creator" content="@CodingCow">
 <meta name="twitter:site" content="lixuannan.github.io">
   
@@ -159,35 +157,48 @@
           
           
           
-            <li class="nav-item">
-              <a class="nav-link" href="/tags/%E6%B8%B8%E8%AE%B0/" target="_self">
-                <i class="iconfont icon-notebook"></i>
-                <span>游记</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/tags/%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3/" target="_self">
-                <i class="iconfont icon-code"></i>
-                <span>算法详解</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/tags/%E9%A2%98%E8%A7%A3/" target="_self">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="iconfont icon-book"></i>
-                <span>题解</span>
+                <span>专题</span>
               </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/tags/%E6%9E%84%E5%BB%BA%E8%B6%85%E5%BC%BA-OI-%E7%B3%BB%E7%BB%9F/" target="_self">
+                    
+                    <span>构建超强 OI 系统</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/tags/%E6%B8%B8%E8%AE%B0/" target="_self">
+                    
+                    <span>游记</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/tags/%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3/" target="_self">
+                    
+                    <span>算法详解</span>
+                  </a>
+                
+                  
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/tags/%E9%A2%98%E8%A7%A3/" target="_self">
+                    
+                    <span></span>
+                  </a>
+                
+              </div>
             </li>
           
         
@@ -290,7 +301,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          609 字
+          611 字
         
       </span>
     
@@ -367,22 +378,49 @@
             
               <div class="markdown-body">
                 
-                <h1 id="构建超强-OI-系统之开发环境"><a href="#构建超强-OI-系统之开发环境" class="headerlink" title="构建超强 OI 系统之开发环境"></a>构建超强 OI 系统之开发环境</h1><h2 id="环境的配置"><a href="#环境的配置" class="headerlink" title="环境的配置"></a>环境的配置</h2><p>常用的环境有 Python、C&#x2F;C++、LaTeX 等等。下面介绍以下几种环境的安装方法。</p>
-<h3 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h3><p>直接在终端运行 <code>sudo pacman -S python</code> 即可，如果你要安装 Python2，可以使用 <code>sudo pacman -S python2</code>。</p>
-<h3 id="C-C"><a href="#C-C" class="headerlink" title="C&#x2F;C++"></a>C&#x2F;C++</h3><p>对于大部分的编译器直接使用 pacman 安装即可，比如 gcc 可以直接使用 <code>pacman -S gcc</code> 安装即可。</p>
-<h3 id="LaTex"><a href="#LaTex" class="headerlink" title="LaTex"></a>LaTex</h3><p>这里讲一下 TeX Live 环境的安装，使用下面的命令安装</p>
+                <h1 id="构建超强-oi-系统之开发环境">构建超强 OI 系统之开发环境</h1>
+<h2 id="环境的配置">环境的配置</h2>
+<p>常用的环境有 Python、C/C++、LaTeX
+等等。下面介绍以下几种环境的安装方法。</p>
+<h3 id="python">Python</h3>
+<p>直接在终端运行 <code>sudo pacman -S python</code> 即可，如果你要安装
+Python2，可以使用 <code>sudo pacman -S python2</code>。</p>
+<h3 id="cc">C/C++</h3>
+<p>对于大部分的编译器直接使用 pacman 安装即可，比如 gcc 可以直接使用
+<code>pacman -S gcc</code> 安装即可。</p>
+<h3 id="latex">LaTex</h3>
+<p>这里讲一下 TeX Live 环境的安装，使用下面的命令安装</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> pacman -S texlive<br></code></pre></td></tr></table></figure>
-
-<h2 id="代码编写软件"><a href="#代码编写软件" class="headerlink" title="代码编写软件"></a>代码编写软件</h2><p>下面简单介绍常用的软件，包含 Jetbrains 软件、VSCode 以及人见人爱，花间花开的 VIM。</p>
-<h3 id="Jetbrains-软件（IDEA-CLion-Pycharm-等）"><a href="#Jetbrains-软件（IDEA-CLion-Pycharm-等）" class="headerlink" title="Jetbrains 软件（IDEA, CLion, Pycharm 等）"></a>Jetbrains 软件（IDEA, CLion, Pycharm 等）</h3><p>安装 Jetbrains 的软件略微有一些麻烦，首先需要安装一个包管理器：flatpak。使用命令 <code>sudo pacman -S flatpak</code> 即可。</p>
-<p>然后我们就开始安装了，使用 <code>flatpak install clion</code> 或者其他 IDE 的名字安装即可。注意你需要一直同意他的操作。</p>
-<h3 id="VSCode"><a href="#VSCode" class="headerlink" title="VSCode"></a>VSCode</h3><p>使用命令 <code>yay -S visual-studio-code-bin</code> 安装即可，安装后与其他操作系统版本的配置方法相同。</p>
-<h3 id="VIM"><a href="#VIM" class="headerlink" title="VIM"></a>VIM</h3><p>需要注意的是，在 Arch Linux 上存在着一个特别的现象，如果你是用的是安装 gVIM 的时候附带的 VIM，那么你拥有的特性是比直接安装 VIM 要多的。这就导致我们应该安装 gVIM。</p>
-<p>使用 <code>sudo pacman -S gvim</code> 来安装 gVIM。然后你可以直接抄作业使用我的配置文件：<a target="_blank" rel="noopener" href="https://github.com/Lixuannan/vimrc/blob/main/.vimrc">https://github.com/Lixuannan/vimrc/blob/main/.vimrc</a>。你需要打开一个终端，然后在你的用户目录下创建一个名叫 <code>.vimrc</code> 的文件然后把链接里面的内容粘贴进去。 </p>
-<p>然后打开 VIM 你就会看到一堆报错，因为我们还需要安装一个插件管理器，使用下面的命令：</p>
+<h2 id="代码编写软件">代码编写软件</h2>
+<p>下面简单介绍常用的软件，包含 Jetbrains 软件、VSCode
+以及人见人爱，花间花开的 VIM。</p>
+<h3 id="jetbrains-软件idea-clion-pycharm-等">Jetbrains 软件（IDEA,
+CLion, Pycharm 等）</h3>
+<p>安装 Jetbrains
+的软件略微有一些麻烦，首先需要安装一个包管理器：flatpak。使用命令
+<code>sudo pacman -S flatpak</code> 即可。</p>
+<p>然后我们就开始安装了，使用 <code>flatpak install clion</code>
+或者其他 IDE 的名字安装即可。注意你需要一直同意他的操作。</p>
+<h3 id="vscode">VSCode</h3>
+<p>使用命令 <code>yay -S visual-studio-code-bin</code>
+安装即可，安装后与其他操作系统版本的配置方法相同。</p>
+<h3 id="vim">VIM</h3>
+<p>需要注意的是，在 Arch Linux
+上存在着一个特别的现象，如果你是用的是安装 gVIM 的时候附带的
+VIM，那么你拥有的特性是比直接安装 VIM 要多的。这就导致我们应该安装
+gVIM。</p>
+<p>使用 <code>sudo pacman -S gvim</code> 来安装
+gVIM。然后你可以直接抄作业使用我的配置文件：<a
+target="_blank" rel="noopener" href="https://github.com/Lixuannan/vimrc/blob/main/.vimrc"
+class="uri">https://github.com/Lixuannan/vimrc/blob/main/.vimrc</a>。你需要打开一个终端，然后在你的用户目录下创建一个名叫
+<code>.vimrc</code> 的文件然后把链接里面的内容粘贴进去。</p>
+<p>然后打开 VIM
+你就会看到一堆报错，因为我们还需要安装一个插件管理器，使用下面的命令：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">curl -fLo ~/.vim/autoload/plug.vim --create-dirs \<br>    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim<br></code></pre></td></tr></table></figure>
-
-<p>然后打开 vim，键入命令 <code>:PlugInstall</code> 就会安装插件。然后你可以时不时使用命令 <code>:PlugUpdate</code> 来更新插件，需要注意的是，其中有一个插件 VOIM 需要一个额外的命令来进行更新：<code>:UpdateVOIM</code>。</p>
+<p>然后打开 vim，键入命令 <code>:PlugInstall</code>
+就会安装插件。然后你可以时不时使用命令 <code>:PlugUpdate</code>
+来更新插件，需要注意的是，其中有一个插件 VOIM
+需要一个额外的命令来进行更新：<code>:UpdateVOIM</code>。</p>
 <p>下面介绍一下这个配置文件实现的功能：</p>
 <ul>
 <li>F5 一键编译运行文件。</li>
@@ -391,8 +429,13 @@
 <li>jk 退出到普通模式。</li>
 </ul>
 <p>下面附上一张键位表：</p>
-<p><img src="https://cdn.jsdmirror.cn/gh/lixuannan/img/vi-vim-cheat-sheet-sch1.gif" srcset="/img/loading.gif" lazyload alt="VIM 键位表"></p>
-<hr>
+<figure>
+<img
+src="https://cdn.jsdmirror.cn/gh/lixuannan/img/vi-vim-cheat-sheet-sch1.gif" srcset="/img/loading.gif" lazyload
+alt="VIM 键位表" />
+<figcaption aria-hidden="true">VIM 键位表</figcaption>
+</figure>
+<hr />
 <p>以上就是本专题的全部内容，祝你 Coding 愉快！</p>
 
                 
