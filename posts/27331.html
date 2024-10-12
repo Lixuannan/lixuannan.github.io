@@ -21,19 +21,22 @@
   <meta name="author" content="CodingCow Lee">
   <meta name="keywords" content="python,ml,deeplearning,dl,c++,c,pytorch,noi,oi,ioi,noip,csp-j,csp-s,oier,tyoi,oiclass">
   
-    <meta name="description" content="你说为什么 01 背包模板不是偷东西呢？ 额，搞错了，再来！ 1. 划分阶段 一共划分 \(M\) 个阶段，每个阶段表示在这个阶段可以采的最多的草药 2. 确定状态和状态变量 状态变量就用一个二维数组 \(f\) 吧，也就是说 \(f_{i,\ j}\) 表示前 \(i\) 颗草药在前 \(j\) 的时间可以获得最大价值，也就是说我们想求的是用 \(j\) 的时间，如何在 \(a_{1 \to i">
+    <meta name="description" content="第一节——认识计算机 在中文语境中，计算机通常被称为电脑，原因自然不必多说。当然计算机的范畴并不仅仅局限于我们日常使用的电脑，我们平时经常接触到手机、智能手表、甚至家里的物联网温度传感器都属于计算机。 认识电脑以及电脑的运作方式有助于你对程序做一些十分有用的优化，因此下面介绍一下电脑的组成部分。 硬件 下面我们为了方便，我们使用一个笔记本的主板来介绍有关 OI 的电脑组成部分。   MacBook">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Oiclass P1246 题解">
-<meta property="og:url" content="https://lixuannan.github.io/posts/b1de6f60">
+<meta property="og:title" content="零基础入门 OI 之第一节——认识计算机">
+<meta property="og:url" content="https://lixuannan.github.io/posts/27331">
 <meta property="og:site_name" content="CodingCow&#39;s Blog">
-<meta property="og:description" content="你说为什么 01 背包模板不是偷东西呢？ 额，搞错了，再来！ 1. 划分阶段 一共划分 \(M\) 个阶段，每个阶段表示在这个阶段可以采的最多的草药 2. 确定状态和状态变量 状态变量就用一个二维数组 \(f\) 吧，也就是说 \(f_{i,\ j}\) 表示前 \(i\) 颗草药在前 \(j\) 的时间可以获得最大价值，也就是说我们想求的是用 \(j\) 的时间，如何在 \(a_{1 \to i">
+<meta property="og:description" content="第一节——认识计算机 在中文语境中，计算机通常被称为电脑，原因自然不必多说。当然计算机的范畴并不仅仅局限于我们日常使用的电脑，我们平时经常接触到手机、智能手表、甚至家里的物联网温度传感器都属于计算机。 认识电脑以及电脑的运作方式有助于你对程序做一些十分有用的优化，因此下面介绍一下电脑的组成部分。 硬件 下面我们为了方便，我们使用一个笔记本的主板来介绍有关 OI 的电脑组成部分。   MacBook">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-01-12T06:31:00.000Z">
-<meta property="article:modified_time" content="2024-10-12T01:39:22.691Z">
+<meta property="og:image" content="https://cdn.jsdmirror.cn/gh/lixuannan/img/lyhmdzo6c3w71.webp">
+<meta property="article:published_time" content="2024-10-12T03:34:00.000Z">
+<meta property="article:modified_time" content="2024-10-12T08:43:38.474Z">
 <meta property="article:author" content="CodingCow Lee">
-<meta property="article:tag" content="题解">
-<meta property="article:tag" content="OiClass">
+<meta property="article:tag" content="OI">
+<meta property="article:tag" content="零基础入门 OI">
+<meta property="article:tag" content="计算机">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cdn.jsdmirror.cn/gh/lixuannan/img/lyhmdzo6c3w71.webp">
 <meta name="twitter:creator" content="@CodingCow">
 <meta name="twitter:site" content="lixuannan.github.io">
   
@@ -41,7 +44,7 @@
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>Oiclass P1246 题解 | CodingCow&#39;s Blog</title>
+  <title>零基础入门 OI 之第一节——认识计算机 | CodingCow&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -270,7 +273,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Oiclass P1246 题解"></span>
+            <span id="subtitle" data-typed-text="零基础入门 OI 之第一节——认识计算机"></span>
           
         </div>
 
@@ -286,8 +289,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-01-12 14:31" pubdate>
-          2023年1月12日 下午
+        <time datetime="2024-10-12 11:34" pubdate>
+          2024年10月12日 中午
         </time>
       </span>
     
@@ -298,7 +301,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.1k 字
+          1.3k 字
         
       </span>
     
@@ -309,7 +312,7 @@
         
         
         
-          7 分钟
+          8 分钟
         
       </span>
     
@@ -370,81 +373,85 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">Oiclass P1246 题解</h1>
+            <h1 id="seo-header">零基础入门 OI 之第一节——认识计算机</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="你说为什么-01-背包模板不是偷东西呢">你说为什么 01
-背包模板不是偷东西呢？</h1>
-<p>额，搞错了，再来！</p>
-<h2 id="划分阶段">1. 划分阶段</h2>
-<p>一共划分 <span class="math inline">\(M\)</span>
-个阶段，每个阶段表示在这个阶段可以采的最多的草药</p>
-<h2 id="确定状态和状态变量">2. 确定状态和状态变量</h2>
-<p>状态变量就用一个二维数组 <span class="math inline">\(f\)</span>
-吧，也就是说 <span class="math inline">\(f_{i,\ j}\)</span> 表示前 <span
-class="math inline">\(i\)</span> 颗草药在前 <span
-class="math inline">\(j\)</span>
-的时间可以获得最大价值，也就是说我们想求的是用 <span
-class="math inline">\(j\)</span> 的时间，如何在 <span
-class="math inline">\(a_{1 \to i}\)</span>
-的草药中获得最大价值，<del>简单说就是他想赚多点钱</del></p>
-<h2 id="写出状态转换方程并确定决策">3. 写出状态转换方程并确定决策</h2>
-<p>这里我们现出不的写出一条状态转移方程： <span class="math display">\[
-f_{i,\ j} = \max\left(f_{i-1,\ j-t_{i}}+v_i,\ f_{i-1,\ j}\right)\ \ \ \
-（\ t\ 数组为采药耗时，v\ 数组为草药价值\ ）
-\]</span> 然后我们可以发现，如果 <span
-class="math inline">\(j&lt;t_i\)</span>
-这个式子他就乱套了，数组下标怎么能是负的呢。所以我们需要特判一下 <span
-class="math inline">\(j&lt;t_i\)</span> 的情况，避免 RE
-。那么在这种情况的时候，状态要怎么计算呢，我们可以发现，在这个时候，我们无法采摘新的草药，也就是说我们可以直接沿用
-<span class="math inline">\(f_{i-1,\ j}\)</span>
-的情况。那么我们就可以写出完整地方程了： <span class="math display">\[
-f_{i,\ j} = \left\{\begin{array}{lr}
-j&lt;t_i\ \ \ \ \ f_{i-1,\ j}\\
-j≥t_i\ \ \ \ \ f_{i-1,\ j-t_{i}}+v_i
-\end{array}\right.
-\]</span>
-行，那么我们可以进行下一步了对..吧…..。额，这个方程看起来不够<strong>简洁优雅</strong>观察一下可以发现，实际上这个方程可以被压缩成一维的，这样可读性就高很多了。我们考虑一下，究竟是减掉可选物品呢？还是减掉时间呢？很明显，时间对我们来说更重要，所以我们尝试减掉物品这一维。我们首先直接无脑去掉他。发现会有一个问题，就是一个物品会有重复选择的问题。我们观察可以发现，如果我们这一步的操作是
-<span class="math inline">\(f_{i,\ j} = f_{i-1,\ j}\)</span>
-的话，实际上就是直接复制了上一项的值，这里相信大家都是清楚的，那么如果我们这一步的操作是
-<span class="math inline">\(f_{i,\ j} = f_{i-1,\ j-t_i}+v_i\)</span>
-的话这又意味着什么呢？仔细想一下，我们可以发现着意味着我们使用 <span
-class="math inline">\(t_i\)</span> 的时间使得我们多得到了 <span
-class="math inline">\(v_i\)</span> 的价值所以我们需要回退倒
-<strong><em>只能选上一颗草药，只有 <span
-class="math inline">\(j-t_i\)</span> 的时间</em></strong>
-时的最优解然后在其基础上增加 <span class="math inline">\(v_i\)</span>
-的价值，所以我们发现实际上对我们有用的只有原数组的 <span
-class="math inline">\(j\)</span> 下标，而 <span
-class="math inline">\(i\)</span>
-下标只是纯粹递增的而已。所以到这里，我们可以基本确定，我们的确可以去掉
-<span class="math inline">\(i\)</span>
-下标，同时保持程序正常运行。那么你就会发现，虽然理论上可以，但是实际翻车了，这里是因为：我们在计算
-<span class="math inline">\(f_j\ (\ 即\ f_{i,\ j}\ )\)</span>
-的时候，我们需要 <span class="math inline">\(f_{j-t_i}\ (\ 即\ f_{i,\
-j-t_i}\ )\)</span> 的值，而因为 <span
-class="math inline">\(j&lt;j-t_i\)</span>
-所以如果我们按照正常的顺序遍历的方法，会造成一个结果被重复使用，也就是一颗草药被摘很多次的情况，很显然这是我们不想看到的，因此我们需要倒叙遍历这个数组，方程也就简化成这样了：
-<span class="math display">\[
-f_j=\left\{\begin{array}{lr}
-j&lt;t_i\ \ \ \ \ f_j\\
-j≥t_i\ \ \ \ \ f_{j-t_i}+v_i
-\end{array}\right.
-\]</span></p>
-<p>而这条公式又可以简化成一行，同时不造成值的错误（尽管有些溢出的风险）：
-<span class="math display">\[
-f_j=\max(f_j,\ f_{j-t_i}+v+i)
-\]</span> 终于搞完了</p>
-<h2 id="初始条件">4. 初始条件</h2>
-<p>在什么时间都没有的情况下，我们不可能摘到草药，所以 <span
-class="math inline">\(f_0=0\)</span> 而又因为数组的初始值就是 <span
-class="math inline">\(0\)</span>
-所以我们再次不需要进行任何操作，妙啊！！！！</p>
-<h2 id="实现">5. 实现</h2>
-<p>直接模拟，上代码！：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-type">int</span> times, m, t[<span class="hljs-number">109</span>], v[<span class="hljs-number">109</span>], f[<span class="hljs-number">10001</span>];<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    cin &gt;&gt; times &gt;&gt; m;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= m; i++) &#123;<br>        cin &gt;&gt; t[i] &gt;&gt; v[i];<br>    &#125;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= m; i++) &#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = times; j &gt;= t[i]; j--) &#123;<br>            f[j] = <span class="hljs-built_in">max</span>(f[j], f[j - t[i]] + v[i]);<br>        &#125;<br>    &#125;<br>    cout &lt;&lt; f[times];<br>&#125;<br></code></pre></td></tr></table></figure>
+                <h1 id="第一节认识计算机">第一节——认识计算机</h1>
+<p>在中文语境中，计算机通常被称为电脑，原因自然不必多说。当然计算机的范畴并不仅仅局限于我们日常使用的电脑，我们平时经常接触到手机、智能手表、甚至家里的物联网温度传感器都属于计算机。</p>
+<p>认识电脑以及电脑的运作方式有助于你对程序做一些十分有用的优化，因此下面介绍一下电脑的组成部分。</p>
+<h2 id="硬件">硬件</h2>
+<p>下面我们为了方便，我们使用一个笔记本的主板来介绍有关 OI
+的电脑组成部分。</p>
+<figure>
+<img
+src="https://cdn.jsdmirror.cn/gh/lixuannan/img/eF4gevhZhctZqlMD.large" srcset="/img/loading.gif" lazyload
+alt="MacBook Pro 2019 主板" />
+<figcaption aria-hidden="true">MacBook Pro 2019 主板</figcaption>
+</figure>
+<h3 id="cpu">CPU</h3>
+<p>首先我们可以看到一台电脑里面最核心的一个部分，红色框里面的是中央处理器（CPU,
+Central Process
+Unit）。这个部件就是我们通常写的程序运行的地方，里面通常是这样的：</p>
+<figure>
+<img src="https://cdn.jsdmirror.cn/gh/lixuannan/img/lyhmdzo6c3w71.webp" srcset="/img/loading.gif" lazyload
+alt="Intel Core i7-12700K Die Shot" />
+<figcaption aria-hidden="true">Intel Core i7-12700K Die
+Shot</figcaption>
+</figure>
+<p>可以看到里面不仅仅有负责计算的 CPU
+内核，还有音视频的编解码器、内存控制器等等的支持电脑运行的组件。同时里面还后一些以极快速度运行的小容量存储，这些存储将是我们在变成里面要谨慎使用但正确使用可以提速非常多的存储空间。</p>
+<h3 id="gpu">GPU</h3>
+<p>然后我们看到黄色框里面的部件，长得有点像
+CPU，这个部件叫做图形处理器（GPU, Graphic Process
+Unit），在大陆这个部件通常也被称为显卡。显卡与 OI
+并无多大的关系，因此不深入介绍。</p>
+<h3 id="ram">RAM</h3>
+<p>此后是橙色框里面的部件，这个部件被称为内存（RAM，Random Access
+Memory），正如其名，这个部件支持随机的数据访问。通常我们程序产生的数据都是存储在内存里面的，包括但不限于你程序里面产生的变量、函数运行时的调用栈。合理分配并使用内存是
+OI 中非常必要学会的一项技能。</p>
+<p>剩下的部分和 OI 都无太大关系，此处跳过。</p>
+<h2 id="软件">软件</h2>
+<p>硬件就像是你的身体，但是人没有灵魂是无法存在的，因此电脑也许要软件来运行。为了方便，我们略过
+BIOS（Basic Input Output System）的部分，从操作系统讲起。</p>
+<h3 id="操作系统">操作系统</h3>
+<p>顾名思义，这个软件提供了你对电脑的基本操作，这里面包含了许多不可或缺的功能。这些不可或缺的功能里面就包括内存的分配、进程的调用以及对硬件的一些必要操作等。</p>
+<p>根据维基百科的数据可以发现对于个人电脑，市场占有率由高到低分别是：Windows,
+MacOS, Chrome OS, Linux, FreeBSD。下面介绍一下提及的系统。</p>
+<h4 id="windows">Windows</h4>
+<p>Windows
+是微软开发的图形操作系统，广泛用于个人电脑和服务器。它以直观的界面、广泛的硬件兼容性和丰富的软件生态系统著称。Windows
+支持多任务处理，集成安全功能和云服务（如 OneDrive）。主要版本包括
+Windows XP、Windows 10 和 Windows 11，广泛应用于全球。</p>
+<h4 id="macos">MacOS</h4>
+<p>macOS 是苹果公司为其 Mac
+电脑开发的操作系统，以简洁优雅的界面和稳定性著称。它基于
+UNIX，具备强大的安全性和多任务处理能力。macOS
+与苹果生态系统深度集成，支持 iCloud 云服务、Handoff、AirDrop
+等功能，方便设备间协作。常见版本包括 macOS Mojave、Big Sur 和最新的
+Sonoma。</p>
+<h4 id="chrome-os">Chrome OS</h4>
+<p>ChromeOS 是谷歌开发的基于 Linux 开发的操作系统，专为 Chromebook
+设备设计。它以简洁轻便为特点，主要依赖谷歌 Chrome
+浏览器运行应用程序，侧重于云计算和在线应用。ChromeOS
+提供快速启动、自动更新和内置安全性，适合日常办公、学习和浏览。用户还可以通过支持
+Android 和 Linux 应用，扩展系统功能。</p>
+<h4 id="linux">Linux</h4>
+<p>Linux 是一个开源的操作系统，基于 UNIX
+设计，广泛用于服务器、个人电脑和嵌入式系统。它的灵活性和稳定性使其在开发、编程和网络服务器领域尤为流行。Linux
+提供多种发行版，如 Ubuntu、Debian GNU/Linux、Fedora 和 Arch
+Linux，用户可以根据需求进行自定义。由于其开源性质，Linux
+具有高度的安全性和社区支持，是开发者和技术爱好者的首选操作系统之一。</p>
+<h4 id="freebsd">FreeBSD</h4>
+<p>FreeBSD 是基于 BSD
+的开源操作系统，专注于性能、安全性和稳定性，广泛应用于服务器、网络设备和嵌入式系统。与
+Linux 类似，FreeBSD 提供强大的网络堆栈和高级文件系统（如
+ZFS），适合高负载和高可用性环境。它具有丰富的安全特性、灵活的许可模式，以及由<del>庞大</del>的社区进行开发和维护。FreeBSD
+常用于构建高效、可靠的服务器和网络基础设施。</p>
+<hr />
+<p>对于 OIer 来说，通常使用的是
+Windows/MacOS/Linux，在下一节将介绍各个系统的环境简单配置。</p>
 
                 
               </div>
@@ -458,9 +465,11 @@ class="math inline">\(0\)</span>
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E9%A2%98%E8%A7%A3/" class="print-no-link">#题解</a>
+        <a href="/tags/OI/" class="print-no-link">#OI</a>
       
-        <a href="/tags/OiClass/" class="print-no-link">#OiClass</a>
+        <a href="/tags/%E9%9B%B6%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8-OI/" class="print-no-link">#零基础入门 OI</a>
+      
+        <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="print-no-link">#计算机</a>
       
     </div>
   
@@ -472,8 +481,8 @@ class="math inline">\(0\)</span>
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Oiclass P1246 题解</div>
-      <div>https://lixuannan.github.io/posts/b1de6f60</div>
+      <div>零基础入门 OI 之第一节——认识计算机</div>
+      <div>https://lixuannan.github.io/posts/27331</div>
     </div>
     <div class="license-meta">
       
@@ -485,7 +494,7 @@ class="math inline">\(0\)</span>
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年1月12日</div>
+          <div>2024年10月12日</div>
         </div>
       
       
@@ -529,18 +538,12 @@ class="math inline">\(0\)</span>
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/posts/282a7cc0" title="Oiclass P1255 题解">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Oiclass P1255 题解</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/posts/2faeff2f" title="Oiclass P1928 题解">
-                        <span class="hidden-mobile">Oiclass P1928 题解</span>
+                      <a href="/posts/63319" title="构建超强 OI 系统之开发环境">
+                        <span class="hidden-mobile">构建超强 OI 系统之开发环境</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
