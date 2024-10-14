@@ -4,6 +4,27 @@
   
   
   <entry>
+    <title>零基础入门 OI 第二节——编码前的准备</title>
+    <link href="/posts/19792.html"/>
+    <url>/posts/19792.html</url>
+    
+    <content type="html"><![CDATA[<h1 id="零基础入门-oi-第二节编码前的准备">零基础入门 OI第二节——编码前的准备</h1><p>在开始学习有关编码的内容之前我们应该获得一套称手的或者说可用的编程设备。下面就介绍一下硬件与软件方面的准备。</p><h2 id="硬件">硬件</h2><p>对于编程来说，一台任意品牌的能够正常开机的电脑应该都是可以满足需求的。但是老爷机可能无法运行所需的环境。可以通过打开<a href="https://www.bilibili.com"class="uri">https://www.bilibili.com</a>来验证电脑的性能，如果能够正常的浏览视频、发弹幕，想必是没有问题。</p><h2 id="软件">软件</h2><p>下面简单介绍一下常见的开发环境。</p><h3 id="redpandacpp">RedPandaCpp</h3><p>对于刚入门的 OI 选手，选用 RedPandaCpp 是一个非常不错的选择，可以前往<a href="https://royqh.net/redpandacpp/download/">官网</a>下载安装。下载时注意不要选择具有 <code>No-Compiler</code>即无编译器标签的安装包。下面简单介绍一下使用方法。</p><p><imgsrc="https://cdn.jsdmirror.cn/gh/lixuannan/img/RedPandaCPP-User-Interface.png" srcset="/img/loading.gif" lazyload /></p><p>可以看到这是一个清晰的编辑页面。你可以在有行号的编辑区编辑你的代码，然后使用&lt;F11&gt; 键编译运行。详细的操作指引请看官方的<ahref="https://royqh.net/redpandacpp/docsy/docs/">使用帮助</a>。</p><h3 id="vscode">VSCode</h3><p>VSCode，全称 Visual StudioCode，是由微软公司开发的一款“轻量级”代码编辑器。你可以访问微软的<ahref="https://code.visualstudio.com/">官方网站</a>获取 VSCode的最新安装包。安装后你还需要安装编译器，你可以前往搜索引擎自行搜索你对应系统的C++ 编译器安装方法，Google is your friends.</p><p>对于 Windows，你可以下载预编译的 MinGW，前往 <ahref="https://github.com/niXman/mingw-builds-binaries/releases/latest">GitHubRelease</a> 下载你对应架构的编译器，一般来说，你需要下载<code>x86_64</code>开头的压缩包。下载压缩包之后解压并将解压出来的文件夹中的<code>bin</code> 文件夹所在的目录加入环境变量中。具体操作：</p><ul><li><p>复制文件夹目录，可能是<code>C:\User\Admin\Desktop\mingw\bin\</code>。</p></li><li><p>右键单击此电脑-属性-高级系统设置-环境变量</p></li><li><p>然后编辑系统的 <code>PATH</code>环境变量，新建，然后粘贴刚刚复制的路径，保存即可。</p></li></ul><p>然后你需要在安装 CPH 插件，这样你就可以快速的运行代码了。</p><p>具体使用方法自行 Google。</p><h3 id="vim">VIM</h3><p>VIM 只推荐在非 Windows系统上面使用，具体安装方法可以参考我以前写的一篇文章：<ahref="https://lixuannan.github.io/posts/63319#vim">构建超强 OI系统之开发环境</a>。</p><hr /><p>那么你已经学会如何给自己准备一个开发环境啦！</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>零基础入门 OI</tag>
+      
+      <tag>OI</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>零基础入门 OI 之第一节——认识计算机</title>
     <link href="/posts/27331.html"/>
     <url>/posts/27331.html</url>
@@ -14,9 +35,9 @@
     
     <tags>
       
-      <tag>OI</tag>
-      
       <tag>零基础入门 OI</tag>
+      
+      <tag>OI</tag>
       
       <tag>计算机</tag>
       
@@ -37,13 +58,13 @@
     
     <tags>
       
+      <tag>OI</tag>
+      
       <tag>构建超强 OI 系统</tag>
       
       <tag>系统</tag>
       
       <tag>Arch Linux</tag>
-      
-      <tag>OI</tag>
       
     </tags>
     
@@ -62,13 +83,13 @@
     
     <tags>
       
+      <tag>OI</tag>
+      
       <tag>构建超强 OI 系统</tag>
       
       <tag>系统</tag>
       
       <tag>Arch Linux</tag>
-      
-      <tag>OI</tag>
       
       <tag>GNOME</tag>
       
@@ -91,13 +112,13 @@
     
     <tags>
       
+      <tag>OI</tag>
+      
       <tag>构建超强 OI 系统</tag>
       
       <tag>系统</tag>
       
       <tag>Arch Linux</tag>
-      
-      <tag>OI</tag>
       
     </tags>
     
@@ -116,13 +137,13 @@
     
     <tags>
       
+      <tag>OI</tag>
+      
       <tag>构建超强 OI 系统</tag>
       
       <tag>系统</tag>
       
       <tag>Arch Linux</tag>
-      
-      <tag>OI</tag>
       
     </tags>
     
@@ -1686,22 +1707,22 @@
   
   
   <entry>
-    <title>about</title>
+    <title></title>
     <link href="/"/>
     <url>/</url>
     
-    <content type="html"><![CDATA[<p>好吧，今天终于想起来写简介了。哈哈哈哈</p><p>首先讲一下现在我是干什么的吧，我现在是一个TYOIer。平常就喜欢切切水题，写写 TJ，研究一些奇怪的数学。除了在 TYOI之外我还在学校的宣传部干活（最没错，我是一个初中生）。现在主要的工作就是在学校水课，然后回家出去拍拍照，写一写代码。除了做题以外我的大部分代码都是写在了github 上，大家可以去看一下我的 github 主页，有很多很好玩的项目。</p><p>现在这个博客主要是记录一些我的题解、项目、分享一些摄影的经历。以后可能在B 站也会有一些内容的分享，大家可以去关注的 B 站账号呀~</p>]]></content>
+    <content type="html"><![CDATA[!(function() {  /** 计时起始时间，自行修改 **/  var start = new Date("2022/08/01 12:23:04");  function update() {    var now = new Date();    now.setTime(now.getTime()+250);    days = (now - start) / 1000 / 60 / 60 / 24;    dnum = Math.floor(days);    hours = (now - start) / 1000 / 60 / 60 - (24 * dnum);    hnum = Math.floor(hours);    if(String(hnum).length === 1 ){      hnum = "0" + hnum;    }    minutes = (now - start) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);    mnum = Math.floor(minutes);    if(String(mnum).length === 1 ){      mnum = "0" + mnum;    }    seconds = (now - start) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);    snum = Math.round(seconds);    if(String(snum).length === 1 ){      snum = "0" + snum;    }    document.getElementById("timeDate").innerHTML = "本站安全运行&nbsp"+dnum+"&nbsp天";    document.getElementById("times").innerHTML = hnum + "&nbsp小时&nbsp" + mnum + "&nbsp分&nbsp" + snum + "&nbsp秒";  }  update();  setInterval(update, 1000);})();]]></content>
     
   </entry>
   
   
   
   <entry>
-    <title></title>
+    <title>about</title>
     <link href="/"/>
     <url>/</url>
     
-    <content type="html"><![CDATA[!(function() {  /** 计时起始时间，自行修改 **/  var start = new Date("2022/08/01 12:23:04");  function update() {    var now = new Date();    now.setTime(now.getTime()+250);    days = (now - start) / 1000 / 60 / 60 / 24;    dnum = Math.floor(days);    hours = (now - start) / 1000 / 60 / 60 - (24 * dnum);    hnum = Math.floor(hours);    if(String(hnum).length === 1 ){      hnum = "0" + hnum;    }    minutes = (now - start) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);    mnum = Math.floor(minutes);    if(String(mnum).length === 1 ){      mnum = "0" + mnum;    }    seconds = (now - start) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);    snum = Math.round(seconds);    if(String(snum).length === 1 ){      snum = "0" + snum;    }    document.getElementById("timeDate").innerHTML = "本站安全运行&nbsp"+dnum+"&nbsp天";    document.getElementById("times").innerHTML = hnum + "&nbsp小时&nbsp" + mnum + "&nbsp分&nbsp" + snum + "&nbsp秒";  }  update();  setInterval(update, 1000);})();]]></content>
+    <content type="html"><![CDATA[<p>好吧，今天终于想起来写简介了。哈哈哈哈</p><p>首先讲一下现在我是干什么的吧，我现在是一个TYOIer。平常就喜欢切切水题，写写 TJ，研究一些奇怪的数学。除了在 TYOI之外我还在学校的宣传部干活（最没错，我是一个初中生）。现在主要的工作就是在学校水课，然后回家出去拍拍照，写一写代码。除了做题以外我的大部分代码都是写在了github 上，大家可以去看一下我的 github 主页，有很多很好玩的项目。</p><p>现在这个博客主要是记录一些我的题解、项目、分享一些摄影的经历。以后可能在B 站也会有一些内容的分享，大家可以去关注的 B 站账号呀~除了 B站之外，上面还可以看到我的其他社交媒体帐号，欢迎私信问问题！</p><p>最近（$$2024）写了不少专题文章，包括一些 OI 中的小技巧、零基础入门 OI等等的内容，各位可以关注一下。</p>]]></content>
     
   </entry>
   
