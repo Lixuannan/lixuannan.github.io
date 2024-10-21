@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>Tor 与 Tails 项目合并</title>
+    <link href="/posts/32246.html"/>
+    <url>/posts/32246.html</url>
+    
+    <content type="html"><![CDATA[<h1 id="tor-与-tails-项目合并">Tor 与 Tails 项目合并</h1><blockquote><p>本文翻译自 <ahref="https://debugpointnews.com/tor-project-and-tails-merge-operations/"class="uri">https://debugpointnews.com/tor-project-and-tails-merge-operations/</a></p></blockquote><p>Tor 和 Tails正式联合，合并了两个最强大的在线匿名工具，旨在更好地保护全球用户免受监控和审查。</p><p>为了最大化全球用户的数字隐私和安全，Tor 项目和 Tails正式合并。这次合并将两个最强大的在线匿名工具背后的组织——Tor 浏览器和Tails 操作系统结合在一起。</p><p><imgsrc="https://cdn.jsdmirror.cn/gh/lixuannan/img/Tails-1024x573.webp" srcset="/img/loading.gif" lazyload /></p><p>Tor网络通过将流量路由到全球加密的中继节点，使用户能够匿名连接互联网。Tails则是一个以隐私为中心的 Linux 发行版，设计用于从 USB驱动器运行，并将所有互联网流量通过 Tor路由。两者结合，为活动家、记者、举报人以及寻求免于监控和审查的普通用户提供了全面的解决方案。</p><p>通过整合资源和运营框架，新的合并组织能够更高效地应对不断演变的数字威胁。流畅的合作将加快新隐私增强功能在Tor浏览器和Tails中的整合。</p><p>“Tails 独立运行15年是一项巨大的工作，筹资和运营是最大的挑战”，Tails操作系统团队负责人 intrigeri 表示。“与 Tor 合并使我们可以专注于改进Tails，并受益于他们成熟的组织结构”。</p><p>这次合并为数字安全的更广泛教育项目带来了机会。Tor的培训项目现在可以包括关于如何使用安全的 Tails操作系统的综合指南，满足更广泛的隐私需求。</p><p>“很多人知道 Tor 浏览器，但并不了解 Tails”，intrigeri 指出。“加入 Tor使我们有了一个平台，将这一强大的工具介绍给更多在高风险环境中工作的人”。</p><p>Tor 执行董事 Isabela Fernandes强调了此次合并的影响：“我们一起可以确保这些重要的匿名工具的可持续发展，并加快应对互联网自由面临的新威胁”。</p><p>Tor 和 Tails多年来一直紧密合作，团结在保护在线隐私和提供不受限制的知识获取的共同使命下。这次合并巩固了这种伙伴关系，为需要网络级和系统级匿名性的用户提供了强有力的解决方案。</p><p>随着全球数字监控的升级，统一的 Tor项目重申了其承诺，即通过提供规避审查和压迫的工具来赋能用户。通过捐赠支持<a href="https://torproject.org"class="uri">https://torproject.org</a>，帮助这一重要工作。</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>开源项目</tag>
+      
+      <tag>Tor</tag>
+      
+      <tag>Tails</tag>
+      
+      <tag>翻译</tag>
+      
+      <tag>DEBUGPOINTNEWS</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>OiClass PU2TI 330 Soso 的并查集题解</title>
     <link href="/posts/22409.html"/>
     <url>/posts/22409.html</url>
@@ -1753,22 +1780,22 @@
   
   
   <entry>
-    <title></title>
+    <title>about</title>
     <link href="/"/>
     <url>/</url>
     
-    <content type="html"><![CDATA[!(function() {  /** 计时起始时间，自行修改 **/  var start = new Date("2022/08/01 12:23:04");  function update() {    var now = new Date();    now.setTime(now.getTime()+250);    days = (now - start) / 1000 / 60 / 60 / 24;    dnum = Math.floor(days);    hours = (now - start) / 1000 / 60 / 60 - (24 * dnum);    hnum = Math.floor(hours);    if(String(hnum).length === 1 ){      hnum = "0" + hnum;    }    minutes = (now - start) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);    mnum = Math.floor(minutes);    if(String(mnum).length === 1 ){      mnum = "0" + mnum;    }    seconds = (now - start) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);    snum = Math.round(seconds);    if(String(snum).length === 1 ){      snum = "0" + snum;    }    document.getElementById("timeDate").innerHTML = "本站安全运行&nbsp"+dnum+"&nbsp天";    document.getElementById("times").innerHTML = hnum + "&nbsp小时&nbsp" + mnum + "&nbsp分&nbsp" + snum + "&nbsp秒";  }  update();  setInterval(update, 1000);})();]]></content>
+    <content type="html"><![CDATA[<p>好吧，今天终于想起来写简介了。哈哈哈哈</p><p>首先讲一下现在我是干什么的吧，我现在是一个TYOIer。平常就喜欢切切水题，写写 TJ，研究一些奇怪的数学。除了在 TYOI之外我还在学校的宣传部干活（最没错，我是一个初中生）。现在主要的工作就是在学校水课，然后回家出去拍拍照，写一写代码。除了做题以外我的大部分代码都是写在了github 上，大家可以去看一下我的 github 主页，有很多很好玩的项目。</p><p>现在这个博客主要是记录一些我的题解、项目、分享一些摄影的经历。以后可能在B 站也会有一些内容的分享，大家可以去关注的 B 站账号呀~除了 B站之外，上面还可以看到我的其他社交媒体帐号，欢迎私信问问题！</p><p>最近（$$2024）写了不少专题文章，包括一些 OI 中的小技巧、零基础入门 OI等等的内容，各位可以关注一下。</p>]]></content>
     
   </entry>
   
   
   
   <entry>
-    <title>about</title>
+    <title></title>
     <link href="/"/>
     <url>/</url>
     
-    <content type="html"><![CDATA[<p>好吧，今天终于想起来写简介了。哈哈哈哈</p><p>首先讲一下现在我是干什么的吧，我现在是一个TYOIer。平常就喜欢切切水题，写写 TJ，研究一些奇怪的数学。除了在 TYOI之外我还在学校的宣传部干活（最没错，我是一个初中生）。现在主要的工作就是在学校水课，然后回家出去拍拍照，写一写代码。除了做题以外我的大部分代码都是写在了github 上，大家可以去看一下我的 github 主页，有很多很好玩的项目。</p><p>现在这个博客主要是记录一些我的题解、项目、分享一些摄影的经历。以后可能在B 站也会有一些内容的分享，大家可以去关注的 B 站账号呀~除了 B站之外，上面还可以看到我的其他社交媒体帐号，欢迎私信问问题！</p><p>最近（$$2024）写了不少专题文章，包括一些 OI 中的小技巧、零基础入门 OI等等的内容，各位可以关注一下。</p>]]></content>
+    <content type="html"><![CDATA[!(function() {  /** 计时起始时间，自行修改 **/  var start = new Date("2022/08/01 12:23:04");  function update() {    var now = new Date();    now.setTime(now.getTime()+250);    days = (now - start) / 1000 / 60 / 60 / 24;    dnum = Math.floor(days);    hours = (now - start) / 1000 / 60 / 60 - (24 * dnum);    hnum = Math.floor(hours);    if(String(hnum).length === 1 ){      hnum = "0" + hnum;    }    minutes = (now - start) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);    mnum = Math.floor(minutes);    if(String(mnum).length === 1 ){      mnum = "0" + mnum;    }    seconds = (now - start) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);    snum = Math.round(seconds);    if(String(snum).length === 1 ){      snum = "0" + snum;    }    document.getElementById("timeDate").innerHTML = "本站安全运行&nbsp"+dnum+"&nbsp天";    document.getElementById("times").innerHTML = hnum + "&nbsp小时&nbsp" + mnum + "&nbsp分&nbsp" + snum + "&nbsp秒";  }  update();  setInterval(update, 1000);})();]]></content>
     
   </entry>
   
