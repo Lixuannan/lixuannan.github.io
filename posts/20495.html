@@ -21,12 +21,12 @@
   <meta name="author" content="CodingCow Lee">
   <meta name="keywords" content="python,ml,deeplearning,dl,c++,c,pytorch,noi,oi,ioi,noip,csp-j,csp-s,oier,tyoi,oiclass">
   
-    <meta name="description" content="这道题从题面就可以看出是经典的最长不下降子序列对于这道一点都不简单的最长连续子序列和的模板题，我们还是直接暴力，代码： 123456789101112131415161718192021#include &lt;iostream&gt;using namespace std;int ans, n, a[1009];int main() &#123;    cin &gt;&gt; n;    fo">
+    <meta name="description" content="这道题从题面就可以看出是经典的最长不下降子序列 对于这道一点都不简单的最长连续子序列和的模板题，我们还是直接暴力，代码： 123456789101112131415161718192021#include &lt;iostream&gt;using namespace std;int ans, n, a[1009];int main() &#123;    cin &gt;&gt; n;    f">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Oiclass P3314 题解">
 <meta property="og:url" content="https://lixuannan.github.io/posts/20495">
 <meta property="og:site_name" content="CodingCow&#39;s Blog">
-<meta property="og:description" content="这道题从题面就可以看出是经典的最长不下降子序列对于这道一点都不简单的最长连续子序列和的模板题，我们还是直接暴力，代码： 123456789101112131415161718192021#include &lt;iostream&gt;using namespace std;int ans, n, a[1009];int main() &#123;    cin &gt;&gt; n;    fo">
+<meta property="og:description" content="这道题从题面就可以看出是经典的最长不下降子序列 对于这道一点都不简单的最长连续子序列和的模板题，我们还是直接暴力，代码： 123456789101112131415161718192021#include &lt;iostream&gt;using namespace std;int ans, n, a[1009];int main() &#123;    cin &gt;&gt; n;    f">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-01-03T03:55:00.000Z">
 <meta property="article:modified_time" content="2024-10-12T01:39:22.709Z">
@@ -319,7 +319,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          760 字
+          756 字
         
       </span>
     
@@ -396,20 +396,52 @@
             
               <div class="markdown-body">
                 
-                <h1 id="这道题从题面就可以看出是经典的最长不下降子序列"><a href="#这道题从题面就可以看出是经典的最长不下降子序列" class="headerlink" title="这道题从题面就可以看出是经典的最长不下降子序列"></a>这道题从题面就可以看出是经典的<strong>最长不下降子序列</strong></h1><p>对于这道<strong>一点都不简单</strong>的最长连续子序列和的模板题，我们还是直接暴力，代码：</p>
+                <h1
+id="这道题从题面就可以看出是经典的最长不下降子序列">这道题从题面就可以看出是经典的<strong>最长不下降子序列</strong></h1>
+<p>对于这道<strong>一点都不简单</strong>的最长连续子序列和的模板题，我们还是直接暴力，代码：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-type">int</span> ans, n, a[<span class="hljs-number">1009</span>];<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    cin &gt;&gt; n;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++) &#123;<br>        cin &gt;&gt; a[i];<br>        a[i] += a[i - <span class="hljs-number">1</span>];<br>    &#125;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++) &#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = i; j &lt;= n; j++) &#123;<br>            <span class="hljs-keyword">if</span> (i &lt; j) &#123;<br>                ans = <span class="hljs-built_in">max</span>(ans, a[j] - a[i - <span class="hljs-number">1</span>]);<br>            &#125;<br>        &#125;<br>    &#125;<br>    cout &lt;&lt; ans;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<p>额，$\Huge 搞错了，进入正题$</p>
-<p>这道题的正解是采用 <strong>DP</strong> 的方法，时间复杂度为 $\Large O(n)$ 相比暴力的 $\Large O<br>(n^2)$ 可以说是质的飞跃。OK，接下来就是经典的不能再经典的五步</p>
-<h2 id="1-划分阶段"><a href="#1-划分阶段" class="headerlink" title="1. 划分阶段"></a>1. 划分阶段</h2><p>我们将阶段划分为以各个数字为序列的末尾时的最优解</p>
-<h2 id="2-确认状态和状态变量"><a href="#2-确认状态和状态变量" class="headerlink" title="2. 确认状态和状态变量"></a>2. 确认状态和状态变量</h2><p>在这道题目中，我们使用一个数组 $a$ 来保存原始数列， 数组 $f$ 来保存状态</p>
-<h2 id="3-确认决策并写出状态转移方程"><a href="#3-确认决策并写出状态转移方程" class="headerlink" title="3. 确认决策并写出状态转移方程"></a>3. 确认决策并写出状态转移方程</h2><p>我们的决策很简单，确定以这个位置的数为数列末位时将其加入上一个数的数列还是新建一个数列能使和更大就行了，也就是说如果 $f_{i-1} &lt; 0$ , 应当选择 $f_i &#x3D; a_i$ ，也就是新建数列。当 $f_{i-1} ≥ 0$ ，选择 $f_i &#x3D; f_{i-1} + a_i$ ，也就是将 $a_i$ 合并入 $f_{i -1}$  所在的数列。 简单写出方程是这样的：<br>$$<br>f_i&#x3D;\max\left(f_{i-1},\ 0\right) + a_i<br>$$<br>就这么简单，实现也是一样简单</p>
-<h2 id="4-初始状态"><a href="#4-初始状态" class="headerlink" title="4. 初始状态"></a>4. 初始状态</h2><p>简单分析可以得到，有定值的状态就是第一个（$f_1$） 因为它是数列的第一个，所以他的前面一定没有数列，他的最大值一定是它本身，即：<br>$$<br>f_1 &#x3D; a_1<br>$$</p>
-<h2 id="5-实现"><a href="#5-实现" class="headerlink" title="5. 实现"></a>5. 实现</h2><p>通过上面的操作，我们已经明白如何确定每一种状态的最优解了，那么招到全局最优解也是易如反掌的事情了，我们只需要在左右局部最优解里找到一个最大的就行了，我们可以直接模拟，代码简单，就不贴出来了。当然为了更加优雅，也可以把 $a$ 和 $f$ 合并为一个数组，同时在输入的过程中直接进行计算得到答案。好的，这里就产生一个问题了：为什么我可以直接在输入个过程中进行计算呢？这里利用了 DP 的无后效性，也就是说后面的数据对前面算出来的最优解是不会产生影响的，这也是这道题可以用 DP 求解的原因。</p>
+<p>额，<span class="math inline">\(\Huge 搞错了，进入正题\)</span></p>
+<p>这道题的正解是采用 <strong>DP</strong> 的方法，时间复杂度为 <span
+class="math inline">\(\Large O(n)\)</span> 相比暴力的 <span
+class="math inline">\(\Large O
+(n^2)\)</span>
+可以说是质的飞跃。OK，接下来就是经典的不能再经典的五步</p>
+<h2 id="划分阶段">1. 划分阶段</h2>
+<p>我们将阶段划分为以各个数字为序列的末尾时的最优解</p>
+<h2 id="确认状态和状态变量">2. 确认状态和状态变量</h2>
+<p>在这道题目中，我们使用一个数组 <span class="math inline">\(a\)</span>
+来保存原始数列， 数组 <span class="math inline">\(f\)</span>
+来保存状态</p>
+<h2 id="确认决策并写出状态转移方程">3. 确认决策并写出状态转移方程</h2>
+<p>我们的决策很简单，确定以这个位置的数为数列末位时将其加入上一个数的数列还是新建一个数列能使和更大就行了，也就是说如果
+<span class="math inline">\(f_{i-1} &lt; 0\)</span> , 应当选择 <span
+class="math inline">\(f_i = a_i\)</span> ，也就是新建数列。当 <span
+class="math inline">\(f_{i-1} ≥ 0\)</span> ，选择 <span
+class="math inline">\(f_i = f_{i-1} + a_i\)</span> ，也就是将 <span
+class="math inline">\(a_i\)</span> 合并入 <span
+class="math inline">\(f_{i -1}\)</span> 所在的数列。
+简单写出方程是这样的： <span class="math display">\[
+f_i=\max\left(f_{i-1},\ 0\right) + a_i
+\]</span> 就这么简单，实现也是一样简单</p>
+<h2 id="初始状态">4. 初始状态</h2>
+<p>简单分析可以得到，有定值的状态就是第一个（<span
+class="math inline">\(f_1\)</span>）
+因为它是数列的第一个，所以他的前面一定没有数列，他的最大值一定是它本身，即：
+<span class="math display">\[
+f_1 = a_1
+\]</span></p>
+<h2 id="实现">5. 实现</h2>
+<p>通过上面的操作，我们已经明白如何确定每一种状态的最优解了，那么招到全局最优解也是易如反掌的事情了，我们只需要在左右局部最优解里找到一个最大的就行了，我们可以直接模拟，代码简单，就不贴出来了。当然为了更加优雅，也可以把
+<span class="math inline">\(a\)</span> 和 <span
+class="math inline">\(f\)</span>
+合并为一个数组，同时在输入的过程中直接进行计算得到答案。好的，这里就产生一个问题了：为什么我可以直接在输入个过程中进行计算呢？这里利用了
+DP
+的无后效性，也就是说后面的数据对前面算出来的最优解是不会产生影响的，这也是这道题可以用
+DP 求解的原因。</p>
 <p>OK，讲了这么多，该贴代码了，如下：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-type">int</span> ans, n, a[<span class="hljs-number">1009</span>];<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    cin &gt;&gt; n;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++) &#123;<br>        cin &gt;&gt; a[i];<br>        <span class="hljs-keyword">if</span> (a[i - <span class="hljs-number">1</span>] &gt; <span class="hljs-number">0</span>) &#123;<br>            a[i] += a[i - <span class="hljs-number">1</span>];<br>        &#125;<br>        ans = <span class="hljs-built_in">max</span>(ans, a[i]);<br>    &#125;<br>    cout &lt;&lt; ans;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h1 id="搞定收工">搞定收工</h1>
 
-<h1 id="搞定收工"><a href="#搞定收工" class="headerlink" title="搞定收工"></a>搞定收工</h1>
                 
               </div>
 
@@ -648,7 +680,7 @@
     <div class="footer-inner">
   
     <div class="footer-content">
-       <div style="font-size: 0.85rem"> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> </div> <style>#scroll-top-button i {color: white}</style> <script src="https://cdn.bootcss.com/vue/2.6.11/vue.min.js"></script> <script src="https://lab.magiconch.com/nbnhhsh/nbnhhsh.user.js"></script> <div style="font-size: 0.85rem"> 本站基于 hexo & hexo-theme-fluid 构建，框架遵循源协议（MIT，GPL-3）<br> 但本站的文章版权均归本站及作者所有，遵循 CreativeCommon-BY-NC-SA 协议，即分享时署名-非商业性使用-相同方式分享。 </div> 
+       <div style="font-size: 0.85rem"> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> </div> <style>#scroll-top-button i {color: white}</style> <script src="https://cdn.bootcss.com/vue/2.6.11/vue.min.js"></script> <script src="https://lab.magiconch.com/nbnhhsh/nbnhhsh.user.js"></script> <div style="font-size: 0.85rem"> 本站基于 hexo & hexo-theme-fluid 构建，框架遵循源协议（MIT，GPL-3）<br> 但本站的文章版权均归本站及作者所有（翻译文章除外） </div> 
     </div>
   
   

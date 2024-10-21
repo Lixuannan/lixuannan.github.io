@@ -21,12 +21,12 @@
   <meta name="author" content="CodingCow Lee">
   <meta name="keywords" content="python,ml,deeplearning,dl,c++,c,pytorch,noi,oi,ioi,noip,csp-j,csp-s,oier,tyoi,oiclass">
   
-    <meta name="description" content="泰裤辣！解析几何引首先我们看题，发现题目会给我们四个点，让我们判断这四个点是否共圆，那么如何判断这四个点是否共圆呢？我的思路是这样的：  首先以这四个点为顶点随便画出两个不同的三角形，求这两个三角形的外心 然后判断这两个外心是否相同，如果是的话，那么我们可以判断这四个点事共圆的  那么这种思路就会引起很多问题了，首先什么是外心？很巧，今天数学课数学老师留的思考题就是如何找到三角形的外心，也就是一个">
+    <meta name="description" content="泰裤辣！解析几何 引 首先我们看题，发现题目会给我们四个点，让我们判断这四个点是否共圆，那么如何判断这四个点是否共圆呢？我的思路是这样的：  首先以这四个点为顶点随便画出两个不同的三角形，求这两个三角形的外心 然后判断这两个外心是否相同，如果是的话，那么我们可以判断这四个点事共圆的  那么这种思路就会引起很多问题了，首先什么是外心？很巧，今天数学课数学老师留的思考题就是如何找到三角形的外心，也就是">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Oiclass PUJI Circle 题解">
 <meta property="og:url" content="https://lixuannan.github.io/posts/19144">
 <meta property="og:site_name" content="CodingCow&#39;s Blog">
-<meta property="og:description" content="泰裤辣！解析几何引首先我们看题，发现题目会给我们四个点，让我们判断这四个点是否共圆，那么如何判断这四个点是否共圆呢？我的思路是这样的：  首先以这四个点为顶点随便画出两个不同的三角形，求这两个三角形的外心 然后判断这两个外心是否相同，如果是的话，那么我们可以判断这四个点事共圆的  那么这种思路就会引起很多问题了，首先什么是外心？很巧，今天数学课数学老师留的思考题就是如何找到三角形的外心，也就是一个">
+<meta property="og:description" content="泰裤辣！解析几何 引 首先我们看题，发现题目会给我们四个点，让我们判断这四个点是否共圆，那么如何判断这四个点是否共圆呢？我的思路是这样的：  首先以这四个点为顶点随便画出两个不同的三角形，求这两个三角形的外心 然后判断这两个外心是否相同，如果是的话，那么我们可以判断这四个点事共圆的  那么这种思路就会引起很多问题了，首先什么是外心？很巧，今天数学课数学老师留的思考题就是如何找到三角形的外心，也就是">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-05-13T00:08:00.000Z">
 <meta property="article:modified_time" content="2024-10-12T01:39:22.696Z">
@@ -319,7 +319,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.9k 字
+          1.8k 字
         
       </span>
     
@@ -396,41 +396,118 @@
             
               <div class="markdown-body">
                 
-                <h1 id="泰裤辣！解析几何"><a href="#泰裤辣！解析几何" class="headerlink" title="泰裤辣！解析几何"></a>泰裤辣！解析几何</h1><h2 id="引"><a href="#引" class="headerlink" title="引"></a>引</h2><p>首先我们看题，发现题目会给我们四个点，让我们判断这四个点是否共圆，那么如何判断这四个点是否共圆呢？我的思路是这样的：</p>
+                <h1 id="泰裤辣解析几何">泰裤辣！解析几何</h1>
+<h2 id="引">引</h2>
+<p>首先我们看题，发现题目会给我们四个点，让我们判断这四个点是否共圆，那么如何判断这四个点是否共圆呢？我的思路是这样的：</p>
 <ul>
 <li>首先以这四个点为顶点随便画出两个不同的三角形，求这两个三角形的外心</li>
 <li>然后判断这两个外心是否相同，如果是的话，那么我们可以判断这四个点事共圆的</li>
 </ul>
 <p>那么这种思路就会引起很多问题了，首先什么是外心？很巧，今天数学课数学老师留的思考题就是如何找到三角形的外心，也就是一个可以让三角形三个顶点都与圆相切的圆的圆心，或者你也可以理解为一个到三角形三个顶点距离都相等的点，那么究竟如何找到这个点呢？</p>
-<p>思考了很久很久（一中午）突然恍然大悟，发现三角形三条边所对应的中垂线的交点就是三角形的外心！Ohhhhhh~ 那我们是不是解决问题了？不，不是，好戏才刚刚开始。</p>
+<p>思考了很久很久（一中午）突然恍然大悟，发现三角形三条边所对应的中垂线的交点就是三角形的外心！Ohhhhhh~
+那我们是不是解决问题了？不，不是，好戏才刚刚开始。</p>
 <p>这种方法就引出了很多很多的问题：</p>
-<ol>
+<ol type="1">
 <li>如何求得中垂线的解析式？</li>
 <li>如何求三线的交点？</li>
 </ol>
 <p>首先我们来解决第一个</p>
-<h2 id="如何求得中垂线的解析式？"><a href="#如何求得中垂线的解析式？" class="headerlink" title="如何求得中垂线的解析式？"></a><strong>如何求得中垂线的解析式？</strong></h2><p>我们首先要了解中垂线的定义，根据<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%9E%82%E7%9B%B4%E5%B9%B3%E5%88%86%E7%BA%BF#:~:text=%E5%9E%82%E7%9B%B4%E5%B9%B3%E5%88%86%E7%BA%BF%0A%E5%AE%9A%E4%B9%89.%20%E7%BB%8F%E8%BF%87%E6%9F%90%E4%B8%80%E6%9D%A1%E7%BA%BF%E6%AE%B5%E7%9A%84%E4%B8%AD%E7%82%B9%EF%BC%8C%E5%B9%B6%E4%B8%94%E5%9E%82%E7%9B%B4%E4%BA%8E%E8%BF%99%E6%9D%A1%E7%BA%BF%E6%AE%B5%E7%9A%84%20%E7%9B%B4%E7%BA%BF%20%EF%BC%8C%E5%8F%AB%E5%81%9A%E8%BF%99%E6%9D%A1%E7%BA%BF%E6%AE%B5%E7%9A%84,%E5%9E%82%E7%9B%B4%E5%B9%B3%E5%88%86%E7%BA%BF%20%EF%BC%8C%E5%8F%88%E7%A7%B0%E2%80%9C%E4%B8%AD%E5%9E%82%E7%BA%BF%E2%80%9D%E3%80%82.%20%5B1%5D%20%E5%A6%82%E5%9B%BE1%EF%BC%8CN%E6%98%AFAB%E7%9A%84%E4%B8%AD%E7%82%B9%EF%BC%8C%E8%BF%87N%E7%82%B9%E4%BD%9CMN%E2%8A%A5AB%EF%BC%8C%E5%88%99%EF%BC%8CMN%E4%B8%BAAB%E7%9A%84%E5%9E%82%E7%9B%B4%E5%B9%B3%E5%88%86%E7%BA%BF%E3%80%82.">百度百科</a>的说法，中垂线，又称<strong>垂直平分线</strong>是指经过某一条线段的中点，并且垂直于这条线段的直线。垂直平分线可以看成到线段两个端点距离相等的点的集合，垂直平分线是线段的一条对称轴。好的，那么也就是说中垂线就是过一线段终点所作的平行于该线段的直线，查阅教科书可知，对于由 点 $A(x_1, y_1)$  和 点 $B(x_2, y_2)$ 构成的线段 $AB$ 的中垂线的方程，也称为中垂线方程为<br>$$<br>y - \frac{y_1 + y_2}{2}&#x3D;-\frac{x_1 - x_2}{y_1 - y_2}·\left(x - \frac{x_1 + x_2}{2}\right)<br>$$<br>那么这条方程是怎么得来的呢？</p>
-<p>首先我们知道，线段$AB$ 的 中点$C$ 应该符合中点公式：$C\left(\frac{x_1 + x_2}{2}, \frac{y_1 + y_2}{2}\right)$ ，这是所有初中生都懂得一点。</p>
-<p>然后我们会利用到解析几何中的一条关于两直线垂直的性质：已知两直线 $y &#x3D; k_1x + b_1$ 与 $y &#x3D; k_2x + b_2$ 相互垂直，那么 $k_1 \times k_2&#x3D;-1$ 或者你也可以理解为，两直线垂直，其斜率互为负倒数。</p>
+<h2
+id="如何求得中垂线的解析式"><strong>如何求得中垂线的解析式？</strong></h2>
+<p>我们首先要了解中垂线的定义，根据<a
+target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%9E%82%E7%9B%B4%E5%B9%B3%E5%88%86%E7%BA%BF#:~:text=%E5%9E%82%E7%9B%B4%E5%B9%B3%E5%88%86%E7%BA%BF%0A%E5%AE%9A%E4%B9%89.%20%E7%BB%8F%E8%BF%87%E6%9F%90%E4%B8%80%E6%9D%A1%E7%BA%BF%E6%AE%B5%E7%9A%84%E4%B8%AD%E7%82%B9%EF%BC%8C%E5%B9%B6%E4%B8%94%E5%9E%82%E7%9B%B4%E4%BA%8E%E8%BF%99%E6%9D%A1%E7%BA%BF%E6%AE%B5%E7%9A%84%20%E7%9B%B4%E7%BA%BF%20%EF%BC%8C%E5%8F%AB%E5%81%9A%E8%BF%99%E6%9D%A1%E7%BA%BF%E6%AE%B5%E7%9A%84,%E5%9E%82%E7%9B%B4%E5%B9%B3%E5%88%86%E7%BA%BF%20%EF%BC%8C%E5%8F%88%E7%A7%B0%E2%80%9C%E4%B8%AD%E5%9E%82%E7%BA%BF%E2%80%9D%E3%80%82.%20%5B1%5D%20%E5%A6%82%E5%9B%BE1%EF%BC%8CN%E6%98%AFAB%E7%9A%84%E4%B8%AD%E7%82%B9%EF%BC%8C%E8%BF%87N%E7%82%B9%E4%BD%9CMN%E2%8A%A5AB%EF%BC%8C%E5%88%99%EF%BC%8CMN%E4%B8%BAAB%E7%9A%84%E5%9E%82%E7%9B%B4%E5%B9%B3%E5%88%86%E7%BA%BF%E3%80%82.">百度百科</a>的说法，中垂线，又称<strong>垂直平分线</strong>是指经过某一条线段的中点，并且垂直于这条线段的直线。垂直平分线可以看成到线段两个端点距离相等的点的集合，垂直平分线是线段的一条对称轴。好的，那么也就是说中垂线就是过一线段终点所作的平行于该线段的直线，查阅教科书可知，对于由
+点 <span class="math inline">\(A(x_1, y_1)\)</span> 和 点 <span
+class="math inline">\(B(x_2, y_2)\)</span> 构成的线段 <span
+class="math inline">\(AB\)</span> 的中垂线的方程，也称为中垂线方程为
+<span class="math display">\[
+y - \frac{y_1 + y_2}{2}=-\frac{x_1 - x_2}{y_1 - y_2}·\left(x - \frac{x_1
++ x_2}{2}\right)
+\]</span> 那么这条方程是怎么得来的呢？</p>
+<p>首先我们知道，线段<span class="math inline">\(AB\)</span> 的
+中点<span class="math inline">\(C\)</span> 应该符合中点公式：<span
+class="math inline">\(C\left(\frac{x_1 + x_2}{2}, \frac{y_1 +
+y_2}{2}\right)\)</span> ，这是所有初中生都懂得一点。</p>
+<p>然后我们会利用到解析几何中的一条关于两直线垂直的性质：已知两直线
+<span class="math inline">\(y = k_1x + b_1\)</span> 与 <span
+class="math inline">\(y = k_2x + b_2\)</span> 相互垂直，那么 <span
+class="math inline">\(k_1 \times k_2=-1\)</span>
+或者你也可以理解为，两直线垂直，其斜率互为负倒数。</p>
 <p>这时候又产生了一个问题，为什么存在这个性质呢？</p>
-<p>为了解决这个问题，我们需要证明一个猜想：<strong>两直线垂直，斜率互为负倒数</strong> 。（注意，这里的部分证明过程参考知乎用户<a target="_blank" rel="noopener" href="https://www.zhihu.com/people/tong-lin-ken-14">双木止月Tong</a> 的文章《<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/72904288">中垂线</a>》）</p>
-<p>证明过程：<br>$$<br>\begin{array}{l}<br>证明:\<br>取直线\ l_1\ 的方向向量\ (1, k_1)\ ,直线\ l_2 \ 的方向向量\ (1, k_2) \<br>\because l_1 \perp l_2\<br>\therefore (1, k_1) \cdot (1, k_2)&#x3D;1 \times 1 + k_1 \times k_2 &#x3D; 0\<br>\therefore k_1 \cdot k_2 &#x3D; -1\<br>结论得证<br>\end{array}<br>$$</p>
+<p>为了解决这个问题，我们需要证明一个猜想：<strong>两直线垂直，斜率互为负倒数</strong>
+。（注意，这里的部分证明过程参考知乎用户<a
+target="_blank" rel="noopener" href="https://www.zhihu.com/people/tong-lin-ken-14">双木止月Tong</a>
+的文章《<a
+target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/72904288">中垂线</a>》）</p>
+<p>证明过程： <span class="math display">\[
+\begin{array}{l}
+证明:\\
+取直线\ l_1\ 的方向向量\ (1, k_1)\ ,直线\ l_2 \ 的方向向量\ (1, k_2) \\
+\because l_1 \perp l_2\\
+\therefore (1, k_1) \cdot (1, k_2)=1 \times 1 + k_1 \times k_2 = 0\\
+\therefore k_1 \cdot k_2 = -1\\
+结论得证
+\end{array}
+\]</span></p>
 <p>好了，那么现在我们拥有了这一条公式和一条性质，那么要怎样写出这一条方程呢？</p>
-<p>因为 线段$AB$ 的斜率为 $ k &#x3D; \frac{y_1 - y_2}{x_1 - x_2}$ ，所以中垂线的斜率应该为 $-\frac{1}k{} &#x3D; -\frac{x_1 - x_2}{y_1 - y_2}$ ，又因为 线段$AB$ 的中点坐标为 $ \left(\frac{x_1 + x_2}{2}, \frac{y_1 + y_2}{2}\right)$ 所以根据直线点斜式（$y - b &#x3D; k(x - a)$） 可得： $ y - \frac{y_1 + y_2}{2}&#x3D;-\frac{x_1 - x_2}{y_1 - y_2}·\left(x - \frac{x_1 + x_2}{2}\right)$ 。至此，我们成功的得到了方程，但是为了更方便程序的编写与 DEBUG 我们将方程改写为 $ax + by + c &#x3D; 0$ 的形式：<br>$$<br> \frac{x_1 - x_2}{y_1 - y_2} \cdot x + y - \frac{y_1 + y_2}{2} - \frac{x_1 + x_2}{2} \cdot \frac{x_1 - x_2}{y_1 - y_2} &#x3D; 0<br>$$</p>
-<p>又根据平方差公式 $a^2 - b^2 &#x3D; (a + b) \cdot (a - b)$ ，我们可以将方程进一步化简为：<br>$$<br> \frac{x_1 - x_2}{y_1 - y_2} \cdot x + y - \frac{y_1 + y_2}{2} - \frac{(x_1)^2 - (x_2)^2}{2y_1 - 2y_2} &#x3D; 0<br>$$</p>
+<p>因为 线段<span class="math inline">\(AB\)</span> 的斜率为 $ k = $
+，所以中垂线的斜率应该为 <span class="math inline">\(-\frac{1}k{} =
+-\frac{x_1 - x_2}{y_1 - y_2}\)</span> ，又因为 线段<span
+class="math inline">\(AB\)</span> 的中点坐标为 $ (, )$
+所以根据直线点斜式（<span class="math inline">\(y - b = k(x -
+a)\)</span>） 可得： $ y - =-·(x - )$
+。至此，我们成功的得到了方程，但是为了更方便程序的编写与 DEBUG
+我们将方程改写为 <span class="math inline">\(ax + by + c = 0\)</span>
+的形式： <span class="math display">\[
+\frac{x_1 - x_2}{y_1 - y_2} \cdot x + y - \frac{y_1 + y_2}{2} -
+\frac{x_1 + x_2}{2} \cdot \frac{x_1 - x_2}{y_1 - y_2} = 0
+\]</span></p>
+<p>又根据平方差公式 <span class="math inline">\(a^2 - b^2 = (a + b)
+\cdot (a - b)\)</span> ，我们可以将方程进一步化简为： <span
+class="math display">\[
+\frac{x_1 - x_2}{y_1 - y_2} \cdot x + y - \frac{y_1 + y_2}{2} -
+\frac{(x_1)^2 - (x_2)^2}{2y_1 - 2y_2} = 0
+\]</span></p>
 <p>好的，那么关于中垂线解析式的问题，我们已经完全解决了，next one ~</p>
-<p>$$<br>ax + by + c &#x3D; 0<br>$$</p>
-<h2 id="如何求三线的交点？"><a href="#如何求三线的交点？" class="headerlink" title="如何求三线的交点？"></a>如何求三线的交点？</h2><p>首先我们要明确交点的代数意义，对于两条直线 $a_1x + b_1y + c_1 &#x3D; 0$ 和 $a_2x + b_2y + c_2 &#x3D; 0$，如果你在坐标系 $xOy$ 中把他画出来，你就会发现，交点实际上就是同时符合两条方程的 $x$ 与 $y$ 所对应的坐标，也就是说，如果我们联立这两条线性方程（一次方程）得到一个线性方程组（一次方程组），交点的坐标就是该线性方程组的解所对应的点。</p>
-<p>那么我们现在联立这两条方程得到这样一个方程组：<br>$$<br>\left{<br>\begin{array}{l}<br>a_1x + b_1y + c_1 &#x3D; 0\<br>a_2x + b_2y + c_2 &#x3D; 0<br>\end{array}<br>\right.<br>$$<br>然后十分艰难的解出来（用了10 张草稿纸，算了 5 遍 ┭┮﹏┭┮），就会得到：<br>$$<br>\left{<br>\begin{array}{l}<br>x &#x3D; \frac{b_2 \cdot c_1 - b_1 \cdot c_2} {a_2 \cdot b_1 - a_1 \cdot b_2}\<br>y &#x3D; -\frac{a_1x + c_1}{b_1}<br>\end{array}<br>\right.<br>$$</p>
+<p><span class="math display">\[
+ax + by + c = 0
+\]</span></p>
+<h2 id="如何求三线的交点">如何求三线的交点？</h2>
+<p>首先我们要明确交点的代数意义，对于两条直线 <span
+class="math inline">\(a_1x + b_1y + c_1 = 0\)</span> 和 <span
+class="math inline">\(a_2x + b_2y + c_2 = 0\)</span>，如果你在坐标系
+<span class="math inline">\(xOy\)</span>
+中把他画出来，你就会发现，交点实际上就是同时符合两条方程的 <span
+class="math inline">\(x\)</span> 与 <span
+class="math inline">\(y\)</span>
+所对应的坐标，也就是说，如果我们联立这两条线性方程（一次方程）得到一个线性方程组（一次方程组），交点的坐标就是该线性方程组的解所对应的点。</p>
+<p>那么我们现在联立这两条方程得到这样一个方程组： <span
+class="math display">\[
+\left\{
+\begin{array}{l}
+a_1x + b_1y + c_1 = 0\\
+a_2x + b_2y + c_2 = 0
+\end{array}
+\right.
+\]</span> 然后十分艰难的解出来（用了10 张草稿纸，算了 5 遍
+┭┮﹏┭┮），就会得到： <span class="math display">\[
+\left\{
+\begin{array}{l}
+x = \frac{b_2 \cdot c_1 - b_1 \cdot c_2} {a_2 \cdot b_1 - a_1 \cdot
+b_2}\\
+y = -\frac{a_1x + c_1}{b_1}
+\end{array}
+\right.
+\]</span></p>
 <p>那么三条线的交点怎么求呢？实际上，我们根本不需要求三条线的交点，我们只需要求两条线的交点即可，因为我们两条中垂线是交于一点的，而三条中垂线依然是交于一点，所以我们可以发现，只需要两条中垂线就可以确定一个三角形的外心。</p>
 <p>下班（才怪）！！！</p>
-<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><p>我们现在已经掌握了理论知识，下面是实现的过程。</p>
-<p>首先我们需要定义两个结构体，分别名为 <code>dot</code> 和 <code>line</code> 用于存储 <strong>点</strong> 和 <strong>线</strong>，实现如下：</p>
+<h2 id="实现">实现</h2>
+<p>我们现在已经掌握了理论知识，下面是实现的过程。</p>
+<p>首先我们需要定义两个结构体，分别名为 <code>dot</code> 和
+<code>line</code> 用于存储 <strong>点</strong> 和
+<strong>线</strong>，实现如下：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">struct</span> <span class="hljs-title class_">dot</span> &#123;<br>    <span class="hljs-comment">// x 坐标， y 坐标</span><br>    <span class="hljs-type">double</span> x, y;<br>	<br>    <span class="hljs-comment">// 计算与其他点的距离（勾股定理）</span><br>    <span class="hljs-function"><span class="hljs-type">double</span> <span class="hljs-title">dis</span><span class="hljs-params">(<span class="hljs-type">const</span> dot a)</span> <span class="hljs-type">const</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-built_in">sqrt</span>((a.x - x) * (a.x - x) + (a.y - y) * (a.y - y));<br>    &#125;<br>	<br>    <span class="hljs-comment">// 判断点是否相等</span><br>    <span class="hljs-type">bool</span> <span class="hljs-keyword">operator</span>==(<span class="hljs-type">const</span> dot a) <span class="hljs-type">const</span> &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-built_in">abs</span>(a.x - x) &lt;= <span class="hljs-number">0.3</span> || <span class="hljs-built_in">abs</span>(a.y - y) &lt;= <span class="hljs-number">0.3</span>;<br>    &#125;<br>&#125;;<br><br><span class="hljs-keyword">struct</span> <span class="hljs-title class_">line</span> &#123;<br>    <span class="hljs-comment">// a, b, c 对应 ax + by + c = 0 中的 a, b, c</span><br>    <span class="hljs-type">double</span> a, b, c;<br>&#125;;<br></code></pre></td></tr></table></figure>
-
-<p> 然后只要把各种公式实现以下即可，全部代码：</p>
+<p>然后只要把各种公式实现以下即可，全部代码：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;cmath&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-keyword">struct</span> <span class="hljs-title class_">dot</span> &#123;<br>    <span class="hljs-comment">// x 坐标， y 坐标</span><br>    <span class="hljs-type">double</span> x, y;<br><br>    <span class="hljs-comment">// 计算与其他点的距离（勾股定理）</span><br>    <span class="hljs-function"><span class="hljs-type">double</span> <span class="hljs-title">dis</span><span class="hljs-params">(<span class="hljs-type">const</span> dot a)</span> <span class="hljs-type">const</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-built_in">sqrt</span>((a.x - x) * (a.x - x) + (a.y - y) * (a.y - y));<br>    &#125;<br><br>    <span class="hljs-comment">// 判断点是否相等</span><br>    <span class="hljs-type">bool</span> <span class="hljs-keyword">operator</span>==(<span class="hljs-type">const</span> dot a) <span class="hljs-type">const</span> &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-built_in">abs</span>(a.x - x) &lt;= <span class="hljs-number">0.3</span> || <span class="hljs-built_in">abs</span>(a.y - y) &lt;= <span class="hljs-number">0.3</span>;<br>    &#125;<br>&#125;;<br><br><span class="hljs-keyword">struct</span> <span class="hljs-title class_">line</span> &#123;<br>    <span class="hljs-comment">// a, b, c 对应 ax + by + c = 0 中的 a, b, c</span><br>    <span class="hljs-type">double</span> a, b, c;<br>&#125;;<br><br><span class="hljs-comment">// 根据两个点获得中垂线</span><br><span class="hljs-function">line <span class="hljs-title">get_mid_perpendicular</span><span class="hljs-params">(dot a, dot b)</span> </span>&#123;<br>    <span class="hljs-keyword">return</span> (line) &#123;<br>            (a.x - b.x) / (a.y - b.y),<br>            <span class="hljs-number">1</span>,<br>            -(a.y + b.y) / <span class="hljs-number">2</span> - (a.x * a.x - b.x * b.x) / (<span class="hljs-number">2</span> * a.y - <span class="hljs-number">2</span> * b.y)<br>    &#125;;<br>&#125;<br><br><span class="hljs-comment">// 计算交点</span><br><span class="hljs-function">dot <span class="hljs-title">get_intersection</span><span class="hljs-params">(line a, line b)</span> </span>&#123;<br>    <span class="hljs-type">double</span> a1 = a.a, a2 = b.a, b1 = a.b, b2 = b.b, c1 = a.c, c2 = b.c;<br>    <span class="hljs-type">double</span> x = (b2 * c1 - b1 * c2) / (a2 * b1 - a1 * b2), y = -(a1 * x + c1) / b1;<br>    <span class="hljs-keyword">return</span> (dot) &#123;x, y&#125;;<br>&#125;<br><br><span class="hljs-comment">// 计算外心</span><br><span class="hljs-function">dot <span class="hljs-title">get_circumcenter</span><span class="hljs-params">(dot a, dot b, dot c)</span> </span>&#123;<br>    line mid_perpendicular1 = <span class="hljs-built_in">get_mid_perpendicular</span>(a, b), mid_perpendicular2 = <span class="hljs-built_in">get_mid_perpendicular</span>(b, c);<br>    <span class="hljs-keyword">return</span> <span class="hljs-built_in">get_intersection</span>(mid_perpendicular1, mid_perpendicular2);<br>&#125;<br><br>dot a[<span class="hljs-number">5</span>];<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= <span class="hljs-number">4</span>; i++) &#123;<br>        cin &gt;&gt; a[i].x &gt;&gt; a[i].y;<br>    &#125;<br>    dot circumcenter1 = <span class="hljs-built_in">get_circumcenter</span>(a[<span class="hljs-number">1</span>], a[<span class="hljs-number">2</span>], a[<span class="hljs-number">3</span>]), circumcenter2 = <span class="hljs-built_in">get_circumcenter</span>(a[<span class="hljs-number">1</span>], a[<span class="hljs-number">2</span>], a[<span class="hljs-number">4</span>]);<br>    <span class="hljs-keyword">if</span> (circumcenter1 == circumcenter2) &#123;<br>        cout &lt;&lt; <span class="hljs-number">1</span> &lt;&lt; <span class="hljs-string">&quot; &quot;</span>;<br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%.6f %.6f %.6f&quot;</span>, (circumcenter<span class="hljs-number">1.</span>x), (circumcenter<span class="hljs-number">1.</span>y), (circumcenter<span class="hljs-number">1.</span><span class="hljs-built_in">dis</span>(a[<span class="hljs-number">1</span>])));<br>    &#125; <span class="hljs-keyword">else</span> &#123;<br>        cout &lt;&lt; <span class="hljs-number">2</span> &lt;&lt; <span class="hljs-string">&quot; &quot;</span>;<br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%.6f %.6f %.6f&quot;</span>, (circumcenter<span class="hljs-number">1.</span>x), (circumcenter<span class="hljs-number">1.</span>y), (circumcenter<span class="hljs-number">1.</span><span class="hljs-built_in">dis</span>(a[<span class="hljs-number">1</span>])));<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
 
                 
               </div>
@@ -670,7 +747,7 @@
     <div class="footer-inner">
   
     <div class="footer-content">
-       <div style="font-size: 0.85rem"> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> </div> <style>#scroll-top-button i {color: white}</style> <script src="https://cdn.bootcss.com/vue/2.6.11/vue.min.js"></script> <script src="https://lab.magiconch.com/nbnhhsh/nbnhhsh.user.js"></script> <div style="font-size: 0.85rem"> 本站基于 hexo & hexo-theme-fluid 构建，框架遵循源协议（MIT，GPL-3）<br> 但本站的文章版权均归本站及作者所有，遵循 CreativeCommon-BY-NC-SA 协议，即分享时署名-非商业性使用-相同方式分享。 </div> 
+       <div style="font-size: 0.85rem"> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> </div> <style>#scroll-top-button i {color: white}</style> <script src="https://cdn.bootcss.com/vue/2.6.11/vue.min.js"></script> <script src="https://lab.magiconch.com/nbnhhsh/nbnhhsh.user.js"></script> <div style="font-size: 0.85rem"> 本站基于 hexo & hexo-theme-fluid 构建，框架遵循源协议（MIT，GPL-3）<br> 但本站的文章版权均归本站及作者所有（翻译文章除外） </div> 
     </div>
   
   

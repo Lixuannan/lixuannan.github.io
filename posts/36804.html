@@ -21,12 +21,12 @@
   <meta name="author" content="CodingCow Lee">
   <meta name="keywords" content="python,ml,deeplearning,dl,c++,c,pytorch,noi,oi,ioi,noip,csp-j,csp-s,oier,tyoi,oiclass">
   
-    <meta name="description" content="思路我们看到题目，给定四个数 $n$、$p$、$w$、$d$，求解三元一次不定方程组：$$\left{\begin{array}{l}x\cdot w+y\cdot d&#x3D;p\x+y+z&#x3D;n\end{array}\right.$$观察一下你就会发现 $z$ 的值是你可以随便指定的，因为他只对 $n$ 产生影响，而不对方程一产生任何贡献。于是我们忽略 $z$ 的取值。 由此我们就可">
+    <meta name="description" content="思路 我们看到题目，给定四个数 \(n\)、\(p\)、\(w\)、\(d\)，求解三元一次不定方程组： \[ \left\{ \begin{array}{l} x\cdot w+y\cdot d&#x3D;p\\ x+y+z&#x3D;n \end{array} \right. \] 观察一下你就会发现 \(z\) 的值是你可以随便指定的，因为他只对 \(n\) 产生影响，而不对方程一产生任何贡献。于是我们忽略 \">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CF1244C 题解">
 <meta property="og:url" content="https://lixuannan.github.io/posts/36804">
 <meta property="og:site_name" content="CodingCow&#39;s Blog">
-<meta property="og:description" content="思路我们看到题目，给定四个数 $n$、$p$、$w$、$d$，求解三元一次不定方程组：$$\left{\begin{array}{l}x\cdot w+y\cdot d&#x3D;p\x+y+z&#x3D;n\end{array}\right.$$观察一下你就会发现 $z$ 的值是你可以随便指定的，因为他只对 $n$ 产生影响，而不对方程一产生任何贡献。于是我们忽略 $z$ 的取值。 由此我们就可">
+<meta property="og:description" content="思路 我们看到题目，给定四个数 \(n\)、\(p\)、\(w\)、\(d\)，求解三元一次不定方程组： \[ \left\{ \begin{array}{l} x\cdot w+y\cdot d&#x3D;p\\ x+y+z&#x3D;n \end{array} \right. \] 观察一下你就会发现 \(z\) 的值是你可以随便指定的，因为他只对 \(n\) 产生影响，而不对方程一产生任何贡献。于是我们忽略 \">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-02-28T13:31:00.000Z">
 <meta property="article:modified_time" content="2024-10-12T01:39:22.697Z">
@@ -319,7 +319,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          347 字
+          344 字
         
       </span>
     
@@ -396,11 +396,41 @@
             
               <div class="markdown-body">
                 
-                <h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>我们看到题目，给定四个数 $n$、$p$、$w$、$d$，求解三元一次不定方程组：<br>$$<br>\left{<br>\begin{array}{l}<br>x\cdot w+y\cdot d&#x3D;p\<br>x+y+z&#x3D;n<br>\end{array}<br>\right.<br>$$<br>观察一下你就会发现 $z$ 的值是你可以随便指定的，因为他只对 $n$ 产生影响，而不对方程一产生任何贡献。于是我们忽略 $z$ 的取值。</p>
-<p>由此我们就可以把方程组化简为一条二元一次不定方程：<br>$$<br>x\cdot w+y\cdot d&#x3D;p<br>$$<br>由于 $w&gt;d$，可以发现使 $y$ 最小就可以得到一组可能存在的解。因此考虑枚举 $y$。分析数据范围可以发现 $\frac{p}{n}$ 的范围刚好就是 $w$ 和 $d$ 的最大范围，因此我们可以证明，如果原方程组有非负正整数解，那么解中的 $y$ 必定在区间 $[0,,w)$ 中。</p>
-<p>故枚举 $y \in [0, ,w)$ 然后判断解是否合法即可，若找不到，则原方程必定无解。</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> int long long</span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-type">int</span> n, p, w, d;<br><br><span class="hljs-function"><span class="hljs-type">signed</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    cin &gt;&gt; n &gt;&gt; p &gt;&gt; w &gt;&gt; d;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> y = <span class="hljs-number">0</span>; y &lt; w; y++) &#123;<br>        <span class="hljs-keyword">if</span> ((p - y * d) &gt;= <span class="hljs-number">0</span> &amp;&amp; (p - y * d) % w == <span class="hljs-number">0</span> &amp;&amp; n - ((p - y * d) / w + y) &gt;= <span class="hljs-number">0</span>) &#123;<br>            <span class="hljs-type">int</span> x = (p - y * d) / w;<br>            cout &lt;&lt; x &lt;&lt; <span class="hljs-string">&quot; &quot;</span> &lt;&lt; y &lt;&lt; <span class="hljs-string">&quot; &quot;</span> &lt;&lt; n - (x + y);<br>            <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>        &#125;<br>    &#125;<br>    cout &lt;&lt; <span class="hljs-number">-1</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
-
+                <h2 id="思路">思路</h2>
+<p>我们看到题目，给定四个数 <span
+class="math inline">\(n\)</span>、<span
+class="math inline">\(p\)</span>、<span
+class="math inline">\(w\)</span>、<span
+class="math inline">\(d\)</span>，求解三元一次不定方程组： <span
+class="math display">\[
+\left\{
+\begin{array}{l}
+x\cdot w+y\cdot d=p\\
+x+y+z=n
+\end{array}
+\right.
+\]</span> 观察一下你就会发现 <span class="math inline">\(z\)</span>
+的值是你可以随便指定的，因为他只对 <span
+class="math inline">\(n\)</span>
+产生影响，而不对方程一产生任何贡献。于是我们忽略 <span
+class="math inline">\(z\)</span> 的取值。</p>
+<p>由此我们就可以把方程组化简为一条二元一次不定方程： <span
+class="math display">\[
+x\cdot w+y\cdot d=p
+\]</span> 由于 <span class="math inline">\(w&gt;d\)</span>，可以发现使
+<span class="math inline">\(y\)</span>
+最小就可以得到一组可能存在的解。因此考虑枚举 <span
+class="math inline">\(y\)</span>。分析数据范围可以发现 <span
+class="math inline">\(\frac{p}{n}\)</span> 的范围刚好就是 <span
+class="math inline">\(w\)</span> 和 <span
+class="math inline">\(d\)</span>
+的最大范围，因此我们可以证明，如果原方程组有非负正整数解，那么解中的
+<span class="math inline">\(y\)</span> 必定在区间 <span
+class="math inline">\([0,\,w)\)</span> 中。</p>
+<p>故枚举 <span class="math inline">\(y \in [0, \,w)\)</span>
+然后判断解是否合法即可，若找不到，则原方程必定无解。</p>
+<h2 id="代码">代码</h2>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> int long long</span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-type">int</span> n, p, w, d;<br><br><span class="hljs-function"><span class="hljs-type">signed</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    cin &gt;&gt; n &gt;&gt; p &gt;&gt; w &gt;&gt; d;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> y = <span class="hljs-number">0</span>; y &lt; w; y++) &#123;<br>        <span class="hljs-keyword">if</span> ((p - y * d) &gt;= <span class="hljs-number">0</span> &amp;&amp; (p - y * d) % w == <span class="hljs-number">0</span> &amp;&amp; n - ((p - y * d) / w + y) &gt;= <span class="hljs-number">0</span>) &#123;<br>            <span class="hljs-type">int</span> x = (p - y * d) / w;<br>            cout &lt;&lt; x &lt;&lt; <span class="hljs-string">&quot; &quot;</span> &lt;&lt; y &lt;&lt; <span class="hljs-string">&quot; &quot;</span> &lt;&lt; n - (x + y);<br>            <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>        &#125;<br>    &#125;<br>    cout &lt;&lt; <span class="hljs-number">-1</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 
                 
               </div>
@@ -640,7 +670,7 @@
     <div class="footer-inner">
   
     <div class="footer-content">
-       <div style="font-size: 0.85rem"> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> </div> <style>#scroll-top-button i {color: white}</style> <script src="https://cdn.bootcss.com/vue/2.6.11/vue.min.js"></script> <script src="https://lab.magiconch.com/nbnhhsh/nbnhhsh.user.js"></script> <div style="font-size: 0.85rem"> 本站基于 hexo & hexo-theme-fluid 构建，框架遵循源协议（MIT，GPL-3）<br> 但本站的文章版权均归本站及作者所有，遵循 CreativeCommon-BY-NC-SA 协议，即分享时署名-非商业性使用-相同方式分享。 </div> 
+       <div style="font-size: 0.85rem"> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> </div> <style>#scroll-top-button i {color: white}</style> <script src="https://cdn.bootcss.com/vue/2.6.11/vue.min.js"></script> <script src="https://lab.magiconch.com/nbnhhsh/nbnhhsh.user.js"></script> <div style="font-size: 0.85rem"> 本站基于 hexo & hexo-theme-fluid 构建，框架遵循源协议（MIT，GPL-3）<br> 但本站的文章版权均归本站及作者所有（翻译文章除外） </div> 
     </div>
   
   

@@ -21,12 +21,12 @@
   <meta name="author" content="CodingCow Lee">
   <meta name="keywords" content="python,ml,deeplearning,dl,c++,c,pytorch,noi,oi,ioi,noip,csp-j,csp-s,oier,tyoi,oiclass">
   
-    <meta name="description" content="又是一道烧脑的模板题进入正题，以下是传统得无与伦比的五步 1. 划分阶段这里以每一种花为一个阶段，表示从第 $1$ 种花到这一种花之间的所有花一共最多能有几种方案 2. 状态和状态变量直接用一个二维数组 $f$ 用来存状态，状态： $f_{i,\ j}$ 表示 表示第 $i$ 种花共摆了 $j$ 盆时一共最多能有几种方案，也就是一个最优解。 3. 确定决策和状态转移方程这里，状态还算简单：$$f_">
+    <meta name="description" content="又是一道烧脑的模板题 进入正题，以下是传统得无与伦比的五步 1. 划分阶段 这里以每一种花为一个阶段，表示从第 \(1\) 种花到这一种花之间的所有花一共最多能有几种方案 2. 状态和状态变量 直接用一个二维数组 \(f\) 用来存状态，状态： \(f_{i,\ j}\) 表示 表示第 \(i\) 种花共摆了 \(j\) 盆时一共最多能有几种方案，也就是一个最优解。 3. 确定决策和状态转移方程">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Oiclass P1238 题解">
 <meta property="og:url" content="https://lixuannan.github.io/posts/c035109b">
 <meta property="og:site_name" content="CodingCow&#39;s Blog">
-<meta property="og:description" content="又是一道烧脑的模板题进入正题，以下是传统得无与伦比的五步 1. 划分阶段这里以每一种花为一个阶段，表示从第 $1$ 种花到这一种花之间的所有花一共最多能有几种方案 2. 状态和状态变量直接用一个二维数组 $f$ 用来存状态，状态： $f_{i,\ j}$ 表示 表示第 $i$ 种花共摆了 $j$ 盆时一共最多能有几种方案，也就是一个最优解。 3. 确定决策和状态转移方程这里，状态还算简单：$$f_">
+<meta property="og:description" content="又是一道烧脑的模板题 进入正题，以下是传统得无与伦比的五步 1. 划分阶段 这里以每一种花为一个阶段，表示从第 \(1\) 种花到这一种花之间的所有花一共最多能有几种方案 2. 状态和状态变量 直接用一个二维数组 \(f\) 用来存状态，状态： \(f_{i,\ j}\) 表示 表示第 \(i\) 种花共摆了 \(j\) 盆时一共最多能有几种方案，也就是一个最优解。 3. 确定决策和状态转移方程">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-01-12T08:02:00.000Z">
 <meta property="article:modified_time" content="2024-10-12T01:39:22.690Z">
@@ -319,7 +319,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          335 字
+          332 字
         
       </span>
     
@@ -396,13 +396,33 @@
             
               <div class="markdown-body">
                 
-                <h1 id="又是一道烧脑的模板题"><a href="#又是一道烧脑的模板题" class="headerlink" title="又是一道烧脑的模板题"></a>又是一道烧脑的<strong>模板题</strong></h1><p>进入正题，以下是传统得无与伦比的五步</p>
-<h2 id="1-划分阶段"><a href="#1-划分阶段" class="headerlink" title="1. 划分阶段"></a>1. 划分阶段</h2><p>这里以每一种花为一个阶段，表示从第 $1$ 种花到这一种花之间的所有花一共最多能有几种方案</p>
-<h2 id="2-状态和状态变量"><a href="#2-状态和状态变量" class="headerlink" title="2. 状态和状态变量"></a>2. 状态和状态变量</h2><p>直接用一个二维数组 $f$ 用来存状态，状态： $f_{i,\ j}$ 表示 表示第 $i$ 种花共摆了 $j$ 盆时一共最多能有几种方案，也就是一个最优解。</p>
-<h2 id="3-确定决策和状态转移方程"><a href="#3-确定决策和状态转移方程" class="headerlink" title="3. 确定决策和状态转移方程"></a>3. 确定决策和状态转移方程</h2><p>这里，状态还算简单：<br>$$<br>f_{i,\ j}&#x3D;f_{i,\ j} + f_{i-1,\ j-k}<br>$$<br>不过如果你直接这样算，会直接爆掉，因为你忘记 $%1000007$ 这是非常重要的一个部分，所以改进一下，方程应改变成这样：<br>$$<br>f_{i,\ j}&#x3D;(f_{i,\ j}+f_{i-1,\ j-k})<br>$$</p>
-<h2 id="4-边界"><a href="#4-边界" class="headerlink" title="4. 边界"></a>4. 边界</h2><p>$$<br>f_{0\to n,\ 0}&#x3D;1<br>$$</p>
-<h2 id="5-实现："><a href="#5-实现：" class="headerlink" title="5. 实现："></a>5. 实现：</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;cstring&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-type">int</span> m, n, a[<span class="hljs-number">109</span>], f[<span class="hljs-number">109</span>][<span class="hljs-number">109</span>];<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    cin &gt;&gt; n &gt;&gt; m;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++) &#123;<br>        cin &gt;&gt; a[i];<br>    &#125;<br>    f[<span class="hljs-number">0</span>][<span class="hljs-number">0</span>] = <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++) &#123;<br>        f[i][<span class="hljs-number">0</span>] = <span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">1</span>; j &lt;= m; j++) &#123;<br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> k = <span class="hljs-number">0</span>; k &lt;= <span class="hljs-built_in">min</span>(j, a[i]); k++) &#123;<br>                f[i][j] = f[i - <span class="hljs-number">1</span>][j - k] + f[i][j];<br>                f[i][j] %= <span class="hljs-number">1000007</span>;<br>            &#125;<br>        &#125;<br>    &#125;<br>    cout &lt;&lt; f[n][m] % <span class="hljs-number">1000007</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
-
+                <h1 id="又是一道烧脑的模板题">又是一道烧脑的<strong>模板题</strong></h1>
+<p>进入正题，以下是传统得无与伦比的五步</p>
+<h2 id="划分阶段">1. 划分阶段</h2>
+<p>这里以每一种花为一个阶段，表示从第 <span
+class="math inline">\(1\)</span>
+种花到这一种花之间的所有花一共最多能有几种方案</p>
+<h2 id="状态和状态变量">2. 状态和状态变量</h2>
+<p>直接用一个二维数组 <span class="math inline">\(f\)</span>
+用来存状态，状态： <span class="math inline">\(f_{i,\ j}\)</span> 表示
+表示第 <span class="math inline">\(i\)</span> 种花共摆了 <span
+class="math inline">\(j\)</span>
+盆时一共最多能有几种方案，也就是一个最优解。</p>
+<h2 id="确定决策和状态转移方程">3. 确定决策和状态转移方程</h2>
+<p>这里，状态还算简单： <span class="math display">\[
+f_{i,\ j}=f_{i,\ j} + f_{i-1,\ j-k}
+\]</span> 不过如果你直接这样算，会直接爆掉，因为你忘记 <span
+class="math inline">\(\%1000007\)</span>
+这是非常重要的一个部分，所以改进一下，方程应改变成这样： <span
+class="math display">\[
+f_{i,\ j}=(f_{i,\ j}+f_{i-1,\ j-k})
+\]</span></p>
+<h2 id="边界">4. 边界</h2>
+<p><span class="math display">\[
+f_{0\to n,\ 0}=1
+\]</span></p>
+<h2 id="实现">5. 实现：</h2>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;cstring&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-type">int</span> m, n, a[<span class="hljs-number">109</span>], f[<span class="hljs-number">109</span>][<span class="hljs-number">109</span>];<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    cin &gt;&gt; n &gt;&gt; m;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++) &#123;<br>        cin &gt;&gt; a[i];<br>    &#125;<br>    f[<span class="hljs-number">0</span>][<span class="hljs-number">0</span>] = <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++) &#123;<br>        f[i][<span class="hljs-number">0</span>] = <span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">1</span>; j &lt;= m; j++) &#123;<br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> k = <span class="hljs-number">0</span>; k &lt;= <span class="hljs-built_in">min</span>(j, a[i]); k++) &#123;<br>                f[i][j] = f[i - <span class="hljs-number">1</span>][j - k] + f[i][j];<br>                f[i][j] %= <span class="hljs-number">1000007</span>;<br>            &#125;<br>        &#125;<br>    &#125;<br>    cout &lt;&lt; f[n][m] % <span class="hljs-number">1000007</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 
                 
               </div>
@@ -642,7 +662,7 @@
     <div class="footer-inner">
   
     <div class="footer-content">
-       <div style="font-size: 0.85rem"> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> </div> <style>#scroll-top-button i {color: white}</style> <script src="https://cdn.bootcss.com/vue/2.6.11/vue.min.js"></script> <script src="https://lab.magiconch.com/nbnhhsh/nbnhhsh.user.js"></script> <div style="font-size: 0.85rem"> 本站基于 hexo & hexo-theme-fluid 构建，框架遵循源协议（MIT，GPL-3）<br> 但本站的文章版权均归本站及作者所有，遵循 CreativeCommon-BY-NC-SA 协议，即分享时署名-非商业性使用-相同方式分享。 </div> 
+       <div style="font-size: 0.85rem"> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> </div> <style>#scroll-top-button i {color: white}</style> <script src="https://cdn.bootcss.com/vue/2.6.11/vue.min.js"></script> <script src="https://lab.magiconch.com/nbnhhsh/nbnhhsh.user.js"></script> <div style="font-size: 0.85rem"> 本站基于 hexo & hexo-theme-fluid 构建，框架遵循源协议（MIT，GPL-3）<br> 但本站的文章版权均归本站及作者所有（翻译文章除外） </div> 
     </div>
   
   

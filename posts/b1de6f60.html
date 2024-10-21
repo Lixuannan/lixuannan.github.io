@@ -21,12 +21,12 @@
   <meta name="author" content="CodingCow Lee">
   <meta name="keywords" content="python,ml,deeplearning,dl,c++,c,pytorch,noi,oi,ioi,noip,csp-j,csp-s,oier,tyoi,oiclass">
   
-    <meta name="description" content="你说为什么 01 背包模板不是偷东西呢？额，搞错了，再来！ 1. 划分阶段一共划分 $M$ 个阶段，每个阶段表示在这个阶段可以采的最多的草药 2. 确定状态和状态变量状态变量就用一个二维数组 $f$ 吧，也就是说 $f_{i,\ j}$ 表示前 $i$ 颗草药在前 $j$ 的时间可以获得最大价值，也就是说我们想求的是用 $j$ 的时间，如何在 $a_{1 \to i}$ 的草药中获得最大价值，简单">
+    <meta name="description" content="你说为什么 01 背包模板不是偷东西呢？ 额，搞错了，再来！ 1. 划分阶段 一共划分 \(M\) 个阶段，每个阶段表示在这个阶段可以采的最多的草药 2. 确定状态和状态变量 状态变量就用一个二维数组 \(f\) 吧，也就是说 \(f_{i,\ j}\) 表示前 \(i\) 颗草药在前 \(j\) 的时间可以获得最大价值，也就是说我们想求的是用 \(j\) 的时间，如何在 \(a_{1 \to i">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Oiclass P1246 题解">
 <meta property="og:url" content="https://lixuannan.github.io/posts/b1de6f60">
 <meta property="og:site_name" content="CodingCow&#39;s Blog">
-<meta property="og:description" content="你说为什么 01 背包模板不是偷东西呢？额，搞错了，再来！ 1. 划分阶段一共划分 $M$ 个阶段，每个阶段表示在这个阶段可以采的最多的草药 2. 确定状态和状态变量状态变量就用一个二维数组 $f$ 吧，也就是说 $f_{i,\ j}$ 表示前 $i$ 颗草药在前 $j$ 的时间可以获得最大价值，也就是说我们想求的是用 $j$ 的时间，如何在 $a_{1 \to i}$ 的草药中获得最大价值，简单">
+<meta property="og:description" content="你说为什么 01 背包模板不是偷东西呢？ 额，搞错了，再来！ 1. 划分阶段 一共划分 \(M\) 个阶段，每个阶段表示在这个阶段可以采的最多的草药 2. 确定状态和状态变量 状态变量就用一个二维数组 \(f\) 吧，也就是说 \(f_{i,\ j}\) 表示前 \(i\) 颗草药在前 \(j\) 的时间可以获得最大价值，也就是说我们想求的是用 \(j\) 的时间，如何在 \(a_{1 \to i">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-01-12T06:31:00.000Z">
 <meta property="article:modified_time" content="2024-10-12T01:39:22.691Z">
@@ -396,19 +396,76 @@
             
               <div class="markdown-body">
                 
-                <h1 id="你说为什么-01-背包模板不是偷东西呢？"><a href="#你说为什么-01-背包模板不是偷东西呢？" class="headerlink" title="你说为什么 01 背包模板不是偷东西呢？"></a>你说为什么 01 背包模板不是偷东西呢？</h1><p>额，搞错了，再来！</p>
-<h2 id="1-划分阶段"><a href="#1-划分阶段" class="headerlink" title="1. 划分阶段"></a>1. 划分阶段</h2><p>一共划分 $M$ 个阶段，每个阶段表示在这个阶段可以采的最多的草药</p>
-<h2 id="2-确定状态和状态变量"><a href="#2-确定状态和状态变量" class="headerlink" title="2. 确定状态和状态变量"></a>2. 确定状态和状态变量</h2><p>状态变量就用一个二维数组 $f$ 吧，也就是说 $f_{i,\ j}$ 表示前 $i$ 颗草药在前 $j$ 的时间可以获得最大价值，也就是说我们想求的是用 $j$ 的时间，如何在 $a_{1 \to i}$ 的草药中获得最大价值，<del>简单说就是他想赚多点钱</del></p>
-<h2 id="3-写出状态转换方程并确定决策"><a href="#3-写出状态转换方程并确定决策" class="headerlink" title="3. 写出状态转换方程并确定决策"></a>3. 写出状态转换方程并确定决策</h2><p>这里我们现出不的写出一条状态转移方程：<br>$$<br>f_{i,\ j} &#x3D; \max\left(f_{i-1,\ j-t_{i}}+v_i,\ f_{i-1,\ j}\right)\ \ \ \ （\ t\ 数组为采药耗时，v\ 数组为草药价值\ ）<br>$$<br>然后我们可以发现，如果 $j&lt;t_i$ 这个式子他就乱套了，数组下标怎么能是负的呢。所以我们需要特判一下 $j&lt;t_i$ 的情况，避免 RE 。那么在这种情况的时候，状态要怎么计算呢，我们可以发现，在这个时候，我们无法采摘新的草药，也就是说我们可以直接沿用 $f_{i-1,\ j}$ 的情况。那么我们就可以写出完整地方程了：<br>$$<br>f_{i,\ j} &#x3D; \left{\begin{array}{lr}<br>j&lt;t_i\ \ \ \ \ f_{i-1,\ j}\<br>j≥t_i\ \ \ \ \ f_{i-1,\ j-t_{i}}+v_i<br>\end{array}\right.<br>$$<br>行，那么我们可以进行下一步了对..吧…..。额，这个方程看起来不够<strong>简洁优雅</strong>观察一下可以发现，实际上这个方程可以被压缩成一维的，这样可读性就高很多了。我们考虑一下，究竟是减掉可选物品呢？还是减掉时间呢？很明显，时间对我们来说更重要，所以我们尝试减掉物品这一维。我们首先直接无脑去掉他。发现会有一个问题，就是一个物品会有重复选择的问题。我们观察可以发现，如果我们这一步的操作是 $f_{i,\ j} &#x3D; f_{i-1,\ j}$ 的话，实际上就是直接复制了上一项的值，这里相信大家都是清楚的，那么如果我们这一步的操作是 $f_{i,\ j} &#x3D; f_{i-1,\ j-t_i}+v_i$  的话这又意味着什么呢？仔细想一下，我们可以发现着意味着我们使用 $t_i$ 的时间使得我们多得到了 $v_i$ 的价值所以我们需要回退倒 <em><strong>只能选上一颗草药，只有 $j-t_i$ 的时间</strong></em> 时的最优解然后在其基础上增加 $v_i$ 的价值，所以我们发现实际上对我们有用的只有原数组的 $j$ 下标，而 $i$ 下标只是纯粹递增的而已。所以到这里，我们可以基本确定，我们的确可以去掉 $i$ 下标，同时保持程序正常运行。那么你就会发现，虽然理论上可以，但是实际翻车了，这里是因为：我们在计算 $f_j\ (\ 即\ f_{i,\ j}\ )$ 的时候，我们需要 $f_{j-t_i}\ (\ 即\ f_{i,\ j-t_i}\ )$ 的值，而因为 $j&lt;j-t_i$ 所以如果我们按照正常的顺序遍历的方法，会造成一个结果被重复使用，也就是一颗草药被摘很多次的情况，很显然这是我们不想看到的，因此我们需要倒叙遍历这个数组，方程也就简化成这样了：<br>$$<br>f_j&#x3D;\left{\begin{array}{lr}<br>j&lt;t_i\ \ \ \ \ f_j\<br>j≥t_i\ \ \ \ \ f_{j-t_i}+v_i<br>\end{array}\right.<br>$$</p>
-<p>而这条公式又可以简化成一行，同时不造成值的错误（尽管有些溢出的风险）：<br>$$<br>f_j&#x3D;\max(f_j,\ f_{j-t_i}+v+i)<br>$$<br>终于搞完了</p>
-<h2 id="4-初始条件"><a href="#4-初始条件" class="headerlink" title="4. 初始条件"></a>4. 初始条件</h2><p>在什么时间都没有的情况下，我们不可能摘到草药，所以 $f_0&#x3D;0$ 而又因为数组的初始值就是 $0$ 所以我们再次不需要进行任何操作，妙啊！！！！</p>
-<h2 id="5-实现"><a href="#5-实现" class="headerlink" title="5. 实现"></a>5. 实现</h2><p>直接模拟，上代码！：</p>
+                <h1 id="你说为什么-01-背包模板不是偷东西呢">你说为什么 01
+背包模板不是偷东西呢？</h1>
+<p>额，搞错了，再来！</p>
+<h2 id="划分阶段">1. 划分阶段</h2>
+<p>一共划分 <span class="math inline">\(M\)</span>
+个阶段，每个阶段表示在这个阶段可以采的最多的草药</p>
+<h2 id="确定状态和状态变量">2. 确定状态和状态变量</h2>
+<p>状态变量就用一个二维数组 <span class="math inline">\(f\)</span>
+吧，也就是说 <span class="math inline">\(f_{i,\ j}\)</span> 表示前 <span
+class="math inline">\(i\)</span> 颗草药在前 <span
+class="math inline">\(j\)</span>
+的时间可以获得最大价值，也就是说我们想求的是用 <span
+class="math inline">\(j\)</span> 的时间，如何在 <span
+class="math inline">\(a_{1 \to i}\)</span>
+的草药中获得最大价值，<del>简单说就是他想赚多点钱</del></p>
+<h2 id="写出状态转换方程并确定决策">3. 写出状态转换方程并确定决策</h2>
+<p>这里我们现出不的写出一条状态转移方程： <span class="math display">\[
+f_{i,\ j} = \max\left(f_{i-1,\ j-t_{i}}+v_i,\ f_{i-1,\ j}\right)\ \ \ \
+（\ t\ 数组为采药耗时，v\ 数组为草药价值\ ）
+\]</span> 然后我们可以发现，如果 <span
+class="math inline">\(j&lt;t_i\)</span>
+这个式子他就乱套了，数组下标怎么能是负的呢。所以我们需要特判一下 <span
+class="math inline">\(j&lt;t_i\)</span> 的情况，避免 RE
+。那么在这种情况的时候，状态要怎么计算呢，我们可以发现，在这个时候，我们无法采摘新的草药，也就是说我们可以直接沿用
+<span class="math inline">\(f_{i-1,\ j}\)</span>
+的情况。那么我们就可以写出完整地方程了： <span class="math display">\[
+f_{i,\ j} = \left\{\begin{array}{lr}
+j&lt;t_i\ \ \ \ \ f_{i-1,\ j}\\
+j≥t_i\ \ \ \ \ f_{i-1,\ j-t_{i}}+v_i
+\end{array}\right.
+\]</span>
+行，那么我们可以进行下一步了对..吧…..。额，这个方程看起来不够<strong>简洁优雅</strong>观察一下可以发现，实际上这个方程可以被压缩成一维的，这样可读性就高很多了。我们考虑一下，究竟是减掉可选物品呢？还是减掉时间呢？很明显，时间对我们来说更重要，所以我们尝试减掉物品这一维。我们首先直接无脑去掉他。发现会有一个问题，就是一个物品会有重复选择的问题。我们观察可以发现，如果我们这一步的操作是
+<span class="math inline">\(f_{i,\ j} = f_{i-1,\ j}\)</span>
+的话，实际上就是直接复制了上一项的值，这里相信大家都是清楚的，那么如果我们这一步的操作是
+<span class="math inline">\(f_{i,\ j} = f_{i-1,\ j-t_i}+v_i\)</span>
+的话这又意味着什么呢？仔细想一下，我们可以发现着意味着我们使用 <span
+class="math inline">\(t_i\)</span> 的时间使得我们多得到了 <span
+class="math inline">\(v_i\)</span> 的价值所以我们需要回退倒
+<strong><em>只能选上一颗草药，只有 <span
+class="math inline">\(j-t_i\)</span> 的时间</em></strong>
+时的最优解然后在其基础上增加 <span class="math inline">\(v_i\)</span>
+的价值，所以我们发现实际上对我们有用的只有原数组的 <span
+class="math inline">\(j\)</span> 下标，而 <span
+class="math inline">\(i\)</span>
+下标只是纯粹递增的而已。所以到这里，我们可以基本确定，我们的确可以去掉
+<span class="math inline">\(i\)</span>
+下标，同时保持程序正常运行。那么你就会发现，虽然理论上可以，但是实际翻车了，这里是因为：我们在计算
+<span class="math inline">\(f_j\ (\ 即\ f_{i,\ j}\ )\)</span>
+的时候，我们需要 <span class="math inline">\(f_{j-t_i}\ (\ 即\ f_{i,\
+j-t_i}\ )\)</span> 的值，而因为 <span
+class="math inline">\(j&lt;j-t_i\)</span>
+所以如果我们按照正常的顺序遍历的方法，会造成一个结果被重复使用，也就是一颗草药被摘很多次的情况，很显然这是我们不想看到的，因此我们需要倒叙遍历这个数组，方程也就简化成这样了：
+<span class="math display">\[
+f_j=\left\{\begin{array}{lr}
+j&lt;t_i\ \ \ \ \ f_j\\
+j≥t_i\ \ \ \ \ f_{j-t_i}+v_i
+\end{array}\right.
+\]</span></p>
+<p>而这条公式又可以简化成一行，同时不造成值的错误（尽管有些溢出的风险）：
+<span class="math display">\[
+f_j=\max(f_j,\ f_{j-t_i}+v+i)
+\]</span> 终于搞完了</p>
+<h2 id="初始条件">4. 初始条件</h2>
+<p>在什么时间都没有的情况下，我们不可能摘到草药，所以 <span
+class="math inline">\(f_0=0\)</span> 而又因为数组的初始值就是 <span
+class="math inline">\(0\)</span>
+所以我们再次不需要进行任何操作，妙啊！！！！</p>
+<h2 id="实现">5. 实现</h2>
+<p>直接模拟，上代码！：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-type">int</span> times, m, t[<span class="hljs-number">109</span>], v[<span class="hljs-number">109</span>], f[<span class="hljs-number">10001</span>];<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    cin &gt;&gt; times &gt;&gt; m;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= m; i++) &#123;<br>        cin &gt;&gt; t[i] &gt;&gt; v[i];<br>    &#125;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= m; i++) &#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = times; j &gt;= t[i]; j--) &#123;<br>            f[j] = <span class="hljs-built_in">max</span>(f[j], f[j - t[i]] + v[i]);<br>        &#125;<br>    &#125;<br>    cout &lt;&lt; f[times];<br>&#125;<br></code></pre></td></tr></table></figure>
-
-
-
-
-
 
                 
               </div>
@@ -648,7 +705,7 @@
     <div class="footer-inner">
   
     <div class="footer-content">
-       <div style="font-size: 0.85rem"> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> </div> <style>#scroll-top-button i {color: white}</style> <script src="https://cdn.bootcss.com/vue/2.6.11/vue.min.js"></script> <script src="https://lab.magiconch.com/nbnhhsh/nbnhhsh.user.js"></script> <div style="font-size: 0.85rem"> 本站基于 hexo & hexo-theme-fluid 构建，框架遵循源协议（MIT，GPL-3）<br> 但本站的文章版权均归本站及作者所有，遵循 CreativeCommon-BY-NC-SA 协议，即分享时署名-非商业性使用-相同方式分享。 </div> 
+       <div style="font-size: 0.85rem"> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> </div> <style>#scroll-top-button i {color: white}</style> <script src="https://cdn.bootcss.com/vue/2.6.11/vue.min.js"></script> <script src="https://lab.magiconch.com/nbnhhsh/nbnhhsh.user.js"></script> <div style="font-size: 0.85rem"> 本站基于 hexo & hexo-theme-fluid 构建，框架遵循源协议（MIT，GPL-3）<br> 但本站的文章版权均归本站及作者所有（翻译文章除外） </div> 
     </div>
   
   
