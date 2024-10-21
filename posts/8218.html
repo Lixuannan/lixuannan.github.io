@@ -21,55 +21,24 @@
   <meta name="author" content="CodingCow Lee">
   <meta name="keywords" content="python,ml,deeplearning,dl,c++,c,pytorch,noi,oi,ioi,noip,csp-j,csp-s,oier,tyoi,oiclass">
   
-    <meta name="description" content="前言这是较为完整的训练内容，当然有若干场训练并没有整理出题单，而是写在了 PPT 里面，懒了，不搬了。其次有一场讲评的录屏是不完整的，这个要怪讲评人。 比赛题目原题均在 ACCoders，被 CodingCow 搬到了 OiClass（有些没搬），题面可能略有修改，数据并非原数据，是重新造的。 2024 多校集训 C 层 - 冲刺 NOIP 模拟 1题目 P9006 操作 P9007 染色 II">
+    <meta name="description" content="前言 这是较为完整的训练内容，当然有若干场训练并没有整理出题单，而是写在了 PPT 里面，懒了，不搬了。其次有一场讲评的录屏是不完整的，这个要怪讲评人。 比赛 题目原题均在 ACCoders，被 CodingCow 搬到了 OiClass（有些没搬），题面可能略有修改，数据并非原数据，是重新造的。 2024 多校集训 C 层 - 冲刺 NOIP 模拟 1 题目  P9006 操作 P9007 染色">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2024 成都七中多校联训内容">
 <meta property="og:url" content="https://lixuannan.github.io/posts/8218">
 <meta property="og:site_name" content="CodingCow&#39;s Blog">
-<meta property="og:description" content="前言这是较为完整的训练内容，当然有若干场训练并没有整理出题单，而是写在了 PPT 里面，懒了，不搬了。其次有一场讲评的录屏是不完整的，这个要怪讲评人。 比赛题目原题均在 ACCoders，被 CodingCow 搬到了 OiClass（有些没搬），题面可能略有修改，数据并非原数据，是重新造的。 2024 多校集训 C 层 - 冲刺 NOIP 模拟 1题目 P9006 操作 P9007 染色 II">
+<meta property="og:description" content="前言 这是较为完整的训练内容，当然有若干场训练并没有整理出题单，而是写在了 PPT 里面，懒了，不搬了。其次有一场讲评的录屏是不完整的，这个要怪讲评人。 比赛 题目原题均在 ACCoders，被 CodingCow 搬到了 OiClass（有些没搬），题面可能略有修改，数据并非原数据，是重新造的。 2024 多校集训 C 层 - 冲刺 NOIP 模拟 1 题目  P9006 操作 P9007 染色">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lixuannan/img/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20240331145527.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lixuannan/img/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20240331145853.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lixuannan/img/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20240331150128.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lixuannan/img/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20240331150317.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/lixuannan/img/a.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/lixuannan/img/b.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/lixuannan/img/c.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/lixuannan/img/d.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lixuannan/img/image-20240401171335912.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lixuannan/img/image-20240401172011196.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lixuannan/img/image-20240401190008593.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lixuannan/img/image-20240401190407192.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lixuannan/img/image-20240401190521192.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lixuannan/img/image-20240401190643142.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lixuannan/img/image-20240401191723618.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lixuannan/img/image-20240401191939429.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lixuannan/img/image-20240401192335544.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lixuannan/img/TIM%E6%88%AA%E5%9B%BE20191028134304(2).png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lixuannan/img/1777.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lixuannan/img/1778.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lixuannan/img/1779.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lixuannan/img/image-20240401194016408.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lixuannan/img/image-20240401194032073.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lixuannan/img/image-20240401194049647.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lixuannan/img/image-20240401194101973.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lixuannan/img/image-20240402170527221.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lixuannan/img/image-20240402170627027.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lixuannan/img/image-20240402170654227.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lixuannan/img/image-20240402170738769.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lixuannan/img/image-20240402170850629.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lixuannan/img/image-20240402170932608.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lixuannan/img/image-20240402171020465.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lixuannan/img/image-20240402171104838.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lixuannan/img/image-20240402172247198.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lixuannan/img/image-20240402185649017.png">
 <meta property="article:published_time" content="2024-04-10T08:48:00.000Z">
 <meta property="article:modified_time" content="2024-10-21T12:11:42.153Z">
 <meta property="article:author" content="CodingCow Lee">
 <meta property="article:tag" content="成都七中">
 <meta property="article:tag" content="多校联训">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/lixuannan/img/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20240331145527.png">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/lixuannan/img/a.png">
 <meta name="twitter:creator" content="@CodingCow">
 <meta name="twitter:site" content="lixuannan.github.io">
   
@@ -432,15 +401,28 @@
             
               <div class="markdown-body">
                 
-                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>这是较为完整的训练内容，当然有若干场训练并没有整理出题单，而是写在了 PPT 里面，懒了，不搬了。其次有一场讲评的录屏是不完整的，这个要怪讲评人。</p>
-<h2 id="比赛"><a href="#比赛" class="headerlink" title="比赛"></a>比赛</h2><p>题目原题均在 ACCoders，被 CodingCow 搬到了 OiClass（有些没搬），题面可能略有修改，数据并非原数据，是重新造的。</p>
-<h3 id="2024-多校集训-C-层-冲刺-NOIP-模拟-1"><a href="#2024-多校集训-C-层-冲刺-NOIP-模拟-1" class="headerlink" title="2024 多校集训 C 层 - 冲刺 NOIP 模拟 1"></a>2024 多校集训 C 层 - 冲刺 NOIP 模拟 1</h3><h4 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h4><ol>
-<li><a target="_blank" rel="noopener" href="http://www.oiclass.com/p/P9006"><strong>P9006</strong> 操作</a></li>
-<li><a target="_blank" rel="noopener" href="http://www.oiclass.com/p/P9007"><strong>P9007</strong> 染色 II</a></li>
-<li><a target="_blank" rel="noopener" href="http://www.oiclass.com/p/P9008"><strong>P9008</strong> 旅游</a></li>
-<li><a target="_blank" rel="noopener" href="http://www.oiclass.com/p/P9009"><strong>P9009</strong> 游戏</a></li>
+                <h2 id="前言">前言</h2>
+<p>这是较为完整的训练内容，当然有若干场训练并没有整理出题单，而是写在了
+PPT
+里面，懒了，不搬了。其次有一场讲评的录屏是不完整的，这个要怪讲评人。</p>
+<h2 id="比赛">比赛</h2>
+<p>题目原题均在 ACCoders，被 CodingCow 搬到了
+OiClass（有些没搬），题面可能略有修改，数据并非原数据，是重新造的。</p>
+<h3 id="多校集训-c-层---冲刺-noip-模拟-1">2024 多校集训 C 层 - 冲刺 NOIP
+模拟 1</h3>
+<h4 id="题目">题目</h4>
+<ol type="1">
+<li><a target="_blank" rel="noopener" href="http://www.oiclass.com/p/P9006"><strong>P9006</strong>
+操作</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.oiclass.com/p/P9007"><strong>P9007</strong> 染色
+II</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.oiclass.com/p/P9008"><strong>P9008</strong>
+旅游</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.oiclass.com/p/P9009"><strong>P9009</strong>
+游戏</a></li>
 </ol>
-<h4 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h4>
+<h4 id="题解">题解</h4>
+
 
 	<div class="row">
     <embed src="https://cdn.jsdelivr.net/gh/lixuannan/img/4716.pdf" width="100%" height="550" type="application/pdf">
@@ -448,14 +430,21 @@
 
 
 
-
-<h3 id="2024-多校集训-C-层-冲刺-NOIP-模拟-2"><a href="#2024-多校集训-C-层-冲刺-NOIP-模拟-2" class="headerlink" title="2024 多校集训 C 层 - 冲刺 NOIP 模拟 2"></a>2024 多校集训 C 层 - 冲刺 NOIP 模拟 2</h3><h4 id="题目-1"><a href="#题目-1" class="headerlink" title="题目"></a>题目</h4><ol>
-<li><a target="_blank" rel="noopener" href="http://www.oiclass.com/p/P9010"><strong>P9010</strong> 差异</a></li>
-<li><a target="_blank" rel="noopener" href="http://www.oiclass.com/p/P9011"><strong>P9011</strong> 染色 I</a></li>
-<li><a target="_blank" rel="noopener" href="http://www.oiclass.com/p/P9012"><strong>P9012</strong> 好数</a></li>
-<li><a target="_blank" rel="noopener" href="http://www.oiclass.com/p/P9013"><strong>P9013</strong> &#x2F;tp</a></li>
+<h3 id="多校集训-c-层---冲刺-noip-模拟-2">2024 多校集训 C 层 - 冲刺 NOIP
+模拟 2</h3>
+<h4 id="题目-1">题目</h4>
+<ol type="1">
+<li><a target="_blank" rel="noopener" href="http://www.oiclass.com/p/P9010"><strong>P9010</strong>
+差异</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.oiclass.com/p/P9011"><strong>P9011</strong> 染色
+I</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.oiclass.com/p/P9012"><strong>P9012</strong>
+好数</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.oiclass.com/p/P9013"><strong>P9013</strong>
+/tp</a></li>
 </ol>
-<h4 id="题解-1"><a href="#题解-1" class="headerlink" title="题解"></a>题解</h4>
+<h4 id="题解-1">题解</h4>
+
 
 	<div class="row">
     <embed src="https://cdn.jsdelivr.net/gh/lixuannan/img/4717.pdf" width="100%" height="550" type="application/pdf">
@@ -463,14 +452,21 @@
 
 
 
-
-<h3 id="2024-多校集训-C-层-冲刺-NOIP-模拟-3"><a href="#2024-多校集训-C-层-冲刺-NOIP-模拟-3" class="headerlink" title="2024 多校集训 C 层 - 冲刺 NOIP 模拟 3"></a>2024 多校集训 C 层 - 冲刺 NOIP 模拟 3</h3><h4 id="题目-2"><a href="#题目-2" class="headerlink" title="题目"></a>题目</h4><ol>
-<li><img src="https://cdn.jsdelivr.net/gh/lixuannan/img/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20240331145527.png" srcset="/img/loading.gif" lazyload></li>
-<li><img src="https://cdn.jsdelivr.net/gh/lixuannan/img/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20240331145853.png" srcset="/img/loading.gif" lazyload></li>
-<li><img src="https://cdn.jsdelivr.net/gh/lixuannan/img/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20240331150128.png" srcset="/img/loading.gif" lazyload></li>
-<li><img src="https://cdn.jsdelivr.net/gh/lixuannan/img/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20240331150317.png" srcset="/img/loading.gif" lazyload></li>
+<h3 id="多校集训-c-层---冲刺-noip-模拟-3">2024 多校集训 C 层 - 冲刺 NOIP
+模拟 3</h3>
+<h4 id="题目-2">题目</h4>
+<ol type="1">
+<li><img
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20240331145527.png" srcset="/img/loading.gif" lazyload /></li>
+<li><img
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20240331145853.png" srcset="/img/loading.gif" lazyload /></li>
+<li><img
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20240331150128.png" srcset="/img/loading.gif" lazyload /></li>
+<li><img
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20240331150317.png" srcset="/img/loading.gif" lazyload /></li>
 </ol>
-<h4 id="题解-2"><a href="#题解-2" class="headerlink" title="题解"></a>题解</h4>
+<h4 id="题解-2">题解</h4>
+
 
 	<div class="row">
     <embed src="https://cdn.jsdelivr.net/gh/lixuannan/img/4718.pdf" width="100%" height="550" type="application/pdf">
@@ -478,14 +474,17 @@
 
 
 
-
-<h3 id="2024-多校集训-C-层-冲刺-NOIP-模拟-4"><a href="#2024-多校集训-C-层-冲刺-NOIP-模拟-4" class="headerlink" title="2024 多校集训 C 层 - 冲刺 NOIP 模拟 4"></a>2024 多校集训 C 层 - 冲刺 NOIP 模拟 4</h3><h4 id="题目-3"><a href="#题目-3" class="headerlink" title="题目"></a>题目</h4><ol>
-<li><img src="https://cdn.jsdelivr.net/gh/lixuannan/img/a.png" srcset="/img/loading.gif" lazyload></li>
-<li><img src="https://cdn.jsdelivr.net/gh/lixuannan/img/b.png" srcset="/img/loading.gif" lazyload></li>
-<li><img src="https://cdn.jsdelivr.net/gh/lixuannan/img/c.png" srcset="/img/loading.gif" lazyload></li>
-<li><img src="https://cdn.jsdelivr.net/gh/lixuannan/img/d.png" srcset="/img/loading.gif" lazyload></li>
+<h3 id="多校集训-c-层---冲刺-noip-模拟-4">2024 多校集训 C 层 - 冲刺 NOIP
+模拟 4</h3>
+<h4 id="题目-3">题目</h4>
+<ol type="1">
+<li><img src="https://cdn.jsdelivr.net/gh/lixuannan/img/a.png" srcset="/img/loading.gif" lazyload /></li>
+<li><img src="https://cdn.jsdelivr.net/gh/lixuannan/img/b.png" srcset="/img/loading.gif" lazyload /></li>
+<li><img src="https://cdn.jsdelivr.net/gh/lixuannan/img/c.png" srcset="/img/loading.gif" lazyload /></li>
+<li><img src="https://cdn.jsdelivr.net/gh/lixuannan/img/d.png" srcset="/img/loading.gif" lazyload /></li>
 </ol>
-<h4 id="题解-3"><a href="#题解-3" class="headerlink" title="题解"></a>题解</h4>
+<h4 id="题解-3">题解</h4>
+
 
 	<div class="row">
     <embed src="https://cdn.jsdelivr.net/gh/lixuannan/img/4719.pdf" width="100%" height="550" type="application/pdf">
@@ -493,8 +492,10 @@
 
 
 
-
-<h3 id="2024-多校集训-C-层-冲刺-NOIP模拟-5"><a href="#2024-多校集训-C-层-冲刺-NOIP模拟-5" class="headerlink" title="2024 多校集训 C 层 - 冲刺 NOIP模拟 5"></a>2024 多校集训 C 层 - 冲刺 NOIP模拟 5</h3><h4 id="题目-4"><a href="#题目-4" class="headerlink" title="题目"></a>题目</h4><ol>
+<h3 id="多校集训-c-层---冲刺-noip模拟-5">2024 多校集训 C 层 - 冲刺
+NOIP模拟 5</h3>
+<h4 id="题目-4">题目</h4>
+<ol type="1">
 <li>
 
 	<div class="row">
@@ -528,7 +529,8 @@
 
 </li>
 </ol>
-<h4 id="题解-4"><a href="#题解-4" class="headerlink" title="题解"></a>题解</h4>
+<h4 id="题解-4">题解</h4>
+
 
 	<div class="row">
     <embed src="https://cdn.jsdelivr.net/gh/lixuannan/img/4720.pdf" width="100%" height="550" type="application/pdf">
@@ -536,8 +538,10 @@
 
 
 
+<h3 id="多校集训-c-层---冲刺-noip-模拟-6">2024 多校集训 C 层 - 冲刺 NOIP
+模拟 6</h3>
+<h4 id="题目-5">题目</h4>
 
-<h3 id="2024-多校集训-C-层-冲刺-NOIP-模拟-6"><a href="#2024-多校集训-C-层-冲刺-NOIP-模拟-6" class="headerlink" title="2024 多校集训 C 层 - 冲刺 NOIP 模拟 6"></a>2024 多校集训 C 层 - 冲刺 NOIP 模拟 6</h3><h4 id="题目-5"><a href="#题目-5" class="headerlink" title="题目"></a>题目</h4>
 
 	<div class="row">
     <embed src="https://cdn.jsdelivr.net/gh/lixuannan/img/4721.pdf" width="100%" height="550" type="application/pdf">
@@ -545,8 +549,8 @@
 
 
 
+<h4 id="题解-5">题解</h4>
 
-<h4 id="题解-5"><a href="#题解-5" class="headerlink" title="题解"></a>题解</h4>
 
 	<div class="row">
     <embed src="https://cdn.jsdelivr.net/gh/lixuannan/img/solution4721.pdf" width="100%" height="550" type="application/pdf">
@@ -554,8 +558,10 @@
 
 
 
+<h3 id="多校集训-c-层---冲刺-noip-模拟-7">2024 多校集训 C 层 - 冲刺 NOIP
+模拟 7</h3>
+<h4 id="题目-6">题目</h4>
 
-<h3 id="2024-多校集训-C-层-冲刺-NOIP-模拟-7"><a href="#2024-多校集训-C-层-冲刺-NOIP-模拟-7" class="headerlink" title="2024 多校集训 C 层 - 冲刺 NOIP 模拟 7"></a>2024 多校集训 C 层 - 冲刺 NOIP 模拟 7</h3><h4 id="题目-6"><a href="#题目-6" class="headerlink" title="题目"></a>题目</h4>
 
 	<div class="row">
     <embed src="https://cdn.jsdelivr.net/gh/lixuannan/img/4722.pdf" width="100%" height="550" type="application/pdf">
@@ -563,8 +569,8 @@
 
 
 
+<h4 id="题解-6">题解</h4>
 
-<h4 id="题解-6"><a href="#题解-6" class="headerlink" title="题解"></a>题解</h4>
 
 	<div class="row">
     <embed src="https://cdn.jsdelivr.net/gh/lixuannan/img/solution4722.pdf" width="100%" height="550" type="application/pdf">
@@ -572,9 +578,13 @@
 
 
 
+<h2 id="训练">训练</h2>
+<p>训练题非常多，有原题的放了原题，没有的是截图，见谅。</p>
+<h3 id="多校集训-c-层---基础算法-二分三分哈希高精度位运算模拟退火">2024
+多校集训 C 层 - 基础算法：
+二分、三分、哈希、高精度、位运算、模拟退火</h3>
+<h4 id="课件">课件</h4>
 
-<h2 id="训练"><a href="#训练" class="headerlink" title="训练"></a>训练</h2><p>训练题非常多，有原题的放了原题，没有的是截图，见谅。</p>
-<h3 id="2024-多校集训-C-层-基础算法：-二分、三分、哈希、高精度、位运算、模拟退火"><a href="#2024-多校集训-C-层-基础算法：-二分、三分、哈希、高精度、位运算、模拟退火" class="headerlink" title="2024 多校集训 C 层 - 基础算法： 二分、三分、哈希、高精度、位运算、模拟退火"></a>2024 多校集训 C 层 - 基础算法： 二分、三分、哈希、高精度、位运算、模拟退火</h3><h4 id="课件"><a href="#课件" class="headerlink" title="课件"></a>课件</h4>
 
 	<div class="row">
     <embed src="https://cdn.jsdelivr.net/gh/lixuannan/img/day1-%E4%BA%8C%E5%88%86%EF%BC%8C%E4%B8%89%E5%88%86%EF%BC%8C%E5%93%88%E5%B8%8C%EF%BC%8C%E9%AB%98%E7%B2%BE%E5%BA%A6%EF%BC%8C%E4%BD%8D%E8%BF%90%E7%AE%97%EF%BC%8C%E6%A8%A1%E6%8B%9F%E9%80%80%E7%81%AB.pdf" width="100%" height="550" type="application/pdf">
@@ -582,35 +592,66 @@
 
 
 
+<h4 id="课程">课程</h4>
 
-<h4 id="课程"><a href="#课程" class="headerlink" title="课程"></a>课程</h4>
 
 <div style="position: relative; width: 100%;  height: 0;padding-bottom: 75%;">
 <iframe src="//player.bilibili.com/player.html?aid=1002718283&bvid=BV1fx4y1a78Q&cid=1490226997&p=1" scrolling="no" border="0" style="position:absolute; height: 100%; width: 100%;" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 </div>
 
-
-<h4 id="题单"><a href="#题单" class="headerlink" title="题单"></a>题单</h4><ol>
-<li>[<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1080">NOIP2012 提高组] 国王游戏</a></li>
-<li>[<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1083">NOIP2012 提高组] 借教室</a></li>
-<li>[<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1084">NOIP2012 提高组] 疫情控制</a></li>
-<li>[<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2678">NOIP2015 提高组] 跳石头</a></li>
-<li>[<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2680">NOIP2015 提高组] 运输计划</a></li>
-<li>[<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1314">NOIP2011 提高组] 聪明的质监员</a></li>
+<h4 id="题单">题单</h4>
+<ol type="1">
+<li>[<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1080">NOIP2012 提高组]
+国王游戏</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1083">NOIP2012 提高组]
+借教室</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1084">NOIP2012 提高组]
+疫情控制</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2678">NOIP2015 提高组]
+跳石头</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2680">NOIP2015 提高组]
+运输计划</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1314">NOIP2011 提高组]
+聪明的质监员</a></li>
 <li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1661">扩散</a></li>
-<li>[<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1525">NOIP2010 提高组] 关押罪犯</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/UVA10385">Duathlon</a></li>
-<li>[<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P5931">清华集训2015] 灯泡</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1525">NOIP2010 提高组]
+关押罪犯</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/UVA10385">Duathlon</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P5931">清华集训2015]
+灯泡</a></li>
 <li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2142">高精度减法</a></li>
-<li><img src="https://cdn.jsdelivr.net/gh/lixuannan/img/image-20240401171335912.png" srcset="/img/loading.gif" lazyload alt="image-20240401171335912"></li>
-<li><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/93/">最短Hamilton路径</a></li>
-<li>[<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1337">JSOI2004] 平衡点 &#x2F; 吊打XXX</a></li>
-<li><a target="_blank" rel="noopener" href="http://www.oiclass.com/d/puji/p/P2514"><strong>P2514</strong> 收集雪花</a></li>
-<li>[<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2503">HAOI2006] 均分数据</a></li>
-<li><img src="https://cdn.jsdelivr.net/gh/lixuannan/img/image-20240401172011196.png" srcset="/img/loading.gif" lazyload alt="image-20240401172011196"></li>
-<li><a target="_blank" rel="noopener" href="http://ybt.ssoier.cn:8088/problem_show.php?pid=1694"><strong>YBT1694</strong> 回文串</a></li>
+<li><figure>
+<img
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/image-20240401171335912.png" srcset="/img/loading.gif" lazyload
+alt="image-20240401171335912" />
+<figcaption aria-hidden="true">image-20240401171335912</figcaption>
+</figure></li>
+<li><a
+target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/93/">最短Hamilton路径</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1337">JSOI2004] 平衡点 /
+吊打XXX</a></li>
+<li><a
+target="_blank" rel="noopener" href="http://www.oiclass.com/d/puji/p/P2514"><strong>P2514</strong>
+收集雪花</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2503">HAOI2006]
+均分数据</a></li>
+<li><figure>
+<img
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/image-20240401172011196.png" srcset="/img/loading.gif" lazyload
+alt="image-20240401172011196" />
+<figcaption aria-hidden="true">image-20240401172011196</figcaption>
+</figure></li>
+<li><a
+target="_blank" rel="noopener" href="http://ybt.ssoier.cn:8088/problem_show.php?pid=1694"><strong>YBT1694</strong>
+回文串</a></li>
 </ol>
-<h3 id="2024-多校集训-C-层-数学：排列组合、扩展欧几里得德、快筛素数、欧拉函数、容斥原理、逆元、BSGS、莫比乌斯反演、LUCAS"><a href="#2024-多校集训-C-层-数学：排列组合、扩展欧几里得德、快筛素数、欧拉函数、容斥原理、逆元、BSGS、莫比乌斯反演、LUCAS" class="headerlink" title="2024 多校集训 C 层 - 数学：排列组合、扩展欧几里得德、快筛素数、欧拉函数、容斥原理、逆元、BSGS、莫比乌斯反演、LUCAS"></a>2024 多校集训 C 层 - 数学：排列组合、扩展欧几里得德、快筛素数、欧拉函数、容斥原理、逆元、BSGS、莫比乌斯反演、LUCAS</h3><h4 id="课件-1"><a href="#课件-1" class="headerlink" title="课件"></a>课件</h4>
+<h3
+id="多校集训-c-层---数学排列组合扩展欧几里得德快筛素数欧拉函数容斥原理逆元bsgs莫比乌斯反演lucas">2024
+多校集训 C 层 -
+数学：排列组合、扩展欧几里得德、快筛素数、欧拉函数、容斥原理、逆元、BSGS、莫比乌斯反演、LUCAS</h3>
+<h4 id="课件-1">课件</h4>
+
 
 	<div class="row">
     <embed src="https://cdn.jsdelivr.net/gh/lixuannan/img/day2-%E6%95%B0%E8%AE%BA.pdf" width="100%" height="550" type="application/pdf">
@@ -618,40 +659,88 @@
 
 
 
+<h4 id="课程-1">课程</h4>
 
-<h4 id="课程-1"><a href="#课程-1" class="headerlink" title="课程"></a>课程</h4>
 
 <div style="position: relative; width: 100%; height: 0; padding-bottom: 75%;">
 <iframe src="//player.bilibili.com/player.html?aid=1652723394&bvid=BV1SE421g7RT&cid=1490229120&p=1" scrolling="no" border="0" style="position:absolute; height: 100%; width: 100%;" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 </div>
 
-
-<h4 id="题单-1"><a href="#题单-1" class="headerlink" title="题单"></a>题单</h4><ol>
-<li><img src="https://cdn.jsdelivr.net/gh/lixuannan/img/image-20240401190008593.png" srcset="/img/loading.gif" lazyload alt="image-20240401190008593"></li>
-<li>[<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2522">HAOI2011] Problem b</a></li>
-<li><img src="https://cdn.jsdelivr.net/gh/lixuannan/img/image-20240401190407192.png" srcset="/img/loading.gif" lazyload alt="image-20240401190407192"></li>
-<li><img src="https://cdn.jsdelivr.net/gh/lixuannan/img/image-20240401190521192.png" srcset="/img/loading.gif" lazyload alt="image-20240401190521192"></li>
-<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3811">【模板】模意义下的乘法逆元</a></li>
-<li>[<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1082">NOIP2012 提高组] 同余方程</a></li>
-<li><img src="https://cdn.jsdelivr.net/gh/lixuannan/img/image-20240401190643142.png" srcset="/img/loading.gif" lazyload alt="image-20240401190643142"></li>
-<li>[<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P6076">JSOI2015] 染色问题</a></li>
-<li><a target="_blank" rel="noopener" href="https://hydro.ac/d/bzoj/p/4403"><strong>P4403</strong> 序列统计</a></li>
-<li>[<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3455">POI2007] ZAP-Queries</a></li>
-<li>[<a target="_blank" rel="noopener" href="https://hydro.ac/d/bzoj/p/2440">中山市选2011]完全平方数</a></li>
-<li><a target="_blank" rel="noopener" href="https://hydro.ac/d/bzoj/p/2818"><strong>P2818</strong> Gcd</a></li>
-<li><a target="_blank" rel="noopener" href="https://hydro.ac/d/bzoj/p/3643"><strong>P3643</strong> Phi的反函数</a></li>
-<li><a target="_blank" rel="noopener" href="https://hydro.ac/d/bzoj/p/1409"><strong>P1409</strong> Password</a></li>
-<li>[<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3312">SDOI2014] 数表</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/SP3105">MOD - Power Modulo Inverted</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2158">[SDOI2008] 仪仗队</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2155">[SDOI2008] 沙拉公主的困惑</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P5228">[AHOI2013] 找硬币</a></li>
-<li><a target="_blank" rel="noopener" href="https://hydro.ac/d/bzoj/p/4173"><strong>P4173</strong> 数学</a><img src="https://cdn.jsdelivr.net/gh/lixuannan/img/image-20240401191723618.png" srcset="/img/loading.gif" lazyload alt="image-20240401191723618"></li>
-<li>[<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3747">六省联考 2017] 相逢是问候</a></li>
-<li><img src="https://cdn.jsdelivr.net/gh/lixuannan/img/image-20240401191939429.png" srcset="/img/loading.gif" lazyload alt="image-20240401191939429"></li>
-<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P4296">[AHOI2007] 密码箱</a></li>
+<h4 id="题单-1">题单</h4>
+<ol type="1">
+<li><figure>
+<img
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/image-20240401190008593.png" srcset="/img/loading.gif" lazyload
+alt="image-20240401190008593" />
+<figcaption aria-hidden="true">image-20240401190008593</figcaption>
+</figure></li>
+<li>[<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2522">HAOI2011] Problem
+b</a></li>
+<li><figure>
+<img
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/image-20240401190407192.png" srcset="/img/loading.gif" lazyload
+alt="image-20240401190407192" />
+<figcaption aria-hidden="true">image-20240401190407192</figcaption>
+</figure></li>
+<li><figure>
+<img
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/image-20240401190521192.png" srcset="/img/loading.gif" lazyload
+alt="image-20240401190521192" />
+<figcaption aria-hidden="true">image-20240401190521192</figcaption>
+</figure></li>
+<li><a
+target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3811">【模板】模意义下的乘法逆元</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1082">NOIP2012 提高组]
+同余方程</a></li>
+<li><figure>
+<img
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/image-20240401190643142.png" srcset="/img/loading.gif" lazyload
+alt="image-20240401190643142" />
+<figcaption aria-hidden="true">image-20240401190643142</figcaption>
+</figure></li>
+<li>[<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P6076">JSOI2015]
+染色问题</a></li>
+<li><a target="_blank" rel="noopener" href="https://hydro.ac/d/bzoj/p/4403"><strong>P4403</strong>
+序列统计</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3455">POI2007]
+ZAP-Queries</a></li>
+<li>[<a
+target="_blank" rel="noopener" href="https://hydro.ac/d/bzoj/p/2440">中山市选2011]完全平方数</a></li>
+<li><a target="_blank" rel="noopener" href="https://hydro.ac/d/bzoj/p/2818"><strong>P2818</strong>
+Gcd</a></li>
+<li><a target="_blank" rel="noopener" href="https://hydro.ac/d/bzoj/p/3643"><strong>P3643</strong>
+Phi的反函数</a></li>
+<li><a target="_blank" rel="noopener" href="https://hydro.ac/d/bzoj/p/1409"><strong>P1409</strong>
+Password</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3312">SDOI2014]
+数表</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/SP3105">MOD - Power Modulo
+Inverted</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2158">[SDOI2008]
+仪仗队</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2155">[SDOI2008]
+沙拉公主的困惑</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P5228">[AHOI2013]
+找硬币</a></li>
+<li><a target="_blank" rel="noopener" href="https://hydro.ac/d/bzoj/p/4173"><strong>P4173</strong>
+数学</a><img
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/image-20240401191723618.png" srcset="/img/loading.gif" lazyload
+alt="image-20240401191723618" /></li>
+<li>[<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3747">六省联考 2017]
+相逢是问候</a></li>
+<li><figure>
+<img
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/image-20240401191939429.png" srcset="/img/loading.gif" lazyload
+alt="image-20240401191939429" />
+<figcaption aria-hidden="true">image-20240401191939429</figcaption>
+</figure></li>
+<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P4296">[AHOI2007]
+密码箱</a></li>
 </ol>
-<h3 id="2024-多校集训-C-层-动态规划：背包、树形、状压、数位、期望DP"><a href="#2024-多校集训-C-层-动态规划：背包、树形、状压、数位、期望DP" class="headerlink" title="2024 多校集训 C 层 - 动态规划：背包、树形、状压、数位、期望DP"></a>2024 多校集训 C 层 - 动态规划：背包、树形、状压、数位、期望DP</h3><h4 id="课件-2"><a href="#课件-2" class="headerlink" title="课件"></a>课件</h4>
+<h3 id="多校集训-c-层---动态规划背包树形状压数位期望dp">2024 多校集训 C
+层 - 动态规划：背包、树形、状压、数位、期望DP</h3>
+<h4 id="课件-2">课件</h4>
+
 
 	<div class="row">
     <embed src="https://cdn.jsdelivr.net/gh/lixuannan/img/2%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92.pdf" width="100%" height="550" type="application/pdf">
@@ -659,49 +748,108 @@
 
 
 
+<h4 id="课程-2">课程</h4>
 
-<h4 id="课程-2"><a href="#课程-2" class="headerlink" title="课程"></a>课程</h4>
 
 <div style="position: relative; width: 100%; height: 0; padding-bottom: 75%;">
 <iframe src="//player.bilibili.com/player.html?aid=1052725878&bvid=BV18H4y1n7At&cid=1490248378&p=1" scrolling="no" border="0" style="position:absolute; height: 100%; width: 100%;" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 </div>
 
-
-<h4 id="题单-2"><a href="#题单-2" class="headerlink" title="题单"></a>题单</h4><ol>
-<li><img src="https://cdn.jsdelivr.net/gh/lixuannan/img/image-20240401192335544.png" srcset="/img/loading.gif" lazyload alt="image-20240401192335544"></li>
-<li>[<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1541">NOIP2010 提高组] 乌龟棋</a></li>
-<li><a target="_blank" rel="noopener" href="http://www.oiclass.com/p/P1264"><strong>P1264</strong> 沙子合并</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1879">[USACO06NOV] Corn Fields G</a></li>
-<li><a target="_blank" rel="noopener" href="http://www.oiclass.com/d/puji/p/P1453"><strong>P1453</strong> 二叉苹果树</a></li>
-<li>[<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1896">SCOI2005] 互不侵犯</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/B3637">最长上升子序列</a></li>
-<li><a target="_blank" rel="noopener" href="http://www.oiclass.com/p/P1227"><strong>P1227</strong> 合唱队形</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1020">[NOIP1999 提高组] 导弹拦截</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/1080/">旅游规划</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1352">没有上司的舞会</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3155">[CQOI2009] 叶子的染色</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2607">[ZJOI2008] 骑士</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P5336">[THUSC2016] 成绩单</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3736">[HAOI2016] 字符合并</a></li>
-<li><img src="https://cdn.jsdelivr.net/gh/lixuannan/img/TIM%E6%88%AA%E5%9B%BE20191028134304(2).png" srcset="/img/loading.gif" lazyload></li>
-<li><img src="https://cdn.jsdelivr.net/gh/lixuannan/img/1777.png" srcset="/img/loading.gif" lazyload></li>
-<li><img src="https://cdn.jsdelivr.net/gh/lixuannan/img/1778.png" srcset="/img/loading.gif" lazyload></li>
-<li><img src="https://cdn.jsdelivr.net/gh/lixuannan/img/1779.png" srcset="/img/loading.gif" lazyload></li>
-<li><a target="_blank" rel="noopener" href="http://www.oiclass.com/p/P1192"><strong>P1192</strong> 滑雪</a></li>
-<li><a target="_blank" rel="noopener" href="http://www.oiclass.com/p/P1241"><strong>P1241</strong> 最长公共子序列</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P4290">[HAOI2008] 玩具取名</a></li>
-<li><img src="https://cdn.jsdelivr.net/gh/lixuannan/img/image-20240401194016408.png" srcset="/img/loading.gif" lazyload alt="image-20240401194016408"></li>
-<li><img src="https://cdn.jsdelivr.net/gh/lixuannan/img/image-20240401194032073.png" srcset="/img/loading.gif" lazyload alt="image-20240401194032073"></li>
-<li><img src="https://cdn.jsdelivr.net/gh/lixuannan/img/image-20240401194049647.png" srcset="/img/loading.gif" lazyload alt="image-20240401194049647"></li>
-<li><img src="https://cdn.jsdelivr.net/gh/lixuannan/img/image-20240401194101973.png" srcset="/img/loading.gif" lazyload alt="image-20240401194101973"></li>
-<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1064">[NOIP2006 提高组] 金明的预算方案</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2966">[USACO09DEC] Cow Toll Paths G</a></li>
-<li><a target="_blank" rel="noopener" href="http://www.oiclass.com/d/puji/p/P1458"><strong>P1458</strong> 电脑网络</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2602">[ZJOI2010] 数字计数</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P4206">[NOI2005] 聪聪与可可</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P4316">绿豆蛙的归宿</a></li>
+<h4 id="题单-2">题单</h4>
+<ol type="1">
+<li><figure>
+<img
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/image-20240401192335544.png" srcset="/img/loading.gif" lazyload
+alt="image-20240401192335544" />
+<figcaption aria-hidden="true">image-20240401192335544</figcaption>
+</figure></li>
+<li>[<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1541">NOIP2010 提高组]
+乌龟棋</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.oiclass.com/p/P1264"><strong>P1264</strong>
+沙子合并</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1879">[USACO06NOV] Corn
+Fields G</a></li>
+<li><a
+target="_blank" rel="noopener" href="http://www.oiclass.com/d/puji/p/P1453"><strong>P1453</strong>
+二叉苹果树</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1896">SCOI2005]
+互不侵犯</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/B3637">最长上升子序列</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.oiclass.com/p/P1227"><strong>P1227</strong>
+合唱队形</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1020">[NOIP1999 提高组]
+导弹拦截</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/1080/">旅游规划</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1352">没有上司的舞会</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3155">[CQOI2009]
+叶子的染色</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2607">[ZJOI2008]
+骑士</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P5336">[THUSC2016]
+成绩单</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3736">[HAOI2016]
+字符合并</a></li>
+<li><img
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/TIM%E6%88%AA%E5%9B%BE20191028134304(2).png" srcset="/img/loading.gif" lazyload /></li>
+<li><img
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/1777.png" srcset="/img/loading.gif" lazyload /></li>
+<li><img
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/1778.png" srcset="/img/loading.gif" lazyload /></li>
+<li><img
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/1779.png" srcset="/img/loading.gif" lazyload /></li>
+<li><a target="_blank" rel="noopener" href="http://www.oiclass.com/p/P1192"><strong>P1192</strong>
+滑雪</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.oiclass.com/p/P1241"><strong>P1241</strong>
+最长公共子序列</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P4290">[HAOI2008]
+玩具取名</a></li>
+<li><figure>
+<img
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/image-20240401194016408.png" srcset="/img/loading.gif" lazyload
+alt="image-20240401194016408" />
+<figcaption aria-hidden="true">image-20240401194016408</figcaption>
+</figure></li>
+<li><figure>
+<img
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/image-20240401194032073.png" srcset="/img/loading.gif" lazyload
+alt="image-20240401194032073" />
+<figcaption aria-hidden="true">image-20240401194032073</figcaption>
+</figure></li>
+<li><figure>
+<img
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/image-20240401194049647.png" srcset="/img/loading.gif" lazyload
+alt="image-20240401194049647" />
+<figcaption aria-hidden="true">image-20240401194049647</figcaption>
+</figure></li>
+<li><figure>
+<img
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/image-20240401194101973.png" srcset="/img/loading.gif" lazyload
+alt="image-20240401194101973" />
+<figcaption aria-hidden="true">image-20240401194101973</figcaption>
+</figure></li>
+<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1064">[NOIP2006 提高组]
+金明的预算方案</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2966">[USACO09DEC] Cow
+Toll Paths G</a></li>
+<li><a
+target="_blank" rel="noopener" href="http://www.oiclass.com/d/puji/p/P1458"><strong>P1458</strong>
+电脑网络</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2602">[ZJOI2010]
+数字计数</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P4206">[NOI2005]
+聪聪与可可</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P4316">绿豆蛙的归宿</a></li>
 </ol>
-<h3 id="2024-多校集训-C-层-基础数据结构：-单调栈、单调队列、树的遍历、直径、哈夫曼树、二叉排序树、LCA、RMQ"><a href="#2024-多校集训-C-层-基础数据结构：-单调栈、单调队列、树的遍历、直径、哈夫曼树、二叉排序树、LCA、RMQ" class="headerlink" title="2024 多校集训 C 层 - 基础数据结构： 单调栈、单调队列、树的遍历、直径、哈夫曼树、二叉排序树、LCA、RMQ"></a>2024 多校集训 C 层 - 基础数据结构： 单调栈、单调队列、树的遍历、直径、哈夫曼树、二叉排序树、LCA、RMQ</h3><h4 id="课件-3"><a href="#课件-3" class="headerlink" title="课件"></a>课件</h4>
+<h3
+id="多校集训-c-层---基础数据结构-单调栈单调队列树的遍历直径哈夫曼树二叉排序树lcarmq">2024
+多校集训 C 层 - 基础数据结构：
+单调栈、单调队列、树的遍历、直径、哈夫曼树、二叉排序树、LCA、RMQ</h3>
+<h4 id="课件-3">课件</h4>
+
 
 	<div class="row">
     <embed src="https://cdn.jsdelivr.net/gh/lixuannan/img/%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84.pdf" width="100%" height="550" type="application/pdf">
@@ -709,33 +857,53 @@
 
 
 
+<h4 id="课程-3">课程</h4>
 
-<h4 id="课程-3"><a href="#课程-3" class="headerlink" title="课程"></a>课程</h4>
 
 <div style="position: relative; width: 100%; height: 0; padding-bottom: 75%;">
 <iframe src="//player.bilibili.com/player.html?aid=1952520670&bvid=BV1WC411L7Ai&cid=1490249307&p=1" scrolling="no" border="0" style="position:absolute; height: 100%; width: 100%;" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 </div>
 
-
-<h4 id="题单-3"><a href="#题单-3" class="headerlink" title="题单"></a>题单</h4><ol>
-<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P5788">【模板】单调栈</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1886">滑动窗口 &#x2F;【模板】单调队列</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/CF372C">Watching Fireworks is Fun</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P4381">[IOI2008] Island</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P8251">[NOI Online 2022 提高组] 丹钓战</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3865">【模板】ST 表</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2471">[SCOI2007] 降雨量</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P7596">「EZEC-8」游戏蛇</a></li>
+<h4 id="题单-3">题单</h4>
+<ol type="1">
+<li><a
+target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P5788">【模板】单调栈</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1886">滑动窗口
+/【模板】单调队列</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/CF372C">Watching Fireworks
+is Fun</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P4381">[IOI2008]
+Island</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P8251">[NOI Online 2022
+提高组] 丹钓战</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3865">【模板】ST
+表</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2471">[SCOI2007]
+降雨量</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P7596">「EZEC-8」游戏蛇</a></li>
 <li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/CF1476F">Lanterns</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2168">[NOI2015] 荷马史诗</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3379">【模板】最近公共祖先（LCA）</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3398">仓鼠找 sugar</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3304">[SDOI2013] 直径</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P4408">[NOI2003] 逃学的小孩</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/CF418D">Big Problems for Organizers</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/CF1192B">Dynamic Diameter</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2168">[NOI2015]
+荷马史诗</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3379">【模板】最近公共祖先（LCA）</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3398">仓鼠找
+sugar</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3304">[SDOI2013]
+直径</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P4408">[NOI2003]
+逃学的小孩</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/CF418D">Big Problems for
+Organizers</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/CF1192B">Dynamic
+Diameter</a></li>
 </ol>
-<h3 id="2024-多校集训-C-层-图论：最短路径、最小生成树、拓扑排序、连通分量、割点与桥、二分图、简单网络流"><a href="#2024-多校集训-C-层-图论：最短路径、最小生成树、拓扑排序、连通分量、割点与桥、二分图、简单网络流" class="headerlink" title="2024 多校集训 C 层 - 图论：最短路径、最小生成树、拓扑排序、连通分量、割点与桥、二分图、简单网络流"></a>2024 多校集训 C 层 - 图论：最短路径、最小生成树、拓扑排序、连通分量、割点与桥、二分图、简单网络流</h3><h4 id="课件-4"><a href="#课件-4" class="headerlink" title="课件"></a>课件</h4>
+<h3
+id="多校集训-c-层---图论最短路径最小生成树拓扑排序连通分量割点与桥二分图简单网络流">2024
+多校集训 C 层 -
+图论：最短路径、最小生成树、拓扑排序、连通分量、割点与桥、二分图、简单网络流</h3>
+<h4 id="课件-4">课件</h4>
+
 
 	<div class="row">
     <embed src="https://cdn.jsdelivr.net/gh/lixuannan/img/3%E5%9B%BE%E8%AE%BA.pdf" width="100%" height="550" type="application/pdf">
@@ -743,41 +911,111 @@
 
 
 
-
-<h4 id="课程-4"><a href="#课程-4" class="headerlink" title="课程"></a>课程</h4><p>无</p>
-<h4 id="题单-4"><a href="#题单-4" class="headerlink" title="题单"></a>题单</h4><ol>
-<li><img src="https://cdn.jsdelivr.net/gh/lixuannan/img/image-20240402170527221.png" srcset="/img/loading.gif" lazyload alt="image-20240402170527221"></li>
-<li><img src="https://cdn.jsdelivr.net/gh/lixuannan/img/image-20240402170627027.png" srcset="/img/loading.gif" lazyload alt="image-20240402170627027"></li>
-<li><img src="https://cdn.jsdelivr.net/gh/lixuannan/img/image-20240402170654227.png" srcset="/img/loading.gif" lazyload alt="image-20240402170654227"></li>
-<li><img src="https://cdn.jsdelivr.net/gh/lixuannan/img/image-20240402170738769.png" srcset="/img/loading.gif" lazyload alt="image-20240402170738769"></li>
-<li><img src="https://cdn.jsdelivr.net/gh/lixuannan/img/image-20240402170850629.png" srcset="/img/loading.gif" lazyload alt="image-20240402170850629"></li>
-<li><img src="https://cdn.jsdelivr.net/gh/lixuannan/img/image-20240402170932608.png" srcset="/img/loading.gif" lazyload alt="image-20240402170932608"></li>
-<li><img src="https://cdn.jsdelivr.net/gh/lixuannan/img/image-20240402171020465.png" srcset="/img/loading.gif" lazyload alt="image-20240402171020465"></li>
-<li><img src="https://cdn.jsdelivr.net/gh/lixuannan/img/image-20240402171104838.png" srcset="/img/loading.gif" lazyload alt="image-20240402171104838"></li>
-<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3386">【模板】二分图最大匹配</a></li>
+<h4 id="课程-4">课程</h4>
+<p>无</p>
+<h4 id="题单-4">题单</h4>
+<ol type="1">
+<li><figure>
+<img
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/image-20240402170527221.png" srcset="/img/loading.gif" lazyload
+alt="image-20240402170527221" />
+<figcaption aria-hidden="true">image-20240402170527221</figcaption>
+</figure></li>
+<li><figure>
+<img
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/image-20240402170627027.png" srcset="/img/loading.gif" lazyload
+alt="image-20240402170627027" />
+<figcaption aria-hidden="true">image-20240402170627027</figcaption>
+</figure></li>
+<li><figure>
+<img
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/image-20240402170654227.png" srcset="/img/loading.gif" lazyload
+alt="image-20240402170654227" />
+<figcaption aria-hidden="true">image-20240402170654227</figcaption>
+</figure></li>
+<li><figure>
+<img
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/image-20240402170738769.png" srcset="/img/loading.gif" lazyload
+alt="image-20240402170738769" />
+<figcaption aria-hidden="true">image-20240402170738769</figcaption>
+</figure></li>
+<li><figure>
+<img
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/image-20240402170850629.png" srcset="/img/loading.gif" lazyload
+alt="image-20240402170850629" />
+<figcaption aria-hidden="true">image-20240402170850629</figcaption>
+</figure></li>
+<li><figure>
+<img
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/image-20240402170932608.png" srcset="/img/loading.gif" lazyload
+alt="image-20240402170932608" />
+<figcaption aria-hidden="true">image-20240402170932608</figcaption>
+</figure></li>
+<li><figure>
+<img
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/image-20240402171020465.png" srcset="/img/loading.gif" lazyload
+alt="image-20240402171020465" />
+<figcaption aria-hidden="true">image-20240402171020465</figcaption>
+</figure></li>
+<li><figure>
+<img
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/image-20240402171104838.png" srcset="/img/loading.gif" lazyload
+alt="image-20240402171104838" />
+<figcaption aria-hidden="true">image-20240402171104838</figcaption>
+</figure></li>
+<li><a
+target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3386">【模板】二分图最大匹配</a></li>
 <li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3254">圆桌问题</a></li>
 <li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P4015">运输问题</a></li>
 <li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P4014">分配问题</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2053">[SCOI2007] 修车</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3376">【模板】网络最大流</a></li>
-<li>[<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2341">USACO03FALL &#x2F; HAOI2006] 受欢迎的牛 G</a></li>
-<li>[<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1894">USACO4.2] 完美的牛栏The Perfect Stall</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2731">[USACO3.3] 骑马修栅栏 Riding the Fences</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2053">[SCOI2007]
+修车</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3376">【模板】网络最大流</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2341">USACO03FALL /
+HAOI2006] 受欢迎的牛 G</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1894">USACO4.2]
+完美的牛栏The Perfect Stall</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2731">[USACO3.3]
+骑马修栅栏 Riding the Fences</a></li>
 <li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1119">灾后重建</a></li>
-<li><img src="https://cdn.jsdelivr.net/gh/lixuannan/img/image-20240402172247198.png" srcset="/img/loading.gif" lazyload alt="image-20240402172247198"></li>
-<li>[<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3275">SCOI2011] 糖果</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/UVA1723">Intervals</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P4180">[BJWC2010] 严格次小生成树</a></li>
-<li><img src="https://cdn.jsdelivr.net/gh/lixuannan/img/image-20240402185649017.png" srcset="/img/loading.gif" lazyload alt="image-20240402185649017"></li>
-<li>[<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2860">USACO06JAN] Redundant Paths G</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/SP2878">KNIGHTS - Knights of the Round Table</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1640">[SCOI2010] 连续攻击游戏</a></li>
-<li>[<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2754">CTSC1999] 家园 &#x2F; 星际转移问题</a></li>
-<li>[<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P4452">国家集训队] 航班安排</a></li>
-<li>[<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P4177">CEOI2008] order</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P6768">[USACO05MAR] Ombrophobic Bovines 发抖的牛</a></li>
+<li><figure>
+<img
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/image-20240402172247198.png" srcset="/img/loading.gif" lazyload
+alt="image-20240402172247198" />
+<figcaption aria-hidden="true">image-20240402172247198</figcaption>
+</figure></li>
+<li>[<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3275">SCOI2011]
+糖果</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/UVA1723">Intervals</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P4180">[BJWC2010]
+严格次小生成树</a></li>
+<li><figure>
+<img
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/image-20240402185649017.png" srcset="/img/loading.gif" lazyload
+alt="image-20240402185649017" />
+<figcaption aria-hidden="true">image-20240402185649017</figcaption>
+</figure></li>
+<li>[<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2860">USACO06JAN]
+Redundant Paths G</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/SP2878">KNIGHTS - Knights
+of the Round Table</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1640">[SCOI2010]
+连续攻击游戏</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2754">CTSC1999] 家园 /
+星际转移问题</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P4452">国家集训队]
+航班安排</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P4177">CEOI2008]
+order</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P6768">[USACO05MAR]
+Ombrophobic Bovines 发抖的牛</a></li>
 </ol>
-<h3 id="2024-多校集训-C-层-数据结构：线段树、树状数组、主席树"><a href="#2024-多校集训-C-层-数据结构：线段树、树状数组、主席树" class="headerlink" title="2024 多校集训 C 层 - 数据结构：线段树、树状数组、主席树"></a>2024 多校集训 C 层 - 数据结构：线段树、树状数组、主席树</h3><h4 id="课件-5"><a href="#课件-5" class="headerlink" title="课件"></a>课件</h4>
+<h3 id="多校集训-c-层---数据结构线段树树状数组主席树">2024 多校集训 C 层
+- 数据结构：线段树、树状数组、主席树</h3>
+<h4 id="课件-5">课件</h4>
+
 
 	<div class="row">
     <embed src="https://cdn.jsdelivr.net/gh/lixuannan/img/%E7%BA%BF%E6%AE%B5%E6%A0%91%E4%B8%8E%E5%B9%B3%E8%A1%A1%E6%A0%91.pdf" width="100%" height="550" type="application/pdf">
@@ -785,8 +1023,8 @@
 
 
 
+<h4 id="课程-5">课程</h4>
 
-<h4 id="课程-5"><a href="#课程-5" class="headerlink" title="课程"></a>课程</h4>
 
 <div style="position: relative; width: 100%; height: 0; padding-bottom: 75%;">
 <iframe src="//player.bilibili.com/player.html?aid=1802689722&bvid=BV1Ut421n7dx&cid=1494265735&p=1" scrolling="no" border="0" style="position:absolute; height: 100%; width: 100%;" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
@@ -794,24 +1032,35 @@
 
 
 
-
 <div style="position: relative; width: 100%; height: 0; padding-bottom: 75%;">
 <iframe src="//player.bilibili.com/player.html?aid=1702635652&bvid=BV1VK421h79J&cid=1494866822&p=1" scrolling="no" border="0" style="position:absolute; height: 100%; width: 100%;" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 </div>
 
-
-<h4 id="题单-5"><a href="#题单-5" class="headerlink" title="题单"></a>题单</h4><ol>
-<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/CF438D">The Child and Sequence</a></li>
+<h4 id="题单-5">题单</h4>
+<ol type="1">
+<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/CF438D">The Child and
+Sequence</a></li>
 <li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1502">窗口的星星</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/CF558E">A Simple Task</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1637">三元上升子序列</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/CF869E">The Untended Antiquity</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3567">[POI2014] KUR-Couriers</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/CF558E">A Simple
+Task</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1637">三元上升子序列</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/CF869E">The Untended
+Antiquity</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3567">[POI2014]
+KUR-Couriers</a></li>
 <li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1168">中位数</a></li>
-<li>[<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2757">国家集训队] 等差子序列</a></li>
-<li>[<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1972">SDOI2009] HH的项链</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2757">国家集训队]
+等差子序列</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1972">SDOI2009]
+HH的项链</a></li>
 </ol>
-<h3 id="2024-多校集训-C-层-DFS、BFS记忆化搜索、迭代加深搜索、二分搜索、剪枝-、双向广度优先搜索、A-算法"><a href="#2024-多校集训-C-层-DFS、BFS记忆化搜索、迭代加深搜索、二分搜索、剪枝-、双向广度优先搜索、A-算法" class="headerlink" title="2024 多校集训 C 层 - DFS、BFS记忆化搜索、迭代加深搜索、二分搜索、剪枝 、双向广度优先搜索、A*算法"></a>2024 多校集训 C 层 - DFS、BFS记忆化搜索、迭代加深搜索、二分搜索、剪枝 、双向广度优先搜索、A*算法</h3><h4 id="课件-6"><a href="#课件-6" class="headerlink" title="课件"></a>课件</h4>
+<h3
+id="多校集训-c-层---dfsbfs记忆化搜索迭代加深搜索二分搜索剪枝-双向广度优先搜索a算法">2024
+多校集训 C 层 - DFS、BFS记忆化搜索、迭代加深搜索、二分搜索、剪枝
+、双向广度优先搜索、A*算法</h3>
+<h4 id="课件-6">课件</h4>
+
 
 	<div class="row">
     <embed src="https://cdn.jsdelivr.net/gh/lixuannan/img/DFS%E3%80%81BFS%20%E8%AE%B0%E5%BF%86%E5%8C%96%E6%90%9C%E7%B4%A2%E3%80%81%E9%80%89%E4%BB%A3%E5%8A%A0%E6%B7%B1%E6%90%9C%E7%B4%A2%E3%80%81%E4%BA%8C%E5%88%86%E6%90%9C%E7%B4%A2%E3%80%81%E5%89%AA%E6%9E%9D%E5%8F%8C%E5%90%91%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2%E3%80%81Astar%E7%AE%97%E6%B3%95.pdf" width="100%" height="550" type="application/pdf">
@@ -819,16 +1068,19 @@
 
 
 
+<h4 id="课程-6">课程</h4>
 
-<h4 id="课程-6"><a href="#课程-6" class="headerlink" title="课程"></a>课程</h4>
 
 <div style="position: relative; width: 100%; height: 0; padding-bottom: 75%;">
 <iframe src="//player.bilibili.com/player.html?aid=1502963830&bvid=BV1PD421p7M2&cid=1497647970&p=1" scrolling="no" border="0" style="position:absolute; height: 100%; width: 100%;" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 </div>
 
+<h4 id="题单-6">题单</h4>
+<p>无</p>
+<h3 id="多校集训-c-层---动态规划概率-dp最基础dp-的简单优化">2024
+多校集训 C 层 - 动态规划：概率 DP（最基础）、DP 的简单优化</h3>
+<h4 id="课件-7">课件</h4>
 
-<h4 id="题单-6"><a href="#题单-6" class="headerlink" title="题单"></a>题单</h4><p>无</p>
-<h3 id="2024-多校集训-C-层-动态规划：概率-DP（最基础）、DP-的简单优化"><a href="#2024-多校集训-C-层-动态规划：概率-DP（最基础）、DP-的简单优化" class="headerlink" title="2024 多校集训 C 层 - 动态规划：概率 DP（最基础）、DP 的简单优化"></a>2024 多校集训 C 层 - 动态规划：概率 DP（最基础）、DP 的简单优化</h3><h4 id="课件-7"><a href="#课件-7" class="headerlink" title="课件"></a>课件</h4>
 
 	<div class="row">
     <embed src="https://cdn.jsdelivr.net/gh/lixuannan/img/%E8%AF%BE%E4%BB%B6.pdf" width="100%" height="550" type="application/pdf">
@@ -836,31 +1088,46 @@
 
 
 
+<h4 id="课程-7">课程</h4>
 
-<h4 id="课程-7"><a href="#课程-7" class="headerlink" title="课程"></a>课程</h4>
 
 <div style="position: relative; width: 100%; height: 0; padding-bottom: 75%;">
 <iframe src="//player.bilibili.com/player.html?aid=1152877229&bvid=BV1uZ421q7cZ&cid=1498271852&p=1" scrolling="no" border="0" style="position:absolute; height: 100%; width: 100%;" frameborder="no" framespacing="0" allowfullscreen="true">
 </div>
 
-
-<h4 id="题单-7"><a href="#题单-7" class="headerlink" title="题单"></a>题单</h4><ol>
-<li>[<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3628">APIO2010] 特别行动队</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3195">[HNOI2008] 玩具装箱</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P5468">[NOI2019] 回家路线</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P4767">[IOI2000] 邮局</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P6246">[IOI2000] 邮局 加强版</a></li>
-<li>[<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P9963">THUPC 2024 初赛] 前缀和</a></li>
-<li>[<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3175">HAOI2015] 按位或</a></li>
-<li>[<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2569">SCOI2010] 股票交易</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1912">[NOI2009] 诗人小G</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/AT_agc058_b">AGC058B] Adjacent Chmax</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3147">[USACO16OPEN] 262144 P</a></li>
-<li>[<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/AT_arc146_e">ARC146E] Simple Speed</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1365">WJMZBMR打osu! &#x2F; Easy</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1850">[NOIP2016 提高组] 换教室</a></li>
+<h4 id="题单-7">题单</h4>
+<ol type="1">
+<li>[<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3628">APIO2010]
+特别行动队</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3195">[HNOI2008]
+玩具装箱</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P5468">[NOI2019]
+回家路线</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P4767">[IOI2000]
+邮局</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P6246">[IOI2000] 邮局
+加强版</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P9963">THUPC 2024 初赛]
+前缀和</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3175">HAOI2015]
+按位或</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2569">SCOI2010]
+股票交易</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1912">[NOI2009]
+诗人小G</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/AT_agc058_b">AGC058B]
+Adjacent Chmax</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3147">[USACO16OPEN]
+262144 P</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/AT_arc146_e">ARC146E]
+Simple Speed</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1365">WJMZBMR打osu! /
+Easy</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1850">[NOIP2016 提高组]
+换教室</a></li>
 <li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1654">OSU!</a></li>
-<li>[<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P4284">SHOI2014] 概率充电器</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P4284">SHOI2014]
+概率充电器</a></li>
 </ol>
 
                 

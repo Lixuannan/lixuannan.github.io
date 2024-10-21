@@ -21,20 +21,13 @@
   <meta name="author" content="CodingCow Lee">
   <meta name="keywords" content="python,ml,deeplearning,dl,c++,c,pytorch,noi,oi,ioi,noip,csp-j,csp-s,oier,tyoi,oiclass">
   
-    <meta name="description" content="基本配置在安装完系统后，你是不能上网的。你需要输入 sudo systemctl enable --now NetworkManager 即可。需要注意的是，这个命令是大小写区分的，一定不要敲错大小写。 图形界面Linux 图形系统（Linux Graphics System）是一个用于提供图形用户界面（GUI）的基础设施，它允许用户在 Linux 操作系统上以图形方式与计算机进行交互。 常见的">
+    <meta name="description" content="基本配置 在安装完系统后，你是不能上网的。你需要输入 sudo systemctl enable --now NetworkManager 即可。需要注意的是，这个命令是大小写区分的，一定不要敲错大小写。 图形界面 Linux 图形系统（Linux Graphics System）是一个用于提供图形用户界面（GUI）的基础设施，它允许用户在 Linux 操作系统上以图形方式与计算机进行交互。 常见">
 <meta property="og:type" content="article">
 <meta property="og:title" content="构建超强 OI 系统之配置 Arch Linux">
 <meta property="og:url" content="https://lixuannan.github.io/posts/7723">
 <meta property="og:site_name" content="CodingCow&#39;s Blog">
-<meta property="og:description" content="基本配置在安装完系统后，你是不能上网的。你需要输入 sudo systemctl enable --now NetworkManager 即可。需要注意的是，这个命令是大小写区分的，一定不要敲错大小写。 图形界面Linux 图形系统（Linux Graphics System）是一个用于提供图形用户界面（GUI）的基础设施，它允许用户在 Linux 操作系统上以图形方式与计算机进行交互。 常见的">
+<meta property="og:description" content="基本配置 在安装完系统后，你是不能上网的。你需要输入 sudo systemctl enable --now NetworkManager 即可。需要注意的是，这个命令是大小写区分的，一定不要敲错大小写。 图形界面 Linux 图形系统（Linux Graphics System）是一个用于提供图形用户界面（GUI）的基础设施，它允许用户在 Linux 操作系统上以图形方式与计算机进行交互。 常见">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lixuannan/img/Screenshot%20from%202024-08-23%2015-48-00.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lixuannan/img/vm9999.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lixuannan/img/Screenshot%20from%202024-08-23%2016-00-42.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lixuannan/img/Screenshot%20from%202024-08-23%2016-11-04.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lixuannan/img/Screenshot%20from%202024-08-23%2016-12-07.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lixuannan/img/Screenshot%20from%202024-08-23%2016-14-49.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lixuannan/img/Screenshot%20from%202024-08-23%2016-18-11.png">
 <meta property="article:published_time" content="2024-08-23T02:58:00.000Z">
 <meta property="article:modified_time" content="2024-10-21T12:11:42.161Z">
 <meta property="article:author" content="CodingCow Lee">
@@ -43,7 +36,6 @@
 <meta property="article:tag" content="系统">
 <meta property="article:tag" content="Arch Linux">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/lixuannan/img/Screenshot%20from%202024-08-23%2015-48-00.png">
 <meta name="twitter:creator" content="@CodingCow">
 <meta name="twitter:site" content="lixuannan.github.io">
   
@@ -406,44 +398,83 @@
             
               <div class="markdown-body">
                 
-                <h2 id="基本配置"><a href="#基本配置" class="headerlink" title="基本配置"></a>基本配置</h2><p>在安装完系统后，你是不能上网的。你需要输入 <code>sudo systemctl enable --now NetworkManager</code> 即可。需要注意的是，这个命令是大小写区分的，一定不要敲错大小写。</p>
-<h2 id="图形界面"><a href="#图形界面" class="headerlink" title="图形界面"></a>图形界面</h2><p>Linux 图形系统（Linux Graphics System）是一个用于提供图形用户界面（GUI）的基础设施，它允许用户在 Linux 操作系统上以图形方式与计算机进行交互。</p>
+                <h2 id="基本配置">基本配置</h2>
+<p>在安装完系统后，你是不能上网的。你需要输入
+<code>sudo systemctl enable --now NetworkManager</code>
+即可。需要注意的是，这个命令是大小写区分的，一定不要敲错大小写。</p>
+<h2 id="图形界面">图形界面</h2>
+<p>Linux 图形系统（Linux Graphics
+System）是一个用于提供图形用户界面（GUI）的基础设施，它允许用户在 Linux
+操作系统上以图形方式与计算机进行交互。</p>
 <p>常见的 Linux 图形系统有 GNOME、XFCE4、KDE 等等。</p>
-<h2 id="安装-yay"><a href="#安装-yay" class="headerlink" title="安装 yay"></a>安装 yay</h2><h3 id="添加软件源"><a href="#添加软件源" class="headerlink" title="添加软件源"></a>添加软件源</h3><p>在安装 yay 这个东西之前首先要为系统添加 <code>archlinuxcn</code> 软件源。这个软件源是 Arch Linux 中文社区为中文用户方便使用而构建的软件源，包含大量十分好用的软件包。我们可以在 <code>/etc/pacman.conf</code> 文件的末尾添加下面的两行内容来添加这个软件源，注意使用 root 用户修改（<code>sudo nano /etc/pacman.conf</code>）：</p>
+<h2 id="安装-yay">安装 yay</h2>
+<h3 id="添加软件源">添加软件源</h3>
+<p>在安装 yay 这个东西之前首先要为系统添加 <code>archlinuxcn</code>
+软件源。这个软件源是 Arch Linux
+中文社区为中文用户方便使用而构建的软件源，包含大量十分好用的软件包。我们可以在
+<code>/etc/pacman.conf</code>
+文件的末尾添加下面的两行内容来添加这个软件源，注意使用 root
+用户修改（<code>sudo nano /etc/pacman.conf</code>）：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs conf">[archlinuxcn]<br>Server = https://repo.archlinuxcn.org/$arch<br></code></pre></td></tr></table></figure>
-
-<p>但是由于这个软件源并不是官方的软件源，我们需要安装对应的 GPG key，以使得系统信任来自这个软件源的软件包：</p>
+<p>但是由于这个软件源并不是官方的软件源，我们需要安装对应的 GPG
+key，以使得系统信任来自这个软件源的软件包：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> pacman -Syu archlinuxcn-keyring archlinuxcn-mirrorlist-git<br></code></pre></td></tr></table></figure>
-
 <p>上面的命令同时也会更新系统，十分方便。</p>
-<p>然后再次使用 root 用户编辑 <code>/etc/pacman.conf</code>，并将里面的这两行取消注释（删除前面的 <code>#</code> 号）</p>
-<p><img src="https://cdn.jsdelivr.net/gh/lixuannan/img/Screenshot%20from%202024-08-23%2015-48-00.png" srcset="/img/loading.gif" lazyload></p>
-<p>这样做可以在 64 位系统里面支持 32 位软件包，方便 steam 之类的<del>学习</del>软件的安装。</p>
-<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>直接使用命令 <code>sudo pacman -S yay</code> 来安装。</p>
-<h2 id="安装-GNOME"><a href="#安装-GNOME" class="headerlink" title="安装 GNOME"></a>安装 GNOME</h2><p>这里介绍 GNOME 的安装方式。后文的所有操作也都是基于 GNOME 的。</p>
-<p>安装 GNOME 是非常简单的，只需需要简单的键入命令 <code>sudo pacman -S gnome gnome-extra gdm</code> 并运行即可。</p>
+<p>然后再次使用 root 用户编辑
+<code>/etc/pacman.conf</code>，并将里面的这两行取消注释（删除前面的
+<code>#</code> 号）</p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/Screenshot%20from%202024-08-23%2015-48-00.png" srcset="/img/loading.gif" lazyload /></p>
+<p>这样做可以在 64 位系统里面支持 32 位软件包，方便 steam
+之类的<del>学习</del>软件的安装。</p>
+<h3 id="安装">安装</h3>
+<p>直接使用命令 <code>sudo pacman -S yay</code> 来安装。</p>
+<h2 id="安装-gnome">安装 GNOME</h2>
+<p>这里介绍 GNOME 的安装方式。后文的所有操作也都是基于 GNOME 的。</p>
+<p>安装 GNOME 是非常简单的，只需需要简单的键入命令
+<code>sudo pacman -S gnome gnome-extra gdm</code> 并运行即可。</p>
 <p>然后输入 <code>sudo systemctl enable gdm</code> 并重启即可。</p>
 <p>然后你将进入一个可以使用的正常系统啦！！！</p>
-<h2 id="安装-VirtualBoxVM-增强工具"><a href="#安装-VirtualBoxVM-增强工具" class="headerlink" title="安装 VirtualBoxVM 增强工具"></a>安装 VirtualBoxVM 增强工具</h2><p><img src="https://cdn.jsdelivr.net/gh/lixuannan/img/vm9999.png" srcset="/img/loading.gif" lazyload></p>
-<p>点击图片中的按钮然后回到系统中。然后打开文件管理器，切到刚刚系统自动插入的光碟，然后单击 Run Software 并输入密码。一路同意即可。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/lixuannan/img/Screenshot%20from%202024-08-23%2016-00-42.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="安装-virtualboxvm-增强工具">安装 VirtualBoxVM 增强工具</h2>
+<p><img
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/vm9999.png" srcset="/img/loading.gif" lazyload /></p>
+<p>点击图片中的按钮然后回到系统中。然后打开文件管理器，切到刚刚系统自动插入的光碟，然后单击
+Run Software 并输入密码。一路同意即可。</p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/Screenshot%20from%202024-08-23%2016-00-42.png" srcset="/img/loading.gif" lazyload /></p>
 <p>然后重启虚拟机就会生效。</p>
-<h2 id="中文化"><a href="#中文化" class="headerlink" title="中文化"></a>中文化</h2><h3 id="安装字体"><a href="#安装字体" class="headerlink" title="安装字体"></a>安装字体</h3><p>在切换语言之前，你一定要完成的事情就是安装字体。我们使用下面的命令安装安装各种你可能需要也可能不需要的字体：</p>
+<h2 id="中文化">中文化</h2>
+<h3 id="安装字体">安装字体</h3>
+<p>在切换语言之前，你一定要完成的事情就是安装字体。我们使用下面的命令安装安装各种你可能需要也可能不需要的字体：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> pacman -S noto-fonts ttf-ubuntu-font-family ttf-dejavu gnu-free-fonts ttf-roboto ttf-droid ttf-fira-code ttf-fira-mono adobe-source-sans-fonts tex-gyre-fonts adobe-source-han-sans-otc-fonts adobe-source-han-serif-otc-fonts noto-fonts-cjk noto-fonts-emoji<br>yay -S ttf-ms-fonts ttf-cm-unicode tex-gyre-math-fonts ttf-mac-fonts<br></code></pre></td></tr></table></figure>
-
-<h3 id="安装输入法"><a href="#安装输入法" class="headerlink" title="安装输入法"></a>安装输入法</h3><p>对于 Arch Linux 来说，输入法的选择是多种多样的，详细可以看<a target="_blank" rel="noopener" href="https://wiki.archlinuxcn.org/wiki/%E8%BE%93%E5%85%A5%E6%B3%95">官方维基</a>。</p>
-<p>下文将介绍如何安装 Fcitx5 输入法并配置中文。其实也很简单，打开终端，使用命令 <code>sudo pacman -S fcitx5-im fcitx5-chinese-addons</code> 安装 Fcitx5 输入法以及中文插件。然后重启。</p>
-<p>重启后你会在右上角看到键盘标志，你需要点击它并点击 Configure，你会打开一个这样的配置界面。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/lixuannan/img/Screenshot%20from%202024-08-23%2016-11-04.png" srcset="/img/loading.gif" lazyload></p>
-<p>在右手边搜索 Pinyin 并使用 <img src="https://cdn.jsdelivr.net/gh/lixuannan/img/Screenshot%20from%202024-08-23%2016-12-07.png" srcset="/img/loading.gif" lazyload> 中的左箭头将 Pinyin 选项右边移动到左边即可。</p>
+<h3 id="安装输入法">安装输入法</h3>
+<p>对于 Arch Linux 来说，输入法的选择是多种多样的，详细可以看<a
+target="_blank" rel="noopener" href="https://wiki.archlinuxcn.org/wiki/%E8%BE%93%E5%85%A5%E6%B3%95">官方维基</a>。</p>
+<p>下文将介绍如何安装 Fcitx5
+输入法并配置中文。其实也很简单，打开终端，使用命令
+<code>sudo pacman -S fcitx5-im fcitx5-chinese-addons</code> 安装 Fcitx5
+输入法以及中文插件。然后重启。</p>
+<p>重启后你会在右上角看到键盘标志，你需要点击它并点击
+Configure，你会打开一个这样的配置界面。</p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/Screenshot%20from%202024-08-23%2016-11-04.png" srcset="/img/loading.gif" lazyload /></p>
+<p>在右手边搜索 Pinyin 并使用 <img
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/Screenshot%20from%202024-08-23%2016-12-07.png" srcset="/img/loading.gif" lazyload />
+中的左箭头将 Pinyin 选项右边移动到左边即可。</p>
 <p>然后中文输入法就设置好啦！</p>
-<h3 id="设置区域与本地化设置"><a href="#设置区域与本地化设置" class="headerlink" title="设置区域与本地化设置"></a>设置区域与本地化设置</h3><p>首先使用命令 <code>sudo nano /etc/locale.gen</code> 打开文件名取消下面这一行的注释（注意这一行在很下面）</p>
-<p><img src="https://cdn.jsdelivr.net/gh/lixuannan/img/Screenshot%20from%202024-08-23%2016-14-49.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="设置区域与本地化设置">设置区域与本地化设置</h3>
+<p>首先使用命令 <code>sudo nano /etc/locale.gen</code>
+打开文件名取消下面这一行的注释（注意这一行在很下面）</p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/Screenshot%20from%202024-08-23%2016-14-49.png" srcset="/img/loading.gif" lazyload /></p>
 <p>然后使用命令 <code>sudo locale-gen</code> 来生成本地化缓存。</p>
-<p>最后使用 root 权限编辑文件 <code>/etc/locale.conf</code> 并将文件改为下面的样子：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/lixuannan/img/Screenshot%20from%202024-08-23%2016-18-11.png" srcset="/img/loading.gif" lazyload></p>
+<p>最后使用 root 权限编辑文件 <code>/etc/locale.conf</code>
+并将文件改为下面的样子：</p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/Screenshot%20from%202024-08-23%2016-18-11.png" srcset="/img/loading.gif" lazyload /></p>
 <p>保存并重启即可生效。</p>
-<h2 id="预告"><a href="#预告" class="headerlink" title="预告"></a>预告</h2><p>下一篇将介绍如何美化 GNOME.</p>
+<h2 id="预告">预告</h2>
+<p>下一篇将介绍如何美化 GNOME.</p>
 
                 
               </div>
