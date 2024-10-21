@@ -335,6 +335,48 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
+        <a href="/posts/28582" target="_self">
+          CF1368E Ski Accidents 题解
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/posts/28582" target="_self">
+        <div>
+          思路 首先我们看到题中给出，这个图是一个 DAG，因此很容易的就可以想到拓扑排序。那么我们在思考一下，如何满足题目中给出的删除的点不超过 \(\frac{4}{7}n\) 的要求。我们可以举一个例子，看到下面的二叉树：  如果我们按照拓扑排序遍历，每次遍历到深度对 \(3\) 取模为 \(0\) 的节点，就删除。那么很显然，这个策略可以正常的分割出符合条件的链。同时，对于这个具有 \(7\) 个节
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2024-02-23 08:39" pubdate>
+              2024-02-23
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E9%A2%98%E8%A7%A3/">#题解</a>
+            
+              <a href="/tags/CodeForces/">#CodeForces</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
         <a href="/posts/14032" target="_self">
           洛谷 P10170 [DTCPC 2024] 小方和小立方 题解
         </a>
@@ -1106,48 +1148,6 @@
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
             <time datetime="2023-01-12 16:02" pubdate>
-              2023-01-12
-            </time>
-          </div>
-        
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E9%A2%98%E8%A7%A3/">#题解</a>
-            
-              <a href="/tags/OiClass/">#OiClass</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/posts/282a7cc0" target="_self">
-          Oiclass P1255 题解
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/posts/282a7cc0" target="_self">
-        <div>
-          又是一个我背不动的背包 这次是 0/1 背包 plus——多重背包，下面是经典的五步 1. 划分阶段 以每一个物品为一个阶段，表示这个物品前的物品的最大值（包括这个物品自身）。 2. 确定状态和状态变量 搞一个一维数组 \(f\) ，即 \(f_i\) 表示第 \(1\) 个物品到第 \(i\) 个物品之间（算头算尾）的最优解，也就是在空间不超过 \(v\) 的情况下最大的价值总和。 3. 确定决
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2023-01-12 15:30" pubdate>
               2023-01-12
             </time>
           </div>

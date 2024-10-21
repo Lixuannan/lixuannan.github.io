@@ -335,6 +335,48 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
+        <a href="/posts/30504" target="_self">
+          AtCoder ABC206D KAIBUNsyo 题解
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/posts/30504" target="_self">
+        <div>
+          思路 观察到替换数字的过程，实际上就是将两个数字归为一类。借此不难联想到并查集的工作过程，因此我们可以考虑使用并查集解决这个问题。 我们使用并查集维护当前数字所属的集合，初始时对于数字 \(x\)，它位于集合 \(x\) 中。当我们发现本应相同但是并不在同一个集合内的数字时，我们不得不将其合并，并记录下一次操作。在操作的过程中，你不需要去判断究竟是改为了左边的或者右边的数字，只需要知道它们二者同属
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2024-06-04 20:22" pubdate>
+              2024-06-04
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E9%A2%98%E8%A7%A3/">#题解</a>
+            
+              <a href="/tags/AtCoder/">#AtCoder</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
         <a href="/posts/47712" target="_self">
           OiClass PUJI P3827 函数 题解
         </a>
@@ -1130,48 +1172,6 @@
               <a href="/tags/%E5%AE%A3%E4%BC%A0/">#宣传</a>
             
               <a href="/tags/%E5%85%AC%E7%9B%8A%E8%B5%9B/">#公益赛</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/posts/28582" target="_self">
-          CF1368E Ski Accidents 题解
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/posts/28582" target="_self">
-        <div>
-          思路 首先我们看到题中给出，这个图是一个 DAG，因此很容易的就可以想到拓扑排序。那么我们在思考一下，如何满足题目中给出的删除的点不超过 \(\frac{4}{7}n\) 的要求。我们可以举一个例子，看到下面的二叉树：  如果我们按照拓扑排序遍历，每次遍历到深度对 \(3\) 取模为 \(0\) 的节点，就删除。那么很显然，这个策略可以正常的分割出符合条件的链。同时，对于这个具有 \(7\) 个节
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2024-02-23 08:39" pubdate>
-              2024-02-23
-            </time>
-          </div>
-        
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E9%A2%98%E8%A7%A3/">#题解</a>
-            
-              <a href="/tags/CodeForces/">#CodeForces</a>
             
           </div>
         
