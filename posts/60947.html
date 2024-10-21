@@ -28,20 +28,20 @@
 <meta property="og:site_name" content="CodingCow&#39;s Blog">
 <meta property="og:description" content="准备安装镜像 大陆的用户可以前往中科大的镜像站下载安装 ISO 镜像。而身处海外心系祖国的同学可以去官网下载。 下载后找个自己喜欢的目录存储即可。 创建虚拟机 这里使用 VirtualBoxVM，VMware 的也可以参考一下。首先点击创建虚拟机。填入名字，最好和 Arch Linux 有关，然后选择刚刚下载的安装镜像。  然后设置合适的 CPU 和内存，对于一般的情况，直接拖到绿色的最右侧即可。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://cdn.jsdmirror.cn/gh/lixuannan/img/vm1.png">
-<meta property="og:image" content="https://cdn.jsdmirror.cn/gh/lixuannan/img/vm2.png">
-<meta property="og:image" content="https://cdn.jsdmirror.cn/gh/lixuannan/img/vm3.png">
-<meta property="og:image" content="https://cdn.jsdmirror.cn/gh/lixuannan/img/vm5.png">
-<meta property="og:image" content="https://cdn.jsdmirror.cn/gh/lixuannan/img/vm6.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lixuannan/img/vm1.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lixuannan/img/vm2.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lixuannan/img/vm3.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lixuannan/img/vm5.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lixuannan/img/vm6.png">
 <meta property="article:published_time" content="2024-08-21T16:00:00.000Z">
-<meta property="article:modified_time" content="2024-10-21T12:01:20.145Z">
+<meta property="article:modified_time" content="2024-10-21T12:11:42.161Z">
 <meta property="article:author" content="CodingCow Lee">
 <meta property="article:tag" content="OI">
 <meta property="article:tag" content="构建超强 OI 系统">
 <meta property="article:tag" content="系统">
 <meta property="article:tag" content="Arch Linux">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://cdn.jsdmirror.cn/gh/lixuannan/img/vm1.png">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/lixuannan/img/vm1.png">
 <meta name="twitter:creator" content="@CodingCow">
 <meta name="twitter:site" content="lixuannan.github.io">
   
@@ -413,18 +413,18 @@ ISO 镜像。而身处海外心系祖国的同学可以去官网下载。</p>
 <p>这里使用 VirtualBoxVM，VMware
 的也可以参考一下。首先点击创建虚拟机。填入名字，最好和 Arch Linux
 有关，然后选择刚刚下载的安装镜像。</p>
-<p><img src="https://cdn.jsdmirror.cn/gh/lixuannan/img/vm1.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/lixuannan/img/vm1.png" srcset="/img/loading.gif" lazyload /></p>
 <p>然后设置合适的 CPU
 和内存，对于一般的情况，直接拖到绿色的最右侧即可。需要注意的是，一定要勾选
 <strong>启用 EFI</strong>，要不然安装会出错。</p>
-<p><img src="https://cdn.jsdmirror.cn/gh/lixuannan/img/vm2.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/lixuannan/img/vm2.png" srcset="/img/loading.gif" lazyload /></p>
 <p>此后选择合适的虚拟硬盘大小，这个将决定后面虚拟机可以使用的硬盘大小，建议尽量大一些，反正虚拟机用多少占用多少实际空间。</p>
-<p><img src="https://cdn.jsdmirror.cn/gh/lixuannan/img/vm3.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/lixuannan/img/vm3.png" srcset="/img/loading.gif" lazyload /></p>
 <p>保存。然后进入设置-显示，并将显存设置到最大，开启 3D 加速。</p>
-<p><img src="https://cdn.jsdmirror.cn/gh/lixuannan/img/vm5.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/lixuannan/img/vm5.png" srcset="/img/loading.gif" lazyload /></p>
 <h2 id="安装系统">安装系统</h2>
 <p>开启虚拟机，一般来说会进入到一个 Live 环境，就像下面这样。</p>
-<p><img src="https://cdn.jsdmirror.cn/gh/lixuannan/img/vm6.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/lixuannan/img/vm6.png" srcset="/img/loading.gif" lazyload /></p>
 <p>下面的操作就都将在这个窗口里面进行。</p>
 <h3 id="硬盘分区">硬盘分区</h3>
 <h4 id="创建分区">创建分区</h4>
@@ -440,7 +440,7 @@ Space，可以然后你需要通过操作键盘的左右键来选到
 分区。需要提醒的是，在分区的时候不填写大小就会默认使用所有空间。</p>
 <p>完成分区操作后应该是下面这样的。</p>
 <p><img
-src="https://cdn.jsdmirror.cn/gh/lixuannan/img/Screenshot%20from%202024-08-22%2018-35-09.png" srcset="/img/loading.gif" lazyload /></p>
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/Screenshot%20from%202024-08-22%2018-35-09.png" srcset="/img/loading.gif" lazyload /></p>
 <p>然后你需要将通过左右键光标移动到 <code>Write</code> 回车并输入
 <code>yes</code> 来写入分区表。最后 <code>Quit</code> 即可。</p>
 <h4 id="格式化分区">格式化分区</h4>
@@ -539,7 +539,7 @@ Linux
 <p>最后编辑 <code>/etc/sudoers</code>
 文件将下面这一行代码取消注释（删除前面的 <code>#</code>）。</p>
 <p><img
-src="https://cdn.jsdmirror.cn/gh/lixuannan/img/Screenshot%20from%202024-08-22%2019-58-03.png" srcset="/img/loading.gif" lazyload /></p>
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/Screenshot%20from%202024-08-22%2019-58-03.png" srcset="/img/loading.gif" lazyload /></p>
 <h3 id="配置引导程序">配置引导程序</h3>
 <p>这是最后，也是最关键的步骤。</p>
 <p>首先使用命令 <code>pacman -S grub efibootmgr</code>
