@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>Ubuntu 24.10 的 6 个新功能</title>
+    <link href="/posts/51813.html"/>
+    <url>/posts/51813.html</url>
+    
+    <content type="html"><![CDATA[<h1 id="ubuntu-24.10-的-6-个新功能">Ubuntu 24.10 的 6 个新功能</h1><blockquote><p>本文翻译自 <a href="https://news.itsfoss.com/ubuntu-24-10/"class="uri">https://news.itsfoss.com/ubuntu-24-10/</a></p></blockquote><p>每年我们都会看到 Ubuntu 发布一个新的临时版本，这些版本会由 <ahref="https://canonical.com/">Canonical</a>提供为期九个月的支持，之后该版本将不再获得任何新更新或关键的安全补丁。通常，喜欢稳定体验的人会选择长期支持（LTS）版本的Ubuntu，该版本维护的时间更长，最长可达 12年，具体取决于发布的版本。如今，在 Ubuntu 24.04 LTS发布几个月后，我们迎来了 <strong>Ubuntu 24.10</strong> 临时版本，代号为“<ahref="https://www.merriam-webster.com/dictionary/oracular"><strong>Oracular</strong></a><ahref="https://simple.wikipedia.org/wiki/Oriole"><strong>Oriole</strong></a>”。</p><p>但这还不是全部；这个版本还标志着 <strong>Ubuntu 20周年纪念日</strong>，Canonical为此特别设计了主题墙纸，并配上了一种非常空灵的启动音效，使这个版本独具特色。继续阅读，了解Ubuntu 24.10 “Oracular Oriole” 的更多新功能。 👇</p><h2 id="linux-kernel-6.11">1. Linux Kernel 6.11</h2><p>Ubuntu 24.10 由 Linux kernel 6.11提供支持，该版本带来了一些有趣的硬件升级。包括 <strong>针对即将发布的AMD RDNA4 GPU 的补丁</strong>，对 Intel Battlemage GPU的初步支持，简化了 Intel CPU 的 <em>HWMon</em> 代码，并且更好地支持LoongArch CPU（中国入狂喜）架构。</p><h2 id="gnome-47">2. GNOME 47</h2><p>Ubuntu 24.10 的第二大亮点无疑是 GNOME 47，它带来了许多酷炫的功能，如<strong>支持颜色强调</strong>（顺便说一下，Ubuntu已经具备了这个功能）。此外，还有 <strong>许多更新的 GNOME应用</strong>，如 GNOME Terminal 3.54.0、System Monitor 47、Clocks46、Calculator 47 和 Eye of GNOME 47。此外，还新增了通过 <ahref="https://discourse.ubuntu.com/t/vote-oracular-oriole-wallpaper-competition/47006/10">壁纸竞赛</a>选出的新壁纸。</p><h2 id="更好的用户体验">3. 更好的用户体验</h2><p>文件管理器应用Nautilus（文件）有了许多改进，最显著的是重新设计了侧边栏，现在<strong>下部有可移除的书签</strong>。另外，<strong>任何内部存储设备现在默认显示在侧边栏</strong>，文件传输对话框已重新组织，“其他位置”页面被新“网络”页面取代。</p><p>Ubuntu 24.10 的 Dock 引入了 <strong>对正在后台更新的 Snap应用进度条的支持</strong>，此外，右键点击任何应用时会显示更新的上下文菜单。</p><h2 id="应用中心调整">4. 应用中心调整</h2><p>基于 <a href="https://flutter.dev/">Flutter</a>的应用中心也得到了关注，<strong>“管理”页面允许轻松卸载 Snap应用</strong>，并新增了一个名为“艺术与设计”的分类，展示了 GIMP、Inkscape等流行应用。</p><h2 id="安全升级">5. 安全升级</h2><p>Ubuntu 24.10 引入了一个专用的安全中心，目前仅包含 Snap 应用的实验性App 权限设置，并为 <a href="https://github.com/openvex">OpenVEX</a> 和<a href="https://osv.dev/">OSV</a> 格式的漏洞报告提供支持，还改进了 PPA的安全性，<strong>APT 现在要求 PPA和其他仓库具有更强的签名</strong>。</p><h2 id="面向开发者的更新和软件包更新">6.面向开发者的更新和软件包更新</h2><p>Ubuntu 24.10 还包含了最新的 Python、Java、Go、C、C++ 和 .Net版本，以及 Rust 1.80、<a href="https://valkey.io/">Valkey</a> 和 <ahref="https://openjdk.org/projects/jdk/21/">OpenJDK 21</a>等开发者工具和软件包的更新。</p><p>如需了解更多信息，建议阅读 <ahref="https://canonical.com/blog/canonical-releases-ubuntu-24-10-oracular-oriole">官方博客</a>。</p><h2 id="获取-ubuntu-24.10">📥 获取 Ubuntu 24.10</h2><p>你可以从 <a href="https://ubuntu.com/download/desktop">官网</a> 下载Ubuntu 24.10。如果官网下载速度较慢，可以尝试从其他 <ahref="https://launchpad.net/ubuntu/+cdmirrors">下载镜像</a>。</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>翻译</tag>
+      
+      <tag>Ubuntu</tag>
+      
+      <tag>发布</tag>
+      
+      <tag>ITSFOSS</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>5 个你值得尝试的 Linux 终端</title>
     <link href="/posts/1177.html"/>
     <url>/posts/1177.html</url>
@@ -14,11 +39,11 @@
     
     <tags>
       
+      <tag>翻译</tag>
+      
       <tag>Linux</tag>
       
       <tag>终端</tag>
-      
-      <tag>翻译</tag>
       
       <tag>ZDNET</tag>
       
@@ -39,13 +64,13 @@
     
     <tags>
       
-      <tag>翻译</tag>
-      
       <tag>开源项目</tag>
       
       <tag>Tor</tag>
       
       <tag>Tails</tag>
+      
+      <tag>翻译</tag>
       
       <tag>DEBUGPOINTNEWS</tag>
       
