@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>4 个基于 GNOME 的好看的桌面环境</title>
+    <link href="/posts/10358.html"/>
+    <url>/posts/10358.html</url>
+    
+    <content type="html"><![CDATA[<h1 id="个基于-gnome-的好看的桌面环境">4 个基于 GNOME的好看的桌面环境</h1><blockquote><p>本文翻译自 <ahref="https://www.zdnet.com/article/the-4-best-linux-desktops-based-on-gnome-and-what-i-most-like-about-each-one/"class="uri">https://www.zdnet.com/article/the-4-best-linux-desktops-based-on-gnome-and-what-i-most-like-about-each-one/</a></p></blockquote><p>这是基本 GNOME 桌面的外观。</p><p><img src="https://cdn.jsdelivr.net/gh/lixuannan/img/gnome.jpg" srcset="/img/loading.gif" lazyload /></p><p>自从 GNOME 诞生以来，我就是它的粉丝。当时它新鲜又令人兴奋。虽然 GNOME仍然是市场上最好的桌面环境之一，但这并不意味着其他开发者和团队没有找到改进这一经典环境的方法。</p><p>尽管基于 GNOME的桌面环境并不多，但一些选项非常出色，能够满足甚至超越你的需求。</p><p>让我们深入了解四种基于 GNOME 的 Linux 桌面。</p><h2 id="budgie">1. Budgie</h2><p>在所有基于 GNOME 的桌面中，Budgie 无疑是最漂亮的。Budgie桌面借用了部分 GNOME 技术（包括底层和某些应用程序），并在 GNOME团队的基础上进行了改进。</p><p>我通常将 Budgie 视为 GNOME 世界中的Xfce，这意味着它高度可配置，可以让你将桌面调整为几乎任何你想要的外观。如果你喜欢传统的面板/菜单，可以实现。如果你更喜欢类似MacOS的外观，也可以做到。甚至如果你想要很多模糊效果和一些透明度，也是可以实现的。从我的角度来看，Budgie让 GNOME 重拾乐趣，创造出一种既现代又保留传统风格的桌面。</p><p>对于那些不喜欢 GNOME 桌面环境，并且厌倦了使用 Dash To Dock等扩展来调整 GNOME 桌面的人，Budgie 是一个理想选择。甚至可以考虑使用 <ahref="https://ubuntubudgie.org/">UbuntuBudgie</a>，因为这个发行版提供了市场上最美观的基于 GNOME的桌面之一。</p><p>Ubuntu Budgie 是最后一个让我从 Pop!_OS转向的发行版。当然，在购买了新的 Thelio 桌面后，我回到了Pop!_OS。但每当我看到 Ubuntu Budgie 时，我都会想：“要不要再换回来？”是的，Budgie 就是这么好的桌面。</p><figure><img src="https://cdn.jsdelivr.net/gh/lixuannan/img/budgie.jpg" srcset="/img/loading.gif" lazyloadalt="默认的 Ubuntu Budgie 桌面。" /><figcaption aria-hidden="true">默认的 Ubuntu Budgie 桌面。</figcaption></figure><p>顺便提一下，我本来打算在这个列表中包含 Pop!_OS，但 System76 正在向COSMIC 桌面迁移，完全抛弃了 GNOME的基础，转而使用全新的架构，因此这个列表里面并没有包含 Pop!_OS。</p><h2 id="mate">2. MATE</h2><p>MATE 桌面基于 GNOME，然而，它基于的是 GNOME 2.x版本。为什么要基于一个不再被使用的系统创建桌面环境呢？原因很简单：当GNOME 3.x（也称为 <ahref="https://www.zdnet.com/article/5-gnome-extensions-that-make-my-desktop-environment-more-useful-and-enjoyable/">GNOMEShell</a>）取代 GNOME 2.x 时，Linux 社区感到非常不满，因为新版本的 GNOME与之前版本差别太大。</p><p>当这种情况发生时，许多用户决定离开GNOME，尝试其他选择。这促使一些开发者创建了基于 GNOME 2.x的新桌面，其中之一就是 MATE。MATE专注于传统桌面风格，提供面板、菜单和可点击的桌面图标。</p><p>MATE 的发音为“mah-tay”，像饮料yerba-maté。除了让用户感到熟悉之外，MATE还非常高效，即使在老旧的硬件上也能表现得非常出色。如果你喜欢经典风格的桌面，MATE是一个不错的选择，它会让用户想起 Windows 7 之前的任何版本。获取 MATE桌面的最佳方式是使用 <ahref="https://www.linuxmint.com/edition.php?id=318">Linux Mint 的 MATE版本</a>。</p><figure><img src="https://cdn.jsdelivr.net/gh/lixuannan/img/mate.jpg" srcset="/img/loading.gif" lazyloadalt="默认的 MATE 桌面。" /><figcaption aria-hidden="true">默认的 MATE 桌面。</figcaption></figure><h2 id="cinnamon">3. Cinnamon</h2><p>和 MATE 一样，Cinnamon 是因为 GNOME 从 2.x 版本迁移到 3.x版本而诞生的。你可能会注意到 MATE 和 Cinnamon有很多相似之处。它们都采用了相同的桌面设计理念（面板/菜单/图标），布局和图标也相似。</p><p>在我看来，MATE 和 Cinnamon 的最大区别在于，Cinnamon有一点现代的风格。这个区别虽然细微，但确实存在。默认的 Cinnamon面板更高，暗色主题更加普遍，Cinnamon 还拥有更多的功能（比如 Desklet和更多配置选项）。</p><p>Cinnamon 走的是更现代化的 Linux 路线，将设置集中在一个应用程序中，而MATE则有不同的应用程序来处理高级网络配置、CompizConfig、桌面设置等。Cinnamon还包括窗口特效，允许你为窗口最小化/关闭/打开甚至调整大小/平铺选择不同的效果。</p><p>尽管如此，Cinnamon 和 MATE 非常相似，Cinnamon提供了对经典桌面风格的更现代的诠释。Cinnamon 是 Linux Mint的默认桌面，因此你只需要下载并安装 <ahref="https://www.linuxmint.com/edition.php?id=316">官方的 Linux MintISO</a> 即可。</p><figure><img src="https://cdn.jsdelivr.net/gh/lixuannan/img/cinnamon.jpg" srcset="/img/loading.gif" lazyloadalt="默认的 Cinnamon 桌面。" /><figcaption aria-hidden="true">默认的 Cinnamon 桌面。</figcaption></figure><h2 id="ubuntu-的桌面">4. Ubuntu 的桌面</h2><p>这个桌面有点“作弊”的成分，因为 Ubuntu 桌面实际上就是GNOME。不过，类似于 System 76 在 Pop_OS 中对 GNOME 所做的调整，Ubuntu也对 GNOME桌面进行了大量定制，比如将侧边栏作为主要的应用程序、收藏夹等的入口。</p><p>除了侧边栏，Ubuntu 对 GNOME的改动主要体现在主题、预装应用程序和扩展程序上。没错，Ubuntu 桌面也支持GNOME 扩展，这意味着你甚至可以将 Ubuntu 桌面配置得更像官方版本的GNOME。</p><p>如果让我在原版 GNOME 和 Ubuntu 上的定制版之间选择，我可能会选择Ubuntu，因为我更喜欢侧边栏/面板而非 GNOMEDash，它更加便捷和高效。如果你不喜欢 Ubuntu 发行版，你可以通过命令<em>sudo apt-get install ubuntu-desktop -y</em> 来安装 Ubuntu 的 GNOME版本。</p><p>请记住，一些发行版桌面（例如 Pop!_OS）可能会在安装 <ahref="https://www.zdnet.com/article/how-to-install-ubuntu-linux/">ubuntu-desktop软件包</a>后出现问题，因此操作时请小心。如果你觉得这个桌面不错，可以下载并安装<a href="https://ubuntu.com">官方的 Ubuntu 桌面发行版</a>。</p><figure><img src="https://cdn.jsdelivr.net/gh/lixuannan/img/ubuntugnome.jpg" srcset="/img/loading.gif" lazyloadalt="默认的 Ubuntu 桌面。" /><figcaption aria-hidden="true">默认的 Ubuntu 桌面。</figcaption></figure><p>Ubuntu 已经发布 20 年了，这段旅程真是不可思议。</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>翻译</tag>
+      
+      <tag>ZDNET</tag>
+      
+      <tag>GNOME</tag>
+      
+      <tag>桌面环境</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Ubuntu 24.10 的 6 个新功能</title>
     <link href="/posts/51813.html"/>
     <url>/posts/51813.html</url>
