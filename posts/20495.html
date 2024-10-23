@@ -24,12 +24,12 @@
     <meta name="description" content="这道题从题面就可以看出是经典的最长不下降子序列 对于这道一点都不简单的最长连续子序列和的模板题，我们还是直接暴力，代码： 123456789101112131415161718192021#include &lt;iostream&gt;using namespace std;int ans, n, a[1009];int main() &#123;    cin &gt;&gt; n;    f">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Oiclass P3314 题解">
-<meta property="og:url" content="https://lixuannan.github.io/posts/20495">
+<meta property="og:url" content="https://lixuannan.github.io/posts/20495.html">
 <meta property="og:site_name" content="CodingCow&#39;s Blog">
 <meta property="og:description" content="这道题从题面就可以看出是经典的最长不下降子序列 对于这道一点都不简单的最长连续子序列和的模板题，我们还是直接暴力，代码： 123456789101112131415161718192021#include &lt;iostream&gt;using namespace std;int ans, n, a[1009];int main() &#123;    cin &gt;&gt; n;    f">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-01-03T03:55:00.000Z">
-<meta property="article:modified_time" content="2024-10-21T12:11:42.171Z">
+<meta property="article:modified_time" content="2024-10-23T23:41:56.908Z">
 <meta property="article:author" content="CodingCow Lee">
 <meta property="article:tag" content="题解">
 <meta property="article:tag" content="OiClass">
@@ -440,7 +440,7 @@ DP
 DP 求解的原因。</p>
 <p>OK，讲了这么多，该贴代码了，如下：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-type">int</span> ans, n, a[<span class="hljs-number">1009</span>];<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    cin &gt;&gt; n;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++) &#123;<br>        cin &gt;&gt; a[i];<br>        <span class="hljs-keyword">if</span> (a[i - <span class="hljs-number">1</span>] &gt; <span class="hljs-number">0</span>) &#123;<br>            a[i] += a[i - <span class="hljs-number">1</span>];<br>        &#125;<br>        ans = <span class="hljs-built_in">max</span>(ans, a[i]);<br>    &#125;<br>    cout &lt;&lt; ans;<br>&#125;<br></code></pre></td></tr></table></figure>
-<h1 id="搞定收工">搞定收工</h1>
+<h2 id="搞定收工">搞定收工</h2>
 
                 
               </div>
@@ -469,7 +469,7 @@ DP 求解的原因。</p>
   <div class="license-box my-3">
     <div class="license-title">
       <div>Oiclass P3314 题解</div>
-      <div>https://lixuannan.github.io/posts/20495</div>
+      <div>https://lixuannan.github.io/posts/20495.html</div>
     </div>
     <div class="license-meta">
       
@@ -525,7 +525,7 @@ DP 求解的原因。</p>
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/posts/c8011ff3" title="Oiclass P1221 题解">
+                      <a href="/posts/c8011ff3.html" title="Oiclass P1221 题解">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">Oiclass P1221 题解</span>
                         <span class="visible-mobile">上一篇</span>
@@ -535,7 +535,7 @@ DP 求解的原因。</p>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/posts/11840" title="Oiclass P1220 题解">
+                      <a href="/posts/11840.html" title="Oiclass P1220 题解">
                         <span class="hidden-mobile">Oiclass P1220 题解</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>

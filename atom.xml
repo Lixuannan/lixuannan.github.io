@@ -6,7 +6,7 @@
   <link href="https://lixuannan.github.io/atom.xml" rel="self"/>
   
   <link href="https://lixuannan.github.io/"/>
-  <updated>2024-10-23T04:24:01.621Z</updated>
+  <updated>2024-10-21T12:11:42.144Z</updated>
   <id>https://lixuannan.github.io/</id>
   
   <author>
@@ -17,9 +17,45 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>使用 GSConnect 无缝连接安卓手机和 Linux</title>
+    <link href="https://lixuannan.github.io/posts/27832.html"/>
+    <id>https://lixuannan.github.io/posts/27832.html</id>
+    <published>2024-10-23T21:20:00.000Z</published>
+    <updated>2024-10-21T12:11:42.144Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="使用-gsconnect-无缝连接安卓手机和-linux">使用 GSConnect无缝连接安卓手机和 Linux</h1><blockquote><p>本文翻译自 <a href="https://itsfoss.com/gsconnect/"class="uri">https://itsfoss.com/gsconnect/</a></p></blockquote><p>智能手机已成为我们技术生活中不可分割的一部分。我们常常一部分时间使用智能手机，一部分时间使用电脑。</p><p>然而，这种设备之间的切换会带来不便。你可能会感受到连接这两者的需求，比如在设备之间传输文件、共享剪贴板、在笔记本上查看手机通知等。</p><p>苹果生态系统在将 iPhone 与 Mac 连接方面表现出色。Windows 也提供了将Android 智能手机与 PC 连接的功能。</p><p>对于 Linux 系统，KDE 开发了一款名为 <ahref="https://kdeconnect.kde.org/">KDE Connect</a> 的解决方案。它在 KDE环境中表现更佳，因此 GNOME 桌面用户可以使用 GSConnect 扩展。</p><p>GSConnect 实际上是 KDE Connect 的实现。虽然 KDE Connect 也可以在GNOME 上使用，但我认为 GSConnect 为 GNOME 用户提供了更好的体验。</p><blockquote><p>请检查你正在使用的桌面环境并确保是 GNOME。若你对 GNOME扩展的概念熟悉，那将会更好。</p></blockquote><h2 id="在-linux-系统上设置-gsconnect">在 Linux 系统上设置GSConnect</h2><blockquote><p>即使 GSConnect 是基于 KDE Connect 的，但你要使用 GSConnect时，<strong>一定</strong>不要在笔记本/台式机系统上安装 KDEConnect。如果已安装，请将其移除。</p></blockquote><p>如前所述，<ahref="https://github.com/GSConnect/gnome-shell-extension-gsconnect">GSConnect</a>是一个 GNOME 扩展。因此，你首先需要安装此扩展。</p><h3 id="安装-gsconnect-扩展">安装 GSConnect 扩展</h3><p>你可以通过 GNOME Shell 扩展管理器应用程序或 <ahref="https://extensions.gnome.org/extension/1319/gsconnect/">GNOME扩展网站</a>安装。</p><p><imgsrc="https://cdn.jsdelivr.net/gh/lixuannan/img/gsconnect-extension-in-extension-manager.png" srcset="/img/loading.gif" lazyload /></p><p>一旦安装完成，你可以在系统托盘快速按钮中看到该扩展已激活。</p><p><imgsrc="https://cdn.jsdelivr.net/gh/lixuannan/img/GSConnect-extension-active-GNOME-system-tray.png" srcset="/img/loading.gif" lazyload /></p><blockquote><p>如果你想在虚拟机内使用 GSConnect，请将虚拟机的网络设置从 NAT改为桥接适配器。</p></blockquote><h3 id="允许-kde-connect-通过防火墙">允许 KDE Connect 通过防火墙</h3><blockquote><p>切勿关闭或禁用防火墙，如果需要的服务可以在启用防火墙的情况下运行，请只配置防火墙。</p></blockquote><p>许多发行版自带防火墙设置。但 KDE Connect需要通过防火墙与其他系统进行通信，因为其中有许多功能（如远程输入、通知共享等）需要进行入站和出站通信。而大多数系统的防火墙默认策略是完全阻止入站通信。</p><p>因此，你需要允许 KDE Connect 通过防火墙通信。</p><p>KDE Connect 协议使用端口 1714-1764 进行 UDP 和 TCP通信。我们需要打开这些端口。以下介绍了 UFW 和 Firewalld的步骤，因为这是桌面 Linux 系统中最流行的防火墙解决方案。</p><h4 id="在-ufwubuntu中打开必要的端口">在UFW（Ubuntu）中打开必要的端口</h4><p>在 Ubuntu 上，默认的防火墙提供程序是UFW。打开终端，运行以下命令：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">sudo ufw allow 1714:1764/udp<br>sudo ufw allow 1714:1764/tcp<br>sudo ufw reload<br></code></pre></td></tr></table></figure><p><imgsrc="https://cdn.jsdelivr.net/gh/lixuannan/img/firewall-rules-settings.png" srcset="/img/loading.gif" lazyload /></p><h4 id="在-firewalldfedora中打开必要的端口">在Firewalld（Fedora）中打开必要的端口</h4><p>在 Fedora 中，防火墙提供程序是Firewalld。在这种情况下，使用以下命令：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">sudo firewall-cmd --permanent --zone=public --add-service=kdeconnect<br>sudo firewall-cmd --reload<br></code></pre></td></tr></table></figure><p>这样，你就已经完成了 GSConnect 所需的防火墙设置。</p><h3 id="在-android-智能手机上安装-kde-connect">在 Android 智能手机上安装KDE Connect</h3><p>完成 Linux 系统的设置后，前往 <ahref="https://play.google.com/store/apps/details?id=org.kde.kdeconnect_tp">GooglePlay</a> 并在 Android 手机上安装 KDE Connect 应用程序。</p><p>完成安装后，打开手机上的 KDE Connect。</p><p>如果之前没有正确设置防火墙，设备将无法被检测到。</p><h3 id="识别设备名称">识别设备名称</h3><p>如果不确定移动设备的名称，可以点击手机应用左上角的菜单图标并选择设置。你可以在“设备名称”字段下看到设备的名称。</p><p><imgsrc="https://cdn.jsdelivr.net/gh/lixuannan/img/get-mobile-device-name.png" srcset="/img/loading.gif" lazyload /></p><p>在 Linux 系统上，设备名称会显示在 GSConnect 窗口的标题中。</p><h3 id="配对设备">配对设备</h3><p>完成 Linux 上的 GSConnect 和 Android 上的 KDE Connect 设置后，点击GNOME 面板上的系统托盘按钮。在 GSConnect旁边的下拉菜单中，选择“手机设置”。</p><p>在 GSConnect 设置窗口中，你将看到手机已被检测到，点击该设备。</p><p><imgsrc="https://cdn.jsdelivr.net/gh/lixuannan/img/GSConnect-in-system-tray-click-on-mobile-settings.png" srcset="/img/loading.gif" lazyload /></p><p>或者，你可以在 KDE Connect 手机应用程序中看到检测到的 Linux系统。点击计算机名称以开始连接。</p><p><imgsrc="https://cdn.jsdelivr.net/gh/lixuannan/img/mobile-device-detected-in-pc.png" srcset="/img/loading.gif" lazyload /></p><p>然后，点击手机上的 PC，点击“请求配对”。这将要求我在 GNOME桌面上接受配对请求。</p><p>点击“接受”按钮后，设备将配对成功。</p><p><imgsrc="https://cdn.jsdelivr.net/gh/lixuannan/img/accept-pairing-request-from-phone.png" srcset="/img/loading.gif" lazyload /></p><p>你应该核对两个设备上显示的密钥。如果不匹配，请勿连接。手机上只显示验证密钥的前8 个字符。</p><p>要从 Linux 发起配对请求，你可以点击 GSConnect桌面应用中检测到的移动设备，然后点击“配对”按钮。</p><p><imgsrc="https://cdn.jsdelivr.net/gh/lixuannan/img/click-on-pair-in-gsconnect-settings.png" srcset="/img/loading.gif" lazyload /></p><p>接受配对请求后，设备就连接成功了。大部分可用的设置将会在系统托盘中找到。</p><p><imgsrc="https://cdn.jsdelivr.net/gh/lixuannan/img/Mobile-settings-in-system-tray.png" srcset="/img/loading.gif" lazyload /></p><h3 id="权限设置">权限设置</h3><p>现在设备已经配对，你可以执行一些基本操作，比如发送文件、远程输入、发送剪贴板内容等。</p><p>你可以通过 GSConnect 窗口中的 <strong>高级</strong>选项卡查看可用的功能。</p><p><imgsrc="https://cdn.jsdelivr.net/gh/lixuannan/img/advanced-tab-in-gsconnect.png" srcset="/img/loading.gif" lazyload /></p><p>在手机端，可以通过点击右上角菜单中的“插件设置”来访问这些高级功能。在这里，你可以启用或禁用某些功能。</p><p>在手机端，你还可以授予更多权限，如通知同步、电话通知、联系人同步等。进入KDE Connect 的主页，然后在手机上授予相应的权限。</p><h2 id="使用-gsconnect">使用 GSConnect</h2><p>现在，让我们看看 GSConnect 的一些常见用例。</p><h3 id="在设备之间传输文件">在设备之间传输文件</h3><p>要从 PC 向移动设备发送文件，展开系统托盘中的 GSConnect 按钮，选择<strong>共享</strong> 选项。</p><p><imgsrc="https://cdn.jsdelivr.net/gh/lixuannan/img/select-share-from-gsconnect-button.png" srcset="/img/loading.gif" lazyload /></p><p>这将打开文件选择器，你可以从中选择要发送的文件。</p><p>在手机上，你可以通过 KDE Connect主页面的“发送文件”选项来选择文件并发送。</p><h3 id="挂载-android-文件夹">挂载 Android 文件夹</h3><p>有时，挂载 Android本地文件夹到系统中可以更方便地进行文件传输和同步。</p><p>为此，首先需要在手机上为 KDE Connect 应用授予文件系统访问权限。</p><p>点击“暴露文件系统”按钮，然后在系统设置中允许 KDE Connect 访问。</p><p><imgsrc="https://cdn.jsdelivr.net/gh/lixuannan/img/allow-folder-location.png" srcset="/img/loading.gif" lazyload /></p><p>根据 Android 版本，你可能需要授予 KDE Connect一些权限。只需按照屏幕上的说明操作，系统将自动带你到所需的设置页面。</p><p>较新的 Android 版本不允许你共享主目录或某些目录（如 Downloads）。</p><p>一旦在 Android 设备上选择了共享位置，你可以点击 GSConnect系统托盘按钮中的“挂载”选项。</p><p><imgsrc="https://cdn.jsdelivr.net/gh/lixuannan/img/click-on-mount-to-mount-the-file-system.png" srcset="/img/loading.gif" lazyload /></p><p>当你打开文件管理器时，你可以看到所选目录已通过 SFTP 协议挂载。</p><p><imgsrc="https://cdn.jsdelivr.net/gh/lixuannan/img/file-system-mounted.png" srcset="/img/loading.gif" lazyload /></p><h3 id="锁定或关机远程系统">锁定或关机远程系统</h3><p>通过 KDE Connect移动应用程序，你可以远程锁定或关机电脑系统。为此，点击<strong>运行命令</strong> 选项，然后选择所需的操作。</p><p><imgsrc="https://cdn.jsdelivr.net/gh/lixuannan/img/run-command-option-and-select-the-command.png" srcset="/img/loading.gif" lazyload /></p><p>在关机或重启系统之前，请确保保存所有重要工作。</p><h3 id="使用手机作为鼠标">使用手机作为鼠标</h3><p>你可以将手机显示屏作为触控板来替代鼠标，这在某些场景下非常有用。例如，当你将电脑连接到电视播放电影时，你可以使用手机来播放/暂停电影。</p><p>使用 KDE Connect 中的 <strong>远程输入</strong> 选项。</p><p>它支持所有常用的功能，以下是一些主要操作：</p><table><thead><tr class="header"><th>功能</th><th>动作</th></tr></thead><tbody><tr class="odd"><td>移动鼠标</td><td>用一根手指在屏幕上滑动</td></tr><tr class="even"><td>滚动</td><td>用两根手指滑动</td></tr><tr class="odd"><td>左键点击</td><td>轻触屏幕或使用左键按钮</td></tr><tr class="even"><td>右键点击</td><td>用两根手指轻触屏幕或使用右键按钮</td></tr><tr class="odd"><td>中键点击</td><td>用三根手指轻触屏幕或使用中键按钮</td></tr></tbody></table><p>其他一些重要的远程输入功能包括：</p><ul><li>在顶部工具栏上点击键盘按钮，可以使用手机键盘与系统交互。</li><li>使用顶部工具栏上的“合成发送”按钮，可以输入文字并发送到系统，而不是实时输入。</li><li>在设置中，你可以启用陀螺仪鼠标功能。</li></ul><h2 id="结论">结论</h2><p>我想列出一些 KDE Connect 的其他用例，这里没有详细介绍：</p><ul><li>通知同步，将手机通知发送到 PC。</li><li>电话通知，将来电通知同步到桌面。</li><li>从系统托盘获取手机的电量信息。</li></ul><p>你可以自己探索这些功能，享受 Linux 电脑与 Android智能手机之间的无缝连接。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;使用-gsconnect-无缝连接安卓手机和-linux&quot;&gt;使用 GSConnect
+无缝连接安卓手机和 Linux&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;本文翻译自 &lt;a href=&quot;https://itsfoss.com/gsconnect/&quot;
+class</summary>
+      
+    
+    
+    
+    
+    <category term="翻译" scheme="https://lixuannan.github.io/tags/%E7%BF%BB%E8%AF%91/"/>
+    
+    <category term="Linux" scheme="https://lixuannan.github.io/tags/Linux/"/>
+    
+    <category term="ITSFOSS" scheme="https://lixuannan.github.io/tags/ITSFOSS/"/>
+    
+    <category term="安卓" scheme="https://lixuannan.github.io/tags/%E5%AE%89%E5%8D%93/"/>
+    
+    <category term="手机" scheme="https://lixuannan.github.io/tags/%E6%89%8B%E6%9C%BA/"/>
+    
+    <category term="GSConnect" scheme="https://lixuannan.github.io/tags/GSConnect/"/>
+    
+  </entry>
+  
+  <entry>
     <title>4 个基于 GNOME 的好看的桌面环境</title>
-    <link href="https://lixuannan.github.io/posts/10358"/>
-    <id>https://lixuannan.github.io/posts/10358</id>
+    <link href="https://lixuannan.github.io/posts/10358.html"/>
+    <id>https://lixuannan.github.io/posts/10358.html</id>
     <published>2024-10-23T06:02:00.000Z</published>
     <updated>2024-10-23T04:24:01.621Z</updated>
     
@@ -50,8 +86,8 @@ href=&quot;https://www.zdnet.com/article/the-4-best-linux-desktops</summary>
   
   <entry>
     <title>Ubuntu 24.10 的 6 个新功能</title>
-    <link href="https://lixuannan.github.io/posts/51813"/>
-    <id>https://lixuannan.github.io/posts/51813</id>
+    <link href="https://lixuannan.github.io/posts/51813.html"/>
+    <id>https://lixuannan.github.io/posts/51813.html</id>
     <published>2024-10-21T23:45:00.000Z</published>
     <updated>2024-10-22T04:21:24.206Z</updated>
     
@@ -81,8 +117,8 @@ class=&quot;uri&quot;</summary>
   
   <entry>
     <title>5 个你值得尝试的 Linux 终端</title>
-    <link href="https://lixuannan.github.io/posts/1177"/>
-    <id>https://lixuannan.github.io/posts/1177</id>
+    <link href="https://lixuannan.github.io/posts/1177.html"/>
+    <id>https://lixuannan.github.io/posts/1177.html</id>
     <published>2024-10-21T12:22:00.000Z</published>
     <updated>2024-10-21T12:27:34.993Z</updated>
     
@@ -100,11 +136,11 @@ href=&quot;https://www.zdnet.com/article/5-linux-terminal-apps-that-are-be</summ
     
     
     
+    <category term="翻译" scheme="https://lixuannan.github.io/tags/%E7%BF%BB%E8%AF%91/"/>
+    
     <category term="Linux" scheme="https://lixuannan.github.io/tags/Linux/"/>
     
     <category term="终端" scheme="https://lixuannan.github.io/tags/%E7%BB%88%E7%AB%AF/"/>
-    
-    <category term="翻译" scheme="https://lixuannan.github.io/tags/%E7%BF%BB%E8%AF%91/"/>
     
     <category term="ZDNET" scheme="https://lixuannan.github.io/tags/ZDNET/"/>
     
@@ -112,8 +148,8 @@ href=&quot;https://www.zdnet.com/article/5-linux-terminal-apps-that-are-be</summ
   
   <entry>
     <title>Tor 与 Tails 项目合并</title>
-    <link href="https://lixuannan.github.io/posts/32246"/>
-    <id>https://lixuannan.github.io/posts/32246</id>
+    <link href="https://lixuannan.github.io/posts/32246.html"/>
+    <id>https://lixuannan.github.io/posts/32246.html</id>
     <published>2024-10-21T10:00:00.000Z</published>
     <updated>2024-10-21T12:11:42.143Z</updated>
     
@@ -131,13 +167,13 @@ href=&quot;https://debugpointnews.com/tor-project-and-tails-merge-operat</summar
     
     
     
-    <category term="翻译" scheme="https://lixuannan.github.io/tags/%E7%BF%BB%E8%AF%91/"/>
-    
     <category term="开源项目" scheme="https://lixuannan.github.io/tags/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/"/>
     
     <category term="Tor" scheme="https://lixuannan.github.io/tags/Tor/"/>
     
     <category term="Tails" scheme="https://lixuannan.github.io/tags/Tails/"/>
+    
+    <category term="翻译" scheme="https://lixuannan.github.io/tags/%E7%BF%BB%E8%AF%91/"/>
     
     <category term="DEBUGPOINTNEWS" scheme="https://lixuannan.github.io/tags/DEBUGPOINTNEWS/"/>
     
@@ -145,8 +181,8 @@ href=&quot;https://debugpointnews.com/tor-project-and-tails-merge-operat</summar
   
   <entry>
     <title>OiClass PU2TI 330 Soso 的并查集题解</title>
-    <link href="https://lixuannan.github.io/posts/22409"/>
-    <id>https://lixuannan.github.io/posts/22409</id>
+    <link href="https://lixuannan.github.io/posts/22409.html"/>
+    <id>https://lixuannan.github.io/posts/22409.html</id>
     <published>2024-10-19T07:00:00.000Z</published>
     <updated>2024-10-21T12:11:42.143Z</updated>
     
@@ -173,8 +209,8 @@ class=&quot;</summary>
   
   <entry>
     <title>零基础入门 OI 第三节——认识 C++ &amp; Hello World</title>
-    <link href="https://lixuannan.github.io/posts/21819"/>
-    <id>https://lixuannan.github.io/posts/21819</id>
+    <link href="https://lixuannan.github.io/posts/21819.html"/>
+    <id>https://lixuannan.github.io/posts/21819.html</id>
     <published>2024-10-17T03:02:00.000Z</published>
     <updated>2024-10-21T12:11:42.137Z</updated>
     
@@ -204,8 +240,8 @@ class=&quot;</summary>
   
   <entry>
     <title>零基础入门 OI 第二节——编码前的准备</title>
-    <link href="https://lixuannan.github.io/posts/19792"/>
-    <id>https://lixuannan.github.io/posts/19792</id>
+    <link href="https://lixuannan.github.io/posts/19792.html"/>
+    <id>https://lixuannan.github.io/posts/19792.html</id>
     <published>2024-10-14T09:51:00.000Z</published>
     <updated>2024-10-21T12:11:42.142Z</updated>
     
@@ -232,8 +268,8 @@ class=&quot;</summary>
   
   <entry>
     <title>零基础入门 OI 之第一节——认识计算机</title>
-    <link href="https://lixuannan.github.io/posts/27331"/>
-    <id>https://lixuannan.github.io/posts/27331</id>
+    <link href="https://lixuannan.github.io/posts/27331.html"/>
+    <id>https://lixuannan.github.io/posts/27331.html</id>
     <published>2024-10-12T03:34:00.000Z</published>
     <updated>2024-10-22T12:29:22.237Z</updated>
     
@@ -260,8 +296,8 @@ class=&quot;</summary>
   
   <entry>
     <title>构建超强 OI 系统之开发环境</title>
-    <link href="https://lixuannan.github.io/posts/63319"/>
-    <id>https://lixuannan.github.io/posts/63319</id>
+    <link href="https://lixuannan.github.io/posts/63319.html"/>
+    <id>https://lixuannan.github.io/posts/63319.html</id>
     <published>2024-10-10T09:57:00.000Z</published>
     <updated>2024-10-21T12:11:42.141Z</updated>
     
@@ -292,8 +328,8 @@ class=&quot;</summary>
   
   <entry>
     <title>构建超强 OI 系统之美化 Arch Linux &amp; 美化 GNOME &amp; 美化 Fcitx</title>
-    <link href="https://lixuannan.github.io/posts/63759"/>
-    <id>https://lixuannan.github.io/posts/63759</id>
+    <link href="https://lixuannan.github.io/posts/63759.html"/>
+    <id>https://lixuannan.github.io/posts/63759.html</id>
     <published>2024-08-23T10:56:00.000Z</published>
     <updated>2024-10-21T12:11:42.161Z</updated>
     
@@ -328,8 +364,8 @@ class=&quot;</summary>
   
   <entry>
     <title>构建超强 OI 系统之配置 Arch Linux</title>
-    <link href="https://lixuannan.github.io/posts/7723"/>
-    <id>https://lixuannan.github.io/posts/7723</id>
+    <link href="https://lixuannan.github.io/posts/7723.html"/>
+    <id>https://lixuannan.github.io/posts/7723.html</id>
     <published>2024-08-23T02:58:00.000Z</published>
     <updated>2024-10-21T12:11:42.161Z</updated>
     
@@ -359,8 +395,8 @@ class=&quot;</summary>
   
   <entry>
     <title>构建超强 OI 环境之安装 Arch Linux</title>
-    <link href="https://lixuannan.github.io/posts/60947"/>
-    <id>https://lixuannan.github.io/posts/60947</id>
+    <link href="https://lixuannan.github.io/posts/60947.html"/>
+    <id>https://lixuannan.github.io/posts/60947.html</id>
     <published>2024-08-21T16:00:00.000Z</published>
     <updated>2024-10-21T12:11:42.161Z</updated>
     
@@ -390,8 +426,8 @@ ISO 镜像。而身处海外心系祖国的同学可以去官网</summary>
   
   <entry>
     <title>2024 TYOI 暑假集训游记</title>
-    <link href="https://lixuannan.github.io/posts/16092"/>
-    <id>https://lixuannan.github.io/posts/16092</id>
+    <link href="https://lixuannan.github.io/posts/16092.html"/>
+    <id>https://lixuannan.github.io/posts/16092.html</id>
     <published>2024-08-21T11:43:00.000Z</published>
     <updated>2024-10-21T12:11:42.160Z</updated>
     
@@ -415,8 +451,8 @@ ISO 镜像。而身处海外心系祖国的同学可以去官网</summary>
   
   <entry>
     <title>Luogu P7537 [COCI2016-2017#4] Rima 题解</title>
-    <link href="https://lixuannan.github.io/posts/42348"/>
-    <id>https://lixuannan.github.io/posts/42348</id>
+    <link href="https://lixuannan.github.io/posts/42348.html"/>
+    <id>https://lixuannan.github.io/posts/42348.html</id>
     <published>2024-08-09T08:17:00.000Z</published>
     <updated>2024-10-21T12:11:42.162Z</updated>
     
@@ -443,8 +479,8 @@ class=&quot;math inline&quot;&gt;&#92;(-1&#92;)&lt;/span&gt;。并使得最长�
   
   <entry>
     <title>OiClass PUJI P2232 Friends 题解</title>
-    <link href="https://lixuannan.github.io/posts/31541"/>
-    <id>https://lixuannan.github.io/posts/31541</id>
+    <link href="https://lixuannan.github.io/posts/31541.html"/>
+    <id>https://lixuannan.github.io/posts/31541.html</id>
     <published>2024-08-07T00:29:00.000Z</published>
     <updated>2024-10-21T12:11:42.162Z</updated>
     
@@ -470,8 +506,8 @@ class=&quot;math inline&quot;&gt;&#92;(-1&#92;)&lt;/span&gt;。并使得最长�
   
   <entry>
     <title>OiClass TIGAO P3280 牛牛的猜球游戏题解</title>
-    <link href="https://lixuannan.github.io/posts/21737"/>
-    <id>https://lixuannan.github.io/posts/21737</id>
+    <link href="https://lixuannan.github.io/posts/21737.html"/>
+    <id>https://lixuannan.github.io/posts/21737.html</id>
     <published>2024-07-12T07:07:00.000Z</published>
     <updated>2024-10-21T12:11:42.159Z</updated>
     
@@ -496,8 +532,8 @@ class=&quot;math inline&quot;&gt;&#92;(&#92;mathcal{O}(nm)&#92;)&lt;/span&gt;，
   
   <entry>
     <title>OiClass TIGAO P3279 牛牛的方程式题解</title>
-    <link href="https://lixuannan.github.io/posts/7145"/>
-    <id>https://lixuannan.github.io/posts/7145</id>
+    <link href="https://lixuannan.github.io/posts/7145.html"/>
+    <id>https://lixuannan.github.io/posts/7145.html</id>
     <published>2024-07-12T06:48:00.000Z</published>
     <updated>2024-10-21T12:11:42.159Z</updated>
     
@@ -523,8 +559,8 @@ class=&quot;math inline&quot;&gt;&#92;(ax+by+cz=d&#92;)&lt;/span&gt;。观察可
   
   <entry>
     <title>OiClass TIGAO P3333 路径难题题解</title>
-    <link href="https://lixuannan.github.io/posts/24926"/>
-    <id>https://lixuannan.github.io/posts/24926</id>
+    <link href="https://lixuannan.github.io/posts/24926.html"/>
+    <id>https://lixuannan.github.io/posts/24926.html</id>
     <published>2024-07-10T08:06:00.000Z</published>
     <updated>2024-10-21T12:11:42.159Z</updated>
     
@@ -546,8 +582,8 @@ class=&quot;math inline&quot;&gt;&#92;(&#92;mathcal{O}({t_i}^2)&#92;)&lt;/span&g
   
   <entry>
     <title>OiClass PU2TI P3042 拓展的奇拼图题解</title>
-    <link href="https://lixuannan.github.io/posts/32290"/>
-    <id>https://lixuannan.github.io/posts/32290</id>
+    <link href="https://lixuannan.github.io/posts/32290.html"/>
+    <id>https://lixuannan.github.io/posts/32290.html</id>
     <published>2024-07-08T08:49:00.000Z</published>
     <updated>2024-10-21T12:11:42.160Z</updated>
     
@@ -572,8 +608,8 @@ class=&quot;math inline&quot;&gt;&#92;(&#92;mathcal{O}({t_i}^2)&#92;)&lt;/span&g
   
   <entry>
     <title>OiClass PU2TI P3186 小美的排队次数 题解</title>
-    <link href="https://lixuannan.github.io/posts/21158"/>
-    <id>https://lixuannan.github.io/posts/21158</id>
+    <link href="https://lixuannan.github.io/posts/21158.html"/>
+    <id>https://lixuannan.github.io/posts/21158.html</id>
     <published>2024-06-19T08:38:00.000Z</published>
     <updated>2024-10-21T12:11:42.158Z</updated>
     
@@ -601,8 +637,8 @@ class=&quot;math inline&quot;&gt;&#92;(&#92;mathcal{O}({t_i}^2)&#92;)&lt;/span&g
   
   <entry>
     <title>SPOJ SETSTACK 题解</title>
-    <link href="https://lixuannan.github.io/posts/51536"/>
-    <id>https://lixuannan.github.io/posts/51536</id>
+    <link href="https://lixuannan.github.io/posts/51536.html"/>
+    <id>https://lixuannan.github.io/posts/51536.html</id>
     <published>2024-06-12T09:43:00.000Z</published>
     <updated>2024-10-21T12:11:42.157Z</updated>
     
@@ -630,8 +666,8 @@ class=&quot;math inline&quot;&gt;&#92;(&#92;{&#92;}&#92;)&lt;/span&gt; 推到堆
   
   <entry>
     <title>SPOJ MARTIAN 题解</title>
-    <link href="https://lixuannan.github.io/posts/57531"/>
-    <id>https://lixuannan.github.io/posts/57531</id>
+    <link href="https://lixuannan.github.io/posts/57531.html"/>
+    <id>https://lixuannan.github.io/posts/57531.html</id>
     <published>2024-06-04T12:45:00.000Z</published>
     <updated>2024-10-21T12:11:42.158Z</updated>
     
@@ -657,8 +693,8 @@ src=&quot;https://cdn.luogu.c</summary>
   
   <entry>
     <title>AtCoder ABC206D KAIBUNsyo 题解</title>
-    <link href="https://lixuannan.github.io/posts/30504"/>
-    <id>https://lixuannan.github.io/posts/30504</id>
+    <link href="https://lixuannan.github.io/posts/30504.html"/>
+    <id>https://lixuannan.github.io/posts/30504.html</id>
     <published>2024-06-04T12:22:00.000Z</published>
     <updated>2024-10-21T12:11:42.158Z</updated>
     
@@ -684,8 +720,8 @@ class=&quot;math in</summary>
   
   <entry>
     <title>OiClass PUJI P3827 函数 题解</title>
-    <link href="https://lixuannan.github.io/posts/47712"/>
-    <id>https://lixuannan.github.io/posts/47712</id>
+    <link href="https://lixuannan.github.io/posts/47712.html"/>
+    <id>https://lixuannan.github.io/posts/47712.html</id>
     <published>2024-05-21T11:23:00.000Z</published>
     <updated>2024-10-21T12:11:42.156Z</updated>
     
@@ -712,8 +748,8 @@ f(n,&#92;,r)&amp;amp;={&#92;rm C}^r_n (n - r)!&#92;&#92;
   
   <entry>
     <title>CF1612D X-Magic Pair 题解</title>
-    <link href="https://lixuannan.github.io/posts/9199"/>
-    <id>https://lixuannan.github.io/posts/9199</id>
+    <link href="https://lixuannan.github.io/posts/9199.html"/>
+    <id>https://lixuannan.github.io/posts/9199.html</id>
     <published>2024-05-17T09:26:00.000Z</published>
     <updated>2024-10-21T12:11:42.156Z</updated>
     
@@ -739,8 +775,8 @@ class=&quot;math inline&quot;&gt;&#92;((a,&#92;,b)&#92;)&lt;/span&gt; 转</summa
   
   <entry>
     <title>UVA929 Number Maze 题解</title>
-    <link href="https://lixuannan.github.io/posts/7177"/>
-    <id>https://lixuannan.github.io/posts/7177</id>
+    <link href="https://lixuannan.github.io/posts/7177.html"/>
+    <id>https://lixuannan.github.io/posts/7177.html</id>
     <published>2024-05-15T09:18:00.000Z</published>
     <updated>2024-10-21T12:11:42.155Z</updated>
     
@@ -766,8 +802,8 @@ class=&quot;math inline&quot;&gt;&#92;((n,&#92;,m)&#92;)&lt;/span&gt; 的最</su
   
   <entry>
     <title>AT_arc132_b Shift and Reverse 题解</title>
-    <link href="https://lixuannan.github.io/posts/38985"/>
-    <id>https://lixuannan.github.io/posts/38985</id>
+    <link href="https://lixuannan.github.io/posts/38985.html"/>
+    <id>https://lixuannan.github.io/posts/38985.html</id>
     <published>2024-05-14T09:30:00.000Z</published>
     <updated>2024-10-21T12:11:42.155Z</updated>
     
@@ -792,8 +828,8 @@ class=&quot;math inline&quot;&gt;&#92;((n,&#92;,m)&#92;)&lt;/span&gt; 的最</su
   
   <entry>
     <title>Luogu P2568 GCD 题解</title>
-    <link href="https://lixuannan.github.io/posts/33139"/>
-    <id>https://lixuannan.github.io/posts/33139</id>
+    <link href="https://lixuannan.github.io/posts/33139.html"/>
+    <id>https://lixuannan.github.io/posts/33139.html</id>
     <published>2024-05-08T08:46:00.000Z</published>
     <updated>2024-10-21T12:11:42.157Z</updated>
     
@@ -819,8 +855,8 @@ class=&quot;math inline&quot;&gt;&#92;((n,&#92;,m)&#92;)&lt;/span&gt; 的最</su
   
   <entry>
     <title>TYCPC 游记</title>
-    <link href="https://lixuannan.github.io/posts/61466"/>
-    <id>https://lixuannan.github.io/posts/61466</id>
+    <link href="https://lixuannan.github.io/posts/61466.html"/>
+    <id>https://lixuannan.github.io/posts/61466.html</id>
     <published>2024-05-07T11:55:00.000Z</published>
     <updated>2024-10-21T12:11:42.157Z</updated>
     
@@ -848,8 +884,8 @@ class=&quot;math inline&quot;&gt;&#92;((n,&#92;,m)&#92;)&lt;/span&gt; 的最</su
   
   <entry>
     <title>Luogu P1495 题解</title>
-    <link href="https://lixuannan.github.io/posts/48509"/>
-    <id>https://lixuannan.github.io/posts/48509</id>
+    <link href="https://lixuannan.github.io/posts/48509.html"/>
+    <id>https://lixuannan.github.io/posts/48509.html</id>
     <published>2024-04-29T13:15:00.000Z</published>
     <updated>2024-10-21T12:11:42.154Z</updated>
     
@@ -875,8 +911,8 @@ class=&quot;math inline&quot;&gt;&#92;((n,&#92;,m)&#92;)&lt;/span&gt; 的最</su
   
   <entry>
     <title>2024 成都七中多校联训游记</title>
-    <link href="https://lixuannan.github.io/posts/49007"/>
-    <id>https://lixuannan.github.io/posts/49007</id>
+    <link href="https://lixuannan.github.io/posts/49007.html"/>
+    <id>https://lixuannan.github.io/posts/49007.html</id>
     <published>2024-04-10T12:51:00.000Z</published>
     <updated>2024-10-21T12:11:42.153Z</updated>
     
@@ -906,8 +942,8 @@ src=&quot;https://cdn.jsdelivr.net/gh/lixua</summary>
   
   <entry>
     <title>2024 成都七中多校联训内容</title>
-    <link href="https://lixuannan.github.io/posts/8218"/>
-    <id>https://lixuannan.github.io/posts/8218</id>
+    <link href="https://lixuannan.github.io/posts/8218.html"/>
+    <id>https://lixuannan.github.io/posts/8218.html</id>
     <published>2024-04-10T08:48:00.000Z</published>
     <updated>2024-10-21T12:11:42.153Z</updated>
     
@@ -935,8 +971,8 @@ PPT
   
   <entry>
     <title>算法详解 - 素数</title>
-    <link href="https://lixuannan.github.io/posts/29158"/>
-    <id>https://lixuannan.github.io/posts/29158</id>
+    <link href="https://lixuannan.github.io/posts/29158.html"/>
+    <id>https://lixuannan.github.io/posts/29158.html</id>
     <published>2024-04-09T06:58:00.000Z</published>
     <updated>2024-10-21T12:11:42.155Z</updated>
     
@@ -964,8 +1000,8 @@ PPT
   
   <entry>
     <title>算法详解 - 重链剖分</title>
-    <link href="https://lixuannan.github.io/posts/9181"/>
-    <id>https://lixuannan.github.io/posts/9181</id>
+    <link href="https://lixuannan.github.io/posts/9181.html"/>
+    <id>https://lixuannan.github.io/posts/9181.html</id>
     <published>2024-04-08T11:50:00.000Z</published>
     <updated>2024-10-21T12:11:42.154Z</updated>
     
@@ -992,8 +1028,8 @@ PPT
   
   <entry>
     <title>算法详解 - 自适应辛普森法</title>
-    <link href="https://lixuannan.github.io/posts/44079"/>
-    <id>https://lixuannan.github.io/posts/44079</id>
+    <link href="https://lixuannan.github.io/posts/44079.html"/>
+    <id>https://lixuannan.github.io/posts/44079.html</id>
     <published>2024-04-02T06:54:00.000Z</published>
     <updated>2024-10-21T12:11:42.154Z</updated>
     
@@ -1021,8 +1057,8 @@ PPT
   
   <entry>
     <title>OiClass P2688 简单计算题解</title>
-    <link href="https://lixuannan.github.io/posts/41221"/>
-    <id>https://lixuannan.github.io/posts/41221</id>
+    <link href="https://lixuannan.github.io/posts/41221.html"/>
+    <id>https://lixuannan.github.io/posts/41221.html</id>
     <published>2024-03-19T10:09:00.000Z</published>
     <updated>2024-10-21T12:11:42.152Z</updated>
     
@@ -1049,8 +1085,8 @@ PPT
   
   <entry>
     <title>TYOI 省选集训 and 2024 GD 省选游记</title>
-    <link href="https://lixuannan.github.io/posts/38827"/>
-    <id>https://lixuannan.github.io/posts/38827</id>
+    <link href="https://lixuannan.github.io/posts/38827.html"/>
+    <id>https://lixuannan.github.io/posts/38827.html</id>
     <published>2024-02-29T23:51:00.000Z</published>
     <updated>2024-10-21T12:11:42.152Z</updated>
     
@@ -1079,8 +1115,8 @@ class=&quot;math inl</summary>
   
   <entry>
     <title>CF1244C 题解</title>
-    <link href="https://lixuannan.github.io/posts/36804"/>
-    <id>https://lixuannan.github.io/posts/36804</id>
+    <link href="https://lixuannan.github.io/posts/36804.html"/>
+    <id>https://lixuannan.github.io/posts/36804.html</id>
     <published>2024-02-28T13:31:00.000Z</published>
     <updated>2024-10-21T12:11:42.150Z</updated>
     
@@ -1107,8 +1143,8 @@ class=&quot;math inline&quot;&gt;</summary>
   
   <entry>
     <title>AT_abc255_e 题解</title>
-    <link href="https://lixuannan.github.io/posts/26210"/>
-    <id>https://lixuannan.github.io/posts/26210</id>
+    <link href="https://lixuannan.github.io/posts/26210.html"/>
+    <id>https://lixuannan.github.io/posts/26210.html</id>
     <published>2024-02-28T08:13:00.000Z</published>
     <updated>2024-10-21T12:11:42.148Z</updated>
     
@@ -1135,8 +1171,8 @@ class=&quot;mat</summary>
   
   <entry>
     <title>OiClass 2024 CSP-J 公益赛 #4 题解</title>
-    <link href="https://lixuannan.github.io/posts/24397"/>
-    <id>https://lixuannan.github.io/posts/24397</id>
+    <link href="https://lixuannan.github.io/posts/24397.html"/>
+    <id>https://lixuannan.github.io/posts/24397.html</id>
     <published>2024-02-28T06:25:00.000Z</published>
     <updated>2024-10-21T12:11:42.151Z</updated>
     
@@ -1164,8 +1200,8 @@ CSP-J + 的难度，预估的平均分在 &lt;span class=&quot;math inline&quot;
   
   <entry>
     <title>THUWC 2024 游记</title>
-    <link href="https://lixuannan.github.io/posts/44036"/>
-    <id>https://lixuannan.github.io/posts/44036</id>
+    <link href="https://lixuannan.github.io/posts/44036.html"/>
+    <id>https://lixuannan.github.io/posts/44036.html</id>
     <published>2024-02-28T04:52:00.000Z</published>
     <updated>2024-10-21T12:11:42.151Z</updated>
     
@@ -1191,8 +1227,8 @@ CSP-J + 的难度，预估的平均分在 &lt;span class=&quot;math inline&quot;
   
   <entry>
     <title>OiClass 公益赛宣传</title>
-    <link href="https://lixuannan.github.io/posts/54641"/>
-    <id>https://lixuannan.github.io/posts/54641</id>
+    <link href="https://lixuannan.github.io/posts/54641.html"/>
+    <id>https://lixuannan.github.io/posts/54641.html</id>
     <published>2024-02-25T08:46:00.000Z</published>
     <updated>2024-10-21T12:11:42.145Z</updated>
     
@@ -1219,8 +1255,8 @@ src=&quot;https://chxulong.oss-cn-shenzhen.aliyuncs.com/oiclass_pic/gongyisai.jp
   
   <entry>
     <title>CF1368E Ski Accidents 题解</title>
-    <link href="https://lixuannan.github.io/posts/28582"/>
-    <id>https://lixuannan.github.io/posts/28582</id>
+    <link href="https://lixuannan.github.io/posts/28582.html"/>
+    <id>https://lixuannan.github.io/posts/28582.html</id>
     <published>2024-02-23T00:39:00.000Z</published>
     <updated>2024-10-21T12:11:42.163Z</updated>
     
@@ -1247,8 +1283,8 @@ DAG，因此很容易的就可以想到拓扑排序。那么我们在思考一�
   
   <entry>
     <title>洛谷 P10170 [DTCPC 2024] 小方和小立方 题解</title>
-    <link href="https://lixuannan.github.io/posts/14032"/>
-    <id>https://lixuannan.github.io/posts/14032</id>
+    <link href="https://lixuannan.github.io/posts/14032.html"/>
+    <id>https://lixuannan.github.io/posts/14032.html</id>
     <published>2024-02-17T11:34:00.000Z</published>
     <updated>2024-10-21T12:11:42.145Z</updated>
     
@@ -1275,8 +1311,8 @@ DP，但是 DP
   
   <entry>
     <title>洛谷 P10160 [DTCPC 2024] Ultra 题解</title>
-    <link href="https://lixuannan.github.io/posts/52460"/>
-    <id>https://lixuannan.github.io/posts/52460</id>
+    <link href="https://lixuannan.github.io/posts/52460.html"/>
+    <id>https://lixuannan.github.io/posts/52460.html</id>
     <published>2024-02-17T11:06:00.000Z</published>
     <updated>2024-10-21T12:11:42.171Z</updated>
     
@@ -1303,8 +1339,8 @@ DP，但是 DP
   
   <entry>
     <title>Oiclass PU2TI P3791 棋子题解</title>
-    <link href="https://lixuannan.github.io/posts/53556"/>
-    <id>https://lixuannan.github.io/posts/53556</id>
+    <link href="https://lixuannan.github.io/posts/53556.html"/>
+    <id>https://lixuannan.github.io/posts/53556.html</id>
     <published>2023-12-15T16:00:00.000Z</published>
     <updated>2024-10-21T12:11:42.138Z</updated>
     
@@ -1331,8 +1367,8 @@ DP，但是 DP
   
   <entry>
     <title>CF985C 题解</title>
-    <link href="https://lixuannan.github.io/posts/14038"/>
-    <id>https://lixuannan.github.io/posts/14038</id>
+    <link href="https://lixuannan.github.io/posts/14038.html"/>
+    <id>https://lixuannan.github.io/posts/14038.html</id>
     <published>2023-12-14T16:00:00.000Z</published>
     <updated>2024-10-21T12:11:42.138Z</updated>
     
@@ -1359,8 +1395,8 @@ class=&quot;math inline&quot;&gt;&#92;(n&#92;)&lt;/span&gt;
   
   <entry>
     <title>Oiclass PU2TI P3846 杨辉三角题解</title>
-    <link href="https://lixuannan.github.io/posts/9065"/>
-    <id>https://lixuannan.github.io/posts/9065</id>
+    <link href="https://lixuannan.github.io/posts/9065.html"/>
+    <id>https://lixuannan.github.io/posts/9065.html</id>
     <published>2023-12-12T11:04:00.000Z</published>
     <updated>2024-10-21T12:11:42.138Z</updated>
     
@@ -1388,8 +1424,8 @@ src=&quot;https://cdn.jsdelivr.net/gh/lixuannan/img//imag</summary>
   
   <entry>
     <title>CSP 2023 游记</title>
-    <link href="https://lixuannan.github.io/posts/13733"/>
-    <id>https://lixuannan.github.io/posts/13733</id>
+    <link href="https://lixuannan.github.io/posts/13733.html"/>
+    <id>https://lixuannan.github.io/posts/13733.html</id>
     <published>2023-12-05T08:20:00.000Z</published>
     <updated>2024-02-18T01:31:00.000Z</updated>
     
@@ -1417,8 +1453,8 @@ src=&quot;https://cdn.jsdelivr.net/gh/lixuannan/img//imag</summary>
   
   <entry>
     <title>AT_zone2021_e 题解</title>
-    <link href="https://lixuannan.github.io/posts/41815"/>
-    <id>https://lixuannan.github.io/posts/41815</id>
+    <link href="https://lixuannan.github.io/posts/41815.html"/>
+    <id>https://lixuannan.github.io/posts/41815.html</id>
     <published>2023-10-20T07:17:02.000Z</published>
     <updated>2024-10-21T12:11:42.163Z</updated>
     
@@ -1445,8 +1481,8 @@ src=&quot;https://cdn.jsdelivr.net/gh/lixuannan/img//imag</summary>
   
   <entry>
     <title>Oiclass PUJI 1353 题解</title>
-    <link href="https://lixuannan.github.io/posts/26966"/>
-    <id>https://lixuannan.github.io/posts/26966</id>
+    <link href="https://lixuannan.github.io/posts/26966.html"/>
+    <id>https://lixuannan.github.io/posts/26966.html</id>
     <published>2023-10-19T09:34:00.000Z</published>
     <updated>2024-10-21T12:11:42.137Z</updated>
     
@@ -1473,8 +1509,8 @@ class=&quot;math inline&quot;&gt;&#92;(n&#92;)&lt;/span&gt;
   
   <entry>
     <title>CSP 2023 考场注意事项</title>
-    <link href="https://lixuannan.github.io/posts/54120"/>
-    <id>https://lixuannan.github.io/posts/54120</id>
+    <link href="https://lixuannan.github.io/posts/54120.html"/>
+    <id>https://lixuannan.github.io/posts/54120.html</id>
     <published>2023-10-19T08:27:00.000Z</published>
     <updated>2024-10-21T12:11:42.172Z</updated>
     
@@ -1500,8 +1536,8 @@ class=&quot;math inline&quot;&gt;&#92;(n&#92;)&lt;/span&gt;
   
   <entry>
     <title>Oiclass PUJI 1277 题解</title>
-    <link href="https://lixuannan.github.io/posts/16159"/>
-    <id>https://lixuannan.github.io/posts/16159</id>
+    <link href="https://lixuannan.github.io/posts/16159.html"/>
+    <id>https://lixuannan.github.io/posts/16159.html</id>
     <published>2023-10-10T08:56:55.000Z</published>
     <updated>2024-10-21T12:11:42.137Z</updated>
     
@@ -1527,8 +1563,8 @@ class=&quot;math inline&quot;&gt;&#92;(n&#92;)&lt;/span&gt;
   
   <entry>
     <title>TYOI 暑假集训游记</title>
-    <link href="https://lixuannan.github.io/posts/8408"/>
-    <id>https://lixuannan.github.io/posts/8408</id>
+    <link href="https://lixuannan.github.io/posts/8408.html"/>
+    <id>https://lixuannan.github.io/posts/8408.html</id>
     <published>2023-08-21T16:00:00.000Z</published>
     <updated>2024-10-21T12:11:42.171Z</updated>
     
@@ -1558,8 +1594,8 @@ class=&quot;math inline&quot;&gt;&#92;(n&#92;)&lt;/span&gt;
   
   <entry>
     <title>MCOI 2023年6月月赛题解</title>
-    <link href="https://lixuannan.github.io/posts/5946"/>
-    <id>https://lixuannan.github.io/posts/5946</id>
+    <link href="https://lixuannan.github.io/posts/5946.html"/>
+    <id>https://lixuannan.github.io/posts/5946.html</id>
     <published>2023-06-08T08:05:00.000Z</published>
     <updated>2024-10-21T12:11:42.141Z</updated>
     
@@ -1585,8 +1621,8 @@ class=&quot;math inline&quot;&gt;&#92;(n&#92;)&lt;/span&gt;
   
   <entry>
     <title>Oiclass PUJI Circle 题解</title>
-    <link href="https://lixuannan.github.io/posts/19144"/>
-    <id>https://lixuannan.github.io/posts/19144</id>
+    <link href="https://lixuannan.github.io/posts/19144.html"/>
+    <id>https://lixuannan.github.io/posts/19144.html</id>
     <published>2023-05-13T00:08:00.000Z</published>
     <updated>2024-10-21T12:11:42.140Z</updated>
     
@@ -1613,8 +1649,8 @@ class=&quot;math inline&quot;&gt;&#92;(n&#92;)&lt;/span&gt;
   
   <entry>
     <title>Oiclass PUJI 971 题解</title>
-    <link href="https://lixuannan.github.io/posts/25ad433c"/>
-    <id>https://lixuannan.github.io/posts/25ad433c</id>
+    <link href="https://lixuannan.github.io/posts/25ad433c.html"/>
+    <id>https://lixuannan.github.io/posts/25ad433c.html</id>
     <published>2023-04-13T00:25:00.000Z</published>
     <updated>2024-10-21T12:11:42.140Z</updated>
     
@@ -1643,8 +1679,8 @@ d(x, y)=y-x
   
   <entry>
     <title>Oiclass PUJI P1296 题解</title>
-    <link href="https://lixuannan.github.io/posts/372de39"/>
-    <id>https://lixuannan.github.io/posts/372de39</id>
+    <link href="https://lixuannan.github.io/posts/372de39.html"/>
+    <id>https://lixuannan.github.io/posts/372de39.html</id>
     <published>2023-03-03T23:51:00.000Z</published>
     <updated>2024-10-21T12:11:42.139Z</updated>
     
@@ -1669,8 +1705,8 @@ d(x, y)=y-x
   
   <entry>
     <title>Oiclass P2261 题解</title>
-    <link href="https://lixuannan.github.io/posts/c0f28fe"/>
-    <id>https://lixuannan.github.io/posts/c0f28fe</id>
+    <link href="https://lixuannan.github.io/posts/c0f28fe.html"/>
+    <id>https://lixuannan.github.io/posts/c0f28fe.html</id>
     <published>2023-01-31T16:00:00.000Z</published>
     <updated>2024-10-21T12:11:42.138Z</updated>
     
@@ -1695,8 +1731,8 @@ d(x, y)=y-x
   
   <entry>
     <title>Oiclass 新 C 班选拔测试题解</title>
-    <link href="https://lixuannan.github.io/posts/52544bc3"/>
-    <id>https://lixuannan.github.io/posts/52544bc3</id>
+    <link href="https://lixuannan.github.io/posts/52544bc3.html"/>
+    <id>https://lixuannan.github.io/posts/52544bc3.html</id>
     <published>2023-01-15T05:57:00.000Z</published>
     <updated>2024-10-21T12:11:42.138Z</updated>
     
@@ -1723,8 +1759,8 @@ d(x, y)=y-x
   
   <entry>
     <title>Oiclass P1266 题解</title>
-    <link href="https://lixuannan.github.io/posts/9f2847e6"/>
-    <id>https://lixuannan.github.io/posts/9f2847e6</id>
+    <link href="https://lixuannan.github.io/posts/9f2847e6.html"/>
+    <id>https://lixuannan.github.io/posts/9f2847e6.html</id>
     <published>2023-01-12T09:57:00.000Z</published>
     <updated>2024-10-21T12:11:42.138Z</updated>
     
@@ -1750,8 +1786,8 @@ Ultra&lt;/strong&gt;&lt;/h1&gt;
   
   <entry>
     <title>Oiclass P1238 题解</title>
-    <link href="https://lixuannan.github.io/posts/c035109b"/>
-    <id>https://lixuannan.github.io/posts/c035109b</id>
+    <link href="https://lixuannan.github.io/posts/c035109b.html"/>
+    <id>https://lixuannan.github.io/posts/c035109b.html</id>
     <published>2023-01-12T08:02:00.000Z</published>
     <updated>2024-10-21T12:11:42.137Z</updated>
     
@@ -1778,8 +1814,8 @@ class=&quot;</summary>
   
   <entry>
     <title>Oiclass P1255 题解</title>
-    <link href="https://lixuannan.github.io/posts/282a7cc0"/>
-    <id>https://lixuannan.github.io/posts/282a7cc0</id>
+    <link href="https://lixuannan.github.io/posts/282a7cc0.html"/>
+    <id>https://lixuannan.github.io/posts/282a7cc0.html</id>
     <published>2023-01-12T07:30:00.000Z</published>
     <updated>2024-10-21T12:11:42.138Z</updated>
     
@@ -1805,8 +1841,8 @@ class=&quot;</summary>
   
   <entry>
     <title>Oiclass P1246 题解</title>
-    <link href="https://lixuannan.github.io/posts/b1de6f60"/>
-    <id>https://lixuannan.github.io/posts/b1de6f60</id>
+    <link href="https://lixuannan.github.io/posts/b1de6f60.html"/>
+    <id>https://lixuannan.github.io/posts/b1de6f60.html</id>
     <published>2023-01-12T06:31:00.000Z</published>
     <updated>2024-10-21T12:11:42.137Z</updated>
     
@@ -1833,8 +1869,8 @@ class=&quot;</summary>
   
   <entry>
     <title>Oiclass P1928 题解</title>
-    <link href="https://lixuannan.github.io/posts/2faeff2f"/>
-    <id>https://lixuannan.github.io/posts/2faeff2f</id>
+    <link href="https://lixuannan.github.io/posts/2faeff2f.html"/>
+    <id>https://lixuannan.github.io/posts/2faeff2f.html</id>
     <published>2023-01-12T03:48:00.000Z</published>
     <updated>2024-10-21T12:11:42.138Z</updated>
     
@@ -1860,8 +1896,8 @@ id=&quot;这道题简直拓宽了回文这个词的定义&quot;&gt;这道题简�
   
   <entry>
     <title>Oiclass P1241 题解</title>
-    <link href="https://lixuannan.github.io/posts/bb1b6679"/>
-    <id>https://lixuannan.github.io/posts/bb1b6679</id>
+    <link href="https://lixuannan.github.io/posts/bb1b6679.html"/>
+    <id>https://lixuannan.github.io/posts/bb1b6679.html</id>
     <published>2023-01-12T03:19:00.000Z</published>
     <updated>2024-10-21T12:11:42.168Z</updated>
     
@@ -1887,8 +1923,8 @@ id=&quot;这道题简直拓宽了回文这个词的定义&quot;&gt;这道题简�
   
   <entry>
     <title>Oiclass P1240 题解</title>
-    <link href="https://lixuannan.github.io/posts/d967b576"/>
-    <id>https://lixuannan.github.io/posts/d967b576</id>
+    <link href="https://lixuannan.github.io/posts/d967b576.html"/>
+    <id>https://lixuannan.github.io/posts/d967b576.html</id>
     <published>2023-01-12T02:50:00.000Z</published>
     <updated>2024-10-21T12:11:42.168Z</updated>
     
@@ -1914,8 +1950,8 @@ id=&quot;这道题简直拓宽了回文这个词的定义&quot;&gt;这道题简�
   
   <entry>
     <title>Oiclass P1242 题解</title>
-    <link href="https://lixuannan.github.io/posts/3594619a"/>
-    <id>https://lixuannan.github.io/posts/3594619a</id>
+    <link href="https://lixuannan.github.io/posts/3594619a.html"/>
+    <id>https://lixuannan.github.io/posts/3594619a.html</id>
     <published>2023-01-12T01:39:00.000Z</published>
     <updated>2024-10-21T12:11:42.168Z</updated>
     
@@ -1941,8 +1977,8 @@ class=&quot;math inline&quot;&gt;&#92;(i&#92;)&lt;/span&gt; 个字母和第二�
   
   <entry>
     <title>Oiclass P1263 题解</title>
-    <link href="https://lixuannan.github.io/posts/d7c84982"/>
-    <id>https://lixuannan.github.io/posts/d7c84982</id>
+    <link href="https://lixuannan.github.io/posts/d7c84982.html"/>
+    <id>https://lixuannan.github.io/posts/d7c84982.html</id>
     <published>2023-01-05T09:26:00.000Z</published>
     <updated>2024-10-21T12:11:42.169Z</updated>
     
@@ -1970,8 +2006,8 @@ id=&quot;这真是一场愉快的传球游戏&quot;&gt;这真是一场&lt;strong
   
   <entry>
     <title>Oiclass P1993 题解</title>
-    <link href="https://lixuannan.github.io/posts/f0917da4"/>
-    <id>https://lixuannan.github.io/posts/f0917da4</id>
+    <link href="https://lixuannan.github.io/posts/f0917da4.html"/>
+    <id>https://lixuannan.github.io/posts/f0917da4.html</id>
     <published>2023-01-05T08:49:00.000Z</published>
     <updated>2024-10-21T12:11:42.170Z</updated>
     
@@ -1998,8 +2034,8 @@ id=&quot;这真是一场愉快的传球游戏&quot;&gt;这真是一场&lt;strong
   
   <entry>
     <title>Oiclass P1227 题解</title>
-    <link href="https://lixuannan.github.io/posts/e6e1674"/>
-    <id>https://lixuannan.github.io/posts/e6e1674</id>
+    <link href="https://lixuannan.github.io/posts/e6e1674.html"/>
+    <id>https://lixuannan.github.io/posts/e6e1674.html</id>
     <published>2023-01-05T07:56:00.000Z</published>
     <updated>2024-10-21T12:11:42.167Z</updated>
     
@@ -2026,8 +2062,8 @@ DP&lt;/strong&gt;)&lt;/h1&gt;
   
   <entry>
     <title>Oiclass P1229 题解</title>
-    <link href="https://lixuannan.github.io/posts/1be40446"/>
-    <id>https://lixuannan.github.io/posts/1be40446</id>
+    <link href="https://lixuannan.github.io/posts/1be40446.html"/>
+    <id>https://lixuannan.github.io/posts/1be40446.html</id>
     <published>2023-01-05T06:41:00.000Z</published>
     <updated>2024-10-21T12:11:42.167Z</updated>
     
@@ -2054,8 +2090,8 @@ src=&quot;https://cdn.jsdelivr.net/gh/li</summary>
   
   <entry>
     <title>Oiclass P1226 题解</title>
-    <link href="https://lixuannan.github.io/posts/c2c416ea"/>
-    <id>https://lixuannan.github.io/posts/c2c416ea</id>
+    <link href="https://lixuannan.github.io/posts/c2c416ea.html"/>
+    <id>https://lixuannan.github.io/posts/c2c416ea.html</id>
     <published>2023-01-04T01:35:00.000Z</published>
     <updated>2024-10-21T12:11:42.166Z</updated>
     
@@ -2081,8 +2117,8 @@ src=&quot;https://cdn.jsdelivr.net/gh/li</summary>
   
   <entry>
     <title>Oiclass P1479 题解</title>
-    <link href="https://lixuannan.github.io/posts/5c6d314e"/>
-    <id>https://lixuannan.github.io/posts/5c6d314e</id>
+    <link href="https://lixuannan.github.io/posts/5c6d314e.html"/>
+    <id>https://lixuannan.github.io/posts/5c6d314e.html</id>
     <published>2023-01-03T09:01:00.000Z</published>
     <updated>2024-10-21T12:11:42.169Z</updated>
     
@@ -2110,8 +2146,8 @@ id=&quot;这道题又又又又又是动规我最近在学&quot;&gt;这道题又�
   
   <entry>
     <title>Oiclass P1221 题解</title>
-    <link href="https://lixuannan.github.io/posts/c8011ff3"/>
-    <id>https://lixuannan.github.io/posts/c8011ff3</id>
+    <link href="https://lixuannan.github.io/posts/c8011ff3.html"/>
+    <id>https://lixuannan.github.io/posts/c8011ff3.html</id>
     <published>2023-01-03T08:05:00.000Z</published>
     <updated>2024-10-21T12:11:42.166Z</updated>
     
@@ -2138,12 +2174,12 @@ id=&quot;这道题又又又又又是动规我最近在学&quot;&gt;这道题又�
   
   <entry>
     <title>Oiclass P3314 题解</title>
-    <link href="https://lixuannan.github.io/posts/20495"/>
-    <id>https://lixuannan.github.io/posts/20495</id>
+    <link href="https://lixuannan.github.io/posts/20495.html"/>
+    <id>https://lixuannan.github.io/posts/20495.html</id>
     <published>2023-01-03T03:55:00.000Z</published>
-    <updated>2024-10-21T12:11:42.171Z</updated>
+    <updated>2024-10-23T23:41:56.908Z</updated>
     
-    <content type="html"><![CDATA[<h1id="这道题从题面就可以看出是经典的最长不下降子序列">这道题从题面就可以看出是经典的<strong>最长不下降子序列</strong></h1><p>对于这道<strong>一点都不简单</strong>的最长连续子序列和的模板题，我们还是直接暴力，代码：</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-type">int</span> ans, n, a[<span class="hljs-number">1009</span>];<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    cin &gt;&gt; n;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++) &#123;<br>        cin &gt;&gt; a[i];<br>        a[i] += a[i - <span class="hljs-number">1</span>];<br>    &#125;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++) &#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = i; j &lt;= n; j++) &#123;<br>            <span class="hljs-keyword">if</span> (i &lt; j) &#123;<br>                ans = <span class="hljs-built_in">max</span>(ans, a[j] - a[i - <span class="hljs-number">1</span>]);<br>            &#125;<br>        &#125;<br>    &#125;<br>    cout &lt;&lt; ans;<br>&#125;<br></code></pre></td></tr></table></figure><p>额，<span class="math inline">\(\Huge 搞错了，进入正题\)</span></p><p>这道题的正解是采用 <strong>DP</strong> 的方法，时间复杂度为 <spanclass="math inline">\(\Large O(n)\)</span> 相比暴力的 <spanclass="math inline">\(\Large O(n^2)\)</span>可以说是质的飞跃。OK，接下来就是经典的不能再经典的五步</p><h2 id="划分阶段">1. 划分阶段</h2><p>我们将阶段划分为以各个数字为序列的末尾时的最优解</p><h2 id="确认状态和状态变量">2. 确认状态和状态变量</h2><p>在这道题目中，我们使用一个数组 <span class="math inline">\(a\)</span>来保存原始数列， 数组 <span class="math inline">\(f\)</span>来保存状态</p><h2 id="确认决策并写出状态转移方程">3. 确认决策并写出状态转移方程</h2><p>我们的决策很简单，确定以这个位置的数为数列末位时将其加入上一个数的数列还是新建一个数列能使和更大就行了，也就是说如果<span class="math inline">\(f_{i-1} &lt; 0\)</span> , 应当选择 <spanclass="math inline">\(f_i = a_i\)</span> ，也就是新建数列。当 <spanclass="math inline">\(f_{i-1} ≥ 0\)</span> ，选择 <spanclass="math inline">\(f_i = f_{i-1} + a_i\)</span> ，也就是将 <spanclass="math inline">\(a_i\)</span> 合并入 <spanclass="math inline">\(f_{i -1}\)</span> 所在的数列。简单写出方程是这样的： <span class="math display">\[f_i=\max\left(f_{i-1},\ 0\right) + a_i\]</span> 就这么简单，实现也是一样简单</p><h2 id="初始状态">4. 初始状态</h2><p>简单分析可以得到，有定值的状态就是第一个（<spanclass="math inline">\(f_1\)</span>）因为它是数列的第一个，所以他的前面一定没有数列，他的最大值一定是它本身，即：<span class="math display">\[f_1 = a_1\]</span></p><h2 id="实现">5. 实现</h2><p>通过上面的操作，我们已经明白如何确定每一种状态的最优解了，那么招到全局最优解也是易如反掌的事情了，我们只需要在左右局部最优解里找到一个最大的就行了，我们可以直接模拟，代码简单，就不贴出来了。当然为了更加优雅，也可以把<span class="math inline">\(a\)</span> 和 <spanclass="math inline">\(f\)</span>合并为一个数组，同时在输入的过程中直接进行计算得到答案。好的，这里就产生一个问题了：为什么我可以直接在输入个过程中进行计算呢？这里利用了DP的无后效性，也就是说后面的数据对前面算出来的最优解是不会产生影响的，这也是这道题可以用DP 求解的原因。</p><p>OK，讲了这么多，该贴代码了，如下：</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-type">int</span> ans, n, a[<span class="hljs-number">1009</span>];<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    cin &gt;&gt; n;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++) &#123;<br>        cin &gt;&gt; a[i];<br>        <span class="hljs-keyword">if</span> (a[i - <span class="hljs-number">1</span>] &gt; <span class="hljs-number">0</span>) &#123;<br>            a[i] += a[i - <span class="hljs-number">1</span>];<br>        &#125;<br>        ans = <span class="hljs-built_in">max</span>(ans, a[i]);<br>    &#125;<br>    cout &lt;&lt; ans;<br>&#125;<br></code></pre></td></tr></table></figure><h1 id="搞定收工">搞定收工</h1>]]></content>
+    <content type="html"><![CDATA[<h1id="这道题从题面就可以看出是经典的最长不下降子序列">这道题从题面就可以看出是经典的<strong>最长不下降子序列</strong></h1><p>对于这道<strong>一点都不简单</strong>的最长连续子序列和的模板题，我们还是直接暴力，代码：</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-type">int</span> ans, n, a[<span class="hljs-number">1009</span>];<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    cin &gt;&gt; n;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++) &#123;<br>        cin &gt;&gt; a[i];<br>        a[i] += a[i - <span class="hljs-number">1</span>];<br>    &#125;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++) &#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = i; j &lt;= n; j++) &#123;<br>            <span class="hljs-keyword">if</span> (i &lt; j) &#123;<br>                ans = <span class="hljs-built_in">max</span>(ans, a[j] - a[i - <span class="hljs-number">1</span>]);<br>            &#125;<br>        &#125;<br>    &#125;<br>    cout &lt;&lt; ans;<br>&#125;<br></code></pre></td></tr></table></figure><p>额，<span class="math inline">\(\Huge 搞错了，进入正题\)</span></p><p>这道题的正解是采用 <strong>DP</strong> 的方法，时间复杂度为 <spanclass="math inline">\(\Large O(n)\)</span> 相比暴力的 <spanclass="math inline">\(\Large O(n^2)\)</span>可以说是质的飞跃。OK，接下来就是经典的不能再经典的五步</p><h2 id="划分阶段">1. 划分阶段</h2><p>我们将阶段划分为以各个数字为序列的末尾时的最优解</p><h2 id="确认状态和状态变量">2. 确认状态和状态变量</h2><p>在这道题目中，我们使用一个数组 <span class="math inline">\(a\)</span>来保存原始数列， 数组 <span class="math inline">\(f\)</span>来保存状态</p><h2 id="确认决策并写出状态转移方程">3. 确认决策并写出状态转移方程</h2><p>我们的决策很简单，确定以这个位置的数为数列末位时将其加入上一个数的数列还是新建一个数列能使和更大就行了，也就是说如果<span class="math inline">\(f_{i-1} &lt; 0\)</span> , 应当选择 <spanclass="math inline">\(f_i = a_i\)</span> ，也就是新建数列。当 <spanclass="math inline">\(f_{i-1} ≥ 0\)</span> ，选择 <spanclass="math inline">\(f_i = f_{i-1} + a_i\)</span> ，也就是将 <spanclass="math inline">\(a_i\)</span> 合并入 <spanclass="math inline">\(f_{i -1}\)</span> 所在的数列。简单写出方程是这样的： <span class="math display">\[f_i=\max\left(f_{i-1},\ 0\right) + a_i\]</span> 就这么简单，实现也是一样简单</p><h2 id="初始状态">4. 初始状态</h2><p>简单分析可以得到，有定值的状态就是第一个（<spanclass="math inline">\(f_1\)</span>）因为它是数列的第一个，所以他的前面一定没有数列，他的最大值一定是它本身，即：<span class="math display">\[f_1 = a_1\]</span></p><h2 id="实现">5. 实现</h2><p>通过上面的操作，我们已经明白如何确定每一种状态的最优解了，那么招到全局最优解也是易如反掌的事情了，我们只需要在左右局部最优解里找到一个最大的就行了，我们可以直接模拟，代码简单，就不贴出来了。当然为了更加优雅，也可以把<span class="math inline">\(a\)</span> 和 <spanclass="math inline">\(f\)</span>合并为一个数组，同时在输入的过程中直接进行计算得到答案。好的，这里就产生一个问题了：为什么我可以直接在输入个过程中进行计算呢？这里利用了DP的无后效性，也就是说后面的数据对前面算出来的最优解是不会产生影响的，这也是这道题可以用DP 求解的原因。</p><p>OK，讲了这么多，该贴代码了，如下：</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-type">int</span> ans, n, a[<span class="hljs-number">1009</span>];<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    cin &gt;&gt; n;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++) &#123;<br>        cin &gt;&gt; a[i];<br>        <span class="hljs-keyword">if</span> (a[i - <span class="hljs-number">1</span>] &gt; <span class="hljs-number">0</span>) &#123;<br>            a[i] += a[i - <span class="hljs-number">1</span>];<br>        &#125;<br>        ans = <span class="hljs-built_in">max</span>(ans, a[i]);<br>    &#125;<br>    cout &lt;&lt; ans;<br>&#125;<br></code></pre></td></tr></table></figure><h2 id="搞定收工">搞定收工</h2>]]></content>
     
     
       
@@ -2165,8 +2201,8 @@ id=&quot;这道题从题面就可以看出是经典的最长不下降子序列&q
   
   <entry>
     <title>Oiclass P1220 题解</title>
-    <link href="https://lixuannan.github.io/posts/11840"/>
-    <id>https://lixuannan.github.io/posts/11840</id>
+    <link href="https://lixuannan.github.io/posts/11840.html"/>
+    <id>https://lixuannan.github.io/posts/11840.html</id>
     <published>2023-01-03T03:19:00.000Z</published>
     <updated>2024-10-21T12:11:42.166Z</updated>
     
@@ -2193,8 +2229,8 @@ id=&quot;从标签题面可以看出这是一道动规dp&quot;&gt;从&lt;del&gt;
   
   <entry>
     <title>Oiclass P1235 题解</title>
-    <link href="https://lixuannan.github.io/posts/33165"/>
-    <id>https://lixuannan.github.io/posts/33165</id>
+    <link href="https://lixuannan.github.io/posts/33165.html"/>
+    <id>https://lixuannan.github.io/posts/33165.html</id>
     <published>2023-01-03T01:46:00.000Z</published>
     <updated>2024-10-21T12:11:42.167Z</updated>
     
@@ -2220,8 +2256,8 @@ id=&quot;从标签题面可以看出这是一道动规dp&quot;&gt;从&lt;del&gt;
   
   <entry>
     <title>Oiclass P1213 题解</title>
-    <link href="https://lixuannan.github.io/posts/51988"/>
-    <id>https://lixuannan.github.io/posts/51988</id>
+    <link href="https://lixuannan.github.io/posts/51988.html"/>
+    <id>https://lixuannan.github.io/posts/51988.html</id>
     <published>2023-01-02T06:31:00.000Z</published>
     <updated>2024-10-21T12:11:42.165Z</updated>
     
@@ -2247,8 +2283,8 @@ id=&quot;从标签题面可以看出这是一道动规dp&quot;&gt;从&lt;del&gt;
   
   <entry>
     <title>Oiclass P3309 题解</title>
-    <link href="https://lixuannan.github.io/posts/22979"/>
-    <id>https://lixuannan.github.io/posts/22979</id>
+    <link href="https://lixuannan.github.io/posts/22979.html"/>
+    <id>https://lixuannan.github.io/posts/22979.html</id>
     <published>2023-01-01T08:00:00.000Z</published>
     <updated>2024-10-21T12:11:42.170Z</updated>
     
@@ -2276,8 +2312,8 @@ c</summary>
   
   <entry>
     <title>Oiclass P2107 题解</title>
-    <link href="https://lixuannan.github.io/posts/58343"/>
-    <id>https://lixuannan.github.io/posts/58343</id>
+    <link href="https://lixuannan.github.io/posts/58343.html"/>
+    <id>https://lixuannan.github.io/posts/58343.html</id>
     <published>2022-12-25T02:23:42.000Z</published>
     <updated>2024-10-21T12:11:42.170Z</updated>
     
@@ -2303,8 +2339,8 @@ id=&quot;这道题的思路非常奇怪至少我觉得是这样&quot;&gt;这道�
   
   <entry>
     <title>Oiclass P1202 题解</title>
-    <link href="https://lixuannan.github.io/posts/15962"/>
-    <id>https://lixuannan.github.io/posts/15962</id>
+    <link href="https://lixuannan.github.io/posts/15962.html"/>
+    <id>https://lixuannan.github.io/posts/15962.html</id>
     <published>2022-12-05T01:21:01.000Z</published>
     <updated>2024-10-21T12:11:42.163Z</updated>
     
@@ -2331,8 +2367,8 @@ id=&quot;这道题的思路非常奇怪至少我觉得是这样&quot;&gt;这道�
   
   <entry>
     <title>Oiclass Q&amp;A P1106</title>
-    <link href="https://lixuannan.github.io/posts/17897"/>
-    <id>https://lixuannan.github.io/posts/17897</id>
+    <link href="https://lixuannan.github.io/posts/17897.html"/>
+    <id>https://lixuannan.github.io/posts/17897.html</id>
     <published>2022-08-11T05:04:12.000Z</published>
     <updated>2024-10-21T12:11:42.164Z</updated>
     
@@ -2358,8 +2394,8 @@ src=&quot;https://cdn.jsdelivr.net/gh/lixuannan/img/n2rZbLt3TgzsCeE.png&quot; sr
   
   <entry>
     <title>OiClass.com Q&amp;A P1194</title>
-    <link href="https://lixuannan.github.io/posts/4116"/>
-    <id>https://lixuannan.github.io/posts/4116</id>
+    <link href="https://lixuannan.github.io/posts/4116.html"/>
+    <id>https://lixuannan.github.io/posts/4116.html</id>
     <published>2022-08-09T09:17:32.000Z</published>
     <updated>2024-10-21T12:11:42.164Z</updated>
     
@@ -2385,8 +2421,8 @@ href=&quot;http://oiclass.com/p/P1194&quot;&gt;P1194 阿克曼函数&lt;/a&gt;�
   
   <entry>
     <title>Oiclass Q&amp;A P1626</title>
-    <link href="https://lixuannan.github.io/posts/58457"/>
-    <id>https://lixuannan.github.io/posts/58457</id>
+    <link href="https://lixuannan.github.io/posts/58457.html"/>
+    <id>https://lixuannan.github.io/posts/58457.html</id>
     <published>2022-08-04T07:46:53.000Z</published>
     <updated>2024-10-21T12:11:42.164Z</updated>
     
@@ -2412,8 +2448,8 @@ src=&quot;https://cdn.jsdelivr.net/gh/lixuannan/img/Ah6</summary>
   
   <entry>
     <title>Oiclass Q&amp;A P2569</title>
-    <link href="https://lixuannan.github.io/posts/25835"/>
-    <id>https://lixuannan.github.io/posts/25835</id>
+    <link href="https://lixuannan.github.io/posts/25835.html"/>
+    <id>https://lixuannan.github.io/posts/25835.html</id>
     <published>2022-08-04T07:44:34.000Z</published>
     <updated>2024-10-21T12:11:42.165Z</updated>
     
