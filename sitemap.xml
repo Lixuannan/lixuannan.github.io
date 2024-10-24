@@ -943,20 +943,6 @@
   </url>
   
   <url>
-    <loc>https://lixuannan.github.io/tags/GNOME/</loc>
-    <lastmod>2024-10-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://lixuannan.github.io/tags/%E6%A1%8C%E9%9D%A2%E7%8E%AF%E5%A2%83/</loc>
-    <lastmod>2024-10-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://lixuannan.github.io/tags/%E5%AE%89%E5%8D%93/</loc>
     <lastmod>2024-10-24</lastmod>
     <changefreq>weekly</changefreq>
@@ -972,6 +958,20 @@
   
   <url>
     <loc>https://lixuannan.github.io/tags/GSConnect/</loc>
+    <lastmod>2024-10-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://lixuannan.github.io/tags/GNOME/</loc>
+    <lastmod>2024-10-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://lixuannan.github.io/tags/%E6%A1%8C%E9%9D%A2%E7%8E%AF%E5%A2%83/</loc>
     <lastmod>2024-10-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1155,14 +1155,7 @@
   </url>
   
   <url>
-    <loc>https://lixuannan.github.io/categories/%E9%A2%98%E8%A7%A3/%E6%B4%9B%E8%B0%B7/</loc>
-    <lastmod>2024-10-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://lixuannan.github.io/categories/%E9%A2%98%E8%A7%A3/AtCoder/</loc>
+    <loc>https://lixuannan.github.io/categories/OiClass/</loc>
     <lastmod>2024-10-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1176,7 +1169,7 @@
   </url>
   
   <url>
-    <loc>https://lixuannan.github.io/categories/OiClass/</loc>
+    <loc>https://lixuannan.github.io/categories/%E9%A2%98%E8%A7%A3/%E6%B4%9B%E8%B0%B7/</loc>
     <lastmod>2024-10-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1184,6 +1177,13 @@
   
   <url>
     <loc>https://lixuannan.github.io/categories/%E7%BF%BB%E8%AF%91/ZDNET/</loc>
+    <lastmod>2024-10-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://lixuannan.github.io/categories/%E9%A2%98%E8%A7%A3/AtCoder/</loc>
     <lastmod>2024-10-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
