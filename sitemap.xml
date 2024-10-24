@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://lixuannan.github.io/posts/10358.html</loc>
+    
+    <lastmod>2024-10-24</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://lixuannan.github.io/posts/61466.html</loc>
     
     <lastmod>2024-10-24</lastmod>
@@ -524,15 +533,6 @@
   </url>
   
   <url>
-    <loc>https://lixuannan.github.io/posts/10358.html</loc>
-    
-    <lastmod>2024-10-24</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://lixuannan.github.io/posts/51813.html</loc>
     
     <lastmod>2024-10-24</lastmod>
@@ -908,14 +908,14 @@
   </url>
   
   <url>
-    <loc>https://lixuannan.github.io/tags/Ubuntu/</loc>
+    <loc>https://lixuannan.github.io/tags/Linux/</loc>
     <lastmod>2024-10-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://lixuannan.github.io/tags/%E5%8F%91%E5%B8%83/</loc>
+    <loc>https://lixuannan.github.io/tags/%E7%BB%88%E7%AB%AF/</loc>
     <lastmod>2024-10-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -929,14 +929,14 @@
   </url>
   
   <url>
-    <loc>https://lixuannan.github.io/tags/Linux/</loc>
+    <loc>https://lixuannan.github.io/tags/Ubuntu/</loc>
     <lastmod>2024-10-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://lixuannan.github.io/tags/%E7%BB%88%E7%AB%AF/</loc>
+    <loc>https://lixuannan.github.io/tags/%E5%8F%91%E5%B8%83/</loc>
     <lastmod>2024-10-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1155,21 +1155,14 @@
   </url>
   
   <url>
-    <loc>https://lixuannan.github.io/categories/OiClass/</loc>
-    <lastmod>2024-10-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://lixuannan.github.io/categories/%E7%BF%BB%E8%AF%91/ITSFOSS/</loc>
-    <lastmod>2024-10-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://lixuannan.github.io/categories/%E9%A2%98%E8%A7%A3/%E6%B4%9B%E8%B0%B7/</loc>
+    <lastmod>2024-10-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://lixuannan.github.io/categories/OiClass/</loc>
     <lastmod>2024-10-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1184,6 +1177,13 @@
   
   <url>
     <loc>https://lixuannan.github.io/categories/%E9%A2%98%E8%A7%A3/AtCoder/</loc>
+    <lastmod>2024-10-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://lixuannan.github.io/categories/%E7%BF%BB%E8%AF%91/ITSFOSS/</loc>
     <lastmod>2024-10-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
