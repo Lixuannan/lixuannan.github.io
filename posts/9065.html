@@ -29,7 +29,7 @@
 <meta property="og:description" content="打表+卡常题 思路 不难发现，最短路径不外乎以下两种可能：   image-20231216150315312  一种是先一直向下，再一直向右下；而另一种是先一直右下再一直向下。对于 \(k \leq \frac{n}{2}\) 的请况，很显然是选择第一种路线，否则是第二种路线。 我们可以通过一个简单的技巧来将两种路线合一，我们可以发现，其实第二种情况相当于第一种情况中将 \(k\) 改为 \(n">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-12-12T11:04:00.000Z">
-<meta property="article:modified_time" content="2024-10-21T12:11:42.138Z">
+<meta property="article:modified_time" content="2024-10-24T02:59:52.138Z">
 <meta property="article:author" content="CodingCow Lee">
 <meta property="article:tag" content="题解">
 <meta property="article:tag" content="OiClass">
@@ -77,7 +77,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"lixuannan.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":135,"cursorChar":"|","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":3},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":true,"offset_factor":2,"lazyload":true},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null},"gtag":null,"woyaola":null,"cnzz":null},"search_path":"/search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"lixuannan.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":135,"cursorChar":"|","loop":false,"scope":["home"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":3},"lazyload":{"enable":false,"loading_img":"/img/loading.gif","onlypost":true,"offset_factor":2,"lazyload":true},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null},"gtag":null,"woyaola":null,"cnzz":null},"search_path":"/search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -167,7 +167,7 @@
                   
                   
                   
-                  <a class="dropdown-item" href="/tags/%E9%9B%B6%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8-OI/" target="_self">
+                  <a class="dropdown-item" href="/category/%E9%9B%B6%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8-OI/" target="_self">
                     
                     <span>零基础入门 OI</span>
                   </a>
@@ -175,7 +175,7 @@
                   
                   
                   
-                  <a class="dropdown-item" href="/tags/%E6%9E%84%E5%BB%BA%E8%B6%85%E5%BC%BA-OI-%E7%B3%BB%E7%BB%9F/" target="_self">
+                  <a class="dropdown-item" href="/category/%E6%9E%84%E5%BB%BA%E8%B6%85%E5%BC%BA-OI-%E7%B3%BB%E7%BB%9F/" target="_self">
                     
                     <span>构建超强 OI 系统</span>
                   </a>
@@ -183,7 +183,7 @@
                   
                   
                   
-                  <a class="dropdown-item" href="/tags/%E6%B8%B8%E8%AE%B0/" target="_self">
+                  <a class="dropdown-item" href="/category/%E6%B8%B8%E8%AE%B0/" target="_self">
                     
                     <span>游记</span>
                   </a>
@@ -191,7 +191,7 @@
                   
                   
                   
-                  <a class="dropdown-item" href="/tags/%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3/" target="_self">
+                  <a class="dropdown-item" href="/category/%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3/" target="_self">
                     
                     <span>算法详解</span>
                   </a>
@@ -199,7 +199,7 @@
                   
                   
                   
-                  <a class="dropdown-item" href="/tags/%E9%A2%98%E8%A7%A3/" target="_self">
+                  <a class="dropdown-item" href="/category/%E9%A2%98%E8%A7%A3/" target="_self">
                     
                     <span>题解</span>
                   </a>
@@ -291,7 +291,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Oiclass PU2TI P3846 杨辉三角题解"></span>
+            <span id="subtitle">Oiclass PU2TI P3846 杨辉三角题解</span>
           
         </div>
 
@@ -330,7 +330,7 @@
         
         
         
-          8 分钟
+          6 分钟
         
       </span>
     
@@ -401,7 +401,7 @@
 <p>不难发现，最短路径不外乎以下两种可能：</p>
 <figure>
 <img
-src="https://cdn.jsdelivr.net/gh/lixuannan/img//image-20231216150315312.png" srcset="/img/loading.gif" lazyload
+src="https://cdn.jsdelivr.net/gh/lixuannan/img//image-20231216150315312.png"
 alt="image-20231216150315312" />
 <figcaption aria-hidden="true">image-20231216150315312</figcaption>
 </figure>
@@ -423,7 +423,7 @@ class="math inline">\(f_{n,\, k}\)</span> ，我们可以计算出这样的一�
 <span class="math inline">\(f\)</span> 数组：</p>
 <figure>
 <img
-src="https://cdn.jsdelivr.net/gh/lixuannan/img//image-20231216152605743.png" srcset="/img/loading.gif" lazyload
+src="https://cdn.jsdelivr.net/gh/lixuannan/img//image-20231216152605743.png"
 alt="image-20231216152605743" />
 <figcaption aria-hidden="true">image-20231216152605743</figcaption>
 </figure>
@@ -448,7 +448,7 @@ class="math inline">\(\mathcal{O}(\log ^2 p)\)</span>
 左右的时间求出组合数取模的值（含逆元）。</p>
 <p>下面我们再来讲一下其中的组合数又要怎么求？</p>
 <p>我们可以将正常的组合数程序加上取模，就像这样：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">C</span><span class="hljs-params">(<span class="hljs-type">int</span> n, <span class="hljs-type">int</span> m, <span class="hljs-type">int</span> p)</span> </span>&#123;<br>	<span class="hljs-keyword">if</span> (n &lt; m) &#123;<br>		<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>	&#125;<br>	<span class="hljs-keyword">if</span> (m &gt; n - m) &#123;<br>		m = n - m;<br>	&#125;<br>	<span class="hljs-type">int</span> a = <span class="hljs-number">1</span>, b = <span class="hljs-number">1</span>; <span class="hljs-comment">// a 为分子、b 为分母</span><br>	<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; m; i++) &#123;<br>		a = (a * (n - i)) % p;<br>		b = (b * (i + <span class="hljs-number">1</span>)) % p;<br>	&#125;<br>	<span class="hljs-keyword">return</span> ((a % p) / (b % p)) % p;<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">C</span><span class="hljs-params">(<span class="hljs-type">int</span> n, <span class="hljs-type">int</span> m, <span class="hljs-type">int</span> p)</span> </span>&#123;<br>    <span class="hljs-keyword">if</span> (n &lt; m) &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>    &#125;<br>    <span class="hljs-keyword">if</span> (m &gt; n - m) &#123;<br>        m = n - m;<br>    &#125;<br>    <span class="hljs-type">int</span> a = <span class="hljs-number">1</span>, b = <span class="hljs-number">1</span>; <span class="hljs-comment">// a 为分子、b 为分母</span><br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; m; i++) &#123;<br>        a = (a * (n - i)) % p;<br>        b = (b * (i + <span class="hljs-number">1</span>)) % p;<br>    &#125;<br>    <span class="hljs-keyword">return</span> ((a % p) / (b % p)) % p;<br>&#125;<br></code></pre></td></tr></table></figure>
 <p>然后尝试带入某一个数，然后……错啦啊啊啊！原因也非常的简单，我们考虑此时有两个数：<span
 class="math inline">\(a=4\)</span>，<span
 class="math inline">\(b=2\)</span>，计算 <span class="math inline">\(a
@@ -493,7 +493,7 @@ class="math inline">\(a^{-1} = a^{p - 2}\)</span> 。</p>
 <p>根据上面的式子，我们就可以在 <span class="math inline">\(\mathcal{O}
 (\log p)\)</span> 的时间复杂度内计算出逆元（借助<strong><a
 target="_blank" rel="noopener" href="https://oi.wiki/math/binary-exponentiation/">快速幂</a></strong>）。那么我们就可以将组合数的代码改成这样：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">C</span><span class="hljs-params">(<span class="hljs-type">int</span> n, <span class="hljs-type">int</span> m, <span class="hljs-type">int</span> p)</span> </span>&#123;<br>	<span class="hljs-keyword">if</span> (n &lt; m) &#123;<br>		<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>	&#125;<br>	<span class="hljs-keyword">if</span> (m &gt; n - m) &#123;<br>		m = n - m;<br>	&#125;<br>	<span class="hljs-type">int</span> a = <span class="hljs-number">1</span>, b = <span class="hljs-number">1</span>;<br>	<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; m; i++) &#123;<br>		a = (a * (n - i)) % p;<br>		b = (b * (i + <span class="hljs-number">1</span>)) % p;<br>	&#125;<br>	<span class="hljs-keyword">return</span> (<span class="hljs-type">int</span>)(a * <span class="hljs-built_in">qpow</span>(b, p - <span class="hljs-number">2</span>, p)) % p;<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">C</span><span class="hljs-params">(<span class="hljs-type">int</span> n, <span class="hljs-type">int</span> m, <span class="hljs-type">int</span> p)</span> </span>&#123;<br>    <span class="hljs-keyword">if</span> (n &lt; m) &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>    &#125;<br>    <span class="hljs-keyword">if</span> (m &gt; n - m) &#123;<br>        m = n - m;<br>    &#125;<br>    <span class="hljs-type">int</span> a = <span class="hljs-number">1</span>, b = <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; m; i++) &#123;<br>        a = (a * (n - i)) % p;<br>        b = (b * (i + <span class="hljs-number">1</span>)) % p;<br>    &#125;<br>    <span class="hljs-keyword">return</span> (<span class="hljs-type">int</span>)(a * <span class="hljs-built_in">qpow</span>(b, p - <span class="hljs-number">2</span>, p)) % p;<br>&#125;<br></code></pre></td></tr></table></figure>
 <p>至此，我们已经完成了题目的所有推导，实现即可。</p>
 <h2 id="实现">实现：</h2>
 <p>看起来，我们只需要在模板的基础上，调用一下函数输出即可。但是，如果你提交一下就会发现，你获得了
@@ -504,7 +504,7 @@ target="_blank" rel="noopener" href="https://oi.wiki/math/binary-exponentiation/
 位的大小来说，这些除法和内存寻址实在是太慢啦！因此，我们只需要关闭
 <code>long long</code> 即可 <span style="color: green">AC</span></p>
 <h3 id="ac-code">AC Code :</h3>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><br><span class="hljs-comment">//#define int long long</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> endl <span class="hljs-string">&#x27;\n&#x27;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">qpow</span><span class="hljs-params">(<span class="hljs-type">int</span> a, <span class="hljs-type">int</span> b, <span class="hljs-type">int</span> p)</span> </span>&#123;<br>	<span class="hljs-type">int</span> ans = <span class="hljs-number">1</span>;<br>	a %= p;<br>	<span class="hljs-keyword">while</span> (b) &#123;<br>		<span class="hljs-keyword">if</span> (b &amp; <span class="hljs-number">1</span>) &#123;<br>			ans = (ans * a) % p;<br>		&#125;<br>		b &gt;&gt;= <span class="hljs-number">1</span>;<br>		a = (a * a) % p;<br>	&#125;<br>	<span class="hljs-keyword">return</span> ans % p;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">C</span><span class="hljs-params">(<span class="hljs-type">int</span> n, <span class="hljs-type">int</span> m, <span class="hljs-type">int</span> p)</span> </span>&#123;<br>	<span class="hljs-keyword">if</span> (n &lt; m) &#123;<br>		<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>	&#125;<br>	<span class="hljs-keyword">if</span> (m &gt; n - m) &#123;<br>		m = n - m;<br>	&#125;<br>	<span class="hljs-type">int</span> a = <span class="hljs-number">1</span>, b = <span class="hljs-number">1</span>;<br>	<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; m; i++) &#123;<br>		a = (a * (n - i)) % p;<br>		b = (b * (i + <span class="hljs-number">1</span>)) % p;<br>	&#125;<br>	<span class="hljs-keyword">return</span> (<span class="hljs-type">int</span>)(a * <span class="hljs-built_in">qpow</span>(b, p - <span class="hljs-number">2</span>, p)) % p;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">Lucas</span><span class="hljs-params">(<span class="hljs-type">int</span> n, <span class="hljs-type">int</span> m, <span class="hljs-type">int</span> p)</span> </span>&#123;<br>	<span class="hljs-keyword">if</span> (m == <span class="hljs-number">0</span>) &#123;<br>		<span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;<br>	&#125;<br>	<span class="hljs-keyword">return</span> (<span class="hljs-built_in">C</span>(n % p, m % p, p) * <span class="hljs-built_in">Lucas</span>(n / p, m / p, p)) % p;<br>&#125;<br><br><span class="hljs-type">int</span> t, n, m, p;<br><br><span class="hljs-function"><span class="hljs-type">signed</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>	ios::<span class="hljs-built_in">sync_with_stdio</span>(<span class="hljs-literal">false</span>);<br>	cin.<span class="hljs-built_in">tie</span>(<span class="hljs-number">0</span>); cout.<span class="hljs-built_in">tie</span>(<span class="hljs-number">0</span>);<br>	cin &gt;&gt; t;<br>	<span class="hljs-keyword">while</span> (t--) &#123;<br>		cin &gt;&gt; n &gt;&gt; m &gt;&gt; p;<br>		n += <span class="hljs-number">1</span>;<br>		m += <span class="hljs-number">1</span>;<br>		m = <span class="hljs-built_in">min</span>(m, n - m + <span class="hljs-number">1</span>);<br>		cout &lt;&lt; (n - m + <span class="hljs-built_in">Lucas</span>(n, m - <span class="hljs-number">1</span>, p)) % p &lt;&lt; endl;<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><br><span class="hljs-comment">//#define int long long</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> endl <span class="hljs-string">&#x27;\n&#x27;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">qpow</span><span class="hljs-params">(<span class="hljs-type">int</span> a, <span class="hljs-type">int</span> b, <span class="hljs-type">int</span> p)</span> </span>&#123;<br>    <span class="hljs-type">int</span> ans = <span class="hljs-number">1</span>;<br>    a %= p;<br>    <span class="hljs-keyword">while</span> (b) &#123;<br>        <span class="hljs-keyword">if</span> (b &amp; <span class="hljs-number">1</span>) &#123;<br>            ans = (ans * a) % p;<br>        &#125;<br>        b &gt;&gt;= <span class="hljs-number">1</span>;<br>        a = (a * a) % p;<br>    &#125;<br>    <span class="hljs-keyword">return</span> ans % p;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">C</span><span class="hljs-params">(<span class="hljs-type">int</span> n, <span class="hljs-type">int</span> m, <span class="hljs-type">int</span> p)</span> </span>&#123;<br>    <span class="hljs-keyword">if</span> (n &lt; m) &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>    &#125;<br>    <span class="hljs-keyword">if</span> (m &gt; n - m) &#123;<br>        m = n - m;<br>    &#125;<br>    <span class="hljs-type">int</span> a = <span class="hljs-number">1</span>, b = <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; m; i++) &#123;<br>        a = (a * (n - i)) % p;<br>        b = (b * (i + <span class="hljs-number">1</span>)) % p;<br>    &#125;<br>    <span class="hljs-keyword">return</span> (<span class="hljs-type">int</span>)(a * <span class="hljs-built_in">qpow</span>(b, p - <span class="hljs-number">2</span>, p)) % p;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">Lucas</span><span class="hljs-params">(<span class="hljs-type">int</span> n, <span class="hljs-type">int</span> m, <span class="hljs-type">int</span> p)</span> </span>&#123;<br>    <span class="hljs-keyword">if</span> (m == <span class="hljs-number">0</span>) &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;<br>    &#125;<br>    <span class="hljs-keyword">return</span> (<span class="hljs-built_in">C</span>(n % p, m % p, p) * <span class="hljs-built_in">Lucas</span>(n / p, m / p, p)) % p;<br>&#125;<br><br><span class="hljs-type">int</span> t, n, m, p;<br><br><span class="hljs-function"><span class="hljs-type">signed</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    ios::<span class="hljs-built_in">sync_with_stdio</span>(<span class="hljs-literal">false</span>);<br>    cin.<span class="hljs-built_in">tie</span>(<span class="hljs-number">0</span>); cout.<span class="hljs-built_in">tie</span>(<span class="hljs-number">0</span>);<br>    cin &gt;&gt; t;<br>    <span class="hljs-keyword">while</span> (t--) &#123;<br>        cin &gt;&gt; n &gt;&gt; m &gt;&gt; p;<br>        n += <span class="hljs-number">1</span>;<br>        m += <span class="hljs-number">1</span>;<br>        m = <span class="hljs-built_in">min</span>(m, n - m + <span class="hljs-number">1</span>);<br>        cout &lt;&lt; (n - m + <span class="hljs-built_in">Lucas</span>(n, m - <span class="hljs-number">1</span>, p)) % p &lt;&lt; endl;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
                 
               </div>
@@ -708,10 +708,6 @@ target="_blank" rel="noopener" href="https://oi.wiki/math/binary-exponentiation/
     
 
     
-      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
-        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
-      </a>
-    
 
     
       <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
@@ -799,29 +795,8 @@ target="_blank" rel="noopener" href="https://oi.wiki/math/binary-exponentiation/
 <script  src="/js/plugins.js" ></script>
 
 
-  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
-  <script>
-    (function (window, document) {
-      var typing = Fluid.plugins.typing;
-      var subtitle = document.getElementById('subtitle');
-      if (!subtitle || !typing) {
-        return;
-      }
-      var text = subtitle.getAttribute('data-typed-text');
-      
-        typing(text);
-      
-    })(window, document);
-  </script>
 
 
-
-
-  
-    
-      <script  src="/js/img-lazyload.js" ></script>
-    
-  
 
 
 
@@ -927,7 +902,7 @@ target="_blank" rel="noopener" href="https://oi.wiki/math/binary-exponentiation/
               inlineMath: { '[+]': [['$', '$']] }
             },
             loader : {
-              load: ['ui/lazy']
+              
             },
             options: {
               renderActions: {

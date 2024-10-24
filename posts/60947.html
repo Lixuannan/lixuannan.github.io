@@ -21,12 +21,12 @@
   <meta name="author" content="CodingCow Lee">
   <meta name="keywords" content="python,ml,deeplearning,dl,c++,c,pytorch,noi,oi,ioi,noip,csp-j,csp-s,oier,tyoi,oiclass">
   
-    <meta name="description" content="准备安装镜像 大陆的用户可以前往中科大的镜像站下载安装 ISO 镜像。而身处海外心系祖国的同学可以去官网下载。 下载后找个自己喜欢的目录存储即可。 创建虚拟机 这里使用 VirtualBoxVM，VMware 的也可以参考一下。首先点击创建虚拟机。填入名字，最好和 Arch Linux 有关，然后选择刚刚下载的安装镜像。  然后设置合适的 CPU 和内存，对于一般的情况，直接拖到绿色的最右侧即可。">
+    <meta name="description" content="构建超强 OI 环境之安装 Arch Linux 准备安装镜像 大陆的用户可以前往中科大的镜像站下载安装 ISO 镜像。而身处海外心系祖国的同学可以去官网下载。 下载后找个自己喜欢的目录存储即可。 创建虚拟机 这里使用 VirtualBoxVM，VMware 的也可以参考一下。首先点击创建虚拟机。填入名字，最好和 Arch Linux 有关，然后选择刚刚下载的安装镜像。  然后设置合适的 CPU">
 <meta property="og:type" content="article">
 <meta property="og:title" content="构建超强 OI 环境之安装 Arch Linux">
 <meta property="og:url" content="https://lixuannan.github.io/posts/60947.html">
 <meta property="og:site_name" content="CodingCow&#39;s Blog">
-<meta property="og:description" content="准备安装镜像 大陆的用户可以前往中科大的镜像站下载安装 ISO 镜像。而身处海外心系祖国的同学可以去官网下载。 下载后找个自己喜欢的目录存储即可。 创建虚拟机 这里使用 VirtualBoxVM，VMware 的也可以参考一下。首先点击创建虚拟机。填入名字，最好和 Arch Linux 有关，然后选择刚刚下载的安装镜像。  然后设置合适的 CPU 和内存，对于一般的情况，直接拖到绿色的最右侧即可。">
+<meta property="og:description" content="构建超强 OI 环境之安装 Arch Linux 准备安装镜像 大陆的用户可以前往中科大的镜像站下载安装 ISO 镜像。而身处海外心系祖国的同学可以去官网下载。 下载后找个自己喜欢的目录存储即可。 创建虚拟机 这里使用 VirtualBoxVM，VMware 的也可以参考一下。首先点击创建虚拟机。填入名字，最好和 Arch Linux 有关，然后选择刚刚下载的安装镜像。  然后设置合适的 CPU">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/lixuannan/img/vm1.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/lixuannan/img/vm2.png">
@@ -34,7 +34,7 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/lixuannan/img/vm5.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/lixuannan/img/vm6.png">
 <meta property="article:published_time" content="2024-08-21T16:00:00.000Z">
-<meta property="article:modified_time" content="2024-10-21T12:11:42.161Z">
+<meta property="article:modified_time" content="2024-10-24T03:49:42.067Z">
 <meta property="article:author" content="CodingCow Lee">
 <meta property="article:tag" content="OI">
 <meta property="article:tag" content="构建超强 OI 系统">
@@ -85,7 +85,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"lixuannan.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":135,"cursorChar":"|","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":3},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":true,"offset_factor":2,"lazyload":true},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null},"gtag":null,"woyaola":null,"cnzz":null},"search_path":"/search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"lixuannan.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":135,"cursorChar":"|","loop":false,"scope":["home"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":3},"lazyload":{"enable":false,"loading_img":"/img/loading.gif","onlypost":true,"offset_factor":2,"lazyload":true},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null},"gtag":null,"woyaola":null,"cnzz":null},"search_path":"/search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -175,7 +175,7 @@
                   
                   
                   
-                  <a class="dropdown-item" href="/tags/%E9%9B%B6%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8-OI/" target="_self">
+                  <a class="dropdown-item" href="/category/%E9%9B%B6%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8-OI/" target="_self">
                     
                     <span>零基础入门 OI</span>
                   </a>
@@ -183,7 +183,7 @@
                   
                   
                   
-                  <a class="dropdown-item" href="/tags/%E6%9E%84%E5%BB%BA%E8%B6%85%E5%BC%BA-OI-%E7%B3%BB%E7%BB%9F/" target="_self">
+                  <a class="dropdown-item" href="/category/%E6%9E%84%E5%BB%BA%E8%B6%85%E5%BC%BA-OI-%E7%B3%BB%E7%BB%9F/" target="_self">
                     
                     <span>构建超强 OI 系统</span>
                   </a>
@@ -191,7 +191,7 @@
                   
                   
                   
-                  <a class="dropdown-item" href="/tags/%E6%B8%B8%E8%AE%B0/" target="_self">
+                  <a class="dropdown-item" href="/category/%E6%B8%B8%E8%AE%B0/" target="_self">
                     
                     <span>游记</span>
                   </a>
@@ -199,7 +199,7 @@
                   
                   
                   
-                  <a class="dropdown-item" href="/tags/%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3/" target="_self">
+                  <a class="dropdown-item" href="/category/%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3/" target="_self">
                     
                     <span>算法详解</span>
                   </a>
@@ -207,7 +207,7 @@
                   
                   
                   
-                  <a class="dropdown-item" href="/tags/%E9%A2%98%E8%A7%A3/" target="_self">
+                  <a class="dropdown-item" href="/category/%E9%A2%98%E8%A7%A3/" target="_self">
                     
                     <span>题解</span>
                   </a>
@@ -299,7 +299,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="构建超强 OI 环境之安装 Arch Linux"></span>
+            <span id="subtitle">构建超强 OI 环境之安装 Arch Linux</span>
           
         </div>
 
@@ -338,7 +338,7 @@
         
         
         
-          12 分钟
+          9 分钟
         
       </span>
     
@@ -387,6 +387,70 @@
 <div class="category-list">
   
   
+    
+    
+    
+    <div class="category row nomargin-x">
+      <a class="category-item 
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="构建超强 OI 系统"
+        id="heading-b164d89ec6c6d98e09e1db4b88e80dbc" role="tab" data-toggle="collapse" href="#collapse-b164d89ec6c6d98e09e1db4b88e80dbc"
+        aria-expanded="true"
+      >
+        构建超强 OI 系统
+        <span class="list-group-count">(4)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse show" id="collapse-b164d89ec6c6d98e09e1db4b88e80dbc"
+           role="tabpanel" aria-labelledby="heading-b164d89ec6c6d98e09e1db4b88e80dbc">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/posts/63319.html" title="构建超强 OI 系统之开发环境"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">构建超强 OI 系统之开发环境</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/63759.html" title="构建超强 OI 系统之美化 Arch Linux &amp; 美化 GNOME &amp; 美化 Fcitx"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">构建超强 OI 系统之美化 Arch Linux &amp; 美化 GNOME &amp; 美化 Fcitx</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/7723.html" title="构建超强 OI 系统之配置 Arch Linux"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">构建超强 OI 系统之配置 Arch Linux</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/60947.html" title="构建超强 OI 环境之安装 Arch Linux"
+           class="list-group-item list-group-item-action
+           active">
+          <span class="category-post">构建超强 OI 环境之安装 Arch Linux</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
 </div>
 
 
@@ -404,7 +468,9 @@
             
               <div class="markdown-body">
                 
-                <h2 id="准备安装镜像">准备安装镜像</h2>
+                <h1 id="构建超强-oi-环境之安装-arch-linux">构建超强 OI 环境之安装 Arch
+Linux</h1>
+<h2 id="准备安装镜像">准备安装镜像</h2>
 <p>大陆的用户可以前往<a
 target="_blank" rel="noopener" href="https://mirrors.ustc.edu.cn/archlinux/iso/latest/">中科大的镜像站</a>下载安装
 ISO 镜像。而身处海外心系祖国的同学可以去官网下载。</p>
@@ -413,18 +479,18 @@ ISO 镜像。而身处海外心系祖国的同学可以去官网下载。</p>
 <p>这里使用 VirtualBoxVM，VMware
 的也可以参考一下。首先点击创建虚拟机。填入名字，最好和 Arch Linux
 有关，然后选择刚刚下载的安装镜像。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/lixuannan/img/vm1.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/lixuannan/img/vm1.png" /></p>
 <p>然后设置合适的 CPU
 和内存，对于一般的情况，直接拖到绿色的最右侧即可。需要注意的是，一定要勾选
 <strong>启用 EFI</strong>，要不然安装会出错。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/lixuannan/img/vm2.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/lixuannan/img/vm2.png" /></p>
 <p>此后选择合适的虚拟硬盘大小，这个将决定后面虚拟机可以使用的硬盘大小，建议尽量大一些，反正虚拟机用多少占用多少实际空间。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/lixuannan/img/vm3.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/lixuannan/img/vm3.png" /></p>
 <p>保存。然后进入设置-显示，并将显存设置到最大，开启 3D 加速。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/lixuannan/img/vm5.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/lixuannan/img/vm5.png" /></p>
 <h2 id="安装系统">安装系统</h2>
 <p>开启虚拟机，一般来说会进入到一个 Live 环境，就像下面这样。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/lixuannan/img/vm6.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/lixuannan/img/vm6.png" /></p>
 <p>下面的操作就都将在这个窗口里面进行。</p>
 <h3 id="硬盘分区">硬盘分区</h3>
 <h4 id="创建分区">创建分区</h4>
@@ -440,7 +506,7 @@ Space，可以然后你需要通过操作键盘的左右键来选到
 分区。需要提醒的是，在分区的时候不填写大小就会默认使用所有空间。</p>
 <p>完成分区操作后应该是下面这样的。</p>
 <p><img
-src="https://cdn.jsdelivr.net/gh/lixuannan/img/Screenshot%20from%202024-08-22%2018-35-09.png" srcset="/img/loading.gif" lazyload /></p>
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/Screenshot%20from%202024-08-22%2018-35-09.png" /></p>
 <p>然后你需要将通过左右键光标移动到 <code>Write</code> 回车并输入
 <code>yes</code> 来写入分区表。最后 <code>Quit</code> 即可。</p>
 <h4 id="格式化分区">格式化分区</h4>
@@ -539,7 +605,7 @@ Linux
 <p>最后编辑 <code>/etc/sudoers</code>
 文件将下面这一行代码取消注释（删除前面的 <code>#</code>）。</p>
 <p><img
-src="https://cdn.jsdelivr.net/gh/lixuannan/img/Screenshot%20from%202024-08-22%2019-58-03.png" srcset="/img/loading.gif" lazyload /></p>
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/Screenshot%20from%202024-08-22%2019-58-03.png" /></p>
 <h3 id="配置引导程序">配置引导程序</h3>
 <p>这是最后，也是最关键的步骤。</p>
 <p>首先使用命令 <code>pacman -S grub efibootmgr</code>
@@ -561,6 +627,27 @@ src="https://cdn.jsdelivr.net/gh/lixuannan/img/Screenshot%20from%202024-08-22%20
             <hr/>
             <div>
               <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%9E%84%E5%BB%BA%E8%B6%85%E5%BC%BA-OI-%E7%B3%BB%E7%BB%9F/" class="category-chain-item">构建超强 OI 系统</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
   
   
     <div class="post-meta">
@@ -760,10 +847,6 @@ src="https://cdn.jsdelivr.net/gh/lixuannan/img/Screenshot%20from%202024-08-22%20
     
 
     
-      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
-        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
-      </a>
-    
 
     
       <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
@@ -851,29 +934,8 @@ src="https://cdn.jsdelivr.net/gh/lixuannan/img/Screenshot%20from%202024-08-22%20
 <script  src="/js/plugins.js" ></script>
 
 
-  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
-  <script>
-    (function (window, document) {
-      var typing = Fluid.plugins.typing;
-      var subtitle = document.getElementById('subtitle');
-      if (!subtitle || !typing) {
-        return;
-      }
-      var text = subtitle.getAttribute('data-typed-text');
-      
-        typing(text);
-      
-    })(window, document);
-  </script>
 
 
-
-
-  
-    
-      <script  src="/js/img-lazyload.js" ></script>
-    
-  
 
 
 
@@ -979,7 +1041,7 @@ src="https://cdn.jsdelivr.net/gh/lixuannan/img/Screenshot%20from%202024-08-22%20
               inlineMath: { '[+]': [['$', '$']] }
             },
             loader : {
-              load: ['ui/lazy']
+              
             },
             options: {
               renderActions: {

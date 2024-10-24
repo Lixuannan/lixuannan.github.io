@@ -21,15 +21,15 @@
   <meta name="author" content="CodingCow Lee">
   <meta name="keywords" content="python,ml,deeplearning,dl,c++,c,pytorch,noi,oi,ioi,noip,csp-j,csp-s,oier,tyoi,oiclass">
   
-    <meta name="description" content="定义 素数，又被称为质数。我们一般定义质数为除了 \(1\) 和自身之外没有其他因数的数，特别的 $1 $ 不是质数。 判断 试除法 我们考虑如何判断质数，一种很显然的思路就是枚举这个数的因数。假设这个数是 \(x\)，则我们可以枚举 \([2,\,\sqrt{x}]\) 之间的整数，判断是否可以整除，如果没有找到一个可以整除的数，那么可以认为这是一个质数。时间复杂度是 \(O(\sqrt{x})">
+    <meta name="description" content="算法详解 - 素数 定义 素数，又被称为质数。我们一般定义质数为除了 \(1\) 和自身之外没有其他因数的数，特别的 $1 $ 不是质数。 判断 试除法 我们考虑如何判断质数，一种很显然的思路就是枚举这个数的因数。假设这个数是 \(x\)，则我们可以枚举 \([2,\,\sqrt{x}]\) 之间的整数，判断是否可以整除，如果没有找到一个可以整除的数，那么可以认为这是一个质数。时间复杂度是 \(O">
 <meta property="og:type" content="article">
 <meta property="og:title" content="算法详解 - 素数">
 <meta property="og:url" content="https://lixuannan.github.io/posts/29158.html">
 <meta property="og:site_name" content="CodingCow&#39;s Blog">
-<meta property="og:description" content="定义 素数，又被称为质数。我们一般定义质数为除了 \(1\) 和自身之外没有其他因数的数，特别的 $1 $ 不是质数。 判断 试除法 我们考虑如何判断质数，一种很显然的思路就是枚举这个数的因数。假设这个数是 \(x\)，则我们可以枚举 \([2,\,\sqrt{x}]\) 之间的整数，判断是否可以整除，如果没有找到一个可以整除的数，那么可以认为这是一个质数。时间复杂度是 \(O(\sqrt{x})">
+<meta property="og:description" content="算法详解 - 素数 定义 素数，又被称为质数。我们一般定义质数为除了 \(1\) 和自身之外没有其他因数的数，特别的 $1 $ 不是质数。 判断 试除法 我们考虑如何判断质数，一种很显然的思路就是枚举这个数的因数。假设这个数是 \(x\)，则我们可以枚举 \([2,\,\sqrt{x}]\) 之间的整数，判断是否可以整除，如果没有找到一个可以整除的数，那么可以认为这是一个质数。时间复杂度是 \(O">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-04-09T06:58:00.000Z">
-<meta property="article:modified_time" content="2024-10-21T12:11:42.155Z">
+<meta property="article:modified_time" content="2024-10-24T03:45:17.645Z">
 <meta property="article:author" content="CodingCow Lee">
 <meta property="article:tag" content="算法详解">
 <meta property="article:tag" content="素数">
@@ -78,7 +78,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"lixuannan.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":135,"cursorChar":"|","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":3},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":true,"offset_factor":2,"lazyload":true},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null},"gtag":null,"woyaola":null,"cnzz":null},"search_path":"/search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"lixuannan.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":135,"cursorChar":"|","loop":false,"scope":["home"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":3},"lazyload":{"enable":false,"loading_img":"/img/loading.gif","onlypost":true,"offset_factor":2,"lazyload":true},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null},"gtag":null,"woyaola":null,"cnzz":null},"search_path":"/search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -168,7 +168,7 @@
                   
                   
                   
-                  <a class="dropdown-item" href="/tags/%E9%9B%B6%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8-OI/" target="_self">
+                  <a class="dropdown-item" href="/category/%E9%9B%B6%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8-OI/" target="_self">
                     
                     <span>零基础入门 OI</span>
                   </a>
@@ -176,7 +176,7 @@
                   
                   
                   
-                  <a class="dropdown-item" href="/tags/%E6%9E%84%E5%BB%BA%E8%B6%85%E5%BC%BA-OI-%E7%B3%BB%E7%BB%9F/" target="_self">
+                  <a class="dropdown-item" href="/category/%E6%9E%84%E5%BB%BA%E8%B6%85%E5%BC%BA-OI-%E7%B3%BB%E7%BB%9F/" target="_self">
                     
                     <span>构建超强 OI 系统</span>
                   </a>
@@ -184,7 +184,7 @@
                   
                   
                   
-                  <a class="dropdown-item" href="/tags/%E6%B8%B8%E8%AE%B0/" target="_self">
+                  <a class="dropdown-item" href="/category/%E6%B8%B8%E8%AE%B0/" target="_self">
                     
                     <span>游记</span>
                   </a>
@@ -192,7 +192,7 @@
                   
                   
                   
-                  <a class="dropdown-item" href="/tags/%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3/" target="_self">
+                  <a class="dropdown-item" href="/category/%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3/" target="_self">
                     
                     <span>算法详解</span>
                   </a>
@@ -200,7 +200,7 @@
                   
                   
                   
-                  <a class="dropdown-item" href="/tags/%E9%A2%98%E8%A7%A3/" target="_self">
+                  <a class="dropdown-item" href="/category/%E9%A2%98%E8%A7%A3/" target="_self">
                     
                     <span>题解</span>
                   </a>
@@ -292,7 +292,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="算法详解 - 素数"></span>
+            <span id="subtitle">算法详解 - 素数</span>
           
         </div>
 
@@ -320,7 +320,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          957 字
+          871 字
         
       </span>
     
@@ -331,7 +331,7 @@
         
         
         
-          6 分钟
+          4 分钟
         
       </span>
     
@@ -380,6 +380,61 @@
 <div class="category-list">
   
   
+    
+    
+    
+    <div class="category row nomargin-x">
+      <a class="category-item 
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="算法详解"
+        id="heading-804381e9a0f3d80a221839655f520501" role="tab" data-toggle="collapse" href="#collapse-804381e9a0f3d80a221839655f520501"
+        aria-expanded="true"
+      >
+        算法详解
+        <span class="list-group-count">(3)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse show" id="collapse-804381e9a0f3d80a221839655f520501"
+           role="tabpanel" aria-labelledby="heading-804381e9a0f3d80a221839655f520501">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/posts/29158.html" title="算法详解 - 素数"
+           class="list-group-item list-group-item-action
+           active">
+          <span class="category-post">算法详解 - 素数</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/9181.html" title="算法详解 - 重链剖分"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">算法详解 - 重链剖分</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/44079.html" title="算法详解 - 自适应辛普森法"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">算法详解 - 自适应辛普森法</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
 </div>
 
 
@@ -397,7 +452,8 @@
             
               <div class="markdown-body">
                 
-                <h2 id="定义">定义</h2>
+                <h1 id="算法详解---素数">算法详解 - 素数</h1>
+<h2 id="定义">定义</h2>
 <p><strong>素数</strong>，又被称为<strong>质数</strong>。我们一般定义质数为除了
 <span class="math inline">\(1\)</span>
 和自身之外没有其他因数的数，特别的 $1 $ 不是质数。</p>
@@ -466,13 +522,7 @@ class="math inline">\(\mathcal{O}(\log_3n)\)</span> 带一个 <span
 class="math inline">\(7\)</span> 或 <span
 class="math inline">\(3\)</span>​​ 倍的常数，非常优秀！</p>
 <p>下面给出一种正确性较高的实现方式（源自 oi-wiki）</p>
-<p>```cpp bool millerRabin(int n) { if (n &lt; 3 || n % 2 == 0) return n
-== 2; int u = n - 1, t = 0; while (u % 2 == 0) u /= 2, ++t; // test_time
-为测试次数，建议设为不小于 8 //
-的整数以保证正确率，但也不宜过大，否则会影响效率 for (int i = 0; i &lt;
-test_time; ++i) { int a = rand() % (n - 2) + 2, v = quickPow(a, u, n);
-if (v == 1) continue; int s; for (s = 0; s &lt; t; ++s) { if (v == n -
-1) brea                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         </p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><br></code></pre></td></tr></table></figure>
 
                 
               </div>
@@ -481,6 +531,27 @@ if (v == 1) continue; int s; for (s = 0; s &lt; t; ++s) { if (v == n -
             <hr/>
             <div>
               <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3/" class="category-chain-item">算法详解</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
   
   
     <div class="post-meta">
@@ -678,10 +749,6 @@ if (v == 1) continue; int s; for (s = 0; s &lt; t; ++s) { if (v == n -
     
 
     
-      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
-        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
-      </a>
-    
 
     
       <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
@@ -769,29 +836,8 @@ if (v == 1) continue; int s; for (s = 0; s &lt; t; ++s) { if (v == n -
 <script  src="/js/plugins.js" ></script>
 
 
-  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
-  <script>
-    (function (window, document) {
-      var typing = Fluid.plugins.typing;
-      var subtitle = document.getElementById('subtitle');
-      if (!subtitle || !typing) {
-        return;
-      }
-      var text = subtitle.getAttribute('data-typed-text');
-      
-        typing(text);
-      
-    })(window, document);
-  </script>
 
 
-
-
-  
-    
-      <script  src="/js/img-lazyload.js" ></script>
-    
-  
 
 
 
@@ -897,7 +943,7 @@ if (v == 1) continue; int s; for (s = 0; s &lt; t; ++s) { if (v == n -
               inlineMath: { '[+]': [['$', '$']] }
             },
             loader : {
-              load: ['ui/lazy']
+              
             },
             options: {
               renderActions: {

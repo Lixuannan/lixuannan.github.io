@@ -21,18 +21,32 @@
   <meta name="author" content="CodingCow Lee">
   <meta name="keywords" content="python,ml,deeplearning,dl,c++,c,pytorch,noi,oi,ioi,noip,csp-j,csp-s,oier,tyoi,oiclass">
   
-    <meta name="description" content="思路 首先我们可以根据题意列出式子： \[ \sum_{p \in {\mathbb P}}\sum_{i &#x3D; 1}^{n} \sum_{j&#x3D;1}^n [\gcd(i, j)&#x3D;p] \] 根据一些神秘的直觉，可以将式子化简成下面的样子： \[ \sum_{p \in {\mathbb P}} \sum_{i &#x3D; 1}^{\left\lfloor\frac n p\right\rfloor}\sum">
+    <meta name="description" content="Luogu P2568 GCD 题解 思路 首先我们可以根据题意列出式子： \[ \sum_{p \in {\mathbb P}}\sum_{i &#x3D; 1}^{n} \sum_{j&#x3D;1}^n [\gcd(i, j)&#x3D;p] \] 根据一些神秘的直觉，可以将式子化简成下面的样子： \[ \sum_{p \in {\mathbb P}} \sum_{i &#x3D; 1}^{\left\lfloor\frac n">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Luogu P2568 GCD 题解">
 <meta property="og:url" content="https://lixuannan.github.io/posts/33139.html">
 <meta property="og:site_name" content="CodingCow&#39;s Blog">
-<meta property="og:description" content="思路 首先我们可以根据题意列出式子： \[ \sum_{p \in {\mathbb P}}\sum_{i &#x3D; 1}^{n} \sum_{j&#x3D;1}^n [\gcd(i, j)&#x3D;p] \] 根据一些神秘的直觉，可以将式子化简成下面的样子： \[ \sum_{p \in {\mathbb P}} \sum_{i &#x3D; 1}^{\left\lfloor\frac n p\right\rfloor}\sum">
+<meta property="og:description" content="Luogu P2568 GCD 题解 思路 首先我们可以根据题意列出式子： \[ \sum_{p \in {\mathbb P}}\sum_{i &#x3D; 1}^{n} \sum_{j&#x3D;1}^n [\gcd(i, j)&#x3D;p] \] 根据一些神秘的直觉，可以将式子化简成下面的样子： \[ \sum_{p \in {\mathbb P}} \sum_{i &#x3D; 1}^{\left\lfloor\frac n">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-05-08T08:46:00.000Z">
-<meta property="article:modified_time" content="2024-10-21T12:11:42.157Z">
+<meta property="article:modified_time" content="2024-10-24T03:46:12.917Z">
 <meta property="article:author" content="CodingCow Lee">
-<meta property="article:tag" content="题解">
-<meta property="article:tag" content="洛谷">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content="ml">
+<meta property="article:tag" content="deeplearning">
+<meta property="article:tag" content="dl">
+<meta property="article:tag" content="c++">
+<meta property="article:tag" content="c">
+<meta property="article:tag" content="pytorch">
+<meta property="article:tag" content="noi">
+<meta property="article:tag" content="oi">
+<meta property="article:tag" content="ioi">
+<meta property="article:tag" content="noip">
+<meta property="article:tag" content="csp-j">
+<meta property="article:tag" content="csp-s">
+<meta property="article:tag" content="oier">
+<meta property="article:tag" content="tyoi">
+<meta property="article:tag" content="oiclass">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:creator" content="@CodingCow">
 <meta name="twitter:site" content="lixuannan.github.io">
@@ -77,7 +91,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"lixuannan.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":135,"cursorChar":"|","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":3},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":true,"offset_factor":2,"lazyload":true},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null},"gtag":null,"woyaola":null,"cnzz":null},"search_path":"/search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"lixuannan.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":135,"cursorChar":"|","loop":false,"scope":["home"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":3},"lazyload":{"enable":false,"loading_img":"/img/loading.gif","onlypost":true,"offset_factor":2,"lazyload":true},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null},"gtag":null,"woyaola":null,"cnzz":null},"search_path":"/search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -167,7 +181,7 @@
                   
                   
                   
-                  <a class="dropdown-item" href="/tags/%E9%9B%B6%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8-OI/" target="_self">
+                  <a class="dropdown-item" href="/category/%E9%9B%B6%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8-OI/" target="_self">
                     
                     <span>零基础入门 OI</span>
                   </a>
@@ -175,7 +189,7 @@
                   
                   
                   
-                  <a class="dropdown-item" href="/tags/%E6%9E%84%E5%BB%BA%E8%B6%85%E5%BC%BA-OI-%E7%B3%BB%E7%BB%9F/" target="_self">
+                  <a class="dropdown-item" href="/category/%E6%9E%84%E5%BB%BA%E8%B6%85%E5%BC%BA-OI-%E7%B3%BB%E7%BB%9F/" target="_self">
                     
                     <span>构建超强 OI 系统</span>
                   </a>
@@ -183,7 +197,7 @@
                   
                   
                   
-                  <a class="dropdown-item" href="/tags/%E6%B8%B8%E8%AE%B0/" target="_self">
+                  <a class="dropdown-item" href="/category/%E6%B8%B8%E8%AE%B0/" target="_self">
                     
                     <span>游记</span>
                   </a>
@@ -191,7 +205,7 @@
                   
                   
                   
-                  <a class="dropdown-item" href="/tags/%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3/" target="_self">
+                  <a class="dropdown-item" href="/category/%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3/" target="_self">
                     
                     <span>算法详解</span>
                   </a>
@@ -199,7 +213,7 @@
                   
                   
                   
-                  <a class="dropdown-item" href="/tags/%E9%A2%98%E8%A7%A3/" target="_self">
+                  <a class="dropdown-item" href="/category/%E9%A2%98%E8%A7%A3/" target="_self">
                     
                     <span>题解</span>
                   </a>
@@ -291,7 +305,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Luogu P2568 GCD 题解"></span>
+            <span id="subtitle">Luogu P2568 GCD 题解</span>
           
         </div>
 
@@ -319,7 +333,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          326 字
+          329 字
         
       </span>
     
@@ -379,6 +393,74 @@
 <div class="category-list">
   
   
+    
+    
+    
+    <div class="category row nomargin-x">
+      <a class="category-item 
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="洛谷"
+        id="heading-11477e19ac33e6359c8d21a11e477a2e" role="tab" data-toggle="collapse" href="#collapse-11477e19ac33e6359c8d21a11e477a2e"
+        aria-expanded="true"
+      >
+        洛谷
+        <span class="list-group-count">(1)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse show" id="collapse-11477e19ac33e6359c8d21a11e477a2e"
+           role="tabpanel" aria-labelledby="heading-11477e19ac33e6359c8d21a11e477a2e">
+        
+        
+          
+          
+  <div class="category-post-list">
+    
+    
+  </div>
+
+          
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem 
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="题解"
+        id="heading-4161afd7a4e47ddb8376cb63ba58880f" role="tab" data-toggle="collapse" href="#collapse-4161afd7a4e47ddb8376cb63ba58880f"
+        aria-expanded="true"
+      >
+        题解
+        <span class="list-group-count">(1)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse show" id="collapse-4161afd7a4e47ddb8376cb63ba58880f"
+           role="tabpanel" aria-labelledby="heading-4161afd7a4e47ddb8376cb63ba58880f">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/posts/33139.html" title="Luogu P2568 GCD 题解"
+           class="list-group-item list-group-item-action
+           active">
+          <span class="category-post">Luogu P2568 GCD 题解</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
+        
+      </div>
+    </div>
+  
 </div>
 
 
@@ -396,7 +478,8 @@
             
               <div class="markdown-body">
                 
-                <h2 id="思路">思路</h2>
+                <h1 id="luogu-p2568-gcd-题解">Luogu P2568 GCD 题解</h1>
+<h2 id="思路">思路</h2>
 <p>首先我们可以根据题意列出式子： <span class="math display">\[
 \sum_{p \in {\mathbb P}}\sum_{i = 1}^{n} \sum_{j=1}^n [\gcd(i, j)=p]
 \]</span> 根据一些神秘的直觉，可以将式子化简成下面的样子： <span
@@ -404,7 +487,8 @@ class="math display">\[
 \sum_{p \in {\mathbb P}} \sum_{i = 1}^{\left\lfloor\frac n
 p\right\rfloor}\sum_{j = 1}^{\left\lfloor\frac n p\right\rfloor}[\gcd(i,
 j) = 1]
-\]</span> 根据欧拉函数 <span class="math inline">\(\varphi\)</span>
+\]</span></p>
+<p>根据欧拉函数 <span class="math inline">\(\varphi\)</span>
 的定义，我们可以把式子进一步化简： <span class="math display">\[
 \begin{align*}
 原式 &amp;= \sum_{p \in {\mathbb P}} \sum_{i = 1}^{\left\lfloor\frac n
@@ -413,11 +497,11 @@ p\right\rfloor} \left(2 \times \left(\sum_{j = 1}^i [\gcd(i, j)]\right)-
 &amp;= \sum_{p \in {\mathbb P}} \left(2 \times\sum_{i =
 1}^{\left\lfloor\frac n p\right\rfloor} \varphi(i)\right) - 1
 \end{align*}
-\]</span>
-然后线性筛筛出所有质数和欧拉函数值，做一下前缀和就可以了。时间复杂度是
+\]</span></p>
+<p>然后线性筛筛出所有质数和欧拉函数值，做一下前缀和就可以了。时间复杂度是
 <span class="math inline">\({\mathcal O}(n)\)</span></p>
 <h2 id="代码">代码</h2>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;bitset&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;vector&gt;</span></span><br><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> int long long</span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-type">int</span> n, ans, phi[<span class="hljs-number">10000009</span>];<br>bitset&lt;10000009&gt; p;<br>vector&lt;<span class="hljs-type">int</span>&gt; pri;<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">init</span><span class="hljs-params">(<span class="hljs-type">int</span> n)</span> </span>&#123;<br>	phi[<span class="hljs-number">1</span>] = <span class="hljs-number">1</span>;<br>	<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">2</span>; i &lt;= n; i++) &#123;<br>		<span class="hljs-keyword">if</span> (!p[i]) &#123;<br>			pri.<span class="hljs-built_in">push_back</span>(i);<br>			phi[i] = i - <span class="hljs-number">1</span>;<br>		&#125;<br>		<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j: pri) &#123;<br>			<span class="hljs-keyword">if</span> (i * j &gt; n) &#123;<br>				<span class="hljs-keyword">break</span>;<br>			&#125;<br>			p[i * j] = <span class="hljs-literal">true</span>;<br>			<span class="hljs-keyword">if</span> (i % j == <span class="hljs-number">0</span>) &#123;<br>				phi[i * j] = phi[i] * j;<br>				<span class="hljs-keyword">break</span>;<br>			&#125; <span class="hljs-keyword">else</span> &#123;<br>				phi[i * j] = phi[i] * phi[j];<br>			&#125;<br>		&#125;<br>	&#125;<br>	<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++) &#123;<br>		phi[i] += phi[i - <span class="hljs-number">1</span>];<br>	&#125;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">signed</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>	cin &gt;&gt; n;<br>	<span class="hljs-built_in">init</span>(n);<br>	<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i: pri) &#123;<br>		ans += (phi[n / i] &lt;&lt; <span class="hljs-number">1LL</span>) - <span class="hljs-number">1</span>;<br>	&#125;<br>	cout &lt;&lt; ans;<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;bitset&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;vector&gt;</span></span><br><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> int long long</span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-type">int</span> n, ans, phi[<span class="hljs-number">10000009</span>];<br>bitset&lt;10000009&gt; p;<br>vector&lt;<span class="hljs-type">int</span>&gt; pri;<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">init</span><span class="hljs-params">(<span class="hljs-type">int</span> n)</span> </span>&#123;<br>    phi[<span class="hljs-number">1</span>] = <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">2</span>; i &lt;= n; i++) &#123;<br>        <span class="hljs-keyword">if</span> (!p[i]) &#123;<br>            pri.<span class="hljs-built_in">push_back</span>(i);<br>            phi[i] = i - <span class="hljs-number">1</span>;<br>        &#125;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j: pri) &#123;<br>            <span class="hljs-keyword">if</span> (i * j &gt; n) &#123;<br>                <span class="hljs-keyword">break</span>;<br>            &#125;<br>            p[i * j] = <span class="hljs-literal">true</span>;<br>            <span class="hljs-keyword">if</span> (i % j == <span class="hljs-number">0</span>) &#123;<br>                phi[i * j] = phi[i] * j;<br>                <span class="hljs-keyword">break</span>;<br>            &#125; <span class="hljs-keyword">else</span> &#123;<br>                phi[i * j] = phi[i] * phi[j];<br>            &#125;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++) &#123;<br>        phi[i] += phi[i - <span class="hljs-number">1</span>];<br>    &#125;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">signed</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    cin &gt;&gt; n;<br>    <span class="hljs-built_in">init</span>(n);<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i: pri) &#123;<br>        ans += (phi[n / i] &lt;&lt; <span class="hljs-number">1LL</span>) - <span class="hljs-number">1</span>;<br>    &#125;<br>    cout &lt;&lt; ans;<br>&#125;<br></code></pre></td></tr></table></figure>
 
                 
               </div>
@@ -427,15 +511,34 @@ p\right\rfloor} \left(2 \times \left(\sum_{j = 1}^i [\gcd(i, j)]\right)-
             <div>
               <div class="post-metas my-3">
   
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
   
-    <div class="post-meta">
-      <i class="iconfont icon-tags"></i>
-      
-        <a href="/tags/%E9%A2%98%E8%A7%A3/" class="print-no-link">#题解</a>
-      
-        <a href="/tags/%E6%B4%9B%E8%B0%B7/" class="print-no-link">#洛谷</a>
-      
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%B4%9B%E8%B0%B7/" class="category-chain-item">洛谷</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E6%B4%9B%E8%B0%B7/%E9%A2%98%E8%A7%A3/" class="category-chain-item">题解</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
     </div>
+  
   
 </div>
 
@@ -621,10 +724,6 @@ p\right\rfloor} \left(2 \times \left(\sum_{j = 1}^i [\gcd(i, j)]\right)-
     
 
     
-      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
-        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
-      </a>
-    
 
     
       <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
@@ -712,29 +811,8 @@ p\right\rfloor} \left(2 \times \left(\sum_{j = 1}^i [\gcd(i, j)]\right)-
 <script  src="/js/plugins.js" ></script>
 
 
-  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
-  <script>
-    (function (window, document) {
-      var typing = Fluid.plugins.typing;
-      var subtitle = document.getElementById('subtitle');
-      if (!subtitle || !typing) {
-        return;
-      }
-      var text = subtitle.getAttribute('data-typed-text');
-      
-        typing(text);
-      
-    })(window, document);
-  </script>
 
 
-
-
-  
-    
-      <script  src="/js/img-lazyload.js" ></script>
-    
-  
 
 
 
@@ -840,7 +918,7 @@ p\right\rfloor} \left(2 \times \left(\sum_{j = 1}^i [\gcd(i, j)]\right)-
               inlineMath: { '[+]': [['$', '$']] }
             },
             loader : {
-              load: ['ui/lazy']
+              
             },
             options: {
               renderActions: {
