@@ -21,19 +21,20 @@
   <meta name="author" content="CodingCow Lee">
   <meta name="keywords" content="python,ml,deeplearning,dl,c++,c,pytorch,noi,oi,ioi,noip,csp-j,csp-s,oier,tyoi,oiclass">
   
-    <meta name="description" content="题目：  代码： 1234567891011121314151617181920212223242526272829#include &quot;iostream&quot;#include &quot;cstring&quot;using namespace std;int n, cnt, t;int main()&#123;    cin &gt;&gt; n;    int a[n + 1]">
+    <meta name="description" content="Linux 制作词云图的命令行工具——Wordcloud  本文翻译自 https:&#x2F;&#x2F;itsfoss.com&#x2F;wordcloud&#x2F;  你是否曾在社区或壁纸网站上看到过像下面这样的酷炫壁纸？   示例词云壁纸  我相信许多人都见过这样的壁纸。 在本教程中，我将如何在短时间内制作这样的壁纸和图像。相信我，你不需要 Photoshop 或 GIMP 来完成这些，一切都很简单！ Wordcloud，词云">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Oiclass Q&amp;A P1106">
-<meta property="og:url" content="https://lixuannan.github.io/posts/17897.html">
+<meta property="og:title" content="Linux 制作词云图的命令行工具——Wordcloud">
+<meta property="og:url" content="https://lixuannan.github.io/posts/47040.html">
 <meta property="og:site_name" content="CodingCow&#39;s Blog">
-<meta property="og:description" content="题目：  代码： 1234567891011121314151617181920212223242526272829#include &quot;iostream&quot;#include &quot;cstring&quot;using namespace std;int n, cnt, t;int main()&#123;    cin &gt;&gt; n;    int a[n + 1]">
+<meta property="og:description" content="Linux 制作词云图的命令行工具——Wordcloud  本文翻译自 https:&#x2F;&#x2F;itsfoss.com&#x2F;wordcloud&#x2F;  你是否曾在社区或壁纸网站上看到过像下面这样的酷炫壁纸？   示例词云壁纸  我相信许多人都见过这样的壁纸。 在本教程中，我将如何在短时间内制作这样的壁纸和图像。相信我，你不需要 Photoshop 或 GIMP 来完成这些，一切都很简单！ Wordcloud，词云">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-08-11T05:04:12.000Z">
-<meta property="article:modified_time" content="2024-10-26T06:16:50.560Z">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lixuannan/img/transperant.png">
+<meta property="article:published_time" content="2024-10-26T05:33:00.000Z">
+<meta property="article:modified_time" content="2024-10-26T06:16:50.552Z">
 <meta property="article:author" content="CodingCow Lee">
-<meta property="article:tag" content="OiClass">
-<meta property="article:tag" content="Q&amp;A">
+<meta property="article:tag" content="词云">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/lixuannan/img/transperant.png">
 <meta name="twitter:creator" content="@CodingCow">
 <meta name="twitter:site" content="lixuannan.github.io">
   
@@ -41,7 +42,7 @@
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>Oiclass Q&amp;A P1106 | CodingCow&#39;s Blog</title>
+  <title>Linux 制作词云图的命令行工具——Wordcloud | CodingCow&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -291,7 +292,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle">Oiclass Q&A P1106</span>
+            <span id="subtitle">Linux 制作词云图的命令行工具——Wordcloud</span>
           
         </div>
 
@@ -307,8 +308,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-08-11 13:04" pubdate>
-          2022年8月11日 下午
+        <time datetime="2024-10-26 13:33" pubdate>
+          2024年10月26日 下午
         </time>
       </span>
     
@@ -319,7 +320,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          322 字
+          1.5k 字
         
       </span>
     
@@ -330,7 +331,7 @@
         
         
         
-          2 分钟
+          7 分钟
         
       </span>
     
@@ -379,6 +380,184 @@
 <div class="category-list">
   
   
+    
+    
+    
+    <div class="category row nomargin-x">
+      <a class="category-item 
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="翻译"
+        id="heading-8b3607d0f4181a3cb6ffdccf7185f09b" role="tab" data-toggle="collapse" href="#collapse-8b3607d0f4181a3cb6ffdccf7185f09b"
+        aria-expanded="true"
+      >
+        翻译
+        <span class="list-group-count">(7)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse show" id="collapse-8b3607d0f4181a3cb6ffdccf7185f09b"
+           role="tabpanel" aria-labelledby="heading-8b3607d0f4181a3cb6ffdccf7185f09b">
+        
+        
+          
+          
+  <div class="category-post-list">
+    
+    
+  </div>
+
+          
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem collapsed
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="DEBUGPOINTNEWS"
+        id="heading-73afb2609c2e7f48835b36f96b487f44" role="tab" data-toggle="collapse" href="#collapse-73afb2609c2e7f48835b36f96b487f44"
+        aria-expanded="false"
+      >
+        DEBUGPOINTNEWS
+        <span class="list-group-count">(1)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse " id="collapse-73afb2609c2e7f48835b36f96b487f44"
+           role="tabpanel" aria-labelledby="heading-73afb2609c2e7f48835b36f96b487f44">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/posts/32246.html" title="Tor 与 Tails 项目合并"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">Tor 与 Tails 项目合并</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem 
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="ITSFOSS"
+        id="heading-10c60e2686d42569c4db79639219bcd3" role="tab" data-toggle="collapse" href="#collapse-10c60e2686d42569c4db79639219bcd3"
+        aria-expanded="true"
+      >
+        ITSFOSS
+        <span class="list-group-count">(4)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse show" id="collapse-10c60e2686d42569c4db79639219bcd3"
+           role="tabpanel" aria-labelledby="heading-10c60e2686d42569c4db79639219bcd3">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/posts/47040.html" title="Linux 制作词云图的命令行工具——Wordcloud"
+           class="list-group-item list-group-item-action
+           active">
+          <span class="category-post">Linux 制作词云图的命令行工具——Wordcloud</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/33074.html" title="RefreshOS——一个潜在的 Debian 替代品"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">RefreshOS——一个潜在的 Debian 替代品</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/27832.html" title="使用 GSConnect 无缝连接安卓手机和 Linux"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">使用 GSConnect 无缝连接安卓手机和 Linux</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/51813.html" title="Ubuntu 24.10 的 6 个新功能"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">Ubuntu 24.10 的 6 个新功能</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem collapsed
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="ZDNET"
+        id="heading-f7536e34a654c455d79133144e9077a5" role="tab" data-toggle="collapse" href="#collapse-f7536e34a654c455d79133144e9077a5"
+        aria-expanded="false"
+      >
+        ZDNET
+        <span class="list-group-count">(2)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse " id="collapse-f7536e34a654c455d79133144e9077a5"
+           role="tabpanel" aria-labelledby="heading-f7536e34a654c455d79133144e9077a5">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/posts/10358.html" title="4 个基于 GNOME 的好看的桌面环境"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">4 个基于 GNOME 的好看的桌面环境</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/1177.html" title="5 个你值得尝试的 Linux 终端"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">5 个你值得尝试的 Linux 终端</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
+        
+      </div>
+    </div>
+  
 </div>
 
 
@@ -391,29 +570,137 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">Oiclass Q&amp;A P1106</h1>
+            <h1 id="seo-header">Linux 制作词云图的命令行工具——Wordcloud</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="题目">题目：</h1>
+                <h1 id="linux-制作词云图的命令行工具wordcloud">Linux
+制作词云图的命令行工具——Wordcloud</h1>
+<blockquote>
+<p>本文翻译自 <a target="_blank" rel="noopener" href="https://itsfoss.com/wordcloud/"
+class="uri">https://itsfoss.com/wordcloud/</a></p>
+</blockquote>
+<p>你是否曾在社区或壁纸网站上看到过像下面这样的酷炫壁纸？</p>
+<figure>
+<img src="https://cdn.jsdelivr.net/gh/lixuannan/img/transperant.png"
+alt="示例词云壁纸" />
+<figcaption aria-hidden="true">示例词云壁纸</figcaption>
+</figure>
+<p>我相信许多人都见过这样的壁纸。</p>
+<p>在本教程中，我将如何在短时间内制作这样的壁纸和图像。相信我，你不需要
+Photoshop 或 GIMP 来完成这些，一切都很简单！</p>
+<h2 id="wordcloud词云生成器">Wordcloud，词云生成器</h2>
+<p><a target="_blank" rel="noopener" href="https://github.com/amueller/word_cloud">Wordcloud</a>
+是一个用于创建词云图像的 Python
+程序。该项目已经存在了很长时间，并且被用作许多其他项目的依赖项。</p>
+<p>感谢 Wordcloud 的开发者，我们现在可以生成自己的图片了。</p>
+<h2 id="安装-wordcloud">安装 wordcloud</h2>
+<p>Wordcloud 可以在 Ubuntu 的默认仓库中找到。安装命令是：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> apt install python3-wordcloud<br></code></pre></td></tr></table></figure>
+<p>这将安装几个软件包，占用一些磁盘空间。所以请注意，下载量可能较大。</p>
+<p>Wordcloud 也可以作为 Python 包安装。你可以通过 pip 或 pipx
+安装。我更喜欢使用 pipx，以避免一些可能的麻烦。你安装完 pipx
+之后，就可以使用以下命令安装 wordcloud：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">pipx install wordcloud<br></code></pre></td></tr></table></figure>
+<p>就这样，你已经安装了 wordcloud，可以使用命令
+<code>wordcloud_cli</code>。</p>
+<p>无论哪种方式，确保已安装 matplotlib、pillow 和 numpy。这些可以通过
+Ubuntu 仓库中的 <code>python3-matplotlib</code> 和
+<code>python3-numpy</code> 包安装。</p>
+<h2 id="使用-wordcloud">使用 wordcloud</h2>
+<p>Wordcloud
+提供了许多选项和功能，你可以用它来创建独特的图像。让我们来看看如何使用吧！</p>
+<p>在创建所有词云图像之前，你需要准备一些词的集合。通常情况下，你可以将这些词存储在一个文本文件中。其他情况将在下面描述。</p>
+<h3 id="使用词语创建一个简单的图片">使用词语创建一个简单的图片</h3>
+<p>假设你有 100 个随机词保存在一个名为 <code>words.txt</code>
+的文件中。使用以下命令从该文件创建图片：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">wordcloud_cli --text &lt;/path/to/words.txt&gt; --imagefile wallpaper.png<br></code></pre></td></tr></table></figure>
+<p>这将使用给定的词创建一个 400×200 的 PNG 图像。</p>
 <p><img
-src="https://cdn.jsdelivr.net/gh/lixuannan/img/n2rZbLt3TgzsCeE.png" /></p>
-<h2 id="代码">代码：</h2>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;iostream&quot;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;cstring&quot;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-type">int</span> n, cnt, t;<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>    cin &gt;&gt; n;<br>    <span class="hljs-type">int</span> a[n + <span class="hljs-number">1</span>];<br>    <span class="hljs-built_in">memset</span>(a, <span class="hljs-number">0</span>, <span class="hljs-keyword">sizeof</span> a);<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>; i &lt;= n; i++)&#123;<br>        cin &gt;&gt; a[i];<br>    &#125;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>; i &lt;= n; i++)&#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j=<span class="hljs-number">1</span>; j &lt;= n; j++)&#123;<br>            <span class="hljs-keyword">if</span> (a[j] &gt; a[j<span class="hljs-number">+1</span>])&#123;<br>                t = a[j];<br>                a[j] = a[j + <span class="hljs-number">1</span>];<br>                a[j + <span class="hljs-number">1</span>] = t;<br>                cnt += <span class="hljs-number">1</span>;<br>            &#125; <span class="hljs-keyword">else</span>&#123;<br>                <span class="hljs-keyword">continue</span>;<br>            &#125;<br>        &#125;<br>    &#125;<br><span class="hljs-comment">//    for (int i=1; i &lt;= n; i++)&#123;</span><br><span class="hljs-comment">//        cout &lt;&lt; a[i] &lt;&lt; &quot; &quot;;</span><br><span class="hljs-comment">//    &#125;</span><br>    cout &lt;&lt; cnt;<br>&#125;<br></code></pre></td></tr></table></figure>
-<h2 id="超神奇的三次运行结果">超神奇的三次运行结果：</h2>
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/wallpaper-1.png" /></p>
+<h3 id="创建自定义尺寸的图片">创建自定义尺寸的图片</h3>
+<p>现在，假设你使用 ChatGPT 或某些 AI
+创建了包含数百个词的文本文件。在这种情况下，较高分辨率的图片显示效果会更好。让我们看看如何创建一张大图！</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">wordcloud_cli --text &lt;/path/to/words.txt&gt; --width 1920 --height 1080 --imagefile highres.png<br></code></pre></td></tr></table></figure>
+<p>通过这个命令，它将创建一个高分辨率图像（此例为 1920×1080）。</p>
+<h3 id="使用自定义字体">使用自定义字体</h3>
+<p>默认情况下，wordcloud 使用 DroidSansMono
+字体。如果你需要使用自定义字体创建图片，可以使用 <code>--fontfile</code>
+选项。</p>
+<p>你需要将字体文件的位置指定给 <code>--fontfile</code>
+选项，因此你应手头有所需的文件。</p>
+<p>我将使用 Comic Neue 字体来创建图像。你可以从 <a
+target="_blank" rel="noopener" href="https://fonts.google.com/">Google 字体</a> 网站下载字体。</p>
+<p>提取下载到的压缩文件，并将特定的字体文件放在一个容易访问的位置。</p>
+<p>现在，运行命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">wordcloud_cli --text &lt;/path/to/words.txt&gt; --width 800 --height 400 --fontfile &lt;/path/to/font/file&gt; --imagefile customfont.png<br></code></pre></td></tr></table></figure>
+<p>现在，你有了一张使用自定义字体的词云图片！</p>
 <p><img
-src="https://cdn.jsdelivr.net/gh/lixuannan/img/scAzYh1L_uEK7PSm8v0WQ.png"
-alt="image" /><img
-src="https://cdn.jsdelivr.net/gh/lixuannan/img/yiwF1-5fHv3pwoaLkXYdT.png"
-alt="image" /></p>
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/customfont.png" /></p>
+<h3 id="自定义背景颜色">自定义背景颜色</h3>
+<p>如果你不喜欢黑色背景？不用担心，你可以应用不同的颜色。</p>
+<p>Wordcloud 支持多种颜色格式。你可以<a
+target="_blank" rel="noopener" href="https://pillow.readthedocs.io/en/stable/reference/ImageColor.html">点击这里</a>查看支持的颜色格式，并根据需要使用。</p>
+<p>我使用的是 Nord 风格的背景颜色，所以使用以下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">wordcloud_cli --text &lt;/path/to/words.txt&gt; --background <span class="hljs-string">&#x27;#313744&#x27;</span> --imagefile nord-background.png<br></code></pre></td></tr></table></figure>
 <p><img
-src="https://cdn.jsdelivr.net/gh/lixuannan/img/RdHkX9EzxzOgmsxmtxJTd.png" /></p>
-<h2
-id="经过大佬的提醒事实问题在于数组没有设全局修改思路如下">经过大佬的提醒，事实问题在于数组没有设全局，修改思路如下：</h2>
-<p>把数组改成全局，并在交换的时候判断 <code>a[j]</code>和
-<code>a[j + 1]</code>是否不为0，从而解决无效交换的问题，最终，历经千辛万苦，这道题还是AC了。实现的代码如下：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;iostream&quot;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;cstring&quot;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-type">int</span> a[<span class="hljs-number">10001</span>];<br><span class="hljs-type">int</span> n, cnt, t;<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>    cin &gt;&gt; n;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>; i &lt;= n; i++)&#123;<br>        cin &gt;&gt; a[i];<br>    &#125;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>; i &lt;= n; i++)&#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j=<span class="hljs-number">1</span>; j &lt;= n; j++)&#123;<br>            <span class="hljs-keyword">if</span> (a[j] &gt; a[j<span class="hljs-number">+1</span>] &amp;&amp; a[j] != <span class="hljs-number">0</span> &amp;&amp; a[j + <span class="hljs-number">1</span>] != <span class="hljs-number">0</span>)&#123;<br>                t = a[j];<br>                a[j] = a[j + <span class="hljs-number">1</span>];<br>                a[j + <span class="hljs-number">1</span>] = t;<br>                cnt += <span class="hljs-number">1</span>;<br>            &#125; <span class="hljs-keyword">else</span>&#123;<br>                <span class="hljs-keyword">continue</span>;<br>            &#125;<br>        &#125;<br>    &#125;<br><span class="hljs-comment">//    for (int i=1; i &lt;= n; i++)&#123;</span><br><span class="hljs-comment">//        cout &lt;&lt; a[i] &lt;&lt; &quot; &quot;;</span><br><span class="hljs-comment">//    &#125;</span><br>    cout &lt;&lt; cnt;<br>&#125;<br></code></pre></td></tr></table></figure>
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/newbackgroundcolor.png" /></p>
+<h3 id="使用遮罩图像">使用遮罩图像</h3>
+<p>如果你想在特定框架内打印图像，wordcloud 也可以做到这一点。</p>
+<p>首先，创建一个你想使用的框架的黑色图像。在这里，我使用一只黑色企鹅的图像作为框架。</p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/penguin-mask.png" /></p>
+<p>现在，使用 <code>--mask</code> 选项获取遮罩图像。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">wordcloud_cli --text &lt;/path/to/words.txt&gt; --mask &lt;/path/to/mask/image&gt; --imagefile maskedimage.png<br></code></pre></td></tr></table></figure>
+<p>请记住，遮罩图像的宽度应与所需的最终图像分辨率相同。</p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/maskedimage-final.png" /></p>
+<h4 id="使用预构建的示例">使用预构建的示例</h4>
+<p>项目页面上有几个可用的示例。点击下方按钮查看这些示例。</p>
+<p><a
+target="_blank" rel="noopener" href="https://amueller.github.io/word_cloud/auto_examples/index.html">查看示例</a></p>
+<p>在这里，你可以点击某个特定设计，并下载相应的 Python 脚本。</p>
+<p>脚本下载后，你可以按照脚本中的命名重命名词文件。如果你使用了遮罩，也相应重命名遮罩文件。</p>
+<p>例如，我使用的是 <a
+target="_blank" rel="noopener" href="https://amueller.github.io/word_cloud/auto_examples/masked.html#sphx-glr-auto-examples-masked-py">这个示例</a>，其中词文件叫
+<code>alice.txt</code>，遮罩文件叫
+<code>alice_mask.png</code>。所以，我将我的 <em>words.txt</em> 重命名为
+<em>alice.txt</em>，并将遮罩图像重命名为
+<em>alice_mask.png</em>。这样比在脚本内重命名变量和项目更方便。</p>
+<p>现在，我使用以下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">python3 masked.py<br></code></pre></td></tr></table></figure>
+<p>这将生成一个名为 <em>alice.png</em> 的图像，这是我需要的结果。</p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/using-prebuilt-script.png" /></p>
+<h2 id="可能的图像创意">可能的图像创意</h2>
+<p>你可以创建独一无二的图像。让我们看看一些示例：</p>
+<h3 id="已安装的软件包">已安装的软件包</h3>
+<p>如果你使用的是基于 Debian/Ubuntu
+的发行版，可以列出系统中已安装的软件包，并将其保存为文本文件。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">dpkg --get-selections &gt; packages.txt<br></code></pre></td></tr></table></figure>
+<p>现在，使用这个 <code>packages.txt</code>
+创建一个列出你已安装软件包名称的壁纸。</p>
+<h3 id="你的-bash-命令历史">你的 bash 命令历史 ;)</h3>
+<p>如果你愿意公开你的 bash
+历史记录，可以将所有命令保存到一个文本文件中，然后用它来创建图像。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">history</span> &gt; my_bash_history.txt<br></code></pre></td></tr></table></figure>
+<h3 id="其他创意">其他创意</h3>
+<ul>
+<li>列出一些你永远不会忘记的程序名称，并用它们创建一个壁纸。</li>
+<li>使用 AI 工具生成随机词列表。</li>
+<li>列出所有的 Linux 发行版名称。</li>
+</ul>
+<h2 id="总结">总结</h2>
+<p>虽然 wordcloud 提供了许多命令行选项，但它通常作为其他 Python
+项目的依赖项使用。为此，你可以查阅 <a
+target="_blank" rel="noopener" href="https://amueller.github.io/word_cloud/references.html">API
+参考</a>。</p>
+<p>其中一个项目是 <a
+target="_blank" rel="noopener" href="https://github.com/anirudhajith/process-wallpaper">Process-wallpaper</a>。该项目本身有点旧了，所以不会自动应用壁纸。但它确实能够创建一个基于系统中当前占用资源最多的进程的壁纸。</p>
+<p>类似地，你可能想使用这个便捷的命令行工具 <a
+target="_blank" rel="noopener" href="https://itsfoss.com/ascii-image-converter/">将图像转换为 ASCII
+艺术</a>：</p>
 
                 
               </div>
@@ -423,13 +710,39 @@ id="经过大佬的提醒事实问题在于数组没有设全局修改思路如�
             <div>
               <div class="post-metas my-3">
   
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%BF%BB%E8%AF%91/" class="category-chain-item">翻译</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BF%BB%E8%AF%91/ITSFOSS/" class="category-chain-item">ITSFOSS</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
   
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/OiClass/" class="print-no-link">#OiClass</a>
-      
-        <a href="/tags/Q-A/" class="print-no-link">#Q&A</a>
+        <a href="/tags/%E8%AF%8D%E4%BA%91/" class="print-no-link">#词云</a>
       
     </div>
   
@@ -441,8 +754,8 @@ id="经过大佬的提醒事实问题在于数组没有设全局修改思路如�
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Oiclass Q&amp;A P1106</div>
-      <div>https://lixuannan.github.io/posts/17897.html</div>
+      <div>Linux 制作词云图的命令行工具——Wordcloud</div>
+      <div>https://lixuannan.github.io/posts/47040.html</div>
     </div>
     <div class="license-meta">
       
@@ -454,7 +767,7 @@ id="经过大佬的提醒事实问题在于数组没有设全局修改思路如�
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年8月11日</div>
+          <div>2024年10月26日</div>
         </div>
       
       
@@ -498,18 +811,12 @@ id="经过大佬的提醒事实问题在于数组没有设全局修改思路如�
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/posts/15962.html" title="Oiclass P1202 题解">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Oiclass P1202 题解</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/posts/4116.html" title="OiClass.com Q&amp;A P1194">
-                        <span class="hidden-mobile">OiClass.com Q&amp;A P1194</span>
+                      <a href="/posts/33074.html" title="RefreshOS——一个潜在的 Debian 替代品">
+                        <span class="hidden-mobile">RefreshOS——一个潜在的 Debian 替代品</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
