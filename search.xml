@@ -4,6 +4,35 @@
   
   
   <entry>
+    <title>15 个提升 VSCode 编码体验的小技巧</title>
+    <link href="/posts/61005.html"/>
+    <url>/posts/61005.html</url>
+    
+    <content type="html"><![CDATA[<h1 id="个提升-vscode-编码体验的小技巧">15 个提升 VSCode编码体验的小技巧</h1><blockquote><p>本文翻译自 <a href="https://itsfoss.com/vs-code-tips/"class="uri">https://itsfoss.com/vs-code-tips/</a></p></blockquote><p>VS Code 是当今开发人员的首选，市场占有率十分的高。</p><p>如果你是 VS Code的用户，我想分享一些技巧和调整，帮助你提高工作效率并改善编程体验。</p><p>想要更高效吗？熟悉并记住这些适用于 Linux、Windows 和 macOS 的 VS Code键盘快捷键。</p><p>感兴趣了吗？让我们一起来看看吧。</p><h2 id="集成终端和多配置文件">1. 集成终端和多配置文件</h2><p>首先，你可以使用快捷键 <code>CTRL+‵</code> 打开 VS Code的集成终端。</p><table><thead><tr><th>功能</th><th>快捷键</th></tr></thead><tbody><tr><td>启用集成终端</td><td><code>CTRL+‵</code></td></tr><tr><td>在外部终端中打开位置</td><td><code>CTRL + SHIFT + C</code></td></tr></tbody></table><p>现在，你可以从下拉菜单中选择所需的 shell。</p><p>你还可以使用不同的配置文件分割终端。在集成终端顶部的加号按钮旁边的下拉菜单中点击<strong>分割终端</strong>，然后选择所需的配置文件。</p><h2 id="分割编辑器">2. 分割编辑器</h2><p>VS Code 支持分割视图和编辑器组。</p><p>通常，你可以使用 <code>CTRL+\</code>来水平分割视图，两个编辑器将并排显示。</p><table><thead><tr><th>功能</th><th>快捷键</th></tr></thead><tbody><tr><td>分割编辑器</td><td><code>CTRL+\</code></td></tr><tr><td>关闭活动分割</td><td><code>CTRL+W</code></td></tr><tr><td>在上方创建分割</td><td><code>CTRL+K CTRL+\</code></td></tr><tr><td>在分割视图间切换</td><td><code>CTRL+1/2/3...</code></td></tr></tbody></table><p>你可以为每个分割视图打开不同的文件，从而形成编辑器组。</p><p>此外，你还可以创建多个其他布局，例如网格布局。点击 <strong>视图 →编辑器布局 → 选择布局</strong> 来选择。</p><h2 id="快速创建文件">3. 快速创建文件</h2><p>如果代码中指定了一个文件，你可以按住 <code>CTRL</code>键并点击它来打开。</p><p>如果文件不存在，你将收到提示，创建该文件并在新标签中打开。</p><h2 id="快速滚动">4. 快速滚动</h2><p>浏览大型代码文件时，按住 <code>ALT</code> 键并滚动鼠标滚轮可以实现 5倍速度的快速滚动。</p><h2 id="同步滚动">5. 同步滚动</h2><p>比较两个文件时，保持滚动同步非常有帮助。按<code>CTRL + SHIFT + P</code>，搜索“Toggle Locked Scrolling AcrossEditors”，并启用它。</p><h2 id="粘性滚动">6. 粘性滚动</h2><p>当你处理有多个章节的大型文件时，启用粘性滚动可以让你当前编辑的章节固定在编辑器顶部。</p><p>按 <code>CTRL + SHIFT + P</code>，搜索并启用“Toggle Editor StickyScroll”来开启粘性滚动。</p><h2 id="多光标编辑">7. 多光标编辑</h2><p>按住 <code>ALT</code>键并点击多个位置，可以同时在多个位置添加光标。</p><p>你还可以使用 <code>CTRL + SHIFT + L</code>将额外光标添加到当前选择的所有出现处。</p><h2 id="markdown-预览">8. Markdown 预览</h2><p>你可以使用 <code>CTRL + SHIFT + V</code> 在新标签中预览 Markdown文件，或使用 <code>CTRL+K V</code> 在分割视图中进行实时预览。</p><h2 id="zen-模式">9. Zen 模式</h2><p>如果觉得界面过于杂乱，可以按 <code>CTRL + K Z</code> 启用 Zen模式，进入专注的代码编辑界面。</p><h2 id="上下移动代码行">10. 上下移动代码行</h2><p>使用 <code>ALT + 上箭头</code> 或 <code>ALT + 下箭头</code>可以上下移动代码行。</p><h2 id="重命名函数变量">11. 重命名函数/变量</h2><p>选择要重命名的变量，按 <code>F2</code>，输入新名称，然后按<code>Enter</code>，它将在所有出现处被重命名。</p><h2 id="格式化整个文档">12. 格式化整个文档</h2><p>使用 <code>CTRL + SHIFT + I</code> 可以格式化整个文档。</p><h2 id="注释取消注释多行">13. 注释/取消注释多行</h2><p>在 Linux 中，可以使用 <code>CTRL + SHIFT + A</code>注释或取消注释多行。</p><h2 id="简单浏览器">14. 简单浏览器</h2><p>VS Code 提供了一个简单的浏览器扩展，主要用于显示网页内容。</p><p>你可以按 <code>CTRL + SHIFT + P</code> 并搜索 <em>Simple Browser</em>来访问（译者注：这个插件已经被弃用了）。</p><h2 id="双击保持文件活动">15. 双击保持文件活动</h2><p>浏览器中的文件默认行为是在未修改时自动关闭。如果你想保持文件处于活动状态，可以在打开时双击它。</p><h2 id="分享你喜欢的-vs-code-小技巧">分享你喜欢的 VS Code 小技巧</h2><p>不是所有技巧都适用于你的场景，但我相信你能找到一些有用的。如果是这样，你最喜欢哪一个呢？</p><p>你是否也知道一些不为人知的 VS Code 技巧？欢迎与我们分享！</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>翻译</category>
+      
+      <category>ITSFOSS</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>VSCode</tag>
+      
+      <tag>快捷键</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Linux 制作词云图的命令行工具——Wordcloud</title>
     <link href="/posts/47040.html"/>
     <url>/posts/47040.html</url>
