@@ -4,6 +4,35 @@
   
   
   <entry>
+    <title>2023 年的 8 个 Linux 决定性瞬间</title>
+    <link href="/posts/57408.html"/>
+    <url>/posts/57408.html</url>
+    
+    <content type="html"><![CDATA[<h1 id="年的-8-个-linux-决定性瞬间">2023 年的 8 个 Linux 决定性瞬间</h1><blockquote><p>本文翻译自 <ahref="https://news.itsfoss.com/best-open-source-linux-stories-2023/"class="uri">https://news.itsfoss.com/best-open-source-linux-stories-2023/</a>，选作课文时有删改。</p></blockquote><p>每年，Linux 和开源世界都会带来一些惊喜和震撼。</p><p>可能会有某个 Linux发行版改变了它的基础，某个独立项目被大型科技公司接管，或者发生其他各种事情。在2023 年，我们尽最大努力为你带来这一系列过山车般的体验。</p><p>现在，2023年已经结束（译者注：很久很久了），是时候回顾一下这一年发生的重大新闻了。</p><h2 id="ubuntu-推出了-flutter-商店">1. Ubuntu 推出了 "Flutter" 商店⭐</h2><p>Ubuntu 的软件中心总是因其变化和改进而备受关注。</p><p>今年，Ubuntu 通过在 Ubuntu 23.10 中引入基于 Flutter 的新 "Ubuntu商店" 提升了其表现，提供了现代且简洁的用户体验。</p><p>这将最终取代 Ubuntu 多年来的老旧软件中心，这对我来说是件好事。</p><h2 id="印度国防部门转向-linux">2. 印度国防部门转向 Linux</h2><p>印度国防部决定用名为 "<strong>Maya</strong>" 的自研 Linux 发行版取代Windows。</p><p>当然，这并不是政府机构第一次选择使用 Linux 来提高安全性和隐私性。</p><p>然而，在像印度这样的大国，政府一部分机构选择使用 Linux的简单决定可能会对其他系统产生巨大影响。这对 Linux整体来说是件好事。</p><h2 id="red-hat-锁定源代码">3. Red Hat 锁定源代码 🔒</h2><p>作为全球最大的开源公司，Red Hat 决定将 Red Hat Enterprise Linux的源代码放在付费墙后面。</p><p>虽然他们仍允许个人开发者通过免费订阅访问源代码，但这不再像以前那样向所有人公开。</p><p>这一变化给所有基于 RHEL 的发行版和分支带来了冲击：</p><p>从 SUSE、Oracle 等竞争对手联合开发 RHEL 分支，到 Rocky Linux 和AlmaLinux 等项目发生的各种变化。</p><p>对我来说，这是 2023 年最大的新闻，它的影响将持续到 2024 年。</p><h2 id="linux-内核-lts-支持周期的变化">4. Linux 内核 LTS支持周期的变化</h2><p>为了减轻维护人员的负担，LTS 内核的支持周期从 <strong>六年</strong>缩短到了两年。</p><p>评估结果显示，使用旧版 Linux 内核的人并不多，而随着多个 LTS版本内核的长期维护，维护人员的工作变得艰难而枯燥。</p><p>作为用户，除非你依赖于不再受新内核支持的特定硬件，否则你无需担心这一变化（译者注：我有一个哥们儿就是因为这个问题一直在用Slackware 远古版）。</p><h2 id="ubuntu-取消对所有版本的-flatpak-支持">5. Ubuntu 取消对所有版本的Flatpak 支持 🔨</h2><p>毫不意外，Canonical 的 Ubuntu 更偏向 Snap 包而非其他软件包。</p><p>然而，Ubuntu 的衍生版本（如 Ubuntu MATE）曾经有自由提供 Flatpak支持。</p><p>不幸的是，<ahref="https://news.itsfoss.com/ubuntu-flavor-drops-flatpak/">Ubuntu取消了对这些版本的默认 Flatpak支持</a>，理由是为了提供一致的用户体验。</p><p>当然，你可以手动添加 Flatpak 支持，但它不再是开箱即用的便利了。</p><h2 id="滚动发布的-ubuntu-发行版出现">6. 滚动发布的 Ubuntu 发行版出现🎲</h2><p>在所有其他有趣的发行版中，Rhino Linux 稳定版发布。它旨在提供基于Ubuntu 的滚动发布体验。</p><h2 id="vim-的创建者去世">7. Vim 的创建者去世 🥺</h2><p>今年，我们失去了 Linux 社区的一位杰出人物——<strong>BramMoolenaar</strong>，他是 <ahref="https://www.vim.org/?ref=news.itsfoss.com">Vim</a>文本编辑器的传奇人物。</p><p>让我们一起帮助乌干达的可怜儿童！</p><h2 id="linux-在-macos-游戏统计数据中超越">8. Linux 在 macOS游戏统计数据中超越</h2><p>今年，Linux 用户在 Steam 的统计报告中，使用率超过了 macOS。</p><p>遥遥领先～</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>翻译</category>
+      
+      <category>ITSFOSS</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Linux</tag>
+      
+      <tag>2023</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Tuxedo 发布首款基于骁龙 X Elite 的 ARM 笔记本电脑</title>
     <link href="/posts/57211.html"/>
     <url>/posts/57211.html</url>
@@ -1458,9 +1487,9 @@
       
       <tag>游记</tag>
       
-      <tag>TYOI</tag>
-      
       <tag>2023</tag>
+      
+      <tag>TYOI</tag>
       
     </tags>
     
