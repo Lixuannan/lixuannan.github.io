@@ -4,6 +4,37 @@
   
   
   <entry>
+    <title>在 Linux 中使用几个工具轻松查看 NVME 盘的温度</title>
+    <link href="/posts/23129.html"/>
+    <url>/posts/23129.html</url>
+    
+    <content type="html"><![CDATA[<h1 id="在-linux-中使用几个工具轻松查看-nvme-盘的温度">在 Linux中使用几个工具轻松查看 NVME 盘的温度</h1><blockquote><p>本文翻译自 <a href="https://itsfoss.com/ssd-temperature-linux/"class="uri">https://itsfoss.com/ssd-temperature-linux/</a>，选作课文时有删改。</p></blockquote><p>近几年，NVMe（非易失性内存快速接口）驱动器已成为现代桌面系统的首选存储选项。与传统硬盘不同，NVMe驱动器速度更快，能够加快启动时间、提高文件传输速度并提升整体性能。</p><p>和其他设备一样，NVMe设备在使用时也会发热。如果过热，可能会影响系统性能，甚至数据丢失。</p><p>接下来，我将介绍如何在基于 Linux 的操作系统中监控 SSD 的温度。</p><h2 id="nvme-cli检查-nvme-状态的首选工具">nvme-cli：检查 NVMe状态的首选工具</h2><p><a href="https://github.com/linux-nvme/nvme-cli">nvme-cli</a>是一个简单的工具，允许你通过终端控制和管理 NVMe SSD驱动器，帮助你优化性能、排查问题等。</p><p>在本教程中，我将使用此工具来测量 NVMe SSD 的温度。</p><h3 id="安装-nvme-cli">安装 nvme-cli</h3><p>如果你使用 Ubuntu 或其他基于 Debian 的 Linux 发行版，nvme-cli可以通过官方仓库安装。只需运行以下命令：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> apt install nvme-cli<br></code></pre></td></tr></table></figure><p>其他主要的 Linux发行版也提供此工具，你可以使用相应的包管理器安装。</p><h3 id="列出系统中的-nvme-驱动器">列出系统中的 NVMe 驱动器</h3><p>为了检查温度，你需要知道 NVMe 设备名称。这并不是制造商的名称，而是Linux 中的 NVMe 块设备位置。</p><p>使用以下命令列出系统中的 NVMe 驱动器：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">nvme list | <span class="hljs-built_in">cut</span> -d<span class="hljs-string">&#x27; &#x27;</span> -f1<br></code></pre></td></tr></table></figure><p>这将列出所有的 NVMe 设备名称。</p><figure><imgsrc="https://cdn.jsdelivr.net/gh/lixuannan/img/list-all-nvme-drives-using-nvme-command.png"alt="使用 &quot;nvme&quot; 命令列出由内核发现的所有 NVMe 驱动器" /><figcaption aria-hidden="true">使用 "nvme" 命令列出由内核发现的所有 NVMe驱动器</figcaption></figure><p>你还可以使用 <ahref="https://linuxhandbook.com/lsblk-command/"><strong>lsblk</strong>命令</a>列出所有连接的驱动器，然后从中找到 NVMe 设备名称：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">lsblk | grep <span class="hljs-string">&quot;nvme&quot;</span><br></code></pre></td></tr></table></figure><figure><imgsrc="https://cdn.jsdelivr.net/gh/lixuannan/img/listing-drives-using-lsblk.png"alt="使用 lsblk 命令列出驱动器，使用 grep 命令过滤出 NVMe" /><figcaption aria-hidden="true">使用 lsblk 命令列出驱动器，使用 grep命令过滤出 NVMe</figcaption></figure><p>注意，<code>nvme0</code> 应该以 <code>/dev/nvme0</code>形式使用。如果省略了 /dev，nvme-cli 不会显示输出，且会出现语法错误。</p><h3 id="检查-ssd-温度">检查 SSD 温度</h3><p>现在你已经知道了要检查的驱动器名称，接下来就可以检查温度了。</p><p>使用以下命令来检查温度：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> nvme smart-log &lt;设备名称&gt; | grep -i <span class="hljs-string">&#x27;^temperature&#x27;</span><br></code></pre></td></tr></table></figure><p>将 <strong><设备名称></strong>替换为你在之前步骤中找到的名称。例如，对于我来说命令将是：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> nvme smart-log /dev/nvme0 | grep -i <span class="hljs-string">&#x27;^temperature&#x27;</span><br></code></pre></td></tr></table></figure><p><code>nvme0</code>是顶级设备文件。因为温度是驱动器的物理属性，所以你可以使用顶级设备文件来检查温度。</p><figure><imgsrc="https://cdn.jsdelivr.net/gh/lixuannan/img/recorded-temperature-nvme-smart-log.png"alt="使用 nvme 命令获取指定 NVMe 驱动器的温度" /><figcaption aria-hidden="true">使用 nvme 命令获取指定 NVMe驱动器的温度</figcaption></figure><h2 id="其他检查-ssd-温度的工具">其他检查 SSD 温度的工具</h2><p>虽然 <code>nvme-cli</code> 是检查温度的全面工具，但还有一些提供更便捷GUI 的替代方案。让我们来看几个。</p><h3 id="vitalsgnome-扩展">Vitals，GNOME 扩展</h3><p>如果你是 GNOME 用户，Vitals扩展非常好用。它不仅限于温度监控，还提供了许多其他系统监控功能。</p><p>在面板上，点击温度选项以展开温度监控器，你可以实时监控 NVMe温度。</p><figure><imgsrc="https://cdn.jsdelivr.net/gh/lixuannan/img/nvme-temperature-vitals.png"alt="Vitals GNOME 扩展中的 NVMe 温度" /><figcaption aria-hidden="true">Vitals GNOME 扩展中的 NVMe温度</figcaption></figure><h3 id="hardinfo2">Hardinfo2</h3><p><a href="https://github.com/hardinfo2/hardinfo2">Hardinfo2</a>是一款系统信息和基准测试工具，你可以使用它来了解设备温度。</p><p>进入 Devices 部分下的传感器页面即可查看。</p><figure><imgsrc="https://cdn.jsdelivr.net/gh/lixuannan/img/nvme-temp-hardinfo.png"alt="使用 Hardinfo2 工具获取 NVMe 温度" /><figcaption aria-hidden="true">使用 Hardinfo2 工具获取 NVMe温度</figcaption></figure><h2 id="结论">结论</h2><p>nvme-cli 工具非常适合在 Linux 上管理 NVMeSSD，我喜欢它的简洁性。如果你不习惯使用 CLI工具，也可以选择我们提到的几个 GUI 工具。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>翻译</category>
+      
+      <category>ITSFOSS</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>硬件</tag>
+      
+      <tag>NVME</tag>
+      
+      <tag>硬盘</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>2023 年的 8 个 Linux 决定性瞬间</title>
     <link href="/posts/57408.html"/>
     <url>/posts/57408.html</url>
