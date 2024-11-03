@@ -4,6 +4,37 @@
   
   
   <entry>
+    <title>20 年！PREEMPT_RT 最终合并入 Linux 内核</title>
+    <link href="/posts/35073.html"/>
+    <url>/posts/35073.html</url>
+    
+    <content type="html"><![CDATA[<h1 id="年preempt_rt-最终合并入-linux-内核">20 年！PREEMPT_RT 最终合并入Linux 内核</h1><blockquote><p>本文翻译自 <ahref="https://www.zdnet.com/article/20-years-later-real-time-linux-makes-it-to-the-kernel-really/"class="uri">https://www.zdnet.com/article/20-years-later-real-time-linux-makes-it-to-the-kernel-really/</a></p></blockquote><figure><imgsrc="https://cdn.jsdelivr.net/gh/lixuannan/img/steven-rostedt-and-sjvn-09182024.jpg"alt="Linux 实时系统开发者 Steven Rostedt 和 Steven Vaughan-Nichols 在维也纳的 Linux 欧洲峰会。" /><figcaption aria-hidden="true">Linux 实时系统开发者 Steven Rostedt 和Steven Vaughan-Nichols 在维也纳的 Linux 欧洲峰会。</figcaption></figure><p>实时 Linux 资深开发者 Steven Rostedt 和笔者 Steven Vaughan-Nichols在维也纳的 Linux 欧洲峰会。</p><p>经过 20 年，<ahref="https://wiki.linuxfoundation.org/realtime/start">实时 Linux(PREEMPT_RT)</a> 终于 —— 终于 —— <ahref="https://www.linkedin.com/feed/update/urn:li:activity:7222762421201854464/">进入主线内核</a>。LinusTorvalds 在 <ahref="https://events.linuxfoundation.org/open-source-summit-europe/">开源峰会欧洲</a>上批准了这段代码。这有什么重要意义呢？让我们从解释什么是实时操作系统(RTOS) 以及它的用途开始。</p><h2 id="什么是-rtos">什么是 RTOS？</h2><p>RTOS（实时操作系统）是一种专门的操作系统，设计用于以精确和可靠的方式处理时间关键任务。与通用操作系统（如Windows 或 macOS）不同，RTOS构建用于在严格的时间约束内响应事件并处理数据，通常以毫秒或微秒为单位。实时Linux 开发者和 Google 工程师 Steven Rostedt表示：“实时性是最坏情况下最快的。”</p><p>他的意思是，RTOS 的基本特征在于它的确定性行为。RTOS保证关键任务将在指定的期限内完成。许多人认为 RTOS是为快速处理而设计的。其实并非如此。RTOS的关键不在于速度，而在于可靠性。这种可预测性在时间至关重要的应用中至关重要，例如工业控制系统、医疗设备和航空航天设备。</p><p>当今使用的实时操作系统的一个例子是 <ahref="https://www.windriver.com/resource/vxworks-product-overview">VxWorks</a>，该系统用于NASA 的火星探测车引导它们，并在波音 787梦幻客机中控制航空电子系统，确保飞行控制的实时响应。另一个例子是 <ahref="https://blackberry.qnx.com/en/products/foundation-software/qnx-rtos">QNXNeutrino</a>，它广泛应用于汽车的娱乐信息系统和高级驾驶辅助系统（如防抱死制动系统）。</p><h2 id="实时-linux-的历史">实时 Linux 的历史</h2><p>实时 Linux 代码现在已经集成到所有 Linux 发行版中，并将在即将发布的Linux 6.12 内核中正式发布。这意味着 Linux将很快出现在更多关键任务设备和工业硬件中。然而，这个过程花了很长时间才实现。</p><p>实时 Linux 的故事可以追溯到 1990 年代末，当时对 Linux支持实时应用程序的需求日益增长。最初的努力集中在创建独立的实时内核，这些内核与Linux 内核并行运行。这包括一些学术项目，如堪萨斯大学的 KURT、米兰大学的RTAI 以及新墨西哥矿业技术学院的 RTLinux。</p><p>2004 年，资深 Linux 内核开发者 Ingo Molnar开始收集和重塑这些技术的部分成果，为实时抢占补丁集 <ahref="https://en.wikipedia.org/wiki/PREEMPT_RT">PREEMPT_RT</a>打下基础。</p><p>这种方法不同于早期的实时 Linux 解决方案，因为它修改了现有的 Linux内核，而不是创建一个单独的实时内核。到 2006年，它已经获得了足够的关注，Linus Torvalds 曾说过：“<ahref="http://lwn.net/Articles/396997/">用 Linux控制激光是疯狂的</a>，但这里的每个人都有自己疯狂的一面。如果你想用 Linux控制工业焊接激光器，我对你使用 PREEMPT_RT 没有任何意见。”</p><p>到 2009 年，一小群内核开发者，包括 Thomas Gleixner、Peter Zijlstra 和Rostedt，已经完成了将之前的原型开发整合为一个独立的补丁集。从那时起，许多公司开始使用这一补丁集构建需要毫秒级精度的硬实时系统。</p><p>随着项目的推进，其许多元素被逐步引入了内核中。Rostedt告诉我，说实时功能“现在才进入Linux”其实并不完全准确。多年来，许多特性已经被引入到主流 Linux中，其中一些甚至是你每天使用的 Linux 的关键组成部分。</p><p>例如，你可能从未听说过 “<ahref="https://docs.kernel.org/timers/no_hz.html">NO_HZ</a>”——它可以减少空闲系统的功耗。NO_HZ使 Linux 能够高效地运行在拥有数千个 CPU 的机器上。Rostedt强调：“你可能没有意识到 Linux 因为实时补丁而获得了多大的改进。Linux能在今天的数据中心中运行，完全是因为我们做的工作。”</p><p>没有 NO_HZ，Linux 就不可能运行几乎所有的数据中心。这也解释了为什么Linux能够支撑起云计算。我无法确切知道没有这些实时贡献的世界会是什么样子，但它绝对不会像现在这样。</p><p>实时 Linux 还在一些最初从未预想到的领域中发挥了作用。Rostedt回忆道：“2005 年，我收到一个实时的 bug报告，我发了一个补丁，并说，‘嘿，这是修复。你能应用它吗？’结果对方说，‘我不知道自己在做什么。’我问，‘你不是内核开发者吗？’对方回答，‘我是一个吉他手。’”</p><p>原来，他使用了早期的实时补丁，因为他在使用 <ahref="https://jackaudio.org/">JACK</a>，一个用于低延迟音频连接的声音服务器。他使用它是因为像大多数音乐家一样，他买不起高端设备，于是，Rostedt继续说，“他买了一台便宜的笔记本电脑，装了 Linux 和JACK，因为有了实时补丁，它可以进行高质量录音，而不会在硬盘写入时产生跳帧。”</p><p>事实证明，许多音乐家都是早期的实时 Linux用户，因为它让他们能够廉价地制作高质量录音。谁能想到呢？此外，还有一些实时Linux 特性已经逐步进入主线内核，其中包括：</p><ul><li>引入 <ahref="https://www.geeksforgeeks.org/mutex-lock-for-linux-thread-synchronization/">互斥锁</a></li><li><ahref="https://www.kernel.org/doc/html/v4.17/trace/ftrace.html">Ftrace</a>，可以说是最重要的Linux 调试工具</li><li><ahref="https://www.opensourceforu.com/2019/04/how-to-avoid-priority-inversion-and-enable-priority-inheritance-in-linux-kernel-programming/">优先级继承</a>，用于用户空间应用程序</li></ul><h2 id="为什么实时-linux-花了这么久">为什么实时 Linux 花了这么久？</h2><p>那么，为什么实时 Linux 直到现在才完全被内核所接纳呢？Rostedt解释道：“我们实际上不会推送任何我们认为还没有准备好的东西。”几乎每个东西都被重写了至少三次，才会进入主线，因为我们对进入主线的代码有很高的标准。</p><p>此外，进入主线的过程不仅仅是技术挑战，还有政治和认知上的问题。Rostedt回忆道：“一开始，我们甚至不敢提实时，大家都会说，‘哦，我们不关心实时。’”</p><p>另一个问题是资金。多年来，实时 Linux 的资金支持一直断断续续。直到2015 年，Linux 基金会成立了实时 Linux (RTL) 协作项目，旨在协调将PREEMPT_RT 合并到主线内核的工作。</p><p>最后的障碍是重新设计内核的 <ahref="https://www.kernel.org/doc/html/next/core-api/printk-basics.html">print_k</a>函数，这是一个关键的调试工具，最早可追溯到 1991 年。Torvalds 对 printk特别保护，因为他编写了原始代码，并且至今仍在使用它进行调试。然而，printk会在 Linux程序每次调用时引入一个硬性的延迟，而在实时系统中，这种延迟是无法接受的。</p><p>Rostedt 解释道：“printk 有成千上万的 hack处理成千上万种不同的情况。每当我们修改 printk以执行某些操作时，它都会打破其中的一种情况。printk的一个伟大之处在于，调试时你可以确切知道一个进程在崩溃时的具体位置。当我对系统进行非常强烈的压力测试时，延迟大约是30 微秒左右，但突然它会跳到 5 毫秒。”这种延迟就是 printk消息造成的。</p><p>经过大量的工作、许多激烈的讨论以及几次被拒的提案，今年早些时候达成了一个折中方案。Torvalds很满意，实时 Linux 开发者很满意，printk 的用户也很满意，最终，实时 Linux成为现实。</p><p>经过 20 多年的开发，Linux的实时补丁终于合并到了主线内核中。这一里程碑标志着内核开发者多年来致力于为Linux 带来确定性、低延迟性能的工作的顶峰。</p><p>随着这一补丁的合并，Linux内核现在是完全可抢占的，这使得它能够在微秒级别响应事件。这种能力对于需要精确时间控制的应用至关重要，如工业控制系统、机器人和音频制作。</p><p>随着实时补丁的合并，Linux 现在准备成为实时操作系统 (RTOS)领域的重要玩家。这不仅仅是实时制造商的胜利，也是所有 Linux用户的胜利。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>翻译</category>
+      
+      <category>ZDNET</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Linux</tag>
+      
+      <tag>kernel</tag>
+      
+      <tag>RTOS</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>在 Linux 中使用几个工具轻松查看 NVME 盘的温度</title>
     <link href="/posts/23129.html"/>
     <url>/posts/23129.html</url>
