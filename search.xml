@@ -4,6 +4,35 @@
   
   
   <entry>
+    <title>Linux 成为 Python 开发者的首选平台！</title>
+    <link href="/posts/14222.html"/>
+    <url>/posts/14222.html</url>
+    
+    <content type="html"><![CDATA[<h1 id="linux-成为-python-开发者的首选平台">Linux 成为 Python开发者的首选平台！</h1><blockquote><p>本文翻译自 <ahref="https://debugpointnews.com/python-software-foundation-survey-2024/"class="uri">https://debugpointnews.com/python-software-foundation-survey-2024/</a></p></blockquote><p>最近的一项调查显示，<strong>55% 的 Python 开发者选择 Linux作为他们的首选开发平台</strong>。</p><p>Python 软件基金会发布了其年度调查的结果，提供了 Python开发者社区的全面概况。今年的调查汇集了来自近 200 个国家和地区的 25,000多名受访者，为 Python 社区的习惯、偏好和趋势提供了宝贵的见解。</p><h3 id="linux-再次获胜"><strong>Linux 再次获胜！</strong></h3><p>调查中最引人注目的发现之一是，<strong>55% 的 Python 开发者将 Linux作为他们的主要开发环境</strong>。尽管这一数据比去年的 59% 略有下降，但Linux 仍稳固了其作为 Python 开发首选平台的地位。原因显而易见：Linux提供了灵活、可定制且开源的环境，这与 Python 的哲学高度契合。</p><p>此外，许多流行的 Linux 发行版，如 Ubuntu 和 Fedora，自带 Python预安装，使其成为开发者的理想选择。</p><h3 id="python-2-仍在使用"><strong>Python 2 仍在使用</strong></h3><p>尽管自 2020 年 4 月以来官方不再支持，但<strong>6% 的受访者仍在使用Python 2</strong>。这一趋势令人担忧，因为 Python 2 已不再收到安全更新或bug 修复。调查显示，几乎一半的 Python 2 用户年龄在 21岁以下，三分之一是学生。这表明可能存在知识差距，或缺乏对使用不受支持的Python 版本风险的认知。作为社区，我们有责任鼓励并支持 Python 3的采用，它在性能、安全性和功能上都有显著提升。</p><h3 id="工具使用情况"><strong>工具使用情况</strong></h3><p>调查还突显了 Python 开发者使用的开发工具的多样性。<strong>VisualStudio Code（22%）和 Jupyter Notebook（20%）</strong> 领先，紧随其后的是Vim（17%）和 PyCharm Community Edition（13%）。</p><p>这种多样性反映了开发者的不同需求和偏好，从数据科学家到 Web开发者。不少受访者（23%）只使用一个集成开发环境（IDE），而 38%使用两个，21% 使用三个或更多。</p><h3 id="开源贡献与社区结构"><strong>开源贡献与社区结构</strong></h3><p>在过去的一年里，37% 的受访者参与了开源项目，其中 77%直接参与了代码开发。</p><p>此外，调查还提供了关于 Python 社区人口统计的重要信息。32%的受访者年龄在 21-29 岁之间，而 25% 的受访者学习 Python 不到一年。这表明Python 吸引了新一代渴望学习并为社区做出贡献的开发者。</p><h3 id="应用场景"><strong>应用场景</strong></h3><p>调查显示，Python 被广泛应用于多个领域，包括数据分析（44%）、Web开发（44%）、机器学习（34%）、以及运维、DevOps和自动化脚本编写（26%）。这种广泛的适用性是 Python持久受欢迎的关键因素之一，因为它可以应用于各种任务和领域。</p><h3 id="总结"><strong>总结</strong></h3><p>这些调查结果强调了 Linux 的重要性，推动了向 Python 3的过渡，并展现了社区使用的多样化开发工具。尽管 Rust也在获得一定的关注，Python 的地位依然稳固。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>翻译</category>
+      
+      <category>DEBUGPOINTNEWS</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Linux</tag>
+      
+      <tag>Python</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>20 年！PREEMPT_RT 最终合并入 Linux 内核</title>
     <link href="/posts/35073.html"/>
     <url>/posts/35073.html</url>
