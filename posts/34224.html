@@ -21,23 +21,22 @@
   <meta name="author" content="CodingCow Lee">
   <meta name="keywords" content="python,ml,deeplearning,dl,c++,c,pytorch,noi,oi,ioi,noip,csp-j,csp-s,oier,tyoi,oiclass">
   
-    <meta name="description" content="构建超强 OI 系统之美化 Arch Linux &amp; 美化 GNOME &amp; 美化 Fcitx 前期准备 我们首先需要下载一些文件，这些文件存储在 Github 上面，如果你在大陆，那么可能需要一些魔法来访问。 如果你的系统没有安装 git 那么你需要使用命令 sudo pacman -S git。 然后我们需要下载以下几个软件：  vinceliuice&#x2F;WhiteSur-gtk-">
+    <meta name="description" content="没有 GUI？只用命令行（CLI）管理密码！  本文翻译自 https:&#x2F;&#x2F;www.zdnet.com&#x2F;article&#x2F;need-to-manage-linux-passwords-on-the-command-line-no-gui-no-problem&#x2F;    Guake 在 Ubuntu Budgie 上打开。  我绝对不会告诉你有多少次我不得不在没有 GUI 程序的情况下管理 Linux">
 <meta property="og:type" content="article">
-<meta property="og:title" content="构建超强 OI 系统之美化 Arch Linux &amp; 美化 GNOME &amp; 美化 Fcitx">
-<meta property="og:url" content="https://lixuannan.github.io/posts/63759.html">
+<meta property="og:title" content="没有 GUI？只用命令行（CLI）管理密码！">
+<meta property="og:url" content="https://lixuannan.github.io/posts/34224.html">
 <meta property="og:site_name" content="CodingCow&#39;s Blog">
-<meta property="og:description" content="构建超强 OI 系统之美化 Arch Linux &amp; 美化 GNOME &amp; 美化 Fcitx 前期准备 我们首先需要下载一些文件，这些文件存储在 Github 上面，如果你在大陆，那么可能需要一些魔法来访问。 如果你的系统没有安装 git 那么你需要使用命令 sudo pacman -S git。 然后我们需要下载以下几个软件：  vinceliuice&#x2F;WhiteSur-gtk-">
+<meta property="og:description" content="没有 GUI？只用命令行（CLI）管理密码！  本文翻译自 https:&#x2F;&#x2F;www.zdnet.com&#x2F;article&#x2F;need-to-manage-linux-passwords-on-the-command-line-no-gui-no-problem&#x2F;    Guake 在 Ubuntu Budgie 上打开。  我绝对不会告诉你有多少次我不得不在没有 GUI 程序的情况下管理 Linux">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-08-23T10:56:00.000Z">
-<meta property="article:modified_time" content="2024-11-07T12:24:22.298Z">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lixuannan/img/guake2.jpg">
+<meta property="article:published_time" content="2024-11-07T11:23:00.000Z">
+<meta property="article:modified_time" content="2024-11-07T12:24:22.294Z">
 <meta property="article:author" content="CodingCow Lee">
-<meta property="article:tag" content="OI">
-<meta property="article:tag" content="构建超强 OI 系统">
-<meta property="article:tag" content="系统">
-<meta property="article:tag" content="Arch Linux">
-<meta property="article:tag" content="GNOME">
-<meta property="article:tag" content="美化">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="Password">
+<meta property="article:tag" content="CLI">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/lixuannan/img/guake2.jpg">
 <meta name="twitter:creator" content="@CodingCow">
 <meta name="twitter:site" content="lixuannan.github.io">
   
@@ -45,7 +44,7 @@
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>构建超强 OI 系统之美化 Arch Linux &amp; 美化 GNOME &amp; 美化 Fcitx | CodingCow&#39;s Blog</title>
+  <title>没有 GUI？只用命令行（CLI）管理密码！ | CodingCow&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -295,7 +294,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle">构建超强 OI 系统之美化 Arch Linux & 美化 GNOME & 美化 Fcitx</span>
+            <span id="subtitle">没有 GUI？只用命令行（CLI）管理密码！</span>
           
         </div>
 
@@ -311,8 +310,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-08-23 18:56" pubdate>
-          2024年8月23日 晚上
+        <time datetime="2024-11-07 19:23" pubdate>
+          2024年11月7日 晚上
         </time>
       </span>
     
@@ -323,7 +322,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          838 字
+          1.1k 字
         
       </span>
     
@@ -334,7 +333,7 @@
         
         
         
-          4 分钟
+          5 分钟
         
       </span>
     
@@ -388,17 +387,44 @@
     
     <div class="category row nomargin-x">
       <a class="category-item 
-          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="构建超强 OI 系统"
-        id="heading-b164d89ec6c6d98e09e1db4b88e80dbc" role="tab" data-toggle="collapse" href="#collapse-b164d89ec6c6d98e09e1db4b88e80dbc"
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="翻译"
+        id="heading-8b3607d0f4181a3cb6ffdccf7185f09b" role="tab" data-toggle="collapse" href="#collapse-8b3607d0f4181a3cb6ffdccf7185f09b"
         aria-expanded="true"
       >
-        构建超强 OI 系统
-        <span class="list-group-count">(4)</span>
+        翻译
+        <span class="list-group-count">(15)</span>
         <i class="iconfont icon-arrowright"></i>
       </a>
       
-      <div class="category-collapse collapse show" id="collapse-b164d89ec6c6d98e09e1db4b88e80dbc"
-           role="tabpanel" aria-labelledby="heading-b164d89ec6c6d98e09e1db4b88e80dbc">
+      <div class="category-collapse collapse show" id="collapse-8b3607d0f4181a3cb6ffdccf7185f09b"
+           role="tabpanel" aria-labelledby="heading-8b3607d0f4181a3cb6ffdccf7185f09b">
+        
+        
+          
+          
+  <div class="category-post-list">
+    
+    
+  </div>
+
+          
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem collapsed
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="DEBUGPOINTNEWS"
+        id="heading-73afb2609c2e7f48835b36f96b487f44" role="tab" data-toggle="collapse" href="#collapse-73afb2609c2e7f48835b36f96b487f44"
+        aria-expanded="false"
+      >
+        DEBUGPOINTNEWS
+        <span class="list-group-count">(3)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse " id="collapse-73afb2609c2e7f48835b36f96b487f44"
+           role="tabpanel" aria-labelledby="heading-73afb2609c2e7f48835b36f96b487f44">
         
         
           
@@ -407,42 +433,201 @@
     
       
       
-        <a href="/posts/63319.html" title="构建超强 OI 系统之开发环境"
+        <a href="/posts/14222.html" title="Linux 成为 Python 开发者的首选平台！"
            class="list-group-item list-group-item-action
            ">
-          <span class="category-post">构建超强 OI 系统之开发环境</span>
+          <span class="category-post">Linux 成为 Python 开发者的首选平台！</span>
         </a>
       
     
       
       
-        <a href="/posts/63759.html" title="构建超强 OI 系统之美化 Arch Linux &amp; 美化 GNOME &amp; 美化 Fcitx"
+        <a href="/posts/57211.html" title="Tuxedo 发布首款基于骁龙 X Elite 的 ARM 笔记本电脑"
            class="list-group-item list-group-item-action
-           active">
-          <span class="category-post">构建超强 OI 系统之美化 Arch Linux &amp; 美化 GNOME &amp; 美化 Fcitx</span>
+           ">
+          <span class="category-post">Tuxedo 发布首款基于骁龙 X Elite 的 ARM 笔记本电脑</span>
         </a>
       
     
       
       
-        <a href="/posts/7723.html" title="构建超强 OI 系统之配置 Arch Linux"
+        <a href="/posts/32246.html" title="Tor 与 Tails 项目合并"
            class="list-group-item list-group-item-action
            ">
-          <span class="category-post">构建超强 OI 系统之配置 Arch Linux</span>
-        </a>
-      
-    
-      
-      
-        <a href="/posts/60947.html" title="构建超强 OI 环境之安装 Arch Linux"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">构建超强 OI 环境之安装 Arch Linux</span>
+          <span class="category-post">Tor 与 Tails 项目合并</span>
         </a>
       
     
   </div>
 
+        
+      </div>
+    </div>
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem collapsed
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="ITSFOSS"
+        id="heading-10c60e2686d42569c4db79639219bcd3" role="tab" data-toggle="collapse" href="#collapse-10c60e2686d42569c4db79639219bcd3"
+        aria-expanded="false"
+      >
+        ITSFOSS
+        <span class="list-group-count">(8)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse " id="collapse-10c60e2686d42569c4db79639219bcd3"
+           role="tabpanel" aria-labelledby="heading-10c60e2686d42569c4db79639219bcd3">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/posts/34503.html" title="包管理器太多太复杂？试试用 APP 管理你的包"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">包管理器太多太复杂？试试用 APP 管理你的包</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/23129.html" title="在 Linux 中使用几个工具轻松查看 NVME 盘的温度"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">在 Linux 中使用几个工具轻松查看 NVME 盘的温度</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/57408.html" title="2023 年的 8 个 Linux 决定性瞬间"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">2023 年的 8 个 Linux 决定性瞬间</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/61005.html" title="15 个提升 VSCode 编码体验的小技巧"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">15 个提升 VSCode 编码体验的小技巧</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/47040.html" title="Linux 制作词云图的命令行工具——Wordcloud"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">Linux 制作词云图的命令行工具——Wordcloud</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/33074.html" title="RefreshOS——一个潜在的 Debian 替代品"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">RefreshOS——一个潜在的 Debian 替代品</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/27832.html" title="使用 GSConnect 无缝连接安卓手机和 Linux"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">使用 GSConnect 无缝连接安卓手机和 Linux</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/51813.html" title="Ubuntu 24.10 的 6 个新功能"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">Ubuntu 24.10 的 6 个新功能</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem 
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="ZDNET"
+        id="heading-f7536e34a654c455d79133144e9077a5" role="tab" data-toggle="collapse" href="#collapse-f7536e34a654c455d79133144e9077a5"
+        aria-expanded="true"
+      >
+        ZDNET
+        <span class="list-group-count">(4)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse show" id="collapse-f7536e34a654c455d79133144e9077a5"
+           role="tabpanel" aria-labelledby="heading-f7536e34a654c455d79133144e9077a5">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/posts/34224.html" title="没有 GUI？只用命令行（CLI）管理密码！"
+           class="list-group-item list-group-item-action
+           active">
+          <span class="category-post">没有 GUI？只用命令行（CLI）管理密码！</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/35073.html" title="20 年！PREEMPT_RT 最终合并入 Linux 内核"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">20 年！PREEMPT_RT 最终合并入 Linux 内核</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/10358.html" title="4 个基于 GNOME 的好看的桌面环境"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">4 个基于 GNOME 的好看的桌面环境</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/1177.html" title="5 个你值得尝试的 Linux 终端"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">5 个你值得尝试的 Linux 终端</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
         
       </div>
     </div>
@@ -459,110 +644,90 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">构建超强 OI 系统之美化 Arch Linux &amp; 美化 GNOME &amp; 美化 Fcitx</h1>
+            <h1 id="seo-header">没有 GUI？只用命令行（CLI）管理密码！</h1>
             
             
               <div class="markdown-body">
                 
-                <h1
-id="构建超强-oi-系统之美化-arch-linux-美化-gnome-美化-fcitx">构建超强 OI
-系统之美化 Arch Linux &amp; 美化 GNOME &amp; 美化 Fcitx</h1>
-<h2 id="前期准备">前期准备</h2>
-<p>我们首先需要下载一些文件，这些文件存储在 Github
-上面，如果你在大陆，那么可能需要一些魔法来访问。</p>
-<p>如果你的系统没有安装 <code>git</code> 那么你需要使用命令
-<code>sudo pacman -S git</code>。</p>
-<p>然后我们需要下载以下几个软件：</p>
-<ul>
-<li><a
-target="_blank" rel="noopener" href="https://github.com/vinceliuice/WhiteSur-gtk-theme">vinceliuice/WhiteSur-gtk-theme</a>，使用命令
-<code>git clone https://github.com/vinceliuice/WhiteSur-gtk-theme.git</code>。</li>
-<li><a
-target="_blank" rel="noopener" href="https://github.com/vinceliuice/WhiteSur-icon-theme">vinceliuice/WhiteSur-icon-theme</a>，使用命令
-<code>git clone https://github.com/vinceliuice/WhiteSur-icon-theme.git</code>。</li>
-<li><a
-target="_blank" rel="noopener" href="https://github.com/vinceliuice/WhiteSur-cursors">vinceliuice/WhiteSur-cursors</a>，使用命令
-<code>git clone https://github.com/vinceliuice/WhiteSur-cursors.git</code>。</li>
-<li><a
-target="_blank" rel="noopener" href="https://github.com/vinceliuice/WhiteSur-wallpapers">vinceliuice/WhiteSur-wallpapers</a>，使用命令
-<code>git clone https://github.com/vinceliuice/WhiteSur-wallpapers.git</code>。</li>
-<li><a
-target="_blank" rel="noopener" href="https://github.com/thep0y/fcitx5-themes-candlelight">thep0y/fcitx5-themes-candlelight</a>，使用命令
-<code>git clone https://github.com/thep0y/fcitx5-themes-candlelight.git</code>。
-这些东西将用于系统的美化。</li>
-</ul>
-<h2 id="安装主题">安装主题</h2>
-<h3 id="安装-gnome-主题">安装 GNOME 主题</h3>
-<p>切换到刚刚下载的 <code>WhiteSur-gtk-theme</code>
-目录中并输入下面的命令安装主题：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">./install.sh -m<br>./install.sh -m -N glassy<br></code></pre></td></tr></table></figure>
-<p>然后在启动台打开</p>
-<p>然后我们来安装图标，切换到 <code>WhiteSur-icon-theme</code>
-并在终端运行 <code>./install.sh</code>。</p>
-<p>壁纸也是好系统的必要组成部分，我们切换到目录
-<code>WhiteSur-wallpapers</code>，然后运行
-<code>sudo ./install-wallpapers.sh</code></p>
-<p>然后是我个人认为很丑的光标，切换入目录
-<code>WhiteSur-cursors</code>，然后运行 <code>./install.sh</code>
-命令。</p>
-<h3 id="设置主题">设置主题</h3>
-<p>打开 Tweaks（优化）软件。然后可以在
-Appearance（外观）页面更改主题、图标、指针。下面是我觉得比较好看的主题选项：</p>
-<p><img
-src="https://cdn.jsdelivr.net/gh/lixuannan/img/Screenshot%20from%202024-08-23%2016-40-43.png" /></p>
-<h3 id="设置壁纸">设置壁纸</h3>
-<p>打开设置软件，在 Appearance
-页面可以进行壁纸的设置，其中包含刚刚安装的壁纸。顺便放松一组 NOI Linux
-下的壁纸 -&gt; <a
-target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/lixuannan/img/noi_wallpaper_1.zip">NOI壁纸1</a>，<a
-target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/lixuannan/img/noi_wallpaper_2.zip">NOI壁纸2</a>。</p>
-<h2 id="安装-fcitx5-主题">安装 Fcitx5 主题</h2>
-<p>去到刚刚下载的 fcitx5-themes 目录，然后拷贝 <code>macOS Dark</code>
-或者其他主题到目录
-<code>主目录/.local/share/fcitx5/themes</code>（如果没有
-theme）则创建。然后打开输入法的 Configure-Addon-ClassicUserInterface
-里面更改主题。</p>
-<p><img
-src="https://cdn.jsdelivr.net/gh/lixuannan/img/Screenshot%20from%202024-08-23%2017-37-38.png" /></p>
-<h2 id="安装插件">安装插件</h2>
-<p>为了让你的系统看起来更好，下面推荐几个插件。</p>
-<ul>
-<li><a
-target="_blank" rel="noopener" href="https://extensions.gnome.org/extension/615/appindicator-support/">AppIndicator
-and KStatusNotifierItem Support</a>。这个插件会在顶部的 Panel
-显示托盘图标，比如微信、Clash、输入法之类的。</li>
-<li><a
-target="_blank" rel="noopener" href="https://extensions.gnome.org/extension/3193/blur-my-shell/">Blur
-my
-Shell</a>。这个插件会为你的系统添加漂亮的模糊效果，不过为了不与你的其他插件和主题冲突，建议关闭该插件的
-Panel Blur 和 Dash to Dock Blur。</li>
-<li><a
-target="_blank" rel="noopener" href="https://extensions.gnome.org/extension/779/clipboard-indicator/">Clipboard
-Indicator</a>。这个插件可以在 Panel
-中显示一个剪切板图标方便你查看剪切板历史。很厉害的是，这个剪切板功能支持文字、图片甚至文件的历史记录，十分强大。</li>
-<li><a
-target="_blank" rel="noopener" href="https://extensions.gnome.org/extension/4451/logo-menu/">Logo
-Menu</a>。这个插件可以在 Panel
-的左侧实现一个和苹果很像，甚至有苹果图标的按钮。通过这个按钮可以实现强制退出软件、开关机、休眠、查看插件等等的功能，生产力属于是了。</li>
-</ul>
-<p>同时推荐打开官方的一些预装插件：</p>
-<ul>
-<li>App Menu，可以在 Panel
-左侧实现一个类似开始菜单的功能，快速的开启软件。</li>
-<li>Removable Drive Menu，这个插件可以在 Panel
-的右方显示一个下拉栏用于快速的弹出 U 盘。</li>
-<li>System Monitor，可以在 Panel
-右侧显示系统当前的运行状态：CPU、内存、SWAP、上传、下载等。</li>
-</ul>
-<p>经过了这系列的操作，你的系统应该看起来很漂亮啦！就像这样：</p>
-<p><img
-src="https://cdn.jsdelivr.net/gh/lixuannan/img/Screenshot%20from%202024-08-23%2017-53-46.png" /></p>
-<p><img
-src="https://cdn.jsdelivr.net/gh/lixuannan/img/Screenshot%20from%202024-08-23%2017-54-53.png" /></p>
-<p><img
-src="https://cdn.jsdelivr.net/gh/lixuannan/img/Screenshot%20from%202024-08-23%2017-56-09.png" /></p>
-<h2 id="预告">预告</h2>
-<p>下期将介绍开发环境的配置。</p>
+                <h1 id="没有-gui只用命令行cli管理密码">没有
+GUI？只用命令行（CLI）管理密码！</h1>
+<blockquote>
+<p>本文翻译自 <a
+target="_blank" rel="noopener" href="https://www.zdnet.com/article/need-to-manage-linux-passwords-on-the-command-line-no-gui-no-problem/"
+class="uri">https://www.zdnet.com/article/need-to-manage-linux-passwords-on-the-command-line-no-gui-no-problem/</a></p>
+</blockquote>
+<figure>
+<img src="https://cdn.jsdelivr.net/gh/lixuannan/img/guake2.jpg"
+alt="Guake 在 Ubuntu Budgie 上打开。" />
+<figcaption aria-hidden="true">Guake 在 Ubuntu Budgie
+上打开。</figcaption>
+</figure>
+<p>我绝对不会告诉你有多少次我不得不在没有 GUI 程序的情况下管理 Linux
+中的用户密码。无论是在服务器上，还是通过 SSH
+访问远程机器，知道如何使用这些命令在多个场景下都救了我一命。</p>
+<p>好消息是，要从命令行界面 (CLI)
+管理密码，你只需要知道一个命令。然而，我还要介绍另一个我认为也很重要的命令。</p>
+<p>我将介绍这两个命令，并展示它们的强大功能。</p>
+<p>你准备好了吗？</p>
+<h2 id="passwd-命令">passwd 命令</h2>
+<p>新用户总是容易被这个命令名绊住。当我刚开始使用 Linux
+时，我也花了一段时间才记住它是 <code>passwd</code> 而不是
+<code>password</code>。</p>
+<p>passwd
+命令允许你设置、修改密码并查看密码的状态。它还能强制用户更改密码，并锁定/解锁账户。</p>
+<p>我将向你展示如何执行这些操作。无需担心你正在使用的发行版是什么，因为所有发行版都包含
+<code>passwd</code> 命令。</p>
+<p>首先，我们可以设置一个新密码。只有在用户首次在命令行创建时才需要这样做。某些发行版在创建用户时要求设置密码，而一些发行版则不要求。如果你发现
+<code>useradd</code>
+命令不要求为新用户设置密码，你可以使用以下命令创建一个密码：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> passwd 用户名<br></code></pre></td></tr></table></figure>
+<p>其中，<code>用户名</code> 是你要修改密码的用户。</p>
+<p>管理员（root）可以修改任何用户的密码，而普通用户只能修改自己的密码。</p>
+<p>管理员更改用户密码的命令是：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> passwd 用户名<br></code></pre></td></tr></table></figure>
+<p>而普通用户更改自己密码的命令是：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">passwd<br></code></pre></td></tr></table></figure>
+<p>要查看密码的状态，可以使用以下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> passwd -S 用户名<br></code></pre></td></tr></table></figure>
+<p>其中，<code>用户名</code> 是你要查看的用户。</p>
+<p>该命令的输出将包括用户名、状态、上次更改日期、密码最小年龄、最大年龄、警告期和不活动期。</p>
+<p>你还可以使用以下命令查看所有用户的密码状态：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> passwd -Sa<br></code></pre></td></tr></table></figure>
+<p>此命令还包括系统账户。</p>
+<p>我们还可以强制某用户更改密码，使用的命令是：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> passwd -e 用户名<br></code></pre></td></tr></table></figure>
+<p>下次该用户登录时，将被提示输入当前密码，并设置新密码。</p>
+<p>最后，你可以使用 <code>passwd</code>
+命令锁定和解锁用户账户。锁定账户的命令是：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> passwd -l 用户名<br></code></pre></td></tr></table></figure>
+<p>该用户将无法登录。解锁账户的命令是：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> passwd -u 用户名<br></code></pre></td></tr></table></figure>
+<h2 id="chage-命令">chage 命令</h2>
+<p><code>chage</code> 命令用于管理密码的到期时间。为什么要使用
+<code>chage</code> 命令而不是 <code>passwd</code>
+命令呢？简单来说，<code>chage</code>
+命令为你提供了更多的密码过期控制。当你需要在 Linux
+系统上创建临时账户时，这非常有用。你可以设置密码在特定时间过期，届时该用户将无法登录。这在你有客人需要临时账户或者公司员工即将离职时特别有帮助。</p>
+<p>假设你想用 <code>chage</code>
+命令强制用户在特定日期更改密码。例如，你想让用户 olivia 在 2024 年 10 月
+31 日更改密码，命令如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> chage -d 2024-10-31 olivia<br></code></pre></td></tr></table></figure>
+<p>到那天，用户 olivia 登录时将被要求更改密码。</p>
+<p>假设你想设置账户的到期日期，使用的命令如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> chage -E 2024-10-31 olivia<br></code></pre></td></tr></table></figure>
+<p>你还可以使用以下命令锁定账户：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> chage -E 0 用户名<br></code></pre></td></tr></table></figure>
+<p>要移除账户的到期日期，命令如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> chage --expiredate -1 用户名<br></code></pre></td></tr></table></figure>
+<p>最后，你可以指定密码更改的周期。例如，你希望某用户每 30
+天更改一次密码，命令如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> chage -E 30 用户名<br></code></pre></td></tr></table></figure>
+<p>执行该命令后，该用户必须每 30
+天更改一次密码。你还可以设置警告期，而不是在当天提醒，可以提前一天警告，命令如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> chage -W 1 用户名<br></code></pre></td></tr></table></figure>
+<p>你还可以使用以下命令移除密码的过期时间：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> chage -E -1 用户名<br></code></pre></td></tr></table></figure>
+<p>以上就是从命令行管理用户密码的全部内容。</p>
 
                 
               </div>
@@ -582,8 +747,15 @@ src="https://cdn.jsdelivr.net/gh/lixuannan/img/Screenshot%20from%202024-08-23%20
     
       <span class="category-chain">
         
-  <a href="/categories/%E6%9E%84%E5%BB%BA%E8%B6%85%E5%BC%BA-OI-%E7%B3%BB%E7%BB%9F/" class="category-chain-item">构建超强 OI 系统</a>
+  <a href="/categories/%E7%BF%BB%E8%AF%91/" class="category-chain-item">翻译</a>
   
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BF%BB%E8%AF%91/ZDNET/" class="category-chain-item">ZDNET</a>
+  
+  
+
   
 
       </span>
@@ -597,17 +769,11 @@ src="https://cdn.jsdelivr.net/gh/lixuannan/img/Screenshot%20from%202024-08-23%20
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/OI/" class="print-no-link">#OI</a>
+        <a href="/tags/Linux/" class="print-no-link">#Linux</a>
       
-        <a href="/tags/%E6%9E%84%E5%BB%BA%E8%B6%85%E5%BC%BA-OI-%E7%B3%BB%E7%BB%9F/" class="print-no-link">#构建超强 OI 系统</a>
+        <a href="/tags/Password/" class="print-no-link">#Password</a>
       
-        <a href="/tags/%E7%B3%BB%E7%BB%9F/" class="print-no-link">#系统</a>
-      
-        <a href="/tags/Arch-Linux/" class="print-no-link">#Arch Linux</a>
-      
-        <a href="/tags/GNOME/" class="print-no-link">#GNOME</a>
-      
-        <a href="/tags/%E7%BE%8E%E5%8C%96/" class="print-no-link">#美化</a>
+        <a href="/tags/CLI/" class="print-no-link">#CLI</a>
       
     </div>
   
@@ -619,8 +785,8 @@ src="https://cdn.jsdelivr.net/gh/lixuannan/img/Screenshot%20from%202024-08-23%20
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>构建超强 OI 系统之美化 Arch Linux &amp; 美化 GNOME &amp; 美化 Fcitx</div>
-      <div>https://lixuannan.github.io/posts/63759.html</div>
+      <div>没有 GUI？只用命令行（CLI）管理密码！</div>
+      <div>https://lixuannan.github.io/posts/34224.html</div>
     </div>
     <div class="license-meta">
       
@@ -632,7 +798,7 @@ src="https://cdn.jsdelivr.net/gh/lixuannan/img/Screenshot%20from%202024-08-23%20
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年8月23日</div>
+          <div>2024年11月7日</div>
         </div>
       
       
@@ -676,18 +842,12 @@ src="https://cdn.jsdelivr.net/gh/lixuannan/img/Screenshot%20from%202024-08-23%20
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/posts/63319.html" title="构建超强 OI 系统之开发环境">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">构建超强 OI 系统之开发环境</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/posts/7723.html" title="构建超强 OI 系统之配置 Arch Linux">
-                        <span class="hidden-mobile">构建超强 OI 系统之配置 Arch Linux</span>
+                      <a href="/posts/34503.html" title="包管理器太多太复杂？试试用 APP 管理你的包">
+                        <span class="hidden-mobile">包管理器太多太复杂？试试用 APP 管理你的包</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
