@@ -2,15 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://lixuannan.github.io/posts/28582.html</loc>
-    
-    <lastmod>2024-11-09</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://lixuannan.github.io/posts/4116.html</loc>
     
     <lastmod>2024-11-09</lastmod>
@@ -228,6 +219,15 @@
   
   <url>
     <loc>https://lixuannan.github.io/about/</loc>
+    
+    <lastmod>2024-11-09</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://lixuannan.github.io/posts/9065.html</loc>
     
     <lastmod>2024-11-09</lastmod>
     
@@ -785,6 +785,15 @@
   </url>
   
   <url>
+    <loc>https://lixuannan.github.io/posts/28582.html</loc>
+    
+    <lastmod>2024-11-09</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://lixuannan.github.io/posts/c035109b.html</loc>
     
     <lastmod>2024-11-09</lastmod>
@@ -858,15 +867,6 @@
   
   <url>
     <loc>https://lixuannan.github.io/posts/26966.html</loc>
-    
-    <lastmod>2024-11-09</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://lixuannan.github.io/posts/9065.html</loc>
     
     <lastmod>2024-11-09</lastmod>
     
