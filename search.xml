@@ -4,6 +4,35 @@
   
   
   <entry>
+    <title>使用 Tiling Shell 插件为 GNOME 添加超能生产力</title>
+    <link href="/posts/1807.html"/>
+    <url>/posts/1807.html</url>
+    
+    <content type="html"><![CDATA[<h1 id="使用-tiling-shell-插件为-gnome-添加超能生产力">使用 Tiling Shell插件为 GNOME 添加超能生产力</h1><blockquote><p>本文翻译自 <ahref="https://news.itsfoss.com/tiling-shell-gnome-extension/"class="uri">https://news.itsfoss.com/tiling-shell-gnome-extension/</a></p></blockquote><p>能达到 100% 的生产力是一个<strong>神话</strong>，但这并不意味着我们不应该努力在生活中变得更加有条理，不管是个人生活还是工作。</p><p>许多人使用像番茄钟这样的工具来安排他们的日常任务，按照设定的时间间隔工作，然后进行短暂的休息，并重复这样的模式。但是，工作空间的其他方面也可以改进。</p><p>以你的操作系统为例，如果你喜欢在多个工作空间和显示器上打开许多窗口，那么它<strong>内置的窗口管理可能是一个生产力瓶颈</strong>。</p><p>不过，有办法解决这个问题。如果你正在运行 Ubuntu 或其他基于 <ahref="https://www.gnome.org/">GNOME</a> 的 Linux发行版，那么你很幸运，你可以使用 Tiling Shell 插件解决这个问题。</p><p>在这篇初步介绍中，我们将看看“<strong>Tiling Shell插件</strong>”，这是一个适用于 GNOME 系统的开源窗口平铺解决方案。</p><h2 id="tiling-shell概述">Tiling Shell：概述 ⭐</h2><figure><img src="https://cdn.jsdelivr.net/gh/lixuannan/img/Tiling_Shell_a.png"alt="Tiling Shell Overview" /><figcaption aria-hidden="true">Tiling Shell Overview</figcaption></figure><p>Tiling Shell 是用 <ahref="https://www.typescriptlang.org/">TypeScript</a>编写的，其主要开发者 <a href="https://ferrarodomenico.com/">DomenicoFerraro</a> 将其称为：</p><blockquote><p>一个通过扩展 GNOME 默认的 2 列布局来实现现代窗口平铺系统的 GNOMEShell 扩展，你可以任意配置所需的布局！</p></blockquote><p>Tiling Shell 的一些<strong>主要功能</strong>包括：</p><ul><li><strong>轻松实现多显示器操作。</strong></li><li><strong>类似 Windows 11 的窗口捕捉助手。</strong></li><li><strong>支持 GNOME 40-46。</strong></li><li><strong>兼容 X11 和 Wayland。</strong></li></ul><h3 id="初步印象">初步印象</h3><p>我已经在安装 GNOME 42.9 的 Ubuntu 22.04.4 LTS 笔记本电脑上使用 TilingShell 几个月了（X11）。我是在看到 Windows 11上的窗口平铺功能后，觉得需要一个更直观的窗口平铺插件时安装的（这是我对它唯一喜欢的地方）。</p><p>我的 Tiling Shell配置与默认设置非常接近，至今的使用体验非常不错。</p><p><strong>它提供的控制水平令人印象深刻</strong>，可以调整窗口之间的内外间隙，拖动边缘以改变窗口布局，自定义配置文件，为窗口管理添加快捷键等等。</p><p><imgsrc="https://cdn.jsdelivr.net/gh/lixuannan/img/Tiling_Shell_b.png" /><imgsrc="https://cdn.jsdelivr.net/gh/lixuannan/img/Tiling_Shell_c.png" /><imgsrc="https://cdn.jsdelivr.net/gh/lixuannan/img/Tiling_Shell_d.png" /><imgsrc="https://cdn.jsdelivr.net/gh/lixuannan/img/Tiling_Shell_e.png" /></p><p>在布局选择方面，<strong>可能性几乎是无限的</strong>（真的）。有一些方便的预设布局可以使用，但它的主要亮点是布局编辑器，这是最好的一个功能。</p><p>它有滑块机制，可以与快捷键结合使用来创建符合个人偏好的完美布局。编辑后，点击平铺助手图标就可以保存布局。</p><p><imgsrc="https://cdn.jsdelivr.net/gh/lixuannan/img/Tiling_Shell_f.png" /><imgsrc="https://cdn.jsdelivr.net/gh/lixuannan/img/Tiling_Shell_g.png" /></p><p>此外，如果进入 Tiling Shell的设置，还有导入/导出布局的选项，以便跨设备使用。不过，这对我来说效果不如预期。</p><p>关于<strong>多显示器体验如何</strong>，Tiling Shell在这方面表现出色。使用捕捉助手在工作区和显示器之间平铺窗口非常方便，感觉非常自然。</p><p><imgsrc="https://cdn.jsdelivr.net/gh/lixuannan/img/Tiling_Shell_h.gif" /></p><hr /><p>你可以从 GNOME 扩展 <ahref="https://extensions.gnome.org/extension/7065/tiling-shell/">网站</a>获取 Tiling Shell。</p><p>如果你不熟悉如何安装 GNOME 扩展，建议阅读我们的 <ahref="https://itsfoss.com/gnome-shell-extensions/">GNOME ShellExtensions</a> 和 <ahref="https://itsfoss.com/extension-manager/">Extension Manager</a>指南。如果你不想手动安装，可以使用这些工具来设置 Tiling Shell。</p><p>如果你在寻找源代码或手动安装的说明，可以访问项目的 <ahref="https://github.com/domferr/tilingshell">GitHub</a> 仓库。</p><p>💬 你知道其他好用的 GNOME 扩展吗？欢迎在下方留言分享！</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>翻译</category>
+      
+      <category>ITSFOSS</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>GNOME 插件</tag>
+      
+      <tag>生产力</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>没有 GUI？只用命令行（CLI）管理密码！</title>
     <link href="/posts/34224.html"/>
     <url>/posts/34224.html</url>
