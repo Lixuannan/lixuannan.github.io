@@ -4,6 +4,37 @@
   
   
   <entry>
+    <title>VSCode 太无聊？快试试全新的 Kate！</title>
+    <link href="/posts/57998.html"/>
+    <url>/posts/57998.html</url>
+    
+    <content type="html"><![CDATA[<h1 id="vscode-太无聊快试试全新的-kate">VSCode 太无聊？快试试全新的Kate！</h1><blockquote><p>本文翻译自 <a href="https://news.itsfoss.com/kate-editor/"class="uri">https://news.itsfoss.com/kate-editor/</a></p></blockquote><p>如果你已经熟悉了像 Visual Studio Code这样的常见选择。不如你不想尝试一些不同的、但功能相似的编辑器吗？如果如此，那么KDE 开发的免费开源程序 Kate 编辑器绝对是你要尝试的一个选择。</p><h2 id="kate一个出色的代码编辑器">Kate：一个出色的代码编辑器</h2><figure><img src="https://cdn.jsdelivr.net/gh/lixuannan/img/Kate_a.png"alt="kate 的屏幕截图" /><figcaption aria-hidden="true">kate 的屏幕截图</figcaption></figure><p>Kate 的全称是 KDE 高级文本编辑器，自 2001 年以来一直是 <ahref="https://kde.org/">KDE</a> 软件体系的一部分，并主要使用 C++编写。它在 <ahref="https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html">LGPLv2</a>许可证下免费提供，因此你需要遵守协议的内容。</p><p>此外，还有一个基于 Kate 技术的文本编辑器，名为 <ahref="https://apps.kde.org/kwrite/">KWrite</a>，它也支持进行强大的文本和编程编辑，只是形式更紧凑一些。不过，本文将专注于Kate 的介绍。</p><h3 id="主要特点">⭐ 主要特点</h3><p>Kate有许多不错的功能，例如语法高亮、自动缩进、块选择、多文档界面等。</p><p>简要概述，Kate 的主要功能包括：</p><ul><li><strong>跨平台支持</strong></li><li><strong>支持 LSP（语言服务器）客户端</strong></li><li><strong>强大的编辑工具</strong></li><li><strong>灵活的多任务处理</strong></li></ul><h3 id="用户体验">💻 用户体验</h3><p>我在 Fedora 40 上使用 <ahref="https://apps.gnome.org/en-GB/Software/">GNOME 软件</a>安装了最新版本的 Kate，并且运行得非常顺利。</p><p>首先，我导入了一段基于 Python 的开源主题蛇形游戏代码，以测试 Kate编辑器的表现。</p><p>最开始，Kate将它作为纯文本处理，但我将语言模式切换为“Python”，这样它就可以正确处理代码，提供一定的错误检测、缩进、语法高亮以及其他语言特定的功能。</p><p>可以通过状态栏中的切换器或顶部的“工具”菜单切换语言模式。</p><figure><img src="https://cdn.jsdelivr.net/gh/lixuannan/img/Kate_b.png"alt="带有 Python 代码的 kate 的屏幕截图" /><figcaption aria-hidden="true">带有 Python 代码的 kate的屏幕截图</figcaption></figure><p>谈到<strong>状态栏</strong>，它包含一些有用的选项，如“输出”面板，显示输入命令、脚本或构建过程的输出信息；“诊断”面板，实时显示任何错误/警告信息。</p><p>接着是“搜索”面板，它是一个快速有效的方式，用于搜索任何打开的文件或项目。随后是“项目”面板，可以帮助你轻松管理和导航项目文件。</p><figure><img src="https://cdn.jsdelivr.net/gh/lixuannan/img/Kate_c.png"alt="带有 Python 代码和输出面板的 kate 屏幕截图" /><figcaption aria-hidden="true">带有 Python 代码和输出面板的 kate屏幕截图</figcaption></figure><p>你可能会想：<em>你忘了“终端”！</em>其实没有，我想展示它的工作效果，并展示 Kate 的广泛自定义选项。</p><p>在预安装的主题选项中，我选择了极简风格的“<em>BreezeDark</em>”作为窗口和编辑器的主题。</p><p>正如你在下图中看到的，终端运行得非常顺畅。这并不令人惊讶，因为 Kate使用的是 <a href="https://konsole.kde.org/">Konsole</a>作为底层终端。</p><figure><img src="https://cdn.jsdelivr.net/gh/lixuannan/img/Kate_d.png"alt="打开了终端面板的 kate 屏幕截图" /><figcaption aria-hidden="true">打开了终端面板的 kate屏幕截图</figcaption></figure><p>你可能还注意到的是<strong>分屏窗口</strong>，这是 Kate的另一个亮点。在处理更复杂的项目时，打开多个窗口进行多任务处理非常有帮助（其实VSCode 也有）。</p><p>你甚至可以分割终端窗口，以同时处理多个任务。</p><p>最后，除了所有常规的代码编辑功能，Kate还通过其井井有条的设置菜单提供了广泛的应用控制，可以让你轻松更改设置。</p><figure><img src="https://cdn.jsdelivr.net/gh/lixuannan/img/Kate_f.png"alt="Kate 的设置布局非常好" /><figcaption aria-hidden="true">Kate 的设置布局非常好</figcaption></figure><p>即使我不是编程方面的高手，Kate的用户界面也不会让我感到无从下手。它提供了大多数人可能需要的工具，这使得它成为<a href="https://code.visualstudio.com/">VS Code</a>的一个非常有吸引力的替代选择。</p><h2 id="在-linux-上安装-kate">⚙️ 在 Linux 上安装 Kate</h2><p>你可以从 <a href="https://kate-editor.org/get-it/">官方网站</a>获取适用于 <strong>Linux</strong>、<strong>Windows</strong> 和<strong>macOS</strong> 的 Kate。此外，Linux 版还可以通过 AppStream商店如 Discover/GNOME 软件获取，也可以通过 <ahref="https://snapcraft.io/kate">Snapcraft</a> 安装。</p><p>如果你需要源代码，可以访问 KDE 的 <ahref="https://invent.kde.org/utilities/kate">GitLab</a>仓库，该仓库还包含有助于项目贡献的资源。</p><p><em>💬 你以前用过 Kate吗？是否更喜欢其他编辑器？欢迎在评论区分享！</em></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>翻译</category>
+      
+      <category>ITSFOSS</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>VSCode</tag>
+      
+      <tag>文本编辑器</tag>
+      
+      <tag>KATE</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>使用 Tiling Shell 插件为 GNOME 添加超能生产力</title>
     <link href="/posts/1807.html"/>
     <url>/posts/1807.html</url>

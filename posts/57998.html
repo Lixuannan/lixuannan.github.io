@@ -21,33 +21,26 @@
   <meta name="author" content="CodingCow Lee">
   <meta name="keywords" content="python,ml,deeplearning,dl,c++,c,pytorch,noi,oi,ioi,noip,csp-j,csp-s,oier,tyoi,oiclass">
   
-    <meta name="description" content="这道题实际上很简单 先看题目，会发现，这道题似乎很想模拟题，但是又好像不是，因为用正常的方法没法模拟，或者说很难模拟。看标签仔细观察就可以知道，这是一道数据结构相关的模版题，具体会用到队列。 思路如下：  首先输入题目中提到的 \(n\) 和 \(c\) 在队列中压入 \(1 \to n\) 的所有自然数，对于 \(n &#x3D; 6\) 的情况，队列应该是这样的：\(队头\ 1,2,3,4,5,6\ 队">
+    <meta name="description" content="VSCode 太无聊？快试试全新的 Kate！  本文翻译自 https:&#x2F;&#x2F;news.itsfoss.com&#x2F;kate-editor&#x2F;  如果你已经熟悉了像 Visual Studio Code 这样的常见选择。不如你不想尝试一些不同的、但功能相似的编辑器吗？如果如此，那么 KDE 开发的免费开源程序 Kate 编辑器绝对是你要尝试的一个选择。 Kate：一个出色的代码编辑器   kate 的屏">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Oiclass P2261 题解">
-<meta property="og:url" content="https://lixuannan.github.io/posts/c0f28fe.html">
+<meta property="og:title" content="VSCode 太无聊？快试试全新的 Kate！">
+<meta property="og:url" content="https://lixuannan.github.io/posts/57998.html">
 <meta property="og:site_name" content="CodingCow&#39;s Blog">
-<meta property="og:description" content="这道题实际上很简单 先看题目，会发现，这道题似乎很想模拟题，但是又好像不是，因为用正常的方法没法模拟，或者说很难模拟。看标签仔细观察就可以知道，这是一道数据结构相关的模版题，具体会用到队列。 思路如下：  首先输入题目中提到的 \(n\) 和 \(c\) 在队列中压入 \(1 \to n\) 的所有自然数，对于 \(n &#x3D; 6\) 的情况，队列应该是这样的：\(队头\ 1,2,3,4,5,6\ 队">
+<meta property="og:description" content="VSCode 太无聊？快试试全新的 Kate！  本文翻译自 https:&#x2F;&#x2F;news.itsfoss.com&#x2F;kate-editor&#x2F;  如果你已经熟悉了像 Visual Studio Code 这样的常见选择。不如你不想尝试一些不同的、但功能相似的编辑器吗？如果如此，那么 KDE 开发的免费开源程序 Kate 编辑器绝对是你要尝试的一个选择。 Kate：一个出色的代码编辑器   kate 的屏">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-01-31T16:00:00.000Z">
-<meta property="article:modified_time" content="2024-11-10T01:04:40.692Z">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lixuannan/img/Kate_a.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lixuannan/img/Kate_b.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lixuannan/img/Kate_c.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lixuannan/img/Kate_d.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lixuannan/img/Kate_f.png">
+<meta property="article:published_time" content="2024-11-09T22:39:00.000Z">
+<meta property="article:modified_time" content="2024-11-10T01:04:40.696Z">
 <meta property="article:author" content="CodingCow Lee">
-<meta property="article:tag" content="python">
-<meta property="article:tag" content="ml">
-<meta property="article:tag" content="deeplearning">
-<meta property="article:tag" content="dl">
-<meta property="article:tag" content="c++">
-<meta property="article:tag" content="c">
-<meta property="article:tag" content="pytorch">
-<meta property="article:tag" content="noi">
-<meta property="article:tag" content="oi">
-<meta property="article:tag" content="ioi">
-<meta property="article:tag" content="noip">
-<meta property="article:tag" content="csp-j">
-<meta property="article:tag" content="csp-s">
-<meta property="article:tag" content="oier">
-<meta property="article:tag" content="tyoi">
-<meta property="article:tag" content="oiclass">
+<meta property="article:tag" content="VSCode">
+<meta property="article:tag" content="文本编辑器">
+<meta property="article:tag" content="KATE">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/lixuannan/img/Kate_a.png">
 <meta name="twitter:creator" content="@CodingCow">
 <meta name="twitter:site" content="lixuannan.github.io">
   
@@ -55,7 +48,7 @@
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>Oiclass P2261 题解 | CodingCow&#39;s Blog</title>
+  <title>VSCode 太无聊？快试试全新的 Kate！ | CodingCow&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -305,7 +298,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle">Oiclass P2261 题解</span>
+            <span id="subtitle">VSCode 太无聊？快试试全新的 Kate！</span>
           
         </div>
 
@@ -321,8 +314,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-02-01 00:00" pubdate>
-          2023年2月1日 凌晨
+        <time datetime="2024-11-10 06:39" pubdate>
+          2024年11月10日 早上
         </time>
       </span>
     
@@ -333,7 +326,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          378 字
+          1k 字
         
       </span>
     
@@ -344,7 +337,7 @@
         
         
         
-          2 分钟
+          5 分钟
         
       </span>
     
@@ -398,17 +391,17 @@
     
     <div class="category row nomargin-x">
       <a class="category-item 
-          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="题解"
-        id="heading-4161afd7a4e47ddb8376cb63ba58880f" role="tab" data-toggle="collapse" href="#collapse-4161afd7a4e47ddb8376cb63ba58880f"
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="翻译"
+        id="heading-8b3607d0f4181a3cb6ffdccf7185f09b" role="tab" data-toggle="collapse" href="#collapse-8b3607d0f4181a3cb6ffdccf7185f09b"
         aria-expanded="true"
       >
-        题解
-        <span class="list-group-count">(54)</span>
+        翻译
+        <span class="list-group-count">(17)</span>
         <i class="iconfont icon-arrowright"></i>
       </a>
       
-      <div class="category-collapse collapse show" id="collapse-4161afd7a4e47ddb8376cb63ba58880f"
-           role="tabpanel" aria-labelledby="heading-4161afd7a4e47ddb8376cb63ba58880f">
+      <div class="category-collapse collapse show" id="collapse-8b3607d0f4181a3cb6ffdccf7185f09b"
+           role="tabpanel" aria-labelledby="heading-8b3607d0f4181a3cb6ffdccf7185f09b">
         
         
           
@@ -425,17 +418,17 @@
     
     <div class="category-sub row nomargin-x">
       <a class="category-subitem collapsed
-          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="AtCoder"
-        id="heading-68954b2aeb9f2d73f714ade4a98767ca" role="tab" data-toggle="collapse" href="#collapse-68954b2aeb9f2d73f714ade4a98767ca"
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="DEBUGPOINTNEWS"
+        id="heading-73afb2609c2e7f48835b36f96b487f44" role="tab" data-toggle="collapse" href="#collapse-73afb2609c2e7f48835b36f96b487f44"
         aria-expanded="false"
       >
-        AtCoder
-        <span class="list-group-count">(4)</span>
+        DEBUGPOINTNEWS
+        <span class="list-group-count">(3)</span>
         <i class="iconfont icon-arrowright"></i>
       </a>
       
-      <div class="category-collapse collapse " id="collapse-68954b2aeb9f2d73f714ade4a98767ca"
-           role="tabpanel" aria-labelledby="heading-68954b2aeb9f2d73f714ade4a98767ca">
+      <div class="category-collapse collapse " id="collapse-73afb2609c2e7f48835b36f96b487f44"
+           role="tabpanel" aria-labelledby="heading-73afb2609c2e7f48835b36f96b487f44">
         
         
           
@@ -444,138 +437,28 @@
     
       
       
-        <a href="/posts/30504.html" title="AtCoder ABC206D KAIBUNsyo 题解"
+        <a href="/posts/14222.html" title="Linux 成为 Python 开发者的首选平台！"
            class="list-group-item list-group-item-action
            ">
-          <span class="category-post">AtCoder ABC206D KAIBUNsyo 题解</span>
+          <span class="category-post">Linux 成为 Python 开发者的首选平台！</span>
         </a>
       
     
       
       
-        <a href="/posts/38985.html" title="AT_arc132_b Shift and Reverse 题解"
+        <a href="/posts/57211.html" title="Tuxedo 发布首款基于骁龙 X Elite 的 ARM 笔记本电脑"
            class="list-group-item list-group-item-action
            ">
-          <span class="category-post">AT_arc132_b Shift and Reverse 题解</span>
+          <span class="category-post">Tuxedo 发布首款基于骁龙 X Elite 的 ARM 笔记本电脑</span>
         </a>
       
     
       
       
-        <a href="/posts/26210.html" title="AT_abc255_e 题解"
+        <a href="/posts/32246.html" title="Tor 与 Tails 项目合并"
            class="list-group-item list-group-item-action
            ">
-          <span class="category-post">AT_abc255_e 题解</span>
-        </a>
-      
-    
-      
-      
-        <a href="/posts/41815.html" title="AT_zone2021_e 题解"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">AT_zone2021_e 题解</span>
-        </a>
-      
-    
-  </div>
-
-        
-      </div>
-    </div>
-  
-    
-    
-    
-    <div class="category-sub row nomargin-x">
-      <a class="category-subitem collapsed
-          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="CodeForces"
-        id="heading-e693d9056a89928ea6fa9cd5daef9ea1" role="tab" data-toggle="collapse" href="#collapse-e693d9056a89928ea6fa9cd5daef9ea1"
-        aria-expanded="false"
-      >
-        CodeForces
-        <span class="list-group-count">(4)</span>
-        <i class="iconfont icon-arrowright"></i>
-      </a>
-      
-      <div class="category-collapse collapse " id="collapse-e693d9056a89928ea6fa9cd5daef9ea1"
-           role="tabpanel" aria-labelledby="heading-e693d9056a89928ea6fa9cd5daef9ea1">
-        
-        
-          
-  <div class="category-post-list">
-    
-    
-      
-      
-        <a href="/posts/9199.html" title="CF1612D X-Magic Pair 题解"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">CF1612D X-Magic Pair 题解</span>
-        </a>
-      
-    
-      
-      
-        <a href="/posts/36804.html" title="CF1244C 题解"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">CF1244C 题解</span>
-        </a>
-      
-    
-      
-      
-        <a href="/posts/28582.html" title="CF1368E Ski Accidents 题解"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">CF1368E Ski Accidents 题解</span>
-        </a>
-      
-    
-      
-      
-        <a href="/posts/14038.html" title="CF985C 题解"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">CF985C 题解</span>
-        </a>
-      
-    
-  </div>
-
-        
-      </div>
-    </div>
-  
-    
-    
-    
-    <div class="category-sub row nomargin-x">
-      <a class="category-subitem collapsed
-          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="MCOI"
-        id="heading-83b2b1402ef2c65ab4a55b7ce3d8ee80" role="tab" data-toggle="collapse" href="#collapse-83b2b1402ef2c65ab4a55b7ce3d8ee80"
-        aria-expanded="false"
-      >
-        MCOI
-        <span class="list-group-count">(1)</span>
-        <i class="iconfont icon-arrowright"></i>
-      </a>
-      
-      <div class="category-collapse collapse " id="collapse-83b2b1402ef2c65ab4a55b7ce3d8ee80"
-           role="tabpanel" aria-labelledby="heading-83b2b1402ef2c65ab4a55b7ce3d8ee80">
-        
-        
-          
-  <div class="category-post-list">
-    
-    
-      
-      
-        <a href="/posts/5946.html" title="MCOI 2023年6月月赛题解"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">MCOI 2023年6月月赛题解</span>
+          <span class="category-post">Tor 与 Tails 项目合并</span>
         </a>
       
     
@@ -590,17 +473,17 @@
     
     <div class="category-sub row nomargin-x">
       <a class="category-subitem 
-          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="OiClass"
-        id="heading-785d2caf3e0c2e9f430c199b2eb9ac27" role="tab" data-toggle="collapse" href="#collapse-785d2caf3e0c2e9f430c199b2eb9ac27"
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="ITSFOSS"
+        id="heading-10c60e2686d42569c4db79639219bcd3" role="tab" data-toggle="collapse" href="#collapse-10c60e2686d42569c4db79639219bcd3"
         aria-expanded="true"
       >
-        OiClass
-        <span class="list-group-count">(38)</span>
+        ITSFOSS
+        <span class="list-group-count">(10)</span>
         <i class="iconfont icon-arrowright"></i>
       </a>
       
-      <div class="category-collapse collapse show" id="collapse-785d2caf3e0c2e9f430c199b2eb9ac27"
-           role="tabpanel" aria-labelledby="heading-785d2caf3e0c2e9f430c199b2eb9ac27">
+      <div class="category-collapse collapse show" id="collapse-10c60e2686d42569c4db79639219bcd3"
+           role="tabpanel" aria-labelledby="heading-10c60e2686d42569c4db79639219bcd3">
         
         
           
@@ -609,233 +492,91 @@
     
       
       
-        <a href="/posts/22409.html" title="OiClass PU2TI 330 Soso 的并查集题解"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">OiClass PU2TI 330 Soso 的并查集题解</span>
-        </a>
-      
-    
-      
-      
-        <a href="/posts/21737.html" title="OiClass TIGAO P3280 牛牛的猜球游戏题解"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">OiClass TIGAO P3280 牛牛的猜球游戏题解</span>
-        </a>
-      
-    
-      
-      
-        <a href="/posts/7145.html" title="OiClass TIGAO P3279 牛牛的方程式题解"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">OiClass TIGAO P3279 牛牛的方程式题解</span>
-        </a>
-      
-    
-      
-      
-        <a href="/posts/24926.html" title="OiClass TIGAO P3333 路径难题题解"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">OiClass TIGAO P3333 路径难题题解</span>
-        </a>
-      
-    
-      
-      
-        <a href="/posts/32290.html" title="OiClass PU2TI P3042 拓展的奇拼图题解"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">OiClass PU2TI P3042 拓展的奇拼图题解</span>
-        </a>
-      
-    
-      
-      
-        <a href="/posts/47712.html" title="OiClass PUJI P3827 函数 题解"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">OiClass PUJI P3827 函数 题解</span>
-        </a>
-      
-    
-      
-      
-        <a href="/posts/41221.html" title="OiClass P2688 简单计算题解"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">OiClass P2688 简单计算题解</span>
-        </a>
-      
-    
-      
-      
-        <a href="/posts/24397.html" title="OiClass 2024 CSP-J 公益赛 #4 题解"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">OiClass 2024 CSP-J 公益赛 #4 题解</span>
-        </a>
-      
-    
-      
-      
-        <a href="/posts/53556.html" title="Oiclass PU2TI P3791 棋子题解"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">Oiclass PU2TI P3791 棋子题解</span>
-        </a>
-      
-    
-      
-      
-        <a href="/posts/26966.html" title="Oiclass PUJI 1353 题解"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">Oiclass PUJI 1353 题解</span>
-        </a>
-      
-    
-      
-      
-        <a href="/posts/16159.html" title="Oiclass PUJI 1277 题解"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">Oiclass PUJI 1277 题解</span>
-        </a>
-      
-    
-      
-      
-        <a href="/posts/19144.html" title="Oiclass PUJI Circle 题解"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">Oiclass PUJI Circle 题解</span>
-        </a>
-      
-    
-      
-      
-        <a href="/posts/25ad433c.html" title="Oiclass PUJI 971 题解"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">Oiclass PUJI 971 题解</span>
-        </a>
-      
-    
-      
-      
-        <a href="/posts/372de39.html" title="Oiclass PUJI P1296 题解"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">Oiclass PUJI P1296 题解</span>
-        </a>
-      
-    
-      
-      
-        <a href="/posts/c0f28fe.html" title="Oiclass P2261 题解"
+        <a href="/posts/57998.html" title="VSCode 太无聊？快试试全新的 Kate！"
            class="list-group-item list-group-item-action
            active">
-          <span class="category-post">Oiclass P2261 题解</span>
+          <span class="category-post">VSCode 太无聊？快试试全新的 Kate！</span>
         </a>
       
     
       
       
-        <a href="/posts/52544bc3.html" title="Oiclass 新 C 班选拔测试题解"
+        <a href="/posts/1807.html" title="使用 Tiling Shell 插件为 GNOME 添加超能生产力"
            class="list-group-item list-group-item-action
            ">
-          <span class="category-post">Oiclass 新 C 班选拔测试题解</span>
+          <span class="category-post">使用 Tiling Shell 插件为 GNOME 添加超能生产力</span>
         </a>
       
     
       
       
-        <a href="/posts/9f2847e6.html" title="Oiclass P1266 题解"
+        <a href="/posts/34503.html" title="包管理器太多太复杂？试试用 APP 管理你的包"
            class="list-group-item list-group-item-action
            ">
-          <span class="category-post">Oiclass P1266 题解</span>
+          <span class="category-post">包管理器太多太复杂？试试用 APP 管理你的包</span>
         </a>
       
     
       
       
-        <a href="/posts/c035109b.html" title="Oiclass P1238 题解"
+        <a href="/posts/23129.html" title="在 Linux 中使用几个工具轻松查看 NVME 盘的温度"
            class="list-group-item list-group-item-action
            ">
-          <span class="category-post">Oiclass P1238 题解</span>
+          <span class="category-post">在 Linux 中使用几个工具轻松查看 NVME 盘的温度</span>
         </a>
       
     
       
       
-        <a href="/posts/282a7cc0.html" title="Oiclass P1255 题解"
+        <a href="/posts/57408.html" title="2023 年的 8 个 Linux 决定性瞬间"
            class="list-group-item list-group-item-action
            ">
-          <span class="category-post">Oiclass P1255 题解</span>
+          <span class="category-post">2023 年的 8 个 Linux 决定性瞬间</span>
         </a>
       
     
       
       
-        <a href="/posts/b1de6f60.html" title="Oiclass P1246 题解"
+        <a href="/posts/61005.html" title="15 个提升 VSCode 编码体验的小技巧"
            class="list-group-item list-group-item-action
            ">
-          <span class="category-post">Oiclass P1246 题解</span>
+          <span class="category-post">15 个提升 VSCode 编码体验的小技巧</span>
         </a>
       
     
       
       
-        <a href="/categories/%E9%A2%98%E8%A7%A3/OiClass/" class="list-group-item list-group-item-action">
-          <span class="category-post">More...</span>
-        </a>
-        
-  </div>
-
-        
-      </div>
-    </div>
-  
-    
-    
-    
-    <div class="category-sub row nomargin-x">
-      <a class="category-subitem collapsed
-          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="SPOJ"
-        id="heading-67543efed58a1367661850dd2d5d02bd" role="tab" data-toggle="collapse" href="#collapse-67543efed58a1367661850dd2d5d02bd"
-        aria-expanded="false"
-      >
-        SPOJ
-        <span class="list-group-count">(2)</span>
-        <i class="iconfont icon-arrowright"></i>
-      </a>
-      
-      <div class="category-collapse collapse " id="collapse-67543efed58a1367661850dd2d5d02bd"
-           role="tabpanel" aria-labelledby="heading-67543efed58a1367661850dd2d5d02bd">
-        
-        
-          
-  <div class="category-post-list">
-    
-    
-      
-      
-        <a href="/posts/51536.html" title="SPOJ SETSTACK 题解"
+        <a href="/posts/47040.html" title="Linux 制作词云图的命令行工具——Wordcloud"
            class="list-group-item list-group-item-action
            ">
-          <span class="category-post">SPOJ SETSTACK 题解</span>
+          <span class="category-post">Linux 制作词云图的命令行工具——Wordcloud</span>
         </a>
       
     
       
       
-        <a href="/posts/57531.html" title="SPOJ MARTIAN 题解"
+        <a href="/posts/33074.html" title="RefreshOS——一个潜在的 Debian 替代品"
            class="list-group-item list-group-item-action
            ">
-          <span class="category-post">SPOJ MARTIAN 题解</span>
+          <span class="category-post">RefreshOS——一个潜在的 Debian 替代品</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/27832.html" title="使用 GSConnect 无缝连接安卓手机和 Linux"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">使用 GSConnect 无缝连接安卓手机和 Linux</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/51813.html" title="Ubuntu 24.10 的 6 个新功能"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">Ubuntu 24.10 的 6 个新功能</span>
         </a>
       
     
@@ -850,54 +591,17 @@
     
     <div class="category-sub row nomargin-x">
       <a class="category-subitem collapsed
-          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="UVA"
-        id="heading-8c78747c6d1148e17b836df65e6d296f" role="tab" data-toggle="collapse" href="#collapse-8c78747c6d1148e17b836df65e6d296f"
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="ZDNET"
+        id="heading-f7536e34a654c455d79133144e9077a5" role="tab" data-toggle="collapse" href="#collapse-f7536e34a654c455d79133144e9077a5"
         aria-expanded="false"
       >
-        UVA
-        <span class="list-group-count">(1)</span>
-        <i class="iconfont icon-arrowright"></i>
-      </a>
-      
-      <div class="category-collapse collapse " id="collapse-8c78747c6d1148e17b836df65e6d296f"
-           role="tabpanel" aria-labelledby="heading-8c78747c6d1148e17b836df65e6d296f">
-        
-        
-          
-  <div class="category-post-list">
-    
-    
-      
-      
-        <a href="/posts/7177.html" title="UVA929 Number Maze 题解"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">UVA929 Number Maze 题解</span>
-        </a>
-      
-    
-  </div>
-
-        
-      </div>
-    </div>
-  
-    
-    
-    
-    <div class="category-sub row nomargin-x">
-      <a class="category-subitem collapsed
-          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="洛谷"
-        id="heading-11477e19ac33e6359c8d21a11e477a2e" role="tab" data-toggle="collapse" href="#collapse-11477e19ac33e6359c8d21a11e477a2e"
-        aria-expanded="false"
-      >
-        洛谷
+        ZDNET
         <span class="list-group-count">(4)</span>
         <i class="iconfont icon-arrowright"></i>
       </a>
       
-      <div class="category-collapse collapse " id="collapse-11477e19ac33e6359c8d21a11e477a2e"
-           role="tabpanel" aria-labelledby="heading-11477e19ac33e6359c8d21a11e477a2e">
+      <div class="category-collapse collapse " id="collapse-f7536e34a654c455d79133144e9077a5"
+           role="tabpanel" aria-labelledby="heading-f7536e34a654c455d79133144e9077a5">
         
         
           
@@ -906,37 +610,37 @@
     
       
       
-        <a href="/posts/42348.html" title="Luogu P7537 [COCI2016-2017#4] Rima 题解"
+        <a href="/posts/34224.html" title="没有 GUI？只用命令行（CLI）管理密码！"
            class="list-group-item list-group-item-action
            ">
-          <span class="category-post">Luogu P7537 [COCI2016-2017#4] Rima 题解</span>
+          <span class="category-post">没有 GUI？只用命令行（CLI）管理密码！</span>
         </a>
       
     
       
       
-        <a href="/posts/48509.html" title="Luogu P1495 题解"
+        <a href="/posts/35073.html" title="20 年！PREEMPT_RT 最终合并入 Linux 内核"
            class="list-group-item list-group-item-action
            ">
-          <span class="category-post">Luogu P1495 题解</span>
+          <span class="category-post">20 年！PREEMPT_RT 最终合并入 Linux 内核</span>
         </a>
       
     
       
       
-        <a href="/posts/14032.html" title="洛谷 P10170 [DTCPC 2024] 小方和小立方 题解"
+        <a href="/posts/10358.html" title="4 个基于 GNOME 的好看的桌面环境"
            class="list-group-item list-group-item-action
            ">
-          <span class="category-post">洛谷 P10170 [DTCPC 2024] 小方和小立方 题解</span>
+          <span class="category-post">4 个基于 GNOME 的好看的桌面环境</span>
         </a>
       
     
       
       
-        <a href="/posts/52460.html" title="洛谷 P10160 [DTCPC 2024] Ultra 题解"
+        <a href="/posts/1177.html" title="5 个你值得尝试的 Linux 终端"
            class="list-group-item list-group-item-action
            ">
-          <span class="category-post">洛谷 P10160 [DTCPC 2024] Ultra 题解</span>
+          <span class="category-post">5 个你值得尝试的 Linux 终端</span>
         </a>
       
     
@@ -962,35 +666,106 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">Oiclass P2261 题解</h1>
+            <h1 id="seo-header">VSCode 太无聊？快试试全新的 Kate！</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="这道题实际上很简单">这道题实际上很简单</h1>
-<p>先看题目，会发现，这道题似乎很想模拟题，但是又好像不是，因为用正常的方法没法模拟，或者说很难模拟。<del>看标签</del>仔细观察就可以知道，这是一道数据结构相关的模版题，具体会用到队列。</p>
-<h3 id="思路如下">思路如下：</h3>
+                <h1 id="vscode-太无聊快试试全新的-kate">VSCode 太无聊？快试试全新的
+Kate！</h1>
+<blockquote>
+<p>本文翻译自 <a target="_blank" rel="noopener" href="https://news.itsfoss.com/kate-editor/"
+class="uri">https://news.itsfoss.com/kate-editor/</a></p>
+</blockquote>
+<p>如果你已经熟悉了像 Visual Studio Code
+这样的常见选择。不如你不想尝试一些不同的、但功能相似的编辑器吗？如果如此，那么
+KDE 开发的免费开源程序 Kate 编辑器绝对是你要尝试的一个选择。</p>
+<h2 id="kate一个出色的代码编辑器">Kate：一个出色的代码编辑器</h2>
+<figure>
+<img src="https://cdn.jsdelivr.net/gh/lixuannan/img/Kate_a.png"
+alt="kate 的屏幕截图" />
+<figcaption aria-hidden="true">kate 的屏幕截图</figcaption>
+</figure>
+<p>Kate 的全称是 KDE 高级文本编辑器，自 2001 年以来一直是 <a
+target="_blank" rel="noopener" href="https://kde.org/">KDE</a> 软件体系的一部分，并主要使用 C++
+编写。它在 <a
+target="_blank" rel="noopener" href="https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html">LGPLv2</a>
+许可证下免费提供，因此你需要遵守协议的内容。</p>
+<p>此外，还有一个基于 Kate 技术的文本编辑器，名为 <a
+target="_blank" rel="noopener" href="https://apps.kde.org/kwrite/">KWrite</a>，它也支持进行强大的文本和编程编辑，只是形式更紧凑一些。不过，本文将专注于
+Kate 的介绍。</p>
+<h3 id="主要特点">⭐ 主要特点</h3>
+<p>Kate
+有许多不错的功能，例如语法高亮、自动缩进、块选择、多文档界面等。</p>
+<p>简要概述，Kate 的主要功能包括：</p>
 <ul>
-<li>首先输入题目中提到的 <span class="math inline">\(n\)</span> 和 <span
-class="math inline">\(c\)</span></li>
-<li>在队列中压入 <span class="math inline">\(1 \to n\)</span>
-的所有自然数，对于 <span class="math inline">\(n = 6\)</span>
-的情况，队列应该是这样的：<span class="math inline">\(队头\ 1,2,3,4,5,6\
-队尾\)</span></li>
-<li>进行一个 <code>while</code> 循环，循环的条件是
-<code>!q.empty() //q 是一个队列</code> 在循环中，如果这个报数报到 <span
-class="math inline">\(c\)</span>
-了，那么就输出当前的这个数（即队头），如果还没有报到，那么就将现在的队头扔到队尾（<code>q.push(q.front()); q.pop();</code>），方便后面输出。</li>
+<li><strong>跨平台支持</strong></li>
+<li><strong>支持 LSP（语言服务器）客户端</strong></li>
+<li><strong>强大的编辑工具</strong></li>
+<li><strong>灵活的多任务处理</strong></li>
 </ul>
-<h3 id="实现">实现：</h3>
-<p>实现其实非常简单，只需要创建一个队列，按照思路的前两步做，对于第三步，我们需要创建一个临时变量
-<span class="math inline">\(p\)</span> ，如果 <span
-class="math inline">\(p=c\)</span> 那么输出，同时将 <span
-class="math inline">\(p\)</span> 赋值为 <span
-class="math inline">\(1\)</span> ，如果不符合条件（<span
-class="math inline">\(!(p=c)\)</span>），那么就 <span
-class="math inline">\(p =p+1\)</span> . 代码如下：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;queue&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-type">int</span> n, c;<br>queue&lt;<span class="hljs-type">int</span>&gt; q;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    cin &gt;&gt; n &gt;&gt; c;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++) &#123;<br>        q.<span class="hljs-built_in">push</span>(i);<br>    &#125;<br>    <span class="hljs-type">int</span> p = <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">while</span> (!q.<span class="hljs-built_in">empty</span>()) &#123;<br>        <span class="hljs-keyword">if</span> (p == c) &#123;<br>            cout &lt;&lt; q.<span class="hljs-built_in">front</span>() &lt;&lt; <span class="hljs-string">&quot; &quot;</span>;<br>            p = <span class="hljs-number">1</span>;<br>            q.<span class="hljs-built_in">pop</span>();<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            q.<span class="hljs-built_in">push</span>(q.<span class="hljs-built_in">front</span>());<br>            q.<span class="hljs-built_in">pop</span>();<br>            p += <span class="hljs-number">1</span>;<br>        &#125;<br><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="用户体验">💻 用户体验</h3>
+<p>我在 Fedora 40 上使用 <a
+target="_blank" rel="noopener" href="https://apps.gnome.org/en-GB/Software/">GNOME 软件</a>
+安装了最新版本的 Kate，并且运行得非常顺利。</p>
+<p>首先，我导入了一段基于 Python 的开源主题蛇形游戏代码，以测试 Kate
+编辑器的表现。</p>
+<p>最开始，Kate
+将它作为纯文本处理，但我将语言模式切换为“Python”，这样它就可以正确处理代码，提供一定的错误检测、缩进、语法高亮以及其他语言特定的功能。</p>
+<p>可以通过状态栏中的切换器或顶部的“工具”菜单切换语言模式。</p>
+<figure>
+<img src="https://cdn.jsdelivr.net/gh/lixuannan/img/Kate_b.png"
+alt="带有 Python 代码的 kate 的屏幕截图" />
+<figcaption aria-hidden="true">带有 Python 代码的 kate
+的屏幕截图</figcaption>
+</figure>
+<p>谈到<strong>状态栏</strong>，它包含一些有用的选项，如“输出”面板，显示输入命令、脚本或构建过程的输出信息；“诊断”面板，实时显示任何错误/警告信息。</p>
+<p>接着是“搜索”面板，它是一个快速有效的方式，用于搜索任何打开的文件或项目。随后是“项目”面板，可以帮助你轻松管理和导航项目文件。</p>
+<figure>
+<img src="https://cdn.jsdelivr.net/gh/lixuannan/img/Kate_c.png"
+alt="带有 Python 代码和输出面板的 kate 屏幕截图" />
+<figcaption aria-hidden="true">带有 Python 代码和输出面板的 kate
+屏幕截图</figcaption>
+</figure>
+<p>你可能会想：<em>你忘了“终端”！</em>
+其实没有，我想展示它的工作效果，并展示 Kate 的广泛自定义选项。</p>
+<p>在预安装的主题选项中，我选择了极简风格的“<em>Breeze
+Dark</em>”作为窗口和编辑器的主题。</p>
+<p>正如你在下图中看到的，终端运行得非常顺畅。这并不令人惊讶，因为 Kate
+使用的是 <a target="_blank" rel="noopener" href="https://konsole.kde.org/">Konsole</a>
+作为底层终端。</p>
+<figure>
+<img src="https://cdn.jsdelivr.net/gh/lixuannan/img/Kate_d.png"
+alt="打开了终端面板的 kate 屏幕截图" />
+<figcaption aria-hidden="true">打开了终端面板的 kate
+屏幕截图</figcaption>
+</figure>
+<p>你可能还注意到的是<strong>分屏窗口</strong>，这是 Kate
+的另一个亮点。在处理更复杂的项目时，打开多个窗口进行多任务处理非常有帮助（其实
+VSCode 也有）。</p>
+<p>你甚至可以分割终端窗口，以同时处理多个任务。</p>
+<p>最后，除了所有常规的代码编辑功能，Kate
+还通过其井井有条的设置菜单提供了广泛的应用控制，可以让你轻松更改设置。</p>
+<figure>
+<img src="https://cdn.jsdelivr.net/gh/lixuannan/img/Kate_f.png"
+alt="Kate 的设置布局非常好" />
+<figcaption aria-hidden="true">Kate 的设置布局非常好</figcaption>
+</figure>
+<p>即使我不是编程方面的高手，Kate
+的用户界面也不会让我感到无从下手。它提供了大多数人可能需要的工具，这使得它成为
+<a target="_blank" rel="noopener" href="https://code.visualstudio.com/">VS Code</a>
+的一个非常有吸引力的替代选择。</p>
+<h2 id="在-linux-上安装-kate">⚙️ 在 Linux 上安装 Kate</h2>
+<p>你可以从 <a target="_blank" rel="noopener" href="https://kate-editor.org/get-it/">官方网站</a>
+获取适用于 <strong>Linux</strong>、<strong>Windows</strong> 和
+<strong>macOS</strong> 的 Kate。此外，Linux 版还可以通过 AppStream
+商店如 Discover/GNOME 软件获取，也可以通过 <a
+target="_blank" rel="noopener" href="https://snapcraft.io/kate">Snapcraft</a> 安装。</p>
+<p>如果你需要源代码，可以访问 KDE 的 <a
+target="_blank" rel="noopener" href="https://invent.kde.org/utilities/kate">GitLab</a>
+仓库，该仓库还包含有助于项目贡献的资源。</p>
+<p><em>💬 你以前用过 Kate
+吗？是否更喜欢其他编辑器？欢迎在评论区分享！</em></p>
 
                 
               </div>
@@ -1010,12 +785,12 @@ class="math inline">\(p =p+1\)</span> . 代码如下：</p>
     
       <span class="category-chain">
         
-  <a href="/categories/%E9%A2%98%E8%A7%A3/" class="category-chain-item">题解</a>
+  <a href="/categories/%E7%BF%BB%E8%AF%91/" class="category-chain-item">翻译</a>
   
   
     <span>></span>
     
-  <a href="/categories/%E9%A2%98%E8%A7%A3/OiClass/" class="category-chain-item">OiClass</a>
+  <a href="/categories/%E7%BF%BB%E8%AF%91/ITSFOSS/" class="category-chain-item">ITSFOSS</a>
   
   
 
@@ -1029,6 +804,17 @@ class="math inline">\(p =p+1\)</span> . 代码如下：</p>
     </div>
   
   
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/VSCode/" class="print-no-link">#VSCode</a>
+      
+        <a href="/tags/%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91%E5%99%A8/" class="print-no-link">#文本编辑器</a>
+      
+        <a href="/tags/KATE/" class="print-no-link">#KATE</a>
+      
+    </div>
+  
 </div>
 
 
@@ -1037,8 +823,8 @@ class="math inline">\(p =p+1\)</span> . 代码如下：</p>
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Oiclass P2261 题解</div>
-      <div>https://lixuannan.github.io/posts/c0f28fe.html</div>
+      <div>VSCode 太无聊？快试试全新的 Kate！</div>
+      <div>https://lixuannan.github.io/posts/57998.html</div>
     </div>
     <div class="license-meta">
       
@@ -1050,7 +836,7 @@ class="math inline">\(p =p+1\)</span> . 代码如下：</p>
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年2月1日</div>
+          <div>2024年11月10日</div>
         </div>
       
       
@@ -1094,18 +880,12 @@ class="math inline">\(p =p+1\)</span> . 代码如下：</p>
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/posts/372de39.html" title="Oiclass PUJI P1296 题解">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Oiclass PUJI P1296 题解</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/posts/52544bc3.html" title="Oiclass 新 C 班选拔测试题解">
-                        <span class="hidden-mobile">Oiclass 新 C 班选拔测试题解</span>
+                      <a href="/posts/1807.html" title="使用 Tiling Shell 插件为 GNOME 添加超能生产力">
+                        <span class="hidden-mobile">使用 Tiling Shell 插件为 GNOME 添加超能生产力</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
