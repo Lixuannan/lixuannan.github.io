@@ -4,6 +4,37 @@
   
   
   <entry>
+    <title>2024 年的 6 个关于 Linux 和开源软件的预测</title>
+    <link href="/posts/61731.html"/>
+    <url>/posts/61731.html</url>
+    
+    <content type="html"><![CDATA[<h1 id="年的-6-个关于-linux-和开源软件的预测">2024 年的 6 个关于 Linux和开源软件的预测</h1><blockquote><p>本文翻译自 <ahref="https://news.itsfoss.com/predictions-linux-open-source-2024/"class="uri">https://news.itsfoss.com/predictions-linux-open-source-2024/</a></p></blockquote><p>2024年已经到来（翻译此文是快要结束），是时候展望将塑造这一年的趋势了。</p><p>我们不是占卜师，因此无法准确预测未来会发生什么。然而，我们可以根据目前所见的情况做出一些预测。</p><p>以下是我们对 Linux 和开源未来发展的预测。</p><h2 id="开源人工智能的崛起">1. 开源人工智能的崛起</h2><figure><img src="https://cdn.jsdelivr.net/gh/lixuannan/img/open-source-ai.png"alt="open source ai" /><figcaption aria-hidden="true">open source ai</figcaption></figure><p>Mozilla 是在 2023年初提出计划开展开源人工智能的公司之一，并致力于开发类似 ChatGPT的解决方案。随后，<a href="https://huggingface.co/">Hugging Face</a>也在不断提升自己的能力，<strong>成为最受欢迎的 AI社区之一</strong>，推动全球范围内的合作。</p><p>我们还看到了AI 联盟的成立，该联盟由 50 多个创始成员组成，其中包括Meta、Intel、Oracle、CERN 等知名公司，其简单目标是：支持 AI领域的开放创新和科学。</p><p>甚至还有一个名为 GuardRail的开源项目，旨在通过提供一个框架来<strong>促进专业的 AI开发</strong>。</p><p>所有这些开源 AI的发展可能会转化为与发行版或开源工具的集成。当然，与其他商业成功的桌面操作系统不同，Linux发行版可能不会“宣传” AI 驱动的功能，但你永远不知道？</p><p>总之，如果你问我们，2024 年将是开源 AI的关键一年，我们迫不及待想要看看未来会带来什么！😃</p><h2 id="更多游戏支持-linux">2. 更多游戏支持 Linux</h2><figure><imgsrc="https://cdn.jsdelivr.net/gh/lixuannan/img/linux-gaming-2024.png"alt="linux gaming" /><figcaption aria-hidden="true">linux gaming</figcaption></figure><p>在 Linux上游戏过去一直是个有起有落的过程，尽管我们有一些本地游戏和有用的工具，例如Wine、Lutris、Bottles 等等，但 Linux 并不是很多游戏开发者的重点，直到Valve 的 <a href="https://www.steamdeck.com/">Steam Deck</a>手持设备问世。</p><p>这款由基于 Arch 的 SteamOS 驱动的设备，为许多游戏在 Linux上运行铺平了道路，同时也将游戏开发者的注意力转向了这一平台。</p><p>在 2023 年，我们已经看到了许多在 Linux 上本地运行的游戏，2024年也应该不会例外。</p><p>更不用说，像 Bottles这样的开源游戏工具也将在改善用户体验方面发挥作用。因此，从 Windows切换过来的用户应该会发现该平台在游戏方面更加便利。</p><p>我们真的希望在推出时能看到一些新的 <ahref="https://en.wikipedia.org/wiki/AAA_(video_game_industry)">AAA游戏</a> 在 Linux 上运行！</p><h2 id="更多不可变的-linux-发行版">3. 更多不可变的 Linux 发行版</h2><figure><imgsrc="https://cdn.jsdelivr.net/gh/lixuannan/img/immutable-benefits.png"alt="immutable distro benefits" /><figcaption aria-hidden="true">immutable distro benefits</figcaption></figure><p>是的，2024 年不可变的 Linux 发行版将迎来扩展，Ubuntu 将在 2023年早些时候宣布，他们将推出基于 Snap 的不可变 Ubuntu桌面，这将在即将发布的 Ubuntu 24.04 LTS 中实现。</p><p>这会让一些人感到不满，但它仍然会到来。</p><p>虽然 Fedora 已经有了一个不可变的变体（Silverblue）并搭载 GNOME桌面，但他们又增加了一种新选择。在 Fedora 39发布时，推出了一种新的变体——“<ahref="https://fedoraproject.org/onyx/">Fedora Onyx</a>”，搭载 Budgie桌面。</p><p>看到这一点，我们也期待在 2024年有其他新的不可变选项，而现有的不可变发行版如 blendOS 和 Vanilla OS也会变得更好。</p><h2 id="risc-v-服务器的引入">4. RISC-V 服务器的引入</h2><p>随着美国在 2023 年与中国的 <ahref="https://www.wired.com/story/the-us-just-escalated-its-ai-chip-war-with-china/">AI芯片战争升级</a>，我们可能会看到以 <ahref="https://en.wikipedia.org/wiki/RISC-V">RISC-V</a>为动力的服务器成为 2024年的热门话题，因为该国争相在芯片制造领域实现更大的独立性。</p><p>他们已经 <ahref="https://www.hpcwire.com/2023/11/08/china-deploys-massive-risc-v-server-in-commercial-cloud/">开始</a>部署他们所称的“<em>云中第一个商业 RISC-V集群实现</em>”，这是一个在山东大学设立的 <ahref="https://en.sophgo.com/product/introduce/sg2042.html">SOPHONSG2042</a> 驱动的集群。</p><h2 id="更好的-linux-发行版用户界面用户体验">5. 更好的 Linux发行版用户界面/用户体验</h2><figure><imgsrc="https://cdn.jsdelivr.net/gh/lixuannan/img/user-experience-distro.png"alt="better user experience distro" /><figcaption aria-hidden="true">better user experiencedistro</figcaption></figure><p>如果我们以 2023 年为指示，可以自信地说，2024 年将是<strong>在 Linux发行版上看到许多用户界面和用户体验创新的一年</strong>。</p><p>例如，GNOME 45发布弃用了“<em>活动</em>”按钮，改为采用药丸形的工作区切换器，改变了用户与工作区的互动方式。</p><p>还有 Zorin OS 17，它通过实施“<em>空间桌面</em>”来 重新定义 Linux发行版的视觉体验，使用户在与桌面交互时获得更好的上下文意识。</p><p>而且，2024 年我们将首次在 Linux 中看到蓝屏死机，得益于systemd，它<strong>将在启动失败时提供有用的错误信息</strong>。</p><p>像 Vanilla OS 2（Orchid）这样令人兴奋的发行版，像 <ahref="https://community.kde.org/Plasma/Plasma_6"><strong>KDE Plasma6</strong></a> 这样的桌面升级，以及 Pop!_OS 的基于 Rust 的<strong>COSMIC</strong>可能会把这一切提升到一个新的高度，或者我们希望如此！</p><p>更不用说，许多 Linux 发行版也在<strong>朝着默认 Wayland未来的方向推进</strong>！</p><h2 id="软件项目的源代码可用性">6. 软件项目的源代码可用性</h2><figure><imgsrc="https://cdn.jsdelivr.net/gh/lixuannan/img/source-available.png"alt="source available illustration" /><figcaption aria-hidden="true">source availableillustration</figcaption></figure><p>尽管一些软件项目并不完全遵循开源原则，但有些项目选择将源代码公开（限制商业分发）。</p><p>这得益于像 CC BY-NC-SA 4.0（知识共享署名-非商业性使用-相同方式共享4.0）这样的许可证。</p><p>有人可能会说，公司应该为其产品接受开源定义。然而，我们认为，与任何传统的闭源产品相比，这种做法将增强信任并促进透明度。</p><hr /><h2 id="linux-桌面系统元年">Linux 桌面系统元年？😛</h2><p>我们知道，自从 Linux桌面在用户友好性和可访问性方面取得重大进展以来，这一直是我们所希望的事情。</p><p>看看 Linux的市场份额，你可能会觉得这个数字太低了。但是，我们还不能失去希望。</p><p>即使我们可能离 Linux桌面的元年还很远，但我们离它的实现比以往任何时候都更近。你看，2023 年Linux 桌面的使用率稳步上升，而 2024年可能正是我们看到更显著增长的一年。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>翻译</category>
+      
+      <category>ITSFOSS</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Linux</tag>
+      
+      <tag>预测</tag>
+      
+      <tag>2024</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Thunderbird 中轻松管理邮件的几个小技巧</title>
     <link href="/posts/46227.html"/>
     <url>/posts/46227.html</url>
