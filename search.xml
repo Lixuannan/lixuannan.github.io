@@ -4,6 +4,35 @@
   
   
   <entry>
+    <title>Hyprland 安装与使用指南</title>
+    <link href="/posts/9923.html"/>
+    <url>/posts/9923.html</url>
+    
+    <content type="html"><![CDATA[<h1 id="hyprland-安装与使用指南">Hyprland 安装与使用指南</h1><h2 id="关于-hyprland">关于 Hyprland</h2><p>Hyprland是一个动态平铺窗口管理器，既高度可定制，又具备丰富的视觉效果。 在最近的Linux 桌面美化圈中，它非常受欢迎。如果你喜欢个性化桌面外观，Hyprland的确值得关注。 以下是 Hyprland 的截图：</p><figure><img src="https://cdn.jsdelivr.net/gh/lixuannan/img/hyprland.webp"alt="Hyprland 截图" /><figcaption aria-hidden="true">Hyprland 截图</figcaption></figure><h2 id="安装前须知">安装前须知</h2><p>在开始安装 Hyprland 之前，请注意以下几点：</p><ul><li><strong>不适合初学者</strong>：Hyprland是一个面向进阶用户的窗口管理器。</li><li><strong>仅支持 Wayland</strong>：部分仅支持 Xorg的应用程序可能无法运行。</li><li><strong>NVIDIA GPU只有部分支持</strong>：由于专有驱动的限制，兼容性可能受影响。</li><li><strong>虚拟机支持</strong>：虽然官方未支持，但在测试中虚拟机能部分运行，建议启用3D 加速并分配至少 4GB 内存。</li></ul><p>建议首先在备用设备或虚拟机上测试，或保留一个备用的稳定窗口管理器，以避免工作中断。</p><h2 id="使用-arch-linux-安装-hyprland">使用 Arch Linux 安装Hyprland</h2><h3 id="使用-archinstall-脚本安装">使用 <code>archinstall</code>脚本安装</h3><p>在 Arch Linux 上，通过 <code>archinstall</code> 脚本可以快速安装Hyprland：</p><ol type="1"><li>运行 <code>archinstall</code> 脚本，选择：<ul><li><strong>Profile → Type → Desktop → Hyprland</strong></li><li>脚本会自动安装 Hyprland 所需依赖。</li></ul></li><li>配置硬件访问：推荐选择 Polkit。</li><li>登录管理器建议使用 SDDM（若已安装 GNOME，可继续使用 GDM）。</li></ol><h3 id="手动安装-hyprland">手动安装 Hyprland</h3><p>如果你使用的是 Arch Linux 的基础安装，则需要手动安装：</p><ol type="1"><li><p>安装所需包：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">sudo pacman -Syu hyprland hyprpaper xdg-desktop-portal-hyprland waybar wofi kitty sddm<br></code></pre></td></tr></table></figure></li><li><p>启用 SDDM 服务：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">sudo systemctl enable sddm.service<br></code></pre></td></tr></table></figure></li><li><p>重启系统，登录 Hyprland 会话。</p></li></ol><h2 id="在-ubuntu-上安装-hyprland">在 Ubuntu 上安装 Hyprland</h2><p>自 Ubuntu 24.10 起，Hyprland已进入默认软件库，但<strong>不建议</strong>使用默认包。以下提供更可靠的安装方法：</p><h3 id="安装步骤以-ubuntu-24.04-为例">安装步骤（以 Ubuntu 24.04为例）</h3><ol type="1"><li><p>启用源代码包支持： 打开“软件和更新” → 勾选“源代码”选项 →点击“重新加载”。</p></li><li><p>更新系统并安装所有更新：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">sudo apt update &amp;&amp; sudo apt upgrade<br></code></pre></td></tr></table></figure></li><li><p>使用自动化安装脚本：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell">git clone -b 24.04 --depth 1 https://github.com/JaKooLit/Ubuntu-Hyprland.git ~/Ubuntu-Hyprland-24.04<br>cd ~/Ubuntu-Hyprland-24.04<br>chmod +x install.sh<br>./install.sh<br></code></pre></td></tr></table></figure></li><li><p>配置过程中注意：</p><ul><li>不要安装 SDDM（Ubuntu 使用 GDM 即可）。</li><li>选择安装 <code>xdg-desktop-portal-hyprland</code>。</li><li>如果不想从头配置外观，可选择使用预配置文件（Dot Files）。</li></ul></li><li><p>重启后，选择 Hyprland 会话并登录。</p></li></ol><h2 id="在其他发行版上安装-hyprland">在其他发行版上安装 Hyprland</h2><h3 id="fedora">Fedora</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">sudo dnf install hyprland<br></code></pre></td></tr></table></figure><h3 id="opensuse">openSUSE</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">sudo zypper in hyprland<br></code></pre></td></tr></table></figure><p>更多安装方法可参考 <ahref="https://wiki.hyprland.org/Getting-Started/Installation/">官方安装文档</a>。</p><h2 id="后续配置">后续配置</h2><p>Hyprland 的 Waybar和壁纸管理器（Hyprpaper）需要额外配置，详情将会在后续文章中介绍。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>翻译</category>
+      
+      <category>ITSFOSS</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>窗口管理器</tag>
+      
+      <tag>Wayland</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>2023 年脱颖而出的 7 个鲜为人知的 Linux 发行版</title>
     <link href="/posts/35458.html"/>
     <url>/posts/35458.html</url>
