@@ -21,22 +21,20 @@
   <meta name="author" content="CodingCow Lee">
   <meta name="keywords" content="python,ml,deeplearning,dl,c++,c,pytorch,noi,oi,ioi,noip,csp-j,csp-s,oier,tyoi,oiclass">
   
-    <meta name="description" content="4 个基于 GNOME 的好看的桌面环境  本文翻译自 https:&#x2F;&#x2F;www.zdnet.com&#x2F;article&#x2F;the-4-best-linux-desktops-based-on-gnome-and-what-i-most-like-about-each-one&#x2F;  这是基本 GNOME 桌面的外观。  自从 GNOME 诞生以来，我就是它的粉丝。当时它新鲜又令人兴奋。虽然 GNOME 仍然">
+    <meta name="description" content="随心所欲的配置 Hyprland  本文翻译自 https:&#x2F;&#x2F;itsfoss.com&#x2F;configuring-hyprland&#x2F;  你已经安装了 Hyprland，现在你希望体验它简洁的平铺窗口管理功能以及炫酷的视觉效果了吗？ Hyprland 是高度可定制的，这个项目提供了一份非常详尽的用户手册。 但是你可能不想从一开始就阅读完整文档，因此，我分享了一些基本的 Hyprland 配置，作为初学">
 <meta property="og:type" content="article">
-<meta property="og:title" content="4 个基于 GNOME 的好看的桌面环境">
-<meta property="og:url" content="https://lixuannan.github.io/posts/10358.html">
+<meta property="og:title" content="随心所欲的配置 Hyprland">
+<meta property="og:url" content="https://lixuannan.github.io/posts/34336.html">
 <meta property="og:site_name" content="CodingCow&#39;s Blog">
-<meta property="og:description" content="4 个基于 GNOME 的好看的桌面环境  本文翻译自 https:&#x2F;&#x2F;www.zdnet.com&#x2F;article&#x2F;the-4-best-linux-desktops-based-on-gnome-and-what-i-most-like-about-each-one&#x2F;  这是基本 GNOME 桌面的外观。  自从 GNOME 诞生以来，我就是它的粉丝。当时它新鲜又令人兴奋。虽然 GNOME 仍然">
+<meta property="og:description" content="随心所欲的配置 Hyprland  本文翻译自 https:&#x2F;&#x2F;itsfoss.com&#x2F;configuring-hyprland&#x2F;  你已经安装了 Hyprland，现在你希望体验它简洁的平铺窗口管理功能以及炫酷的视觉效果了吗？ Hyprland 是高度可定制的，这个项目提供了一份非常详尽的用户手册。 但是你可能不想从一开始就阅读完整文档，因此，我分享了一些基本的 Hyprland 配置，作为初学">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lixuannan/img/gnome.jpg">
-<meta property="article:published_time" content="2024-10-23T06:02:00.000Z">
+<meta property="article:published_time" content="2024-11-28T12:32:00.000Z">
 <meta property="article:modified_time" content="2024-11-28T12:31:43.838Z">
 <meta property="article:author" content="CodingCow Lee">
-<meta property="article:tag" content="翻译">
-<meta property="article:tag" content="GNOME">
-<meta property="article:tag" content="桌面环境">
+<meta property="article:tag" content="Wayland">
+<meta property="article:tag" content="Hyprland">
+<meta property="article:tag" content="配置">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/lixuannan/img/gnome.jpg">
 <meta name="twitter:creator" content="@CodingCow">
 <meta name="twitter:site" content="lixuannan.github.io">
   
@@ -44,7 +42,7 @@
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>4 个基于 GNOME 的好看的桌面环境 | CodingCow&#39;s Blog</title>
+  <title>随心所欲的配置 Hyprland | CodingCow&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -294,7 +292,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle">4 个基于 GNOME 的好看的桌面环境</span>
+            <span id="subtitle">随心所欲的配置 Hyprland</span>
           
         </div>
 
@@ -310,8 +308,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-10-23 14:02" pubdate>
-          2024年10月23日 下午
+        <time datetime="2024-11-28 20:32" pubdate>
+          2024年11月28日 晚上
         </time>
       </span>
     
@@ -322,7 +320,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.4k 字
+          2.9k 字
         
       </span>
     
@@ -333,7 +331,7 @@
         
         
         
-          6 分钟
+          13 分钟
         
       </span>
     
@@ -468,17 +466,17 @@
     
     
     <div class="category-sub row nomargin-x">
-      <a class="category-subitem collapsed
+      <a class="category-subitem 
           list-group-item category-item-action col-10 col-md-11 col-xm-11" title="ITSFOSS"
         id="heading-10c60e2686d42569c4db79639219bcd3" role="tab" data-toggle="collapse" href="#collapse-10c60e2686d42569c4db79639219bcd3"
-        aria-expanded="false"
+        aria-expanded="true"
       >
         ITSFOSS
         <span class="list-group-count">(16)</span>
         <i class="iconfont icon-arrowright"></i>
       </a>
       
-      <div class="category-collapse collapse " id="collapse-10c60e2686d42569c4db79639219bcd3"
+      <div class="category-collapse collapse show" id="collapse-10c60e2686d42569c4db79639219bcd3"
            role="tabpanel" aria-labelledby="heading-10c60e2686d42569c4db79639219bcd3">
         
         
@@ -490,7 +488,7 @@
       
         <a href="/posts/34336.html" title="随心所欲的配置 Hyprland"
            class="list-group-item list-group-item-action
-           ">
+           active">
           <span class="category-post">随心所欲的配置 Hyprland</span>
         </a>
       
@@ -640,17 +638,17 @@
     
     
     <div class="category-sub row nomargin-x">
-      <a class="category-subitem 
+      <a class="category-subitem collapsed
           list-group-item category-item-action col-10 col-md-11 col-xm-11" title="ZDNET"
         id="heading-f7536e34a654c455d79133144e9077a5" role="tab" data-toggle="collapse" href="#collapse-f7536e34a654c455d79133144e9077a5"
-        aria-expanded="true"
+        aria-expanded="false"
       >
         ZDNET
         <span class="list-group-count">(5)</span>
         <i class="iconfont icon-arrowright"></i>
       </a>
       
-      <div class="category-collapse collapse show" id="collapse-f7536e34a654c455d79133144e9077a5"
+      <div class="category-collapse collapse " id="collapse-f7536e34a654c455d79133144e9077a5"
            role="tabpanel" aria-labelledby="heading-f7536e34a654c455d79133144e9077a5">
         
         
@@ -689,7 +687,7 @@
       
         <a href="/posts/10358.html" title="4 个基于 GNOME 的好看的桌面环境"
            class="list-group-item list-group-item-action
-           active">
+           ">
           <span class="category-post">4 个基于 GNOME 的好看的桌面环境</span>
         </a>
       
@@ -725,120 +723,354 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">4 个基于 GNOME 的好看的桌面环境</h1>
+            <h1 id="seo-header">随心所欲的配置 Hyprland</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="个基于-gnome-的好看的桌面环境">4 个基于 GNOME
-的好看的桌面环境</h1>
+                <h1 id="随心所欲的配置-hyprland">随心所欲的配置 Hyprland</h1>
 <blockquote>
-<p>本文翻译自 <a
-target="_blank" rel="noopener" href="https://www.zdnet.com/article/the-4-best-linux-desktops-based-on-gnome-and-what-i-most-like-about-each-one/"
-class="uri">https://www.zdnet.com/article/the-4-best-linux-desktops-based-on-gnome-and-what-i-most-like-about-each-one/</a></p>
+<p>本文翻译自 <a target="_blank" rel="noopener" href="https://itsfoss.com/configuring-hyprland/"
+class="uri">https://itsfoss.com/configuring-hyprland/</a></p>
 </blockquote>
-<p>这是基本 GNOME 桌面的外观。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/lixuannan/img/gnome.jpg" /></p>
-<p>自从 GNOME 诞生以来，我就是它的粉丝。当时它新鲜又令人兴奋。虽然 GNOME
-仍然是市场上最好的桌面环境之一，但这并不意味着其他开发者和团队没有找到改进这一经典环境的方法。</p>
-<p>尽管基于 GNOME
-的桌面环境并不多，但一些选项非常出色，能够满足甚至超越你的需求。</p>
-<p>让我们深入了解四种基于 GNOME 的 Linux 桌面。</p>
-<h2 id="budgie">1. Budgie</h2>
-<p>在所有基于 GNOME 的桌面中，Budgie 无疑是最漂亮的。Budgie
-桌面借用了部分 GNOME 技术（包括底层和某些应用程序），并在 GNOME
-团队的基础上进行了改进。</p>
-<p>我通常将 Budgie 视为 GNOME 世界中的
-Xfce，这意味着它高度可配置，可以让你将桌面调整为几乎任何你想要的外观。如果你喜欢传统的面板/菜单，可以实现。如果你更喜欢类似
-MacOS
-的外观，也可以做到。甚至如果你想要很多模糊效果和一些透明度，也是可以实现的。从我的角度来看，Budgie
-让 GNOME 重拾乐趣，创造出一种既现代又保留传统风格的桌面。</p>
-<p>对于那些不喜欢 GNOME 桌面环境，并且厌倦了使用 Dash To Dock
-等扩展来调整 GNOME 桌面的人，Budgie 是一个理想选择。甚至可以考虑使用 <a
-target="_blank" rel="noopener" href="https://ubuntubudgie.org/">Ubuntu
-Budgie</a>，因为这个发行版提供了市场上最美观的基于 GNOME
-的桌面之一。</p>
-<p>Ubuntu Budgie 是最后一个让我从 Pop!_OS
-转向的发行版。当然，在购买了新的 Thelio 桌面后，我回到了
-Pop!_OS。但每当我看到 Ubuntu Budgie 时，我都会想：“要不要再换回来？”
-是的，Budgie 就是这么好的桌面。</p>
+<p>你已经安装了
+<strong>Hyprland</strong>，现在你希望体验它简洁的平铺窗口管理功能以及炫酷的视觉效果了吗？</p>
+<p><strong>Hyprland</strong>
+是高度可定制的，这个项目提供了一份非常详尽的用户手册。</p>
+<p>但是你可能不想从一开始就阅读完整文档，因此，我分享了一些基本的
+Hyprland 配置，作为初学者指南。</p>
+<p>📋 本文假设你安装的是原始版本的
+Hyprland。如果你通过其他用户的配置文件安装了
+Hyprland，可能无需执行本文提到的所有步骤。</p>
+<h2 id="移除自动生成配置的警告">1. 移除自动生成配置的警告</h2>
+<p>首次登录全新安装的 Hyprland
+系统时，你会看到一条提示“你正在使用自动生成的配置文件”。</p>
 <figure>
-<img src="https://cdn.jsdelivr.net/gh/lixuannan/img/budgie.jpg"
-alt="默认的 Ubuntu Budgie 桌面。" />
-<figcaption aria-hidden="true">默认的 Ubuntu Budgie 桌面。</figcaption>
+<img
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/hyprland-autogenerated-config-warning.png"
+alt="自动生成的配置警告" />
+<figcaption aria-hidden="true">自动生成的配置警告</figcaption>
 </figure>
-<p>顺便提一下，我本来打算在这个列表中包含 Pop!_OS，但 System76 正在向
-COSMIC 桌面迁移，完全抛弃了 GNOME
-的基础，转而使用全新的架构，因此这个列表里面并没有包含 Pop!_OS。</p>
-<h2 id="mate">2. MATE</h2>
-<p>MATE 桌面基于 GNOME，然而，它基于的是 GNOME 2.x
-版本。为什么要基于一个不再被使用的系统创建桌面环境呢？原因很简单：当
-GNOME 3.x（也称为 <a
-target="_blank" rel="noopener" href="https://www.zdnet.com/article/5-gnome-extensions-that-make-my-desktop-environment-more-useful-and-enjoyable/">GNOME
-Shell</a>）取代 GNOME 2.x 时，Linux 社区感到非常不满，因为新版本的 GNOME
-与之前版本差别太大。</p>
-<p>当这种情况发生时，许多用户决定离开
-GNOME，尝试其他选择。这促使一些开发者创建了基于 GNOME 2.x
-的新桌面，其中之一就是 MATE。MATE
-专注于传统桌面风格，提供面板、菜单和可点击的桌面图标。</p>
-<p>MATE 的发音为“mah-tay”，像饮料
-yerba-maté。除了让用户感到熟悉之外，MATE
-还非常高效，即使在老旧的硬件上也能表现得非常出色。如果你喜欢经典风格的桌面，MATE
-是一个不错的选择，它会让用户想起 Windows 7 之前的任何版本。获取 MATE
-桌面的最佳方式是使用 <a
-target="_blank" rel="noopener" href="https://www.linuxmint.com/edition.php?id=318">Linux Mint 的 MATE
-版本</a>。</p>
+<p>要移除该警告，请打开 Hyprland 的配置文件：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">nano ~/.config/hypr/hyprland.config<br></code></pre></td></tr></table></figure>
+<p>找到以下行并删除：</p>
+<figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs abnf"><span class="hljs-attribute">autogenerated</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span><br></code></pre></td></tr></table></figure>
+<p>它通常位于文件的开头位置。删除后保存文件，你会立即看到效果。</p>
+<p>💡 Hyprland 的配置文件路径是
+<code>/home/$USER/.config/hypr/hyprland.config</code>。</p>
+<h2 id="使用-hyprpaper-设置壁纸">2. 使用 Hyprpaper 设置壁纸</h2>
+<p>如果你使用 <code>archinstall</code> 脚本安装
+Hyprland，可能会发现没有壁纸。</p>
+<p>一开始我也以为我的安装失败了，因为登录后只看到一片漆黑的屏幕和自动生成配置的警告。</p>
+<p>在 Hyprland 中，可以使用 <strong>Hyprpaper</strong>
+工具设置壁纸。它支持多屏幕壁纸设置及其他有趣功能。</p>
+<p>在 Arch Linux 中安装 Hyprpaper：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">sudo pacman -Syu hyprpaper<br></code></pre></td></tr></table></figure>
+<p>安装完成后，检查 <code>~/.config/hypr/hyprpaper.conf</code>
+是否存在。如果不存在，请手动创建：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">nano ~/.config/hypr/hyprpaper.conf<br></code></pre></td></tr></table></figure>
+<p>打开终端，运行以下命令以获取显示器名称：</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">hyprctl monitors</span><br></code></pre></td></tr></table></figure>
 <figure>
-<img src="https://cdn.jsdelivr.net/gh/lixuannan/img/mate.jpg"
-alt="默认的 MATE 桌面。" />
-<figcaption aria-hidden="true">默认的 MATE 桌面。</figcaption>
+<img
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/get-the-monitor-name.png"
+alt="显示器名称" />
+<figcaption aria-hidden="true">显示器名称</figcaption>
 </figure>
-<h2 id="cinnamon">3. Cinnamon</h2>
-<p>和 MATE 一样，Cinnamon 是因为 GNOME 从 2.x 版本迁移到 3.x
-版本而诞生的。你可能会注意到 MATE 和 Cinnamon
-有很多相似之处。它们都采用了相同的桌面设计理念（面板/菜单/图标），布局和图标也相似。</p>
-<p>在我看来，MATE 和 Cinnamon 的最大区别在于，Cinnamon
-有一点现代的风格。这个区别虽然细微，但确实存在。默认的 Cinnamon
-面板更高，暗色主题更加普遍，Cinnamon 还拥有更多的功能（比如 Desklet
-和更多配置选项）。</p>
-<p>Cinnamon 走的是更现代化的 Linux 路线，将设置集中在一个应用程序中，而
-MATE
-则有不同的应用程序来处理高级网络配置、CompizConfig、桌面设置等。Cinnamon
-还包括窗口特效，允许你为窗口最小化/关闭/打开甚至调整大小/平铺选择不同的效果。</p>
-<p>尽管如此，Cinnamon 和 MATE 非常相似，Cinnamon
-提供了对经典桌面风格的更现代的诠释。Cinnamon 是 Linux Mint
-的默认桌面，因此你只需要下载并安装 <a
-target="_blank" rel="noopener" href="https://www.linuxmint.com/edition.php?id=316">官方的 Linux Mint
-ISO</a> 即可。</p>
+<p>📋 之后提到“列出显示器”时，表示运行
+<code>hyprctl monitors</code>。</p>
+<p>假设我的显示器名称是 <code>Virtual-1</code>，在 Hyprpaper
+配置中预加载壁纸并应用：</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-attr">preload</span> = &lt;壁纸路径&gt;<br><br><span class="hljs-comment"># wallpaper = &lt;显示器名称&gt;, &lt;壁纸路径&gt;</span><br><span class="hljs-attr">wallpaper</span> = Virtual-<span class="hljs-number">1</span>, /home/team/Pictures/wallpaper.png<br></code></pre></td></tr></table></figure>
 <figure>
-<img src="https://cdn.jsdelivr.net/gh/lixuannan/img/cinnamon.jpg"
-alt="默认的 Cinnamon 桌面。" />
-<figcaption aria-hidden="true">默认的 Cinnamon 桌面。</figcaption>
+<img
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/hyprpaper-config-hyprland.png"
+alt="简单的壁纸设置" />
+<figcaption aria-hidden="true">简单的壁纸设置</figcaption>
 </figure>
-<h2 id="ubuntu-的桌面">4. Ubuntu 的桌面</h2>
-<p>这个桌面有点“作弊”的成分，因为 Ubuntu 桌面实际上就是
-GNOME。不过，类似于 System 76 在 Pop_OS 中对 GNOME 所做的调整，Ubuntu
-也对 GNOME
-桌面进行了大量定制，比如将侧边栏作为主要的应用程序、收藏夹等的入口。</p>
-<p>除了侧边栏，Ubuntu 对 GNOME
-的改动主要体现在主题、预装应用程序和扩展程序上。没错，Ubuntu 桌面也支持
-GNOME 扩展，这意味着你甚至可以将 Ubuntu 桌面配置得更像官方版本的
-GNOME。</p>
-<p>如果让我在原版 GNOME 和 Ubuntu 上的定制版之间选择，我可能会选择
-Ubuntu，因为我更喜欢侧边栏/面板而非 GNOME
-Dash，它更加便捷和高效。如果你不喜欢 Ubuntu 发行版，你可以通过命令
-<em>sudo apt-get install ubuntu-desktop -y</em> 来安装 Ubuntu 的 GNOME
-版本。</p>
-<p>请记住，一些发行版桌面（例如 Pop!_OS）可能会在安装 <a
-target="_blank" rel="noopener" href="https://www.zdnet.com/article/how-to-install-ubuntu-linux/">ubuntu-desktop
-软件包</a>后出现问题，因此操作时请小心。如果你觉得这个桌面不错，可以下载并安装
-<a target="_blank" rel="noopener" href="https://ubuntu.com">官方的 Ubuntu 桌面发行版</a>。</p>
+<p>📋
+需要设置的壁纸必须预加载。建议限制加载的图片数量以降低内存占用。</p>
+<p>完成配置后保存文件并退出。然后，<strong>打开 Hyprland
+配置</strong>，添加以下行：</p>
+<figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs coq">exec-<span class="hljs-built_in">once</span> hyprpaper<br></code></pre></td></tr></table></figure>
 <figure>
-<img src="https://cdn.jsdelivr.net/gh/lixuannan/img/ubuntugnome.jpg"
-alt="默认的 Ubuntu 桌面。" />
-<figcaption aria-hidden="true">默认的 Ubuntu 桌面。</figcaption>
+<img
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/autostart-apps-in-hyprland.png"
+alt="在 Hyprland 中自启动应用" />
+<figcaption aria-hidden="true">在 Hyprland 中自启动应用</figcaption>
 </figure>
-<p>Ubuntu 已经发布 20 年了，这段旅程真是不可思议。</p>
+<p>📋 <code>exec-once</code> 关键字用于定义在 Hyprland
+启动时自动运行的应用。可以使用 <code>&amp;</code>
+操作符在一行中启动多个应用。</p>
+<p><strong>重新登录 Hyprland</strong> 以查看效果。</p>
+<p>💡 使用快捷键 Super+M 退出 Hyprland 会话并返回登录界面。</p>
+<h2 id="配置显示器">3. 配置显示器</h2>
+<p>此部分更适用于双屏或多屏设置。</p>
+<p>首先列出已连接的显示器并获取其名称。获取名称后，打开 Hyprland
+配置文件，在 <code>MONITORS</code> 部分添加如下内容：</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-comment"># monitor=&lt;显示器名称&gt;,&lt;分辨率&gt;@fps,&lt;位置&gt;,&lt;缩放比例&gt;</span><br><br><span class="hljs-attribute">monitor</span>=Virtual-<span class="hljs-number">1</span>,<span class="hljs-number">1920</span>x1080@<span class="hljs-number">60</span>,<span class="hljs-number">0</span>x0,<span class="hljs-number">1</span>.<span class="hljs-number">5</span><br></code></pre></td></tr></table></figure>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/monitor-settings-in-hyprland.png"
+alt="设置显示器" />
+<figcaption aria-hidden="true">设置显示器</figcaption>
+</figure>
+<p>在此配置中，<code>&lt;位置&gt;</code>
+是指在多屏环境中当前显示器的位置。例如，假设有一台分辨率为 3860×2160
+的主显示器，另一台分辨率为 1920×1080
+的次显示器，则次显示器的位置可以设置为
+3860×0，以使其位于主显示器的右侧：</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">monitor</span>=monitor2-name,<span class="hljs-number">1920</span>x1080@<span class="hljs-number">60</span>,<span class="hljs-number">3860</span>x0,<span class="hljs-number">1</span><br></code></pre></td></tr></table></figure>
+<p>💡 <code>位置</code> 的值可以为负，例如
+<code>-1080</code>，这用于将一台显示器放置在另一台的上方。</p>
+<h2 id="添加面板">4. 添加面板</h2>
+<p>面板是任何窗口管理器或桌面环境的核心部分。任务栏、系统托盘、工作区指示器等重要工具都在面板中显示。</p>
+<p>在 Hyprland 中可以使用面板/工具栏应用，例如
+<strong>Waybar</strong>。</p>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/full-waybar-with-css-1.png"
+alt="Waybar 面板" />
+<figcaption aria-hidden="true">Waybar 面板</figcaption>
+</figure>
+<p>🚧 Hyprland 是纯粹的 Wayland 环境，因此建议使用适配 Wayland
+的面板应用。</p>
+<p>我们有一篇详细的 <a
+href="https://lixuannan.github.io/posts/42208.html">Waybar
+安装和配置指南</a>，可以参考以获取更多信息。</p>
+<h2 id="设置通知守护程序">5. 设置通知守护程序</h2>
+<p>像 GNOME、KDE Plasma 等主流桌面环境会自动处理通知功能，但在 Hyprland
+中需要手动配置。<strong>这是必须的</strong>。</p>
+<p>如果没有通知守护程序，你会错过现代桌面计算中的重要部分。</p>
+<p>我发现
+<code>dunst</code>（一个高度可定制的通知守护程序）已被自动安装，我决定继续使用它。你也可以通过以下命令安装：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> pacman -Syu dunst<br></code></pre></td></tr></table></figure>
+<p>安装完成后，通过发送测试通知来验证：</p>
+<figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs autoit">notify-<span class="hljs-built_in">send</span> <span class="hljs-string">&quot;Hello World!&quot;</span><br></code></pre></td></tr></table></figure>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/send-notification.png"
+alt="Dunst 消息测试" />
+<figcaption aria-hidden="true">Dunst 消息测试</figcaption>
+</figure>
+<p>如果工作正常，就完成了。如果没有，请在 Hyprland
+配置中添加以下内容以自动启动：</p>
+<figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs coq">exec-<span class="hljs-built_in">once</span> dunst<br></code></pre></td></tr></table></figure>
+<p>然后重新登录系统。</p>
+<h2 id="配置剪贴板管理器">6. 配置剪贴板管理器</h2>
+<p>剪贴板管理器是任何系统的重要工具。我推荐使用
+<strong>CopyQ</strong>，一款简单且功能强大的剪贴板管理器。</p>
+<p>安装 CopyQ：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> pacman -Syu copyq<br></code></pre></td></tr></table></figure>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/copyq-in-tray-hyprland.png"
+alt="CopyQ 剪贴板管理器" />
+<figcaption aria-hidden="true">CopyQ 剪贴板管理器</figcaption>
+</figure>
+<p>在 Hyprland 配置中添加以下内容以自动启动 CopyQ：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">exec</span><span class="hljs-operator">-</span>once copyq <span class="hljs-comment">--start-server</span><br></code></pre></td></tr></table></figure>
+<p>然后，打开 CopyQ，进入 <strong>File → Preferences</strong>，在
+<strong>Layout</strong> 选项卡中勾选 <strong>Hide Main
+Window（隐藏主窗口）</strong>。</p>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/copyq-set-hide-main-window.png"
+alt="隐藏主窗口" />
+<figcaption aria-hidden="true">隐藏主窗口</figcaption>
+</figure>
+<h2 id="设置截图工具-hyprshot">7. 设置截图工具 Hyprshot</h2>
+<p>谁不想与社区分享他们的 Hyprland 设置呢？为了截图，你需要一个工具，而
+<strong>Hyprshot</strong> 是个不错的选择。</p>
+<p>🚧 Hyprshot 的正常运行依赖于已配置的通知守护程序（如上所述）。</p>
+<p>在安装 Hyprshot 前，确保安装以下依赖项。在 Arch Linux 中运行：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">sudo pacman -Syu jq grim slurp wl-clipboard libnotify<br></code></pre></td></tr></table></figure>
+<p>然后通过 AUR 安装 <a
+target="_blank" rel="noopener" href="https://aur.archlinux.org/packages/hyprshot">Hyprshot</a>。可以使用
+AUR 助手（例如 <a
+target="_blank" rel="noopener" href="https://itsfoss.com/best-aur-helpers/">Yay</a>）：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">yay -S hyprshot<br></code></pre></td></tr></table></figure>
+<p>或者遵循 <a target="_blank" rel="noopener" href="https://itsfoss.com/aur-arch-linux/">传统 AUR
+安装方法</a>。</p>
+<p>如果你使用其他发行版，可以访问 <a
+target="_blank" rel="noopener" href="https://github.com/Gustash/Hyprshot">Hyprshot GitHub
+页面</a>，从发布页面下载脚本并将其放置在 PATH 环境变量指定的目录中。</p>
+<p>接着，打开 Hyprland 配置文件，滚动到 <strong>KEYBINDINGS</strong>
+部分，在末尾添加以下内容：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 截取窗口</span><br><span class="hljs-built_in">bind</span> = , PRINT, <span class="hljs-built_in">exec</span>, hyprshot -m region<br></code></pre></td></tr></table></figure>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/add-hyprshot-keybinding.png"
+alt="设置快捷键" />
+<figcaption aria-hidden="true">设置快捷键</figcaption>
+</figure>
+<p>💡 你可能注意到命令前有个逗号。这表示未使用任何修饰键（例如
+SUPER）。只需按下 PrtScr 键即可截图。如果想使用快捷键
+SUPER+PrtScr，可以将 <code>SUPER</code> 加在逗号前，例如：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">bind</span> = SUPER, PRINT, <span class="hljs-built_in">exec</span>, hyprshot -m region<br></code></pre></td></tr></table></figure>
+<p>这会绑定 PrtScr 键以选择区域截图。</p>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/taking-screenshot-in-hyprland.png"
+alt="区域截图" />
+<figcaption aria-hidden="true">区域截图</figcaption>
+</figure>
+<p>截图文件默认保存到 <code>~/Pictures</code> 文件夹中。</p>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/screenshot-taken-message.png"
+alt="截图保存通知" />
+<figcaption aria-hidden="true">截图保存通知</figcaption>
+</figure>
+<p>如果只想将截图复制到剪贴板而不保存，可以使用以下命令：</p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ada">hyprshot -m region <span class="hljs-comment">--clipboard-only</span><br></code></pre></td></tr></table></figure>
+<p>我们将在后续部分深入探讨键绑定设置。</p>
+<h2 id="hyprland-动画效果">8. Hyprland 动画效果</h2>
+<p>为窗口打开、工作区切换设置酷炫的动画效果，是让 Hyprland
+更加吸引人的一种方式。</p>
+<p>要设置动画效果，你需要获取贝塞尔曲线的参数值。可以访问以下网站设计曲线或选择预设：</p>
+<p><a
+target="_blank" rel="noopener" href="https://www.cssportal.com/css-cubic-bezier-generator/">贝塞尔曲线生成器</a></p>
+<p>使用红点调整曲线，并通过按钮预览动画，如下图所示：</p>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/select-a-bezier-curve-value-from-site.png"
+alt="选择曲线" />
+<figcaption aria-hidden="true">选择曲线</figcaption>
+</figure>
+<h3 id="复制过渡值">复制过渡值</h3>
+<p>完成设置后，你将获得 4 个值，例如
+<code>0.19, 1, 0.52, 0.35</code>。记录下这些值。</p>
+<p>在 Hyprland 配置中，找到 <strong>LOOK AND FEEL</strong>
+部分，滚动到动画设置部分。</p>
+<p>将贝塞尔曲线参数设置为如下格式：</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-comment"># bezier = 贝塞尔名称, 复制的值</span><br><span class="hljs-attribute">bezier</span> = customBezier, <span class="hljs-number">0</span>.<span class="hljs-number">19</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>.<span class="hljs-number">52</span>, <span class="hljs-number">0</span>.<span class="hljs-number">35</span><br></code></pre></td></tr></table></figure>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/apply-a-custom-bezier-animation-to-hyprland-workspaces.png"
+alt="自定义动画" />
+<figcaption aria-hidden="true">自定义动画</figcaption>
+</figure>
+<p>定义动画过渡后，可以应用到需要的部分，如窗口打开（<code>windows</code>）、关闭（<code>windowsOut</code>）等。在此示例中，我们将该动画应用于工作区切换：</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-comment"># animation = 动画部分, 开启/关闭, 速度, 贝塞尔名称</span><br><span class="hljs-attribute">animation</span> = workspaces, <span class="hljs-number">1</span>, <span class="hljs-number">6</span>, customBezier<br></code></pre></td></tr></table></figure>
+<p>参考 <a target="_blank" rel="noopener" href="https://wiki.hyprland.org/Configuring/Animations/">动画
+Wiki</a> 获取详细设置说明。</p>
+<h2 id="hyprland-的变量配置">9. Hyprland 的变量配置</h2>
+<p>Hyprland 使用变量控制系统的多个方面。</p>
+<p>这里展示一些变量设置示例，帮助你更轻松地理解其他变量的使用。</p>
+<p>首先，访问 Hyprland 的变量 Wiki 页面：</p>
+<p><a target="_blank" rel="noopener" href="https://wiki.hyprland.org/Configuring/Variables/">Hyprland
+Variables Wiki</a></p>
+<p>你可以找到变量名称及其类型（如布尔型、整型等），分类详尽，并含有子类别。要定义一个变量，你需要在大括号内打开一个类别。</p>
+<p>例如，如果想在平铺模式下通过边框拖拽调整窗口大小，有一个名为
+<code>resize_on_border</code> 的选项，属于 <code>general</code>
+类别。定义方式如下：</p>
+<figure class="highlight fsharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs fsharp"><span class="hljs-keyword">general</span> &#123;<br>    resize_on_border <span class="hljs-operator">=</span> <span class="hljs-literal">true</span><br>&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="注意事项">注意事项</h3>
+<p>🚧大多数类别（如 <code>general</code>）已在默认 Hyprland
+配置中定义。因此，在定义新类别前，先检查该类别是否已存在。如已存在，请在该类别中定义变量。</p>
+<p>对于有子类别的部分，使用嵌套结构。例如，<code>general</code>
+类别下有一个子类别 <code>snap</code>，定义如下：</p>
+<figure class="highlight fsharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs fsharp"><span class="hljs-keyword">general</span> &#123;<br>    general 类别的变量定义。<br>    <br>    <span class="hljs-keyword">snap</span> &#123;<br>        子类别的变量定义。<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="调整浮动窗口大小">调整浮动窗口大小</h3>
+<p>在平铺模式下，有些窗口（如应用首选项或文件选择器）是浮动窗口。可以通过
+<code>general</code> 类别的 <code>resize_corner</code>
+变量启用角落拖拽调整大小功能：</p>
+<figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs abnf">general &#123;<br>    resize_corner <span class="hljs-operator">=</span> <span class="hljs-number">3</span><br>&#125;<br></code></pre></td></tr></table></figure>
+<p>这里，值 <code>3</code> 表示可从右下角拖拽调整大小。</p>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>调整角落</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>左上角</td>
+</tr>
+<tr>
+<td>2</td>
+<td>右上角</td>
+</tr>
+<tr>
+<td>3</td>
+<td>右下角</td>
+</tr>
+<tr>
+<td>4</td>
+<td>左下角</td>
+</tr>
+<tr>
+<td>0</td>
+<td>禁用角落调整大小</td>
+</tr>
+</tbody>
+</table>
+<h3 id="自定义装饰">自定义装饰</h3>
+<p><code>decorations</code> 部分包含透明度、模糊等设置。查看默认
+Hyprland 配置，你会发现一些预设值。以下是几点建议：</p>
+<ul>
+<li>将 <code>active_opacity</code> 设置为
+0.8，使活动窗口稍微透明，同时调整 <code>inactive_opacity</code>。</li>
+<li>增加模糊 <code>passes</code> 数量可让效果更酷炫，但会增加 GPU
+负担。</li>
+<li>建议开启 <code>new_optimizations</code> 以提升性能。</li>
+</ul>
+<h3 id="工作区与触控板">工作区与触控板</h3>
+<p>Hyprland
+支持通过触控板手势切换工作区，但默认禁用。需要启用以下设置：</p>
+<figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs abnf">gestures &#123;<br>    workspace_swipe <span class="hljs-operator">=</span> true<br>    workspace_swipe_fingers <span class="hljs-operator">=</span> <span class="hljs-number">3</span><br>&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="自定义变量">自定义变量</h3>
+<p>像其他编程语言一样，Hyprland 支持为自定义变量赋值。</p>
+<p>例如，为变量 <strong>myLauncher</strong> 指定一个命令来打开 Wofi
+启动器：</p>
+<figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs gams"><span class="hljs-meta"><span class="hljs-keyword">$myLauncher</span> = wofi --show drun</span><br></code></pre></td></tr></table></figure>
+<p>这样，在需要时直接使用变量名，而无需每次输入完整命令。对于分类默认应用定义，这尤其有用。</p>
+<p>例如：</p>
+<figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs gams"><span class="hljs-meta"><span class="hljs-keyword">$myPersonalBrowser</span> = firefox</span><br><span class="hljs-meta"><span class="hljs-keyword">$myKeyboardBrowser</span> = nyxt</span><br></code></pre></td></tr></table></figure>
+<h2 id="环境变量设置">10. 环境变量设置</h2>
+<p>Hyprland 的许多设置依赖环境变量，例如光标主题、QT 和 Wayland
+特定配置等。</p>
+<p>定义环境变量需使用 <code>env</code> 关键字，格式如下：</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-attr">env</span> = 环境变量名称, 值<br></code></pre></td></tr></table></figure>
+<p>例如，为了让某些 QT 应用在 Wayland 下运行，若不可用则回退到
+X11，使用以下变量：</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-attr">env</span> = QT_QPA_PLATFORM,wayland<span class="hljs-comment">;xcb</span><br></code></pre></td></tr></table></figure>
+<p>🚧不要在值周围加双引号。</p>
+<h2 id="配置-hyprcursor">11. 配置 Hyprcursor</h2>
+<p>Hyprcursor 是一种为 Hyprland 提供的高效光标集。以下是设置
+<code>rose-pine-hyprcursor</code> 主题的步骤：</p>
+<p>首先，从 AUR 安装：</p>
+<figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs avrasm">yay -S rose-<span class="hljs-built_in">pine</span>-hyprcursor<br></code></pre></td></tr></table></figure>
+<p>安装后，在 Hyprland 配置中设置环境变量：</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-attr">env</span> = HYPRCURSOR_THEME,rose-pine-hyprcursor<br></code></pre></td></tr></table></figure>
+<p>或者使用 <code>hyprctl</code> 命令仅为当前会话设置：</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">hyprctl</span> setcursor rose-pine-hyprcursor <span class="hljs-number">24</span><br></code></pre></td></tr></table></figure>
+<p>📋其中，<code>24</code> 表示光标大小。</p>
+<h2 id="设置键盘快捷键">12. 设置键盘快捷键</h2>
+<p>没有快捷键的平铺窗口管理器会少很多乐趣！</p>
+<p>Hyprland 提供简单的方法定义自定义快捷键。在默认配置中，有一个专门的
+<strong>KEYBINDINGS</strong> 部分。建议初学者在此部分定义快捷键。</p>
+<p>定义快捷键的语法如下：</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-attr">bind</span> = 修饰键, 所需按键, 执行器, 参数<br></code></pre></td></tr></table></figure>
+<p>例如，我们希望通过快捷键 <code>SUPER+O</code> 打开 Nautilus
+文件管理器，设置如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">bind</span> = SUPER,O,<span class="hljs-built_in">exec</span>,nautilus<br></code></pre></td></tr></table></figure>
+<h3 id="使用变量简化">使用变量简化</h3>
+<p>可以将 SUPER 键设置为变量以使代码更简洁：</p>
+<figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs gams"><span class="hljs-meta"><span class="hljs-keyword">$mainMod</span> = SUPER</span><br></code></pre></td></tr></table></figure>
+<h2 id="bonus-自动启动应用程序">Bonus: 自动启动应用程序</h2>
+<p>有时需要在登录时自动启动某些应用。Hyprland 使用
+<code>exec-once</code> 命令实现应用的自动启动，例如：</p>
+<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs 1c"><span class="hljs-meta"># exec-once 应用程序名称</span><br></code></pre></td></tr></table></figure>
+<p>以下是在登录时启动 Hyprpaper 和 Waybar 的示例：</p>
+<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs 1c">exec<span class="hljs-punctuation">-</span>once hyprpaper <span class="hljs-meta">&amp; waybar</span><br></code></pre></td></tr></table></figure>
+<h2 id="总结">总结</h2>
+<p>正如开篇所说，Hyprland 的自定义设置无穷无尽。参考 <a
+target="_blank" rel="noopener" href="https://wiki.hyprland.org/">官方 Wiki</a> 获取更多详细信息。</p>
+<p>希望本指南能帮助你更好地配置和优化 Hyprland！ 😊</p>
 
                 
               </div>
@@ -863,7 +1095,7 @@ alt="默认的 Ubuntu 桌面。" />
   
     <span>></span>
     
-  <a href="/categories/%E7%BF%BB%E8%AF%91/ZDNET/" class="category-chain-item">ZDNET</a>
+  <a href="/categories/%E7%BF%BB%E8%AF%91/ITSFOSS/" class="category-chain-item">ITSFOSS</a>
   
   
 
@@ -880,11 +1112,11 @@ alt="默认的 Ubuntu 桌面。" />
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E7%BF%BB%E8%AF%91/" class="print-no-link">#翻译</a>
+        <a href="/tags/Wayland/" class="print-no-link">#Wayland</a>
       
-        <a href="/tags/GNOME/" class="print-no-link">#GNOME</a>
+        <a href="/tags/Hyprland/" class="print-no-link">#Hyprland</a>
       
-        <a href="/tags/%E6%A1%8C%E9%9D%A2%E7%8E%AF%E5%A2%83/" class="print-no-link">#桌面环境</a>
+        <a href="/tags/%E9%85%8D%E7%BD%AE/" class="print-no-link">#配置</a>
       
     </div>
   
@@ -896,8 +1128,8 @@ alt="默认的 Ubuntu 桌面。" />
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>4 个基于 GNOME 的好看的桌面环境</div>
-      <div>https://lixuannan.github.io/posts/10358.html</div>
+      <div>随心所欲的配置 Hyprland</div>
+      <div>https://lixuannan.github.io/posts/34336.html</div>
     </div>
     <div class="license-meta">
       
@@ -909,7 +1141,7 @@ alt="默认的 Ubuntu 桌面。" />
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年10月23日</div>
+          <div>2024年11月28日</div>
         </div>
       
       
@@ -953,18 +1185,12 @@ alt="默认的 Ubuntu 桌面。" />
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/posts/27832.html" title="使用 GSConnect 无缝连接安卓手机和 Linux">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">使用 GSConnect 无缝连接安卓手机和 Linux</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/posts/51813.html" title="Ubuntu 24.10 的 6 个新功能">
-                        <span class="hidden-mobile">Ubuntu 24.10 的 6 个新功能</span>
+                      <a href="/posts/42208.html" title="在 Hyprland 中安装并配置 Waybar">
+                        <span class="hidden-mobile">在 Hyprland 中安装并配置 Waybar</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
