@@ -4,6 +4,35 @@
   
   
   <entry>
+    <title>为什么这个轻量级 Linux 发行版不会赢得任何用户数比赛，但对于高级用户来说却是完美的</title>
+    <link href="/posts/45140.html"/>
+    <url>/posts/45140.html</url>
+    
+    <content type="html"><![CDATA[<h1id="为什么这个轻量级-linux-发行版不会赢得任何用户数比赛但对于高级用户来说却是完美的">为什么这个轻量级Linux 发行版不会赢得任何用户数比赛，但对于高级用户来说却是完美的</h1><blockquote><p>本文翻译自 <ahref="https://www.zdnet.com/article/why-this-lightweight-linux-distro-wont-win-any-popularity-contests-but-is-perfect-for-power-users/"class="uri">https://www.zdnet.com/article/why-this-lightweight-linux-distro-wont-win-any-popularity-contests-but-is-perfect-for-power-users/</a></p></blockquote><figure><img src="https://cdn.jsdelivr.net/gh/lixuannan/img/antixhero.jpg"alt="AntiX 默认桌面" /><figcaption aria-hidden="true">AntiX 默认桌面</figcaption></figure><p>AntiX 对许多用户来说都颇为熟悉。</p><p>一款 Linux发行版若能摒弃大多数发行版奉为圭臬的传统，还能提供功能强大、运行快速且易于使用的桌面操作系统，是否可能？这正是AntiX 所做的。</p><p>虽然这款基于 Ubuntu 的发行版更适合熟悉 Linux 的用户，<ahref="https://antixlinux.com/">AntiX</a>也并非完全不适合新手。为何这款发行版更适合有经验的用户？是因为它没有使用systemd吗？并不是。大多数新用户很少（甚至从未）需要关心启动服务的问题。是因为桌面包含了Konky（一个显示各种信息的小工具）吗？也不是。Konky并不会影响桌面的实际使用体验。</p><p>推荐 AntiX 给有经验用户的主要原因在于它采用了 zzzFM-IceWM窗口管理器。尽管开发者尽力让 IceWM看起来与大多数桌面类似，但当你尝试修改设置时，很快就会意识到 AntiX并不是那种“简单易用”的操作系统。</p><p>在 zzzFM-IceWM 中，有一个专门的“设置”菜单，包含三个子菜单：</p><ul><li><strong>Focus</strong>:配置窗口焦点，包括传统、严格、随意或安静模式。</li><li><strong>Preferences</strong>: 配置QuickSwitch、任务栏、显示设置、快捷键等。</li><li><strong>Themes</strong>: 定制桌面主题。</li></ul><figure><img src="https://cdn.jsdelivr.net/gh/lixuannan/img/antixmenu.jpg"alt="AntiX 桌面菜单" /><figcaption aria-hidden="true">AntiX 桌面菜单</figcaption></figure><p>AntiX 菜单中选项众多。</p><h2 id="主题丰富">主题丰富</h2><p>说到主题，AntiX提供了相当多的主题，从简单的配色方案到大规模主题、玻璃风格主题等，应有尽有。你几乎可以找到一个合自己心意的主题。不过，这些主题都无法让AntiX看起来像现代桌面。对于大多数新用户来说，定制桌面外观的概念可能也并不熟悉。</p><h2 id="应用众多">应用众多</h2><p>AntiX 提供了一个 GUI 软件包安装器。由于该系统基于Ubuntu，你可以选择数千款应用。此外，AntiX 还支持通过 GUI配置丰富的软件源，这在大多数发行版中并不常见。</p><p>预装的软件也相当丰富，包括Firefox、LibreOffice、Firejail，以及多款多媒体播放器（如 Streamtuner2网络电台应用）。尽管某些应用（例如Firejail，用于沙盒应用）可能对新用户不太友好，但选择范围确实很广。</p><figure><img src="https://cdn.jsdelivr.net/gh/lixuannan/img/antixapps.jpg"alt="AntiX 应用商店" /><figcaption aria-hidden="true">AntiX 应用商店</figcaption></figure><p>尽管界面不够现代化，AntiX 应用商店的功能依然实用。</p><h2 id="性能卓越">性能卓越</h2><p>由于 AntiX使用了轻量级窗口管理器，其性能非常出色。该系统运行飞快，所需的硬件配置远低于Windows 11 的要求。这对拥有旧电脑的用户来说是个好消息。我在一个只有 3GBRAM 和 2 核 CPU 的虚拟机中测试 AntiX，其速度和响应都非常令人满意。</p><p>应用程序不仅几乎是瞬间启动的，而且安装速度也非常快。我测试安装 Plasma桌面环境，用时不到一分钟。退出后选择 Plasma作为桌面环境重新登录时，我发现 AntiX 仍然运行流畅。虽然 Plasma的速度无法与 zzzFM-IceWM 相媲美，但差距并不大。</p><h2 id="antix-适合谁">AntiX 适合谁？</h2><p>AntiX 的核心特性之一是缺少 systemd 启动服务。由于种种原因，Linux社区的一部分用户不愿使用 systemd，倾向于老式方法。但反对 systemd的用户并不是唯一适合 AntiX的群体。如果你希望让老旧硬件焕发生机，体验现代桌面兴起之前的Linux，或者学习一些在 Ubuntu、Linux Mint 或 elementary OS 上学不到的Linux 知识，AntiX 是一个不错的选择。</p><p>然而，如果你只是想要一款符合现代审美的桌面操作系统，或者对是否使用systemd 并不在意，那么 AntiX 可能并不适合你。你可以从 <ahref="https://antixlinux.com/download/">官方下载页面</a> 下载 AntiX的最新版本（23.2）。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>翻译</category>
+      
+      <category>ZDNET</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>发行版</tag>
+      
+      <tag>AntiX</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>随心所欲的配置 Hyprland</title>
     <link href="/posts/34336.html"/>
     <url>/posts/34336.html</url>
