@@ -4,6 +4,37 @@
   
   
   <entry>
+    <title>7 个在 2024 年值得怀念的发行版</title>
+    <link href="/posts/23176.html"/>
+    <url>/posts/23176.html</url>
+    
+    <content type="html"><![CDATA[<h1 id="个在-2024-年值得怀念的发行版">7 个在 2024年值得怀念的发行版</h1><blockquote><p>本文翻译自 <a href="https://itsfoss.com/discontinued-linux-distros/"class="uri">https://itsfoss.com/discontinued-linux-distros/</a></p></blockquote><p>世界上有数百种 Linux 发行版。</p><p>然而，其中一些发行版因未能吸引用户使用或未能实现其原始目标而最终停止维护。尽管如此，它们中的一些仍因独特的理念而受到关注。</p><p>在这里，让我们花点时间回顾那些曾经流行但如今已不复存在的 Linux发行版。</p><p>📋一些项目的官方网站已不存在，因此我们未提供链接以避免跳转到垃圾网站。</p><h2 id="mandrake-linux">1. Mandrake Linux</h2><figure><img src="https://cdn.jsdelivr.net/gh/lixuannan/img/helios-mandrake.jpg"alt="Mandrake Linux 的截图" /><figcaption aria-hidden="true">Mandrake Linux 的截图</figcaption></figure><p>Mandrake Linux 于 <strong>1998 年</strong>由 Gaël Duval（现为 /e/OS的创始人）创建。</p><p>它是一个基于 Red Hat Linux 的发行版，采用 KDE Plasma桌面。在其活跃的几年中，由于法律纠纷，其名称于 2005 年更改为"<strong>Mandriva Linux</strong>"。</p><p>Mandrake Linux 的目标是为从其他平台转向 Linux的新用户提供一个易于使用的替代方案。在那个时代，它简化了 Linux系统的设置，使各种用户都能尝试使用。</p><p><a href="https://www.mageia.org/en/">Mageia</a>是由其部分原始社区成员延续的最著名的继任项目之一。</p><h2 id="crunchbang-linux">2. CrunchBang Linux</h2><figure><imgsrc="https://cdn.jsdelivr.net/gh/lixuannan/img/crunchbang-linux.png"alt="CrunchBang Linux 的截图" /><figcaption aria-hidden="true">CrunchBang Linux 的截图</figcaption></figure><p><a href="https://crunchbang.org/">CrunchBang</a>（或 #!）是由 PhilipNewborough 创建的基于 Debian 的 Linux 发行版。</p><p>它旨在通过使用 Openbox 窗口管理器（我现在在 Archcraft上使用它）降低系统资源的占用。在那个年代，它为用户提供了一个可定制、独特且快速的体验。</p><p>CrunchBang Linux 有一些来自社区成员的非官方继任者，例如 CrunchBangPlus Plus 和 BunsenLabs。</p><h2 id="scientific-linux">3. Scientific Linux</h2><figure><imgsrc="https://cdn.jsdelivr.net/gh/lixuannan/img/Scientific_Linux_7.jpg"alt="Scientific Linux 的截图" /><figcaption aria-hidden="true">Scientific Linux 的截图</figcaption></figure><p><a href="https://scientificlinux.org/">Scientific Linux</a>是一个基于 Red Hat Enterprise Linux 的发行版，采用 GNOME 桌面。</p><p>它由 Fermilab、CERN、DESY和苏黎世联邦理工学院开发，专为科学计算而设计。虽然科学实验室会根据需求选择不同的发行版，但科学应用的集成在各个平台上并不总是无缝的。因此，ScientificLinux 应运而生，以便为各种科学应用提供便利。</p><p>不幸的是，它在不久前因未知原因停止了维护。如果你曾是 Scientific Linux的用户，他们建议尝试 <a href="https://almalinux.org/">AlmaLinux</a>作为替代方案。</p><h2 id="hannah-montana-linux">4. Hannah Montana Linux 😜</h2><figure><imgsrc="https://cdn.jsdelivr.net/gh/lixuannan/img/hannah-montana-linux.jpg"alt="Hannah Montana Linux 的截图" /><figcaption aria-hidden="true">Hannah Montana Linux 的截图</figcaption></figure><p>是的，Hannah Montana Linux 确实存在，并因 2008 年以 Kubuntu为基础重新定制而流行。</p><p>有趣的是，它仅发布过一个版本，其主要目的是通过引入 Hannah Montana的主题来吸引年轻用户，因为它是当时青少年中流行的节目之一。</p><p>相信我，那时不仅仅是“女孩”的专属。几乎每个人都知道它！</p><p>其 <a href="https://hannahmontana.sourceforge.net/">Sourceforge页面</a> 在十多年后依然存在，可以去看看，感受一波怀旧。</p><h2 id="pear-os">5. Pear OS</h2><figure><img src="https://cdn.jsdelivr.net/gh/lixuannan/img/Pear_OS8.jpeg"alt="Pear OS 的截图" /><figcaption aria-hidden="true">Pear OS 的截图</figcaption></figure><p>Pear OS 是一个基于 Ubuntu 的发行版，试图模仿 macOS的外观。的确，很多用户喜欢有类似 macOS 界面的 Linux发行版（译者注：如果你想拥有现代 MacOS 的外观，可以参考 <ahref="https://lixuannan.github.io/posts/63759.html"class="uri">https://lixuannan.github.io/posts/63759.html</a>），这也是它在短时间内流行的原因。</p><p>然而，它并没有提供其他实质性的功能来保持其实用性。我们甚至在当时 <ahref="https://itsfoss.com/pear-os-8-review/">评测过 Pear OS8</a>（如果你感兴趣，可以看看）。</p><p>也许它本可以发展得更好。但开发者提到它被卖给了一家不愿透露名称的知名公司。很多人猜测是受到某家“水果公司”的威胁，但我没有证据。</p><p>🚧 你可以找到一个 Pear OS的网站（不同域名），看起来像是它还在，但这并不是原来的项目，我们也无法确认其安全性。如果是我，我会不会打开。</p><h2 id="corel-linux">6. Corel Linux</h2><figure><img src="https://cdn.jsdelivr.net/gh/lixuannan/img/corel.jpg"alt="Corel Linux 的截图" /><figcaption aria-hidden="true">Corel Linux 的截图</figcaption></figure><p>Corel Linux 是由 Corel 公司（负责 WinZip 和 CorelDRAW的公司）开发的最早的发行版之一。它基于 Debian，目标是在 1999 年与Windows 和 macOS 竞争。</p><p>与其他一些发行版不同，Corel Linux试图提供自己的文件管理器，并推广其办公套件作为 Microsoft Office的竞争者，但这些功能在 Linux平台上表现不佳。因此，它在推出一年后就停止了维护。</p><h2 id="antergos">7. Antergos</h2><figure><img src="https://cdn.jsdelivr.net/gh/lixuannan/img/antergos.jpg"alt="Antergos 的截图" /><figcaption aria-hidden="true">Antergos 的截图</figcaption></figure><p>Antergos 是一个基于 Arch Linux 的发行版，默认采用 GNOME桌面，同时支持在安装时选择其他桌面环境。</p><p>它是首批尝试简化 Arch使用体验的发行版之一，并采用了与众不同的外观，例如 GNOME 桌面搭配 Numix图标。</p><p>EndeavourOS 是其继任者。考虑到一些原始社区成员参与了维护，如果你怀念Antergos，可以尝试一下。</p><h2 id="总结">总结</h2><p>有一些发行版，比如 Damn SmallLinux，被认为已停止维护，但最近被重新启动维护。而像 Knoppix这样的发行版则未完全确认停止。</p><p>你是否还怀念其他已经停用的发行版？欢迎在评论中告诉我们！</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>翻译</category>
+      
+      <category>ITSFOSS</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Linux</tag>
+      
+      <tag>2024</tag>
+      
+      <tag>发行版</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>6 个比原装安卓桌面更好的桌面启动器</title>
     <link href="/posts/435.html"/>
     <url>/posts/435.html</url>
