@@ -4,6 +4,37 @@
   
   
   <entry>
+    <title>论离线更新 Fedora</title>
+    <link href="/posts/4716.html"/>
+    <url>/posts/4716.html</url>
+    
+    <content type="html"><![CDATA[<h1 id="论离线更新-fedora">论离线更新 Fedora</h1><blockquote><p>本文翻译自 <a href="https://itsfoss.com/offline-update-fedora/"class="uri">https://itsfoss.com/offline-update-fedora/</a></p></blockquote><p>我感觉 Fedora 的更新比其他发行版（如 UbuntuLTS）更频繁。因此，您需要定期更新系统。</p><p>如果您身处网络受限或完全没有网络连接的地方，升级将会被延迟很长时间，这对系统的健康运行并并不理想。</p><p>我曾在 Reddit 上看到 Fedora提供一种离线更新的机制。我尝试了一下，现在与您分享我的发现。</p><p>🚧这并不是一篇“如何操作”的教程，而是我分享自己的实验经历，希望您能从中获得一些启发。请不要盲目地照搬这里的内容。</p><p>我将讨论两种场景：</p><ul><li><strong>网络受限情况下的离线更新：</strong>在这种情况下，您至少可以更新包缓存，以查看哪些已安装的包可以更新。这种方法适用于有限的移动数据网络。</li><li><strong>完全无网络连接情况下的离线更新：</strong>在这种情况下，您无法知道哪些包需要更新。因此，您需要列出所有已安装的包，并下载它们的更新。</li></ul><p>这两种场景的操作步骤大致相同：在另一台可以联网的 Fedora系统上下载更新包，然后通过 USB 将它们传输到离线的 Fedora 系统上。</p><p><strong>注意：离线和在线的 Fedora 系统必须运行相同的 Fedora版本。</strong></p><h2 id="场景-1网络受限系统的更新">场景 1：网络受限系统的更新</h2><p>📋 您需要一台运行 Fedora并具有正常网络连接的计算机，或者一台可以移动到网络连接较好的地方的笔记本电脑。</p><p>在这种情况下，我们假设您使用的是有限的计量网络（如移动网络）。通过这种方法，您可以获取有关系统包和仓库状态的一些信息，从而高效地完成更新。</p><p>🚧 我并未测试 RPM Fusion 和其他外部仓库（如 Brave浏览器）中的包更新，仅测试了从默认 Fedora 仓库安装的包。</p><h3 id="创建需要更新的包列表">创建需要更新的包列表</h3><p>首先，在离线系统上获取所有需要更新的已安装包的信息，可以通过以下命令在终端中完成：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">dnf repoquery --upgrade --queryformat <span class="hljs-string">&#x27;%&#123;name&#125;.%&#123;arch&#125;&#x27;</span> &gt; updates.txt<br></code></pre></td></tr></table></figure><p>然后可以使用以下命令查看文件内容：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">less updates.txt<br></code></pre></td></tr></table></figure><p>文件中包含需要更新的包列表。</p><h3 id="在联网系统上下载更新包">在联网系统上下载更新包</h3><p>接下来，在一台具有良好网络连接的 Fedora系统上，我在下载目录中创建了一个名为 <code>downloaded-packages</code>的文件夹：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">mkdir</span> -p ~/Downloads/downloaded-packages<br></code></pre></td></tr></table></figure><p>使用以下命令下载更新包：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">dnf download --resolve $(<span class="hljs-built_in">cat</span> updates.txt) --downloaddir=<span class="hljs-string">&quot;/home/<span class="hljs-variable">$USER</span>/Downloads/downloaded-packages&quot;</span><br></code></pre></td></tr></table></figure><p>这样会将 <code>updates.txt</code>文件中列出的所有包下载到指定目录中。</p><p>之后，我将此目录复制到 U盘上。</p><h3 id="在离线系统上安装下载的更新包">在离线系统上安装下载的更新包</h3><p>将 USB 驱动器插入离线的 Fedora 系统，并将<code>downloaded-packages</code> 文件夹复制到系统的 Downloads文件夹。</p><p>进入该目录后，运行以下命令安装更新：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cd</span> ~/Downloads/downloaded-packages<br><span class="hljs-built_in">sudo</span> dnf install *.rpm<br></code></pre></td></tr></table></figure><h2 id="方法-2完全无网络连接的系统">方法 2：完全无网络连接的系统</h2><p>如果系统完全没有网络连接，但您可以在其他地方访问互联网，可以尝试以下方法。</p><p>🚧 这种方法也需要一台联网的 Fedora系统来下载实际的包文件，并且操作过程可能会在多个地方出错。请谨慎使用，仅在别无选择的情况下使用。</p><h3 id="列出所有已安装的包">列出所有已安装的包</h3><p>在这种方法中，您需要列出系统上所有已安装的包，并将其保存到文件中：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">rpm -qa --queryformat <span class="hljs-string">&quot;%&#123;NAME&#125;\n&quot;</span> &gt; packages.txt<br></code></pre></td></tr></table></figure><p>此文件中会包含系统上所有已安装包的完整列表。</p><p>🚧 在生成的列表中，可能包含类似 <code>gpg-pubkey</code>的条目。这些条目可能会导致错误，因为这些包的名称不可用。</p><p>将该文件复制到 USB，然后转移到能够联网的系统上。</p><h3 id="下载所有包">下载所有包</h3><p>在联网的 Fedora 系统上，使用以下命令下载所有包：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">dnf download --resolve $(<span class="hljs-built_in">cat</span> packages.txt) --downloaddir=<span class="hljs-string">&quot;/home/<span class="hljs-variable">$USER</span>/Downloads/downloaded-packages&quot;</span><br></code></pre></td></tr></table></figure><p>将下载的文件夹复制到 USB，并转移到离线系统的 Downloads 文件夹中。</p><h3 id="更新离线系统">更新离线系统</h3><p>将所有必需文件复制到本地系统后，进入目录并运行以下命令安装这些包：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cd</span> ~/Downloads/downloaded-packages<br><span class="hljs-built_in">sudo</span> dnf install *.rpm<br></code></pre></td></tr></table></figure><p>这样将安装列表中的所有包。</p><h2 id="总结">总结</h2><p>您可以使用 <code>--disablerepo=*</code>选项禁用仓库和镜像检查，但需要谨慎使用。</p><p>需要注意的是，Fedora并不是一个设计为完全离线运行的系统。在某些特殊情况下，您可能会遇到与您的具体系统相关的错误。</p><p>幸运的是，现在世界大部分地区都能使用互联网。而现代操作系统的设计通常需要活跃的互联网连接。</p><p>尽管如此，在极少数情况下，仍有计算机需要离线工作。然而，Fedora并不是此类场景的理想操作系统。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>翻译</category>
+      
+      <category>ITSFOSS</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Fedora</tag>
+      
+      <tag>更新</tag>
+      
+      <tag>离线</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>7 个在 2024 年值得怀念的发行版</title>
     <link href="/posts/23176.html"/>
     <url>/posts/23176.html</url>
