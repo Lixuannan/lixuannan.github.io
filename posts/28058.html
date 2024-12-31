@@ -21,32 +21,18 @@
   <meta name="author" content="CodingCow Lee">
   <meta name="keywords" content="python,ml,deeplearning,dl,c++,c,pytorch,noi,oi,ioi,noip,csp-j,csp-s,oier,tyoi,oiclass">
   
-    <meta name="description" content="OiClass PU2TI P3186 小美的排队次数 题解 思路 以下格式模仿睿智的官方题解。  \(10\,\%\) 做法：呵呵，对于这种神奇的算法还是表示不明觉厉。 \(40\,\%\) 做法：呵呵，依题意模拟计数即可。 \(100\,\%\) 做法：呵呵，随便做即可。考虑以下先做一轮，观察一下有什么性质。手磨样例，一轮以后是 1, 2, 3, 5, 4, 6 发现每一次只可能交换相邻的两个">
+    <meta name="description" content="# 博客 2024 年年终总结 在今年年中，博客从 Netlify 迁移到了 Github Page，浏览量大幅度攀升，Netlify 属实是太拉垮了。就在几天前，博客还历史性的接入了 Google Analytics 用于分析流量，改善用户体验，同时还接入了 Microsoft Clarity（但是好像这个东西分析不了什么）。但是由于一些奇怪的原因，GSC 里面的页面索引情况不容乐观，几乎大部分">
 <meta property="og:type" content="article">
-<meta property="og:title" content="OiClass PU2TI P3186 小美的排队次数 题解">
-<meta property="og:url" content="https://lixuannan.github.io/posts/21158.html">
+<meta property="og:title" content="博客 2024 年年终总结">
+<meta property="og:url" content="https://lixuannan.github.io/posts/28058.html">
 <meta property="og:site_name" content="CodingCow&#39;s Blog">
-<meta property="og:description" content="OiClass PU2TI P3186 小美的排队次数 题解 思路 以下格式模仿睿智的官方题解。  \(10\,\%\) 做法：呵呵，对于这种神奇的算法还是表示不明觉厉。 \(40\,\%\) 做法：呵呵，依题意模拟计数即可。 \(100\,\%\) 做法：呵呵，随便做即可。考虑以下先做一轮，观察一下有什么性质。手磨样例，一轮以后是 1, 2, 3, 5, 4, 6 发现每一次只可能交换相邻的两个">
+<meta property="og:description" content="# 博客 2024 年年终总结 在今年年中，博客从 Netlify 迁移到了 Github Page，浏览量大幅度攀升，Netlify 属实是太拉垮了。就在几天前，博客还历史性的接入了 Google Analytics 用于分析流量，改善用户体验，同时还接入了 Microsoft Clarity（但是好像这个东西分析不了什么）。但是由于一些奇怪的原因，GSC 里面的页面索引情况不容乐观，几乎大部分">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-06-19T08:38:00.000Z">
-<meta property="article:modified_time" content="2024-12-31T08:12:28.477Z">
+<meta property="article:published_time" content="2024-12-31T02:23:00.000Z">
+<meta property="article:modified_time" content="2024-12-31T08:12:28.473Z">
 <meta property="article:author" content="CodingCow Lee">
-<meta property="article:tag" content="python">
-<meta property="article:tag" content="ml">
-<meta property="article:tag" content="deeplearning">
-<meta property="article:tag" content="dl">
-<meta property="article:tag" content="c++">
-<meta property="article:tag" content="c">
-<meta property="article:tag" content="pytorch">
-<meta property="article:tag" content="noi">
-<meta property="article:tag" content="oi">
-<meta property="article:tag" content="ioi">
-<meta property="article:tag" content="noip">
-<meta property="article:tag" content="csp-j">
-<meta property="article:tag" content="csp-s">
-<meta property="article:tag" content="oier">
-<meta property="article:tag" content="tyoi">
-<meta property="article:tag" content="oiclass">
+<meta property="article:tag" content="2024">
+<meta property="article:tag" content="总结">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:creator" content="@CodingCow">
 <meta name="twitter:site" content="lixuannan.github.io">
@@ -55,7 +41,7 @@
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>OiClass PU2TI P3186 小美的排队次数 题解 | CodingCow&#39;s Blog</title>
+  <title>博客 2024 年年终总结 | CodingCow&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -305,7 +291,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle">OiClass PU2TI P3186 小美的排队次数 题解</span>
+            <span id="subtitle">博客 2024 年年终总结</span>
           
         </div>
 
@@ -321,8 +307,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-06-19 16:38" pubdate>
-          2024年6月19日 下午
+        <time datetime="2024-12-31 10:23" pubdate>
+          2024年12月31日 上午
         </time>
       </span>
     
@@ -333,7 +319,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          356 字
+          465 字
         
       </span>
     
@@ -398,53 +384,17 @@
     
     <div class="category row nomargin-x">
       <a class="category-item 
-          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="OiClass"
-        id="heading-785d2caf3e0c2e9f430c199b2eb9ac27" role="tab" data-toggle="collapse" href="#collapse-785d2caf3e0c2e9f430c199b2eb9ac27"
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="总结"
+        id="heading-25f9c7fa3b50aebe5125112ac1187777" role="tab" data-toggle="collapse" href="#collapse-25f9c7fa3b50aebe5125112ac1187777"
         aria-expanded="true"
       >
-        OiClass
-        <span class="list-group-count">(3)</span>
+        总结
+        <span class="list-group-count">(1)</span>
         <i class="iconfont icon-arrowright"></i>
       </a>
       
-      <div class="category-collapse collapse show" id="collapse-785d2caf3e0c2e9f430c199b2eb9ac27"
-           role="tabpanel" aria-labelledby="heading-785d2caf3e0c2e9f430c199b2eb9ac27">
-        
-        
-          
-          
-  <div class="category-post-list">
-    
-    
-      
-      
-        <a href="/posts/54641.html" title="OiClass 公益赛宣传"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">OiClass 公益赛宣传</span>
-        </a>
-      
-    
-  </div>
-
-          
-  
-    
-    
-    
-    <div class="category-sub row nomargin-x">
-      <a class="category-subitem 
-          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="题解"
-        id="heading-4161afd7a4e47ddb8376cb63ba58880f" role="tab" data-toggle="collapse" href="#collapse-4161afd7a4e47ddb8376cb63ba58880f"
-        aria-expanded="true"
-      >
-        题解
-        <span class="list-group-count">(2)</span>
-        <i class="iconfont icon-arrowright"></i>
-      </a>
-      
-      <div class="category-collapse collapse show" id="collapse-4161afd7a4e47ddb8376cb63ba58880f"
-           role="tabpanel" aria-labelledby="heading-4161afd7a4e47ddb8376cb63ba58880f">
+      <div class="category-collapse collapse show" id="collapse-25f9c7fa3b50aebe5125112ac1187777"
+           role="tabpanel" aria-labelledby="heading-25f9c7fa3b50aebe5125112ac1187777">
         
         
           
@@ -453,28 +403,15 @@
     
       
       
-        <a href="/posts/31541.html" title="OiClass PUJI P2232 Friends 题解"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">OiClass PUJI P2232 Friends 题解</span>
-        </a>
-      
-    
-      
-      
-        <a href="/posts/21158.html" title="OiClass PU2TI P3186 小美的排队次数 题解"
+        <a href="/posts/28058.html" title="博客 2024 年年终总结"
            class="list-group-item list-group-item-action
            active">
-          <span class="category-post">OiClass PU2TI P3186 小美的排队次数 题解</span>
+          <span class="category-post">博客 2024 年年终总结</span>
         </a>
       
     
   </div>
 
-        
-      </div>
-    </div>
-  
         
       </div>
     </div>
@@ -491,39 +428,53 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">OiClass PU2TI P3186 小美的排队次数 题解</h1>
+            <h1 id="seo-header">博客 2024 年年终总结</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="oiclass-pu2ti-p3186-小美的排队次数-题解">OiClass PU2TI P3186
-小美的排队次数 题解</h1>
-<h2 id="思路">思路</h2>
-<p><del>以下格式模仿睿智的官方题解。</del></p>
-<ul>
-<li><span class="math inline">\(10\,\%\)</span>
-做法：呵呵，对于这种神奇的算法还是表示不明觉厉。</li>
-<li><span class="math inline">\(40\,\%\)</span>
-做法：呵呵，依题意模拟计数即可。</li>
-<li><span class="math inline">\(100\,\%\)</span>
-做法：呵呵，<del>随便做即可</del>。考虑以下先做一轮，观察一下有什么性质。手磨样例，一轮以后是
-<code>1, 2, 3, 5, 4, 6</code>
-发现每一次只可能交换相邻的两个数，于是猜测逆序对。简单再次手磨以下，
-<code>1, 2, 3, 5, 4, 6</code> 的逆序对个数是 <span
-class="math inline">\(1\)</span>
-个，巧了，过样例！下载个大样例，也过了，爽！然后自信提交，<span
-class="math inline">\(80 {\rm pts}\)</span>​？<strong>十年 OI
-一场空，不开 <code>long long</code> 见祖宗！</strong>。</li>
-</ul>
-<p>补一句，树状数组跑的还是比线段树和归并快很多的。</p>
+                <p># 博客 2024 年年终总结</p>
+<p>在今年年中，博客从 Netlify 迁移到了 Github
+Page，浏览量大幅度攀升，Netlify
+属实是太拉垮了。就在几天前，博客还历史性的接入了 Google Analytics
+用于分析流量，改善用户体验，同时还接入了 Microsoft
+Clarity（但是好像这个东西分析不了什么）。但是由于一些奇怪的原因，GSC
+里面的页面索引情况不容乐观，几乎大部分页面都没有被 Google
+纳入索引，很奇怪，懂得可以评论区吱吱声。</p>
 <figure>
 <img
-src="https://cdn.jsdelivr.net/gh/lixuannan/img/image-20240619165706940.png"
-alt="image-20240619165706940" />
-<figcaption aria-hidden="true">image-20240619165706940</figcaption>
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/image-20241224133051483.png"
+alt="GSC 问题" />
+<figcaption aria-hidden="true">GSC 问题</figcaption>
 </figure>
-<h2 id="代码">代码</h2>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;algorithm&gt;</span></span><br><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> int long long</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> lowbit(x) (x &amp; -x)</span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-type">int</span> n, h[<span class="hljs-number">100009</span>], t[<span class="hljs-number">100009</span>];<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">add</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span> </span>&#123;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = x; i &lt;= n; i += <span class="hljs-built_in">lowbit</span>(i)) &#123;<br>        t[i] += <span class="hljs-number">1</span>;<br>    &#125;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">query</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span> </span>&#123;<br>    <span class="hljs-type">int</span> res = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = x; i &gt; <span class="hljs-number">0</span>; i -= <span class="hljs-built_in">lowbit</span>(i)) &#123;<br>        res += t[i];<br>    &#125;<br>    <span class="hljs-keyword">return</span> res;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">signed</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    cin &gt;&gt; n;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++) &#123;<br>        cin &gt;&gt; h[i];<br>    &#125;<br>    <span class="hljs-type">int</span> cnt = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> l = <span class="hljs-number">1</span>; l &lt;= n; l++) &#123;<br>        <span class="hljs-type">int</span> r = l;<br>        <span class="hljs-keyword">for</span> (r; r &lt;= n <span class="hljs-keyword">and</span> h[r + <span class="hljs-number">1</span>] &lt;= h[r] <span class="hljs-keyword">and</span> h[r + <span class="hljs-number">1</span>] != <span class="hljs-number">0</span>; r++);<br>        <span class="hljs-keyword">if</span> (l == r) &#123;<br>            <span class="hljs-keyword">continue</span>;<br>        &#125;<br>        <span class="hljs-built_in">reverse</span>(h + l, h + r + <span class="hljs-number">1</span>);<br>        cnt += <span class="hljs-number">1</span>;<br>        l = r;<br>    &#125;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++) &#123;<br>        cnt += i - <span class="hljs-number">1</span> - <span class="hljs-built_in">query</span>(h[i]);<br>        <span class="hljs-built_in">add</span>(h[i]);<br>    &#125;<br>    cout &lt;&lt; cnt;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>今年博客文章数量稳步提升，较去年增长 <span class="math inline">\(102
+\%\)</span>，总数来到了 <span class="math inline">\(112\)</span>
+篇。</p>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/image-20241224131424126.png"
+alt="各年度文章数量分析" />
+<figcaption aria-hidden="true">各年度文章数量分析</figcaption>
+</figure>
+<p>在今年博客特别增加了翻译文章，以丰富国内社区文章数量。翻译的文章主要从
+ITSFOSS、ZDNET
+等国外科技媒体处搬运，内容主要集中在开源软件领域。截至今天，翻译的文章共计
+<span class="math inline">\(30\)</span>
+篇。下面是各个来源的文章数量分析：</p>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/image-20241224132143852.png"
+alt="翻译文章数量" />
+<figcaption aria-hidden="true">翻译文章数量</figcaption>
+</figure>
+<p>不难看出，ITSFOSS 在国外的统治地位也延续到了本博客当中。不过确实
+ITSFOSS 的文章质量和更新频率也远胜于其他两个来源。</p>
+<p>除了翻译类文章，题解文章占了博客的另一半江山，但是由于本人初三了，暂时推出了
+OI
+的学习，因此题解类文章可能会停更很长一段时间。同时游记也会大大减少（虽然本来就没有多少）。</p>
+<p>明年计划加入摄影一类的文章，毕竟也是玩摄影很多年了，多少有点经验可以分享的。同时教程类的文章也会稳步更新。</p>
+<hr />
+<p>最后祝各位新年快乐，事事如意。也祝博客浏览量稳步提升！</p>
 
                 
               </div>
@@ -543,15 +494,8 @@ alt="image-20240619165706940" />
     
       <span class="category-chain">
         
-  <a href="/categories/OiClass/" class="category-chain-item">OiClass</a>
+  <a href="/categories/%E6%80%BB%E7%BB%93/" class="category-chain-item">总结</a>
   
-  
-    <span>></span>
-    
-  <a href="/categories/OiClass/%E9%A2%98%E8%A7%A3/" class="category-chain-item">题解</a>
-  
-  
-
   
 
       </span>
@@ -562,6 +506,15 @@ alt="image-20240619165706940" />
     </div>
   
   
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/2024/" class="print-no-link">#2024</a>
+      
+        <a href="/tags/%E6%80%BB%E7%BB%93/" class="print-no-link">#总结</a>
+      
+    </div>
+  
 </div>
 
 
@@ -570,8 +523,8 @@ alt="image-20240619165706940" />
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>OiClass PU2TI P3186 小美的排队次数 题解</div>
-      <div>https://lixuannan.github.io/posts/21158.html</div>
+      <div>博客 2024 年年终总结</div>
+      <div>https://lixuannan.github.io/posts/28058.html</div>
     </div>
     <div class="license-meta">
       
@@ -583,7 +536,7 @@ alt="image-20240619165706940" />
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年6月19日</div>
+          <div>2024年12月31日</div>
         </div>
       
       
@@ -627,18 +580,12 @@ alt="image-20240619165706940" />
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/posts/32290.html" title="OiClass PU2TI P3042 拓展的奇拼图题解">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">OiClass PU2TI P3042 拓展的奇拼图题解</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/posts/51536.html" title="SPOJ SETSTACK 题解">
-                        <span class="hidden-mobile">SPOJ SETSTACK 题解</span>
+                      <a href="/posts/48550.html" title="如何让你的 Linux 充满圣诞气息">
+                        <span class="hidden-mobile">如何让你的 Linux 充满圣诞气息</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
