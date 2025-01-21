@@ -4,6 +4,37 @@
   
   
   <entry>
+    <title>KleverNotes——一个 KDE 中的实用的 Markdown 笔记软件</title>
+    <link href="/posts/40354.html"/>
+    <url>/posts/40354.html</url>
+    
+    <content type="html"><![CDATA[<h1id="klevernotes一个-kde-中的实用的-markdown-笔记软件">KleverNotes——一个KDE 中的实用的 Markdown 笔记软件</h1><blockquote><p>解释一下，这一个月以来没有更新主要是要期末考了，从今天起将恢复正常的更新频率</p></blockquote><blockquote><p>本文翻译自 <a href="https://news.itsfoss.com/klevernotes/"class="uri">https://news.itsfoss.com/klevernotes/</a>。</p></blockquote><h3 id="必知要点">必知要点 👇</h3><p>— 名字很聪明（bushi）。 — 易于上手。 — 拥有简洁的编辑器。</p><hr /><p><a href="https://zh.wikipedia.org/wiki/Markdown">Markdown</a>是一种流行的标记语言，广泛用于笔记记录，主要因其简洁性和多功能性。它的纯文本格式确保用户可以快速创建干净、易读的笔记，而无需处理复杂的工具和界面。</p><p>多年来，涌现了许多 Markdown笔记编辑器，每个编辑器都提供了一系列有用的功能，力求在功能性和简洁性之间找到平衡。</p><p>在本周的应用推荐中，我们将介绍<strong>KleverNotes</strong>，这是一款新兴的 Markdown 笔记工具。</p><h2 id="klevernotes-markdown-功能完善">KleverNotes: Markdown功能完善</h2><figure><img src="https://cdn.jsdelivr.net/gh/lixuannan/img/KleverNotes_a.png"alt="KleverNotes 应用截图，展示了一个打开的示范笔记" /><figcaption aria-hidden="true">KleverNotes应用截图，展示了一个打开的示范笔记</figcaption></figure><p>KleverNotes 由主开发者 <ahref="https://invent.kde.org/louis-schul">Louis Schul</a>的个人需求驱动而生，他希望在学习 QML 和 C++的过程中，同时能鼓励自己在课堂上做笔记。KleverNotes 在<ahref="https://blogs.kde.org/2024/06/05/klevernotes-version-1.0-official-release/">2024年10月</a>发布了第一个稳定版本。</p><h3 id="主要特点">⭐ 主要特点</h3><p>除了其“聪明”的名字外，KleverNotes 还<strong>支持插件，扩展了基本的Markdown 功能</strong>，提供诸如语法高亮、快速表情、笔记链接和PlantUML（用于创建图表）等有用的可选工具。</p><p>需要注意的一些关键点包括：</p><ul><li><strong>显示笔记的预览。</strong></li><li><strong>以KDE生态系统为基础构建。</strong></li><li><strong>保存的笔记符合</strong> <ahref="https://commonmark.org/"><strong>CommonMark</strong></a><strong>标准。</strong></li></ul><h3 id="用户体验">💻 用户体验</h3><p>我在我的 Fedora 40 笔记本上使用了 KleverNotes 1.1.0 的 Flatpak版本，以了解其笔记记录的工作流程。</p><p>在开始之前，<strong>我需要选择一个存储位置</strong>，让 KleverNotes保存我的笔记。我手动创建了一个新文件夹，并通过“<em>创建存储</em>”选项进行定义。也有选择现有存储位置的选项。</p><figure><img src="https://cdn.jsdelivr.net/gh/lixuannan/img/KleverNotes_b.png"alt="KleverNotes存储配置向导截图" /><figcaption aria-hidden="true">KleverNotes存储配置向导截图</figcaption></figure><p>配置好后，<strong>一个示范笔记加载出来，展示了 KleverNotes 的各种Markdown元素</strong>。然后我通过右键单击现有的笔记类别创建了两个新类别，并将一些笔记添加到新类别中。</p><figure><img src="https://cdn.jsdelivr.net/gh/lixuannan/img/KleverNotes_c-1.png"alt="KleverNotes创建新笔记类别和笔记截图" /><figcaptionaria-hidden="true">KleverNotes创建新笔记类别和笔记截图</figcaption></figure><figure><img src="https://cdn.jsdelivr.net/gh/lixuannan/img/KleverNotes_d.png"alt="KleverNotes笔记类别管理截图" /><figcaption aria-hidden="true">KleverNotes笔记类别管理截图</figcaption></figure><p><strong>Markdown笔记编辑体验相当愉快</strong>。尽管有些小瑕疵，但总体上是一个很好的体验。如果你想输入Markdown语法，可以；如果你像我一样懒惰，也可以使用编辑器顶部的便捷工具。</p><figure><img src="https://cdn.jsdelivr.net/gh/lixuannan/img/KleverNotes_e.png"alt="KleverNotes编辑器工具条截图" /><figcaption aria-hidden="true">KleverNotes编辑器工具条截图</figcaption></figure><figure><img src="https://cdn.jsdelivr.net/gh/lixuannan/img/KleverNotes_f.png"alt="KleverNotes笔记编辑页面截图" /><figcaption aria-hidden="true">KleverNotes笔记编辑页面截图</figcaption></figure><figure><img src="https://cdn.jsdelivr.net/gh/lixuannan/img/KleverNotes_g.png"alt="KleverNotes显示笔记的截图" /><figcaption aria-hidden="true">KleverNotes显示笔记的截图</figcaption></figure><p>我还可以通过点击工具栏中的图片按钮<strong>向笔记中添加图片</strong>，KleverNotes会将其附加到我的光标所在的行。我可以选择从网站上添加网页图片、上传本地图片或绘制图片。</p><p>如果需要，我可以让应用程序将上传的图片保存在与笔记相同的文件夹中，以避免丢失。建议启用此选项，以免丢失重要图片。</p><figure><img src="https://cdn.jsdelivr.net/gh/lixuannan/img/KleverNotes_h.png"alt="KleverNotes Markdown 备忘单截图" /><figcaption aria-hidden="true">KleverNotes Markdown备忘单截图</figcaption></figure><p>然后是非常实用的 <strong>Markdown备忘单</strong>，可以从应用程序左下角访问，对于需要刷新各种元素的用户非常有帮助。</p><figure><img src="https://cdn.jsdelivr.net/gh/lixuannan/img/KleverNotes_i.png"alt="KleverNotes任务列表功能截图" /><figcaption aria-hidden="true">KleverNotes任务列表功能截图</figcaption></figure><figure><img src="https://cdn.jsdelivr.net/gh/lixuannan/img/KleverNotes_j.png"alt="KleverNotes待办事项列表截图" /><figcaption aria-hidden="true">KleverNotes待办事项列表截图</figcaption></figure><p>在所有笔记之外，还有一个单独的“<em>TODO</em>”区域，你可以<strong>创建重要任务的待办事项</strong>，并在完成后勾选它们。你可以为这些任务添加有用的描述，以便于跟踪。</p><p>如果你注意到上面的截图，<strong>工具栏中的许多按钮不可见</strong>。我不得不慢慢地将鼠标悬停在它们上面才能看到每个按钮的功能。我使用了快速表情插件来装饰任务列表，这也很好用。</p><figure><img src="https://cdn.jsdelivr.net/gh/lixuannan/img/KleverNotes_l.png"alt="KleverNotes插件和笔记预览设置页面截图" /><figcaptionaria-hidden="true">KleverNotes插件和笔记预览设置页面截图</figcaption></figure><figure><img src="https://cdn.jsdelivr.net/gh/lixuannan/img/KleverNotes_k.png"alt="KleverNotes插件设置页面截图" /><figcaption aria-hidden="true">KleverNotes插件设置页面截图</figcaption></figure><p>但是，要启用插件，首先需要进入“<em>插件</em>”设置页面并手动启用。同样，设置菜单中还有其他有用的选项，允许你更改样式、字体和文本颜色。</p><p>总结来说，<strong>我真的很喜欢 KleverNotes提供的功能</strong>，但仍然有一些不完整的部分，比如界面的深色模式和便捷的导入/导出笔记功能。</p><p>不过考虑到应用程序仍然相对较新，这是可以理解的。由于它属于 KDE生态系统，未来很可能会定期进行更新和改进。</p><h2 id="在linux-上安装-klevernotes">⚙️ 在Linux 上安装 KleverNotes</h2><p>目前，KleverNotes 可以通过 <ahref="https://flathub.org/apps/org.kde.klevernotes?ref=news.itsfoss.com">Flathub</a>在Linux上获得，<ahref="https://invent.kde.org/office/klevernotes?ref=news.itsfoss.com">GitLab</a>代码库提供了源代码，供那些想要从源代码构建或参与项目的用户使用。</p><p>KleverNotes 的 <ahref="https://matrix.to/?ref=news.itsfoss.com#/#klevernotes:kde.org">Matrix频道</a>是一个有用的地方，如果你遇到问题/错误，或者只想讨论关于应用程序的事情，都可以前往这个频道讨论</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>翻译</category>
+      
+      <category>ITSFOSS</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Markdown</tag>
+      
+      <tag>KDE</tag>
+      
+      <tag>笔记</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>博客 2024 年年终总结</title>
     <link href="/posts/28058.html"/>
     <url>/posts/28058.html</url>

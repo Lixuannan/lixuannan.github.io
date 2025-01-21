@@ -1,0 +1,1411 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" >
+
+
+
+<head><!-- hexo injector head_begin start --><!-- Google tag (gtag.js) --><script async src="https://www.googletagmanager.com/gtag/js?id=G-GTDVEB7XBQ"></script><script> window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag("js", new Date()); gtag("config", "G-GTDVEB7XBQ");</script><!-- Clarity tracking code for https://lixuannan.github.io/ --><script>    (function(c,l,a,r,i,t,y){        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i+"?ref=bwt";        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);    })(window, document, "clarity", "script", "pgrkd79lqa");</script><!-- hexo injector head_begin end -->
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/images/favicon.png">
+  <link rel="icon" href="/images/favicon.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#71C9CE">
+  <meta name="author" content="CodingCow Lee">
+  <meta name="keywords" content="python,ml,deeplearning,dl,c++,c,pytorch,noi,oi,ioi,noip,csp-j,csp-s,oier,tyoi,oiclass">
+  
+    <meta name="description" content="KleverNotes——一个 KDE 中的实用的 Markdown 笔记软件  解释一下，这一个月以来没有更新主要是要期末考了，从今天起将恢复正常的更新频率   本文翻译自 https:&#x2F;&#x2F;news.itsfoss.com&#x2F;klevernotes&#x2F;。  必知要点 👇 — 名字很聪明（bushi）。 — 易于上手。 — 拥有简洁的编辑器。  Markdown 是一种流行的标记语言，广泛用于笔记记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="KleverNotes——一个 KDE 中的实用的 Markdown 笔记软件">
+<meta property="og:url" content="https://lixuannan.github.io/posts/40354.html">
+<meta property="og:site_name" content="CodingCow&#39;s Blog">
+<meta property="og:description" content="KleverNotes——一个 KDE 中的实用的 Markdown 笔记软件  解释一下，这一个月以来没有更新主要是要期末考了，从今天起将恢复正常的更新频率   本文翻译自 https:&#x2F;&#x2F;news.itsfoss.com&#x2F;klevernotes&#x2F;。  必知要点 👇 — 名字很聪明（bushi）。 — 易于上手。 — 拥有简洁的编辑器。  Markdown 是一种流行的标记语言，广泛用于笔记记">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lixuannan/img/KleverNotes_a.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lixuannan/img/KleverNotes_b.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lixuannan/img/KleverNotes_c-1.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lixuannan/img/KleverNotes_d.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lixuannan/img/KleverNotes_e.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lixuannan/img/KleverNotes_f.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lixuannan/img/KleverNotes_g.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lixuannan/img/KleverNotes_h.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lixuannan/img/KleverNotes_i.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lixuannan/img/KleverNotes_j.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lixuannan/img/KleverNotes_l.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lixuannan/img/KleverNotes_k.png">
+<meta property="article:published_time" content="2025-01-21T05:22:00.000Z">
+<meta property="article:modified_time" content="2025-01-21T06:11:58.896Z">
+<meta property="article:author" content="CodingCow Lee">
+<meta property="article:tag" content="Markdown">
+<meta property="article:tag" content="KDE">
+<meta property="article:tag" content="笔记">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/lixuannan/img/KleverNotes_a.png">
+<meta name="twitter:creator" content="@CodingCow">
+<meta name="twitter:site" content="lixuannan.github.io">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>KleverNotes——一个 KDE 中的实用的 Markdown 笔记软件 | CodingCow&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"lixuannan.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":135,"cursorChar":"|","loop":false,"scope":["home"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":3},"lazyload":{"enable":false,"loading_img":"/img/loading.gif","onlypost":true,"offset_factor":2,"lazyload":true},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null},"gtag":null,"woyaola":null,"cnzz":null},"search_path":"/search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="CodingCow's Blog" type="application/atom+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>CodingCow</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>文章</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-book"></i>
+                <span>专题</span>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/categories/%E9%9B%B6%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8-OI/" target="_self">
+                    
+                    <span>零基础入门 OI</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/categories/%E6%9E%84%E5%BB%BA%E8%B6%85%E5%BC%BA-OI-%E7%B3%BB%E7%BB%9F/" target="_self">
+                    
+                    <span>构建超强 OI 系统</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/categories/%E6%B8%B8%E8%AE%B0/" target="_self">
+                    
+                    <span>游记</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/categories/%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3/" target="_self">
+                    
+                    <span>算法详解</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/categories/%E9%A2%98%E8%A7%A3/" target="_self">
+                    
+                    <span>题解</span>
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-th-large"></i>
+                <span>资源</span>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="http://codingcow.us.kg/fa9904bf-de3d-44db-bb7a-bd206036cea6" target="_self">
+                    
+                    <span>公用机场</span>
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/atom.xml" target="_self">
+                <i class="iconfont icon-rss"></i>
+                <span>RSS</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/images/banner.jpeg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle">KleverNotes——一个 KDE 中的实用的 Markdown 笔记软件</span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        CodingCow Lee
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-01-21 13:22" pubdate>
+          2025年1月21日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.3k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          6 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar category-bar" style="margin-right: -1rem">
+    
+
+
+
+
+
+<div class="category-list">
+  
+  
+    
+    
+    
+    <div class="category row nomargin-x">
+      <a class="category-item 
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="翻译"
+        id="heading-8b3607d0f4181a3cb6ffdccf7185f09b" role="tab" data-toggle="collapse" href="#collapse-8b3607d0f4181a3cb6ffdccf7185f09b"
+        aria-expanded="true"
+      >
+        翻译
+        <span class="list-group-count">(32)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse show" id="collapse-8b3607d0f4181a3cb6ffdccf7185f09b"
+           role="tabpanel" aria-labelledby="heading-8b3607d0f4181a3cb6ffdccf7185f09b">
+        
+        
+          
+          
+  <div class="category-post-list">
+    
+    
+  </div>
+
+          
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem collapsed
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="DEBUGPOINTNEWS"
+        id="heading-73afb2609c2e7f48835b36f96b487f44" role="tab" data-toggle="collapse" href="#collapse-73afb2609c2e7f48835b36f96b487f44"
+        aria-expanded="false"
+      >
+        DEBUGPOINTNEWS
+        <span class="list-group-count">(3)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse " id="collapse-73afb2609c2e7f48835b36f96b487f44"
+           role="tabpanel" aria-labelledby="heading-73afb2609c2e7f48835b36f96b487f44">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/posts/14222.html" title="Linux 成为 Python 开发者的首选平台！"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">Linux 成为 Python 开发者的首选平台！</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/57211.html" title="Tuxedo 发布首款基于骁龙 X Elite 的 ARM 笔记本电脑"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">Tuxedo 发布首款基于骁龙 X Elite 的 ARM 笔记本电脑</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/32246.html" title="Tor 与 Tails 项目合并"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">Tor 与 Tails 项目合并</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem 
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="ITSFOSS"
+        id="heading-10c60e2686d42569c4db79639219bcd3" role="tab" data-toggle="collapse" href="#collapse-10c60e2686d42569c4db79639219bcd3"
+        aria-expanded="true"
+      >
+        ITSFOSS
+        <span class="list-group-count">(22)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse show" id="collapse-10c60e2686d42569c4db79639219bcd3"
+           role="tabpanel" aria-labelledby="heading-10c60e2686d42569c4db79639219bcd3">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/posts/40354.html" title="KleverNotes——一个 KDE 中的实用的 Markdown 笔记软件"
+           class="list-group-item list-group-item-action
+           active">
+          <span class="category-post">KleverNotes——一个 KDE 中的实用的 Markdown 笔记软件</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/48550.html" title="如何让你的 Linux 充满圣诞气息"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">如何让你的 Linux 充满圣诞气息</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/51214.html" title="借助 Moonlight 在树莓派上畅玩 3 A 大作"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">借助 Moonlight 在树莓派上畅玩 3 A 大作</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/60226.html" title="Linux 中自动挂载 U 盘教程"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">Linux 中自动挂载 U 盘教程</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/4716.html" title="论离线更新 Fedora"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">论离线更新 Fedora</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/23176.html" title="7 个在 2024 年值得怀念的发行版"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">7 个在 2024 年值得怀念的发行版</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/34336.html" title="随心所欲的配置 Hyprland"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">随心所欲的配置 Hyprland</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/42208.html" title="在 Hyprland 中安装并配置 Waybar"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">在 Hyprland 中安装并配置 Waybar</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/9923.html" title="Hyprland 安装与使用指南"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">Hyprland 安装与使用指南</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/35458.html" title="2023 年脱颖而出的 7 个鲜为人知的 Linux 发行版"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">2023 年脱颖而出的 7 个鲜为人知的 Linux 发行版</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/61731.html" title="2024 年的 6 个关于 Linux 和开源软件的预测"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">2024 年的 6 个关于 Linux 和开源软件的预测</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/46227.html" title="Thunderbird 中轻松管理邮件的几个小技巧"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">Thunderbird 中轻松管理邮件的几个小技巧</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/57998.html" title="VSCode 太无聊？快试试全新的 Kate！"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">VSCode 太无聊？快试试全新的 Kate！</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/1807.html" title="使用 Tiling Shell 插件为 GNOME 添加超能生产力"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">使用 Tiling Shell 插件为 GNOME 添加超能生产力</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/34503.html" title="包管理器太多太复杂？试试用 APP 管理你的包"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">包管理器太多太复杂？试试用 APP 管理你的包</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/23129.html" title="在 Linux 中使用几个工具轻松查看 NVME 盘的温度"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">在 Linux 中使用几个工具轻松查看 NVME 盘的温度</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/57408.html" title="2023 年的 8 个 Linux 决定性瞬间"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">2023 年的 8 个 Linux 决定性瞬间</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/61005.html" title="15 个提升 VSCode 编码体验的小技巧"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">15 个提升 VSCode 编码体验的小技巧</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/47040.html" title="Linux 制作词云图的命令行工具——Wordcloud"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">Linux 制作词云图的命令行工具——Wordcloud</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/33074.html" title="RefreshOS——一个潜在的 Debian 替代品"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">RefreshOS——一个潜在的 Debian 替代品</span>
+        </a>
+      
+    
+      
+      
+        <a href="/categories/%E7%BF%BB%E8%AF%91/ITSFOSS/" class="list-group-item list-group-item-action">
+          <span class="category-post">More...</span>
+        </a>
+        
+  </div>
+
+        
+      </div>
+    </div>
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem collapsed
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="ZDNET"
+        id="heading-f7536e34a654c455d79133144e9077a5" role="tab" data-toggle="collapse" href="#collapse-f7536e34a654c455d79133144e9077a5"
+        aria-expanded="false"
+      >
+        ZDNET
+        <span class="list-group-count">(7)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse " id="collapse-f7536e34a654c455d79133144e9077a5"
+           role="tabpanel" aria-labelledby="heading-f7536e34a654c455d79133144e9077a5">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/posts/435.html" title="6 个比原装安卓桌面更好的桌面启动器"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">6 个比原装安卓桌面更好的桌面启动器</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/45140.html" title="为什么这个轻量级 Linux 发行版不会赢得任何用户数比赛，但对于高级用户来说却是完美的"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">为什么这个轻量级 Linux 发行版不会赢得任何用户数比赛，但对于高级用户来说却是完美的</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/19591.html" title="5 个 Linux 初学者必须学会的命令"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">5 个 Linux 初学者必须学会的命令</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/34224.html" title="没有 GUI？只用命令行（CLI）管理密码！"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">没有 GUI？只用命令行（CLI）管理密码！</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/35073.html" title="20 年！PREEMPT_RT 最终合并入 Linux 内核"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">20 年！PREEMPT_RT 最终合并入 Linux 内核</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/10358.html" title="4 个基于 GNOME 的好看的桌面环境"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">4 个基于 GNOME 的好看的桌面环境</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/1177.html" title="5 个你值得尝试的 Linux 终端"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">5 个你值得尝试的 Linux 终端</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
+        
+      </div>
+    </div>
+  
+</div>
+
+
+  </aside>
+
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">KleverNotes——一个 KDE 中的实用的 Markdown 笔记软件</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1
+id="klevernotes一个-kde-中的实用的-markdown-笔记软件">KleverNotes——一个
+KDE 中的实用的 Markdown 笔记软件</h1>
+<blockquote>
+<p>解释一下，这一个月以来没有更新主要是要期末考了，从今天起将恢复正常的更新频率</p>
+</blockquote>
+<blockquote>
+<p>本文翻译自 <a target="_blank" rel="noopener" href="https://news.itsfoss.com/klevernotes/"
+class="uri">https://news.itsfoss.com/klevernotes/</a>。</p>
+</blockquote>
+<h3 id="必知要点">必知要点 👇</h3>
+<p>— 名字很聪明（bushi）。 — 易于上手。 — 拥有简洁的编辑器。</p>
+<hr />
+<p><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/Markdown">Markdown</a>
+是一种流行的标记语言，广泛用于笔记记录，主要因其简洁性和多功能性。它的纯文本格式确保用户可以快速创建干净、易读的笔记，而无需处理复杂的工具和界面。</p>
+<p>多年来，涌现了许多 Markdown
+笔记编辑器，每个编辑器都提供了一系列有用的功能，力求在功能性和简洁性之间找到平衡。</p>
+<p>在本周的应用推荐中，我们将介绍
+<strong>KleverNotes</strong>，这是一款新兴的 Markdown 笔记工具。</p>
+<h2 id="klevernotes-markdown-功能完善">KleverNotes: Markdown
+功能完善</h2>
+<figure>
+<img src="https://cdn.jsdelivr.net/gh/lixuannan/img/KleverNotes_a.png"
+alt="KleverNotes 应用截图，展示了一个打开的示范笔记" />
+<figcaption aria-hidden="true">KleverNotes
+应用截图，展示了一个打开的示范笔记</figcaption>
+</figure>
+<p>KleverNotes 由主开发者 <a
+target="_blank" rel="noopener" href="https://invent.kde.org/louis-schul">Louis Schul</a>
+的个人需求驱动而生，他希望在学习 QML 和 C++
+的过程中，同时能鼓励自己在课堂上做笔记。KleverNotes 在<a
+target="_blank" rel="noopener" href="https://blogs.kde.org/2024/06/05/klevernotes-version-1.0-official-release/">2024年10月</a>发布了第一个稳定版本。</p>
+<h3 id="主要特点">⭐ 主要特点</h3>
+<p>除了其“聪明”的名字外，KleverNotes 还<strong>支持插件，扩展了基本的
+Markdown 功能</strong>，提供诸如语法高亮、快速表情、笔记链接和
+PlantUML（用于创建图表）等有用的可选工具。</p>
+<p>需要注意的一些关键点包括：</p>
+<ul>
+<li><strong>显示笔记的预览。</strong></li>
+<li><strong>以KDE生态系统为基础构建。</strong></li>
+<li><strong>保存的笔记符合</strong> <a
+target="_blank" rel="noopener" href="https://commonmark.org/"><strong>CommonMark</strong></a>
+<strong>标准。</strong></li>
+</ul>
+<h3 id="用户体验">💻 用户体验</h3>
+<p>我在我的 Fedora 40 笔记本上使用了 KleverNotes 1.1.0 的 Flatpak
+版本，以了解其笔记记录的工作流程。</p>
+<p>在开始之前，<strong>我需要选择一个存储位置</strong>，让 KleverNotes
+保存我的笔记。我手动创建了一个新文件夹，并通过“<em>创建存储</em>”选项进行定义。也有选择现有存储位置的选项。</p>
+<figure>
+<img src="https://cdn.jsdelivr.net/gh/lixuannan/img/KleverNotes_b.png"
+alt="KleverNotes存储配置向导截图" />
+<figcaption aria-hidden="true">KleverNotes存储配置向导截图</figcaption>
+</figure>
+<p>配置好后，<strong>一个示范笔记加载出来，展示了 KleverNotes 的各种
+Markdown
+元素</strong>。然后我通过右键单击现有的笔记类别创建了两个新类别，并将一些笔记添加到新类别中。</p>
+<figure>
+<img src="https://cdn.jsdelivr.net/gh/lixuannan/img/KleverNotes_c-1.png"
+alt="KleverNotes创建新笔记类别和笔记截图" />
+<figcaption
+aria-hidden="true">KleverNotes创建新笔记类别和笔记截图</figcaption>
+</figure>
+<figure>
+<img src="https://cdn.jsdelivr.net/gh/lixuannan/img/KleverNotes_d.png"
+alt="KleverNotes笔记类别管理截图" />
+<figcaption aria-hidden="true">KleverNotes笔记类别管理截图</figcaption>
+</figure>
+<p><strong>Markdown
+笔记编辑体验相当愉快</strong>。尽管有些小瑕疵，但总体上是一个很好的体验。如果你想输入Markdown语法，可以；如果你像我一样懒惰，也可以使用编辑器顶部的便捷工具。</p>
+<figure>
+<img src="https://cdn.jsdelivr.net/gh/lixuannan/img/KleverNotes_e.png"
+alt="KleverNotes编辑器工具条截图" />
+<figcaption aria-hidden="true">KleverNotes编辑器工具条截图</figcaption>
+</figure>
+<figure>
+<img src="https://cdn.jsdelivr.net/gh/lixuannan/img/KleverNotes_f.png"
+alt="KleverNotes笔记编辑页面截图" />
+<figcaption aria-hidden="true">KleverNotes笔记编辑页面截图</figcaption>
+</figure>
+<figure>
+<img src="https://cdn.jsdelivr.net/gh/lixuannan/img/KleverNotes_g.png"
+alt="KleverNotes显示笔记的截图" />
+<figcaption aria-hidden="true">KleverNotes显示笔记的截图</figcaption>
+</figure>
+<p>我还可以通过点击工具栏中的图片按钮<strong>向笔记中添加图片</strong>，KleverNotes
+会将其附加到我的光标所在的行。我可以选择从网站上添加网页图片、上传本地图片或绘制图片。</p>
+<p>如果需要，我可以让应用程序将上传的图片保存在与笔记相同的文件夹中，以避免丢失。建议启用此选项，以免丢失重要图片。</p>
+<figure>
+<img src="https://cdn.jsdelivr.net/gh/lixuannan/img/KleverNotes_h.png"
+alt="KleverNotes Markdown 备忘单截图" />
+<figcaption aria-hidden="true">KleverNotes Markdown
+备忘单截图</figcaption>
+</figure>
+<p>然后是非常实用的 <strong>Markdown
+备忘单</strong>，可以从应用程序左下角访问，对于需要刷新各种元素的用户非常有帮助。</p>
+<figure>
+<img src="https://cdn.jsdelivr.net/gh/lixuannan/img/KleverNotes_i.png"
+alt="KleverNotes任务列表功能截图" />
+<figcaption aria-hidden="true">KleverNotes任务列表功能截图</figcaption>
+</figure>
+<figure>
+<img src="https://cdn.jsdelivr.net/gh/lixuannan/img/KleverNotes_j.png"
+alt="KleverNotes待办事项列表截图" />
+<figcaption aria-hidden="true">KleverNotes待办事项列表截图</figcaption>
+</figure>
+<p>在所有笔记之外，还有一个单独的“<em>TODO</em>”区域，你可以<strong>创建重要任务的待办事项</strong>，并在完成后勾选它们。你可以为这些任务添加有用的描述，以便于跟踪。</p>
+<p>如果你注意到上面的截图，<strong>工具栏中的许多按钮不可见</strong>。我不得不慢慢地将鼠标悬停在它们上面才能看到每个按钮的功能。我使用了快速表情插件来装饰任务列表，这也很好用。</p>
+<figure>
+<img src="https://cdn.jsdelivr.net/gh/lixuannan/img/KleverNotes_l.png"
+alt="KleverNotes插件和笔记预览设置页面截图" />
+<figcaption
+aria-hidden="true">KleverNotes插件和笔记预览设置页面截图</figcaption>
+</figure>
+<figure>
+<img src="https://cdn.jsdelivr.net/gh/lixuannan/img/KleverNotes_k.png"
+alt="KleverNotes插件设置页面截图" />
+<figcaption aria-hidden="true">KleverNotes插件设置页面截图</figcaption>
+</figure>
+<p>但是，要启用插件，首先需要进入“<em>插件</em>”设置页面并手动启用。同样，设置菜单中还有其他有用的选项，允许你更改样式、字体和文本颜色。</p>
+<p>总结来说，<strong>我真的很喜欢 KleverNotes
+提供的功能</strong>，但仍然有一些不完整的部分，比如界面的深色模式和便捷的导入/导出笔记功能。</p>
+<p>不过考虑到应用程序仍然相对较新，这是可以理解的。由于它属于 KDE
+生态系统，未来很可能会定期进行更新和改进。</p>
+<h2 id="在linux-上安装-klevernotes">⚙️ 在Linux 上安装 KleverNotes</h2>
+<p>目前，KleverNotes 可以通过 <a
+target="_blank" rel="noopener" href="https://flathub.org/apps/org.kde.klevernotes?ref=news.itsfoss.com">Flathub</a>
+在Linux上获得，<a
+target="_blank" rel="noopener" href="https://invent.kde.org/office/klevernotes?ref=news.itsfoss.com">GitLab</a>代码库提供了源代码，供那些想要从源代码构建或参与项目的用户使用。</p>
+<p>KleverNotes 的 <a
+target="_blank" rel="noopener" href="https://matrix.to/?ref=news.itsfoss.com#/#klevernotes:kde.org">Matrix频道</a>
+是一个有用的地方，如果你遇到问题/错误，或者只想讨论关于应用程序的事情，都可以前往这个频道讨论</p>
+
+                
+              </div>
+
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%BF%BB%E8%AF%91/" class="category-chain-item">翻译</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BF%BB%E8%AF%91/ITSFOSS/" class="category-chain-item">ITSFOSS</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Markdown/" class="print-no-link">#Markdown</a>
+      
+        <a href="/tags/KDE/" class="print-no-link">#KDE</a>
+      
+        <a href="/tags/%E7%AC%94%E8%AE%B0/" class="print-no-link">#笔记</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>KleverNotes——一个 KDE 中的实用的 Markdown 笔记软件</div>
+      <div>https://lixuannan.github.io/posts/40354.html</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>CodingCow Lee</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年1月21日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
+                    <i class="iconfont icon-cc-nc"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
+                    <i class="iconfont icon-cc-sa"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/posts/28058.html" title="博客 2024 年年终总结">
+                        <span class="hidden-mobile">博客 2024 年年终总结</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments">
+      
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#comments', function() {
+      var light = 'github-light';
+      var dark = 'github-dark';
+      var schema = document.documentElement.getAttribute('data-user-color-scheme');
+      if (schema === 'dark') {
+        schema = dark;
+      } else {
+        schema = light;
+      }
+      window.UtterancesThemeLight = light;
+      window.UtterancesThemeDark = dark;
+      var s = document.createElement('script');
+      s.setAttribute('src', 'https://utteranc.es/client.js');
+      s.setAttribute('repo', 'Lixuannan/blog_comments');
+      s.setAttribute('issue-term', 'pathname');
+      
+      s.setAttribute('label', 'comments');
+      
+      s.setAttribute('theme', schema);
+      s.setAttribute('crossorigin', 'anonymous');
+      document.getElementById('comments').appendChild(s);
+    })
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <div style="font-size: 0.85rem"> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> </div> <style>#scroll-top-button i {color: white}</style> <script src="https://cdn.bootcss.com/vue/2.6.11/vue.min.js"></script> <script src="https://lab.magiconch.com/nbnhhsh/nbnhhsh.user.js"></script> <div style="font-size: 0.85rem"> 本站基于 hexo & hexo-theme-fluid 构建，框架遵循源协议（MIT，GPL-3）<br> 但本站的文章版权均归本站及作者所有（翻译文章除外） </div> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+
+
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
