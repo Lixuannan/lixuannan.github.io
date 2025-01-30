@@ -4,6 +4,35 @@
   
   
   <entry>
+    <title>什么是 Linux？为什么 Linux 有这么多版本？</title>
+    <link href="/posts/61848.html"/>
+    <url>/posts/61848.html</url>
+    
+    <content type="html"><![CDATA[<h1 id="什么是-linux为什么-linux-有这么多版本">什么是 Linux？为什么Linux 有这么多版本？</h1><blockquote><p>本文翻译自 <a href="https://itsfoss.com/what-is-linux/"class="uri">https://itsfoss.com/what-is-linux/</a></p></blockquote><p>当你刚开始接触 Linux 时，很容易感到不知所措。</p><p>你可能只知道 Windows，但现在你想使用 Linux，因为你读到过 <ahref="https://itsfoss.com/linux-better-than-windows/">Linux 比 Windows更好</a>一类的论断，因为它更安全，并且你不需要购买许可证来使用Linux，完全免费！</p><p>但是当你下载和安装 Linux 时，你会发现 Linux其实并不是一个单一的实体。有 <ahref="https://ubuntu.com/">Ubuntu</a>、<ahref="https://getfedora.org/">Fedora</a>、<ahref="https://linuxmint.com/">Linux Mint</a>、elementary和其他数百种“Linux 变种”。而且，它们中的一些看起来和其他的很像。</p><p>如果是这样，为什么会有这么多 Linux操作系统呢？然后你还会了解到，Linux 只是一个内核，而不是操作系统。</p><figure><imgsrc="https://cdn.jsdelivr.net/gh/lixuannan/img/too-many-linux-choices.png"alt="Linux 类型太多了" /><figcaption aria-hidden="true">Linux 类型太多了</figcaption></figure><p>这变得有些混乱，你可能会抓狂。作为一个发际线逐渐后退的人，我希望通过简单易懂的方式来解释这些事情，帮你保持一头秀发。</p><p>我将用一个类比来解释为什么 Linux 只是一个内核，为什么会有数百种 Linux类型，并且尽管它们看起来相似，但它们还是不同的。</p><p>这里的解释可能并不适合用作考试或面试的标准答案，但它应该能让你更好地理解这个话题。</p><p>🙏我的类比可能从机械角度来看并不完全正确。我对发动机、汽车和其他相关机械知识并不精通。但根据我的经验，我发现这个类比有助于人们清晰地理解Linux 和操作系统的概念。而且，我故意使用了“LinuxOS”这个术语，而不是“Linux 发行版”，以免让新手产生关于发行版的困惑。</p><h2 id="linux-只是一个内核">Linux 只是一个内核</h2><p><strong><em>Linux不是一个操作系统，它只是一个内核。</em></strong></p><p>这个说法完全正确。那么这是什么意思呢？如果你查看书籍，你会发现 Linux内核的结构是这样的：</p><figure><imgsrc="https://cdn.jsdelivr.net/gh/lixuannan/img/Linux_Kernel_structure.png"alt="Linux 内核结构" /><figcaption aria-hidden="true">Linux 内核结构</figcaption></figure><p>这是完全正确的。同时，让我们换个角度来看。把操作系统想象成车辆：任何类型的车辆，无论是摩托车、汽车还是卡车。</p><p>车辆的核心是什么呢？发动机。</p><p>把内核想象成发动机。它是车辆的一个核心部分，没有它你无法使用这辆车。</p><figure><imgsrc="https://cdn.jsdelivr.net/gh/lixuannan/img/operating_system_analogy.png"alt="操作系统类比" /><figcaption aria-hidden="true">操作系统类比</figcaption></figure><p>但你不能只开发动机，对吧？你需要许多其他东西来与发动机互动并驱动车辆。你需要车轮、方向盘、变速器、离合器、刹车等，来驱动这辆车。</p><p>同样，你不能单独使用内核。你需要许多工具来与内核互动并使用操作系统。这些工具可能是一个shell、命令、图形界面（也叫桌面环境）等。</p><p>这个类比有道理，对吧？现在你理解了这个类比，我们进一步展开，以便你理解其他内容。</p><p>📋内核并不是 Linux 独有的。你可能没有意识到，但 Windows、macOS和其他操作系统也有自己的内核。Microsoft Windows 操作系统基于 <ahref="https://en.wikipedia.org/wiki/Architecture_of_Windows_NT">WindowsNT 内核</a>。Apple 的 macOS 基于 <ahref="https://en.wikipedia.org/wiki/XNU">XNU 内核</a>。</p><h2 id="把操作系统当作车辆来看待">把操作系统当作车辆来看待</h2><p>把 Microsoft 想象成一个汽车公司，他们制造一种通用型的汽车（Windows操作系统），这种车非常受欢迎，并且主宰了汽车市场。他们使用的是自己专利的发动机，其他人不能使用。但这些“Microsoft汽车”不允许任何自定义，你不能自己修改发动机。</p><p>接下来是“苹果汽车”。他们提供外观光鲜的豪华汽车，价格昂贵。如果你遇到问题，他们提供高级支持，可能会直接换车给你。</p><p>现在是 Linux 的登场。记住，Linux 只是一个发动机（内核）。但这个“Linux发动机”并没有专利，因此任何人都可以在它的基础上修改并制造汽车（桌面操作系统）、摩托车（你玩具、电视等中的小型嵌入式系统）、卡车（服务器）或飞机（超级计算机）。在现实世界中，并不存在这样的发动机，但为了这个类比，假设它存在。</p><figure><imgsrc="https://cdn.jsdelivr.net/gh/lixuannan/img/linux-kernel-as-engine.png"alt="Linux 内核就像发动机" /><figcaption aria-hidden="true">Linux 内核就像发动机</figcaption></figure><ul><li>内核 = 发动机</li><li>Linux 内核 = 特定类型的发动机</li><li>桌面操作系统 = 汽车</li><li>服务器操作系统 = 重型卡车</li><li>嵌入式系统 = 摩托车</li><li>桌面环境 = 车辆的外壳及内部装饰（仪表盘等）</li><li>主题和图标 = 涂装、轮圈和其他可定制的功能</li><li>应用程序 = 用于特定目的的配件（例如音响系统）</li></ul><h2id="为什么会有这么多-linux-操作系统发行版为什么有些看起来相似">为什么会有这么多Linux 操作系统/发行版？为什么有些看起来相似？</h2><p>为什么有这么多汽车？因为有多个汽车制造商使用“Linux发动机”，他们每个都有许多不同类型、不同用途的汽车。</p><p>由于“Linux发动机”是免费使用和修改的，任何人都可以使用它来在其上建立车辆。</p><p>这就是为什么像 Ubuntu、Debian、Fedora、SUSE、<ahref="https://manjaro.org/">Manjaro</a> 等 <strong>基于 Linux的操作系统（也叫 Linux 发行版或 Linux distros）</strong>存在的原因。</p><p>你可能还注意到，这些 Linux操作系统提供不同的版本，但它们看起来相似。比如，看看 Fedora 的默认 GNOME版本和 Debian 的 GNOME 版本。它们确实看起来很像，对吧？</p><figure><imgsrc="https://cdn.jsdelivr.net/gh/lixuannan/img/fedora-gnome-vs-debian-gnome.jpg"alt="Fedora GNOME 与 Debian GNOME：几乎没有差异" /><figcaption aria-hidden="true">Fedora GNOME 与 DebianGNOME：几乎没有差异</figcaption></figure><p>提供外观和感觉的组件在 Linux 操作系统中叫做 <ahref="https://itsfoss.com/what-is-desktop-environment/">桌面环境</a>。在我们的类比中，你可以把它看作是车辆的外壳和匹配的内部装饰。正是这些提供了车辆的外观和感觉，不是吗？</p><p>根据外观，你可以将汽车分类为：轿车、SUV、掀背车、旅行车、敞篷车、厢式车、迷你厢车、紧凑型车、四驱车等。</p><p>但每种“汽车类型”并不是某一个汽车公司专有的。福特也提供SUV、紧凑型车和厢式车等，其他公司如通用汽车或丰田也是如此。</p><figure><imgsrc="https://cdn.jsdelivr.net/gh/lixuannan/img/linux_suv_analogy.jpg"alt="同类型的车辆即使来自不同的汽车公司也看起来相似" /><figcaptionaria-hidden="true">同类型的车辆即使来自不同的汽车公司也看起来相似</figcaption></figure><p>同样，像 Fedora、Ubuntu、Debian、Manjaro 等发行版（Linux操作系统）也提供不同版本，形式上有 GNOME、KDE、Cinnamon、MATE 和其他 <ahref="https://itsfoss.com/best-linux-desktop-environments/">桌面环境</a>。</p><p>福特的 SUV 可能看起来像丰田或雷诺的 SUV。Fedora 的 GNOME版本可能看起来像 Manjaro 或 Debian 的 GNOME 版本。</p><h3id="有些汽车更耗油有些桌面环境需要更多-ram">有些汽车更耗油；有些桌面环境需要更多RAM</h3><p>你可能已经理解了不同类型汽车的“用途”。紧凑型车适合在城市里驾驶，厢式车适合与家人长途旅行，四驱车适合在丛林和其他崎岖地形中探险。SUV可能看起来好看，坐起来也很舒服，但它比紧凑型车更耗油，尽管它可能不那么舒适。</p><p>同样，桌面环境（GNOME、MATE、KDE、Xfce等）也有其他用途，不仅仅是为你的 Linux 操作系统提供外观。</p><p>GNOME 提供现代感十足的桌面，但它消耗更多的RAM，因此需要你的电脑有超过 4GB 的 RAM。而 Xfce看起来比较旧/复古，但它可以在 1GB RAM 的系统上运行。</p><h3id="从发行版获取桌面环境与自己安装的区别">从发行版获取桌面环境与自己安装的区别</h3><p>当你开始使用 Linux时，你还可以轻松地在当前系统上安装其他桌面环境。</p><p>记住，Linux是一个自由的世界。如果你有知识/经验，或者你是一个有心的学习者，你可以自由修改内核——自己定制外观。</p><p>把它当作改装汽车来想。你可以把一辆 Hundai i20 改装成像 Suzuki SwiftDzire。但它可能和使用 Swift Dzire 的体验不一样。</p><p>当你坐进那辆被改装成 Swift Dzire 样式的 i20时，你会发现，里面的体验可能并不一样。仪表盘不同，座椅也不同。你可能还会注意到，外观也不完全适配i20 的车身。</p><p>切换桌面环境也是一样。你会发现，在 Ubuntu 中，你获得的应用程序和 MintCinnamon中的不完全相同。一些应用可能看起来不对劲。更别提你可能会发现一些问题，比如缺少网络管理指示器等。</p><p>当然，你可以花时间、精力和技巧把 Hundai i20 改装成尽可能像 SwiftDzire，但你可能会觉得一开始直接选择 Suzuki Swift Dzire 更好。</p><p>这就是为什么安装 Ubuntu MATE 比先安装 Ubuntu（GNOME 版本）然后再 <ahref="https://itsfoss.com/install-mate-desktop-ubuntu/">安装 MATE桌面</a> 要更好。</p><h2 id="linux-操作系统在处理应用程序方面也有所不同">Linux操作系统在处理应用程序方面也有所不同</h2><p>Linux 操作系统之间的另一个主要区别是软件包管理。</p><p>软件包管理器基本上是你如何为系统获取新软件和更新。由你的 Linux发行版/操作系统提供安全和维护更新。你的 Linux操作系统还提供安装新软件的方式。</p><p>有些 Linux操作系统会在新软件发布后立即提供，而有些则会花时间测试这些软件，以确保其质量。有些Linux 系统（如Ubuntu）提供了更简单的安装软件的方法（APT），而在其他系统（如 <ahref="https://www.gentoo.org/">Gentoo</a>）中，这就变得比较复杂。</p><p>继续用我们的类比，考虑安装软件就像为你的车辆添加配件。</p><p>假设你需要在车里安装音乐系统，你可能有两个选择。你的车可能设计得很方便，你只需插入音乐播放器，听到“咔哒”一声，你就知道安装完成了。另一种选择是，你可能需要拿起螺丝刀，然后把音乐播放器用螺丝固定到位。</p><p>大多数人会更喜欢无忧的插卡式安装系统。有些人可能会拿起螺丝刀自己动手。</p><p>如果一家汽车公司提供了方便安装各种配件的插卡式系统，那它会更受欢迎，不是吗？</p><p>这就是为什么像 Ubuntu 这样的 Linux发行版有更多用户，因为它们拥有一个庞大的软件库，可以在几次点击之间轻松安装。</p><h2 id="结论">结论</h2><p>在结束这篇文章之前，我还想谈谈支持服务，这在选择 Linux操作系统时起着重要作用。对于你的车，你肯定希望有一个官方的服务中心，或者有其他维修站为你提供服务，对吧？如果汽车公司很受欢迎，自然会有越来越多的维修站提供服务。</p><p>Linux 也是一样。对于像 Ubuntu 这样受欢迎的 Linux操作系统，你有官方论坛可以寻求支持，还有大量的其他网站和论坛提供故障排除技巧来解决你的问题。</p><p>再次强调，我知道这个类比并不完美，但它有助于稍微更好地理解事物。</p><p>如果你完全是 Linux新手，这篇文章是否澄清了你的疑惑，还是让你更困惑了？</p><p>如果你已经了解 Linux，你会如何向非技术背景的人解释？</p><p>欢迎提供你的建议和反馈。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>翻译</category>
+      
+      <category>ITSFOSS</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Linux</tag>
+      
+      <tag>科普</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>除夕快乐~</title>
     <link href="/posts/14652.html"/>
     <url>/posts/14652.html</url>
