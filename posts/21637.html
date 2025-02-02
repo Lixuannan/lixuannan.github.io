@@ -1,0 +1,1396 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" >
+
+
+
+<head><!-- hexo injector head_begin start --><!-- Google tag (gtag.js) --><script async src="https://www.googletagmanager.com/gtag/js?id=G-GTDVEB7XBQ"></script><script> window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag("js", new Date()); gtag("config", "G-GTDVEB7XBQ");</script><!-- Clarity tracking code for https://lixuannan.github.io/ --><script>    (function(c,l,a,r,i,t,y){        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i+"?ref=bwt";        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);    })(window, document, "clarity", "script", "pgrkd79lqa");</script><!-- hexo injector head_begin end -->
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/images/favicon.png">
+  <link rel="icon" href="/images/favicon.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#71C9CE">
+  <meta name="author" content="CodingCow Lee">
+  <meta name="keywords" content="python,ml,deeplearning,dl,c++,c,pytorch,noi,oi,ioi,noip,csp-j,csp-s,oier,tyoi,oiclass">
+  
+    <meta name="description" content="在小小的树莓派中运行 70 亿参数的多模态大语言模型  本文翻译自 https:&#x2F;&#x2F;itsfoss.com&#x2F;raspberry-pi-ollama-ai-setup&#x2F;  最近，我遇到了一个叫做 Ollama 的有趣项目。它是一个开源项目，可以让你在本地运行各种大型语言模型（LLM）。 在浏览 Reddit 社区时，我遇到了一些讨论如何在Raspberry Pi上运行LLM的帖子。 我很想验证这个“">
+<meta property="og:type" content="article">
+<meta property="og:title" content="在小小的树莓派中运行 70 亿参数的多模态大语言模型">
+<meta property="og:url" content="https://lixuannan.github.io/posts/21637.html">
+<meta property="og:site_name" content="CodingCow&#39;s Blog">
+<meta property="og:description" content="在小小的树莓派中运行 70 亿参数的多模态大语言模型  本文翻译自 https:&#x2F;&#x2F;itsfoss.com&#x2F;raspberry-pi-ollama-ai-setup&#x2F;  最近，我遇到了一个叫做 Ollama 的有趣项目。它是一个开源项目，可以让你在本地运行各种大型语言模型（LLM）。 在浏览 Reddit 社区时，我遇到了一些讨论如何在Raspberry Pi上运行LLM的帖子。 我很想验证这个“">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-02-02T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-02-02T16:09:40.869Z">
+<meta property="article:author" content="CodingCow Lee">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="树莓派">
+<meta property="article:tag" content="大语言模型">
+<meta property="article:tag" content="多模态">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:creator" content="@LeeCodingCow">
+<meta name="twitter:site" content="lixuannan.github.io">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>在小小的树莓派中运行 70 亿参数的多模态大语言模型 | CodingCow&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"lixuannan.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":135,"cursorChar":"|","loop":false,"scope":["home"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":3},"lazyload":{"enable":false,"loading_img":"/img/loading.gif","onlypost":true,"offset_factor":2,"lazyload":true},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null},"gtag":null,"woyaola":null,"cnzz":null},"search_path":"/search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="CodingCow's Blog" type="application/atom+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>CodingCow</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>文章</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-book"></i>
+                <span>专题</span>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/categories/%E9%9B%B6%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8-OI/" target="_self">
+                    
+                    <span>零基础入门 OI</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/categories/%E6%9E%84%E5%BB%BA%E8%B6%85%E5%BC%BA-OI-%E7%B3%BB%E7%BB%9F/" target="_self">
+                    
+                    <span>构建超强 OI 系统</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/categories/%E6%B8%B8%E8%AE%B0/" target="_self">
+                    
+                    <span>游记</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/categories/%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3/" target="_self">
+                    
+                    <span>算法详解</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/categories/%E9%A2%98%E8%A7%A3/" target="_self">
+                    
+                    <span>题解</span>
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-th-large"></i>
+                <span>资源</span>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="http://codingcow.us.kg/fa9904bf-de3d-44db-bb7a-bd206036cea6" target="_self">
+                    
+                    <span>公用机场</span>
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/atom.xml" target="_self">
+                <i class="iconfont icon-rss"></i>
+                <span>RSS</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/images/banner.jpeg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle">在小小的树莓派中运行 70 亿参数的多模态大语言模型</span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        CodingCow Lee
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-02-03 00:00" pubdate>
+          2025年2月3日 凌晨
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          943 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          4 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar category-bar" style="margin-right: -1rem">
+    
+
+
+
+
+
+<div class="category-list">
+  
+  
+    
+    
+    
+    <div class="category row nomargin-x">
+      <a class="category-item 
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="翻译"
+        id="heading-8b3607d0f4181a3cb6ffdccf7185f09b" role="tab" data-toggle="collapse" href="#collapse-8b3607d0f4181a3cb6ffdccf7185f09b"
+        aria-expanded="true"
+      >
+        翻译
+        <span class="list-group-count">(35)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse show" id="collapse-8b3607d0f4181a3cb6ffdccf7185f09b"
+           role="tabpanel" aria-labelledby="heading-8b3607d0f4181a3cb6ffdccf7185f09b">
+        
+        
+          
+          
+  <div class="category-post-list">
+    
+    
+  </div>
+
+          
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem collapsed
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="DEBUGPOINTNEWS"
+        id="heading-73afb2609c2e7f48835b36f96b487f44" role="tab" data-toggle="collapse" href="#collapse-73afb2609c2e7f48835b36f96b487f44"
+        aria-expanded="false"
+      >
+        DEBUGPOINTNEWS
+        <span class="list-group-count">(3)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse " id="collapse-73afb2609c2e7f48835b36f96b487f44"
+           role="tabpanel" aria-labelledby="heading-73afb2609c2e7f48835b36f96b487f44">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/posts/14222.html" title="Linux 成为 Python 开发者的首选平台！"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">Linux 成为 Python 开发者的首选平台！</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/57211.html" title="Tuxedo 发布首款基于骁龙 X Elite 的 ARM 笔记本电脑"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">Tuxedo 发布首款基于骁龙 X Elite 的 ARM 笔记本电脑</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/32246.html" title="Tor 与 Tails 项目合并"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">Tor 与 Tails 项目合并</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem 
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="ITSFOSS"
+        id="heading-10c60e2686d42569c4db79639219bcd3" role="tab" data-toggle="collapse" href="#collapse-10c60e2686d42569c4db79639219bcd3"
+        aria-expanded="true"
+      >
+        ITSFOSS
+        <span class="list-group-count">(25)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse show" id="collapse-10c60e2686d42569c4db79639219bcd3"
+           role="tabpanel" aria-labelledby="heading-10c60e2686d42569c4db79639219bcd3">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/posts/21637.html" title="在小小的树莓派中运行 70 亿参数的多模态大语言模型"
+           class="list-group-item list-group-item-action
+           active">
+          <span class="category-post">在小小的树莓派中运行 70 亿参数的多模态大语言模型</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/61848.html" title="什么是 Linux？为什么 Linux 有这么多版本？"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">什么是 Linux？为什么 Linux 有这么多版本？</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/9740.html" title="关于 Linux &amp; Windows 双系统的辟谣"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">关于 Linux &amp; Windows 双系统的辟谣</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/40354.html" title="KleverNotes——一个 KDE 中的实用的 Markdown 笔记软件"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">KleverNotes——一个 KDE 中的实用的 Markdown 笔记软件</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/48550.html" title="如何让你的 Linux 充满圣诞气息"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">如何让你的 Linux 充满圣诞气息</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/51214.html" title="借助 Moonlight 在树莓派上畅玩 3 A 大作"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">借助 Moonlight 在树莓派上畅玩 3 A 大作</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/60226.html" title="Linux 中自动挂载 U 盘教程"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">Linux 中自动挂载 U 盘教程</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/4716.html" title="论离线更新 Fedora"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">论离线更新 Fedora</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/23176.html" title="7 个在 2024 年值得怀念的发行版"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">7 个在 2024 年值得怀念的发行版</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/34336.html" title="随心所欲的配置 Hyprland"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">随心所欲的配置 Hyprland</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/42208.html" title="在 Hyprland 中安装并配置 Waybar"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">在 Hyprland 中安装并配置 Waybar</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/9923.html" title="Hyprland 安装与使用指南"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">Hyprland 安装与使用指南</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/35458.html" title="2023 年脱颖而出的 7 个鲜为人知的 Linux 发行版"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">2023 年脱颖而出的 7 个鲜为人知的 Linux 发行版</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/61731.html" title="2024 年的 6 个关于 Linux 和开源软件的预测"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">2024 年的 6 个关于 Linux 和开源软件的预测</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/46227.html" title="Thunderbird 中轻松管理邮件的几个小技巧"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">Thunderbird 中轻松管理邮件的几个小技巧</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/57998.html" title="VSCode 太无聊？快试试全新的 Kate！"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">VSCode 太无聊？快试试全新的 Kate！</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/1807.html" title="使用 Tiling Shell 插件为 GNOME 添加超能生产力"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">使用 Tiling Shell 插件为 GNOME 添加超能生产力</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/34503.html" title="包管理器太多太复杂？试试用 APP 管理你的包"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">包管理器太多太复杂？试试用 APP 管理你的包</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/23129.html" title="在 Linux 中使用几个工具轻松查看 NVME 盘的温度"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">在 Linux 中使用几个工具轻松查看 NVME 盘的温度</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/57408.html" title="2023 年的 8 个 Linux 决定性瞬间"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">2023 年的 8 个 Linux 决定性瞬间</span>
+        </a>
+      
+    
+      
+      
+        <a href="/categories/%E7%BF%BB%E8%AF%91/ITSFOSS/" class="list-group-item list-group-item-action">
+          <span class="category-post">More...</span>
+        </a>
+        
+  </div>
+
+        
+      </div>
+    </div>
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem collapsed
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="ZDNET"
+        id="heading-f7536e34a654c455d79133144e9077a5" role="tab" data-toggle="collapse" href="#collapse-f7536e34a654c455d79133144e9077a5"
+        aria-expanded="false"
+      >
+        ZDNET
+        <span class="list-group-count">(7)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse " id="collapse-f7536e34a654c455d79133144e9077a5"
+           role="tabpanel" aria-labelledby="heading-f7536e34a654c455d79133144e9077a5">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/posts/435.html" title="6 个比原装安卓桌面更好的桌面启动器"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">6 个比原装安卓桌面更好的桌面启动器</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/45140.html" title="为什么这个轻量级 Linux 发行版不会赢得任何用户数比赛，但对于高级用户来说却是完美的"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">为什么这个轻量级 Linux 发行版不会赢得任何用户数比赛，但对于高级用户来说却是完美的</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/19591.html" title="5 个 Linux 初学者必须学会的命令"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">5 个 Linux 初学者必须学会的命令</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/34224.html" title="没有 GUI？只用命令行（CLI）管理密码！"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">没有 GUI？只用命令行（CLI）管理密码！</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/35073.html" title="20 年！PREEMPT_RT 最终合并入 Linux 内核"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">20 年！PREEMPT_RT 最终合并入 Linux 内核</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/10358.html" title="4 个基于 GNOME 的好看的桌面环境"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">4 个基于 GNOME 的好看的桌面环境</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/1177.html" title="5 个你值得尝试的 Linux 终端"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">5 个你值得尝试的 Linux 终端</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
+        
+      </div>
+    </div>
+  
+</div>
+
+
+  </aside>
+
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">在小小的树莓派中运行 70 亿参数的多模态大语言模型</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1
+id="在小小的树莓派中运行-70-亿参数的多模态大语言模型">在小小的树莓派中运行
+70 亿参数的多模态大语言模型</h1>
+<blockquote>
+<p>本文翻译自 <a
+target="_blank" rel="noopener" href="https://itsfoss.com/raspberry-pi-ollama-ai-setup/"
+class="uri">https://itsfoss.com/raspberry-pi-ollama-ai-setup/</a></p>
+</blockquote>
+<p>最近，我遇到了一个叫做 <a target="_blank" rel="noopener" href="https://ollama.ai/">Ollama</a>
+的有趣项目。它是一个开源项目，可以让你在本地运行各种大型语言模型（LLM）。</p>
+<p>在浏览 Reddit 社区时，我遇到了一些讨论<a
+target="_blank" rel="noopener" href="https://itsfoss.com/llms-for-raspberry-pi/">如何在Raspberry
+Pi上运行LLM</a>的帖子。</p>
+<p>我很想验证这个“说法”，所以我<a
+target="_blank" rel="noopener" href="https://itsfoss.com/ollama-setup-linux/">决定在我的 Raspberry Pi 4
+上使用 Ollama 本地运行 LLM</a>。</p>
+<p>让我在这篇简短的文章中与大家分享我的实验。</p>
+<p>📋本文假设你对 AI、LLM 及其他相关工具和术语有基本了解。</p>
+<h2 id="在-raspberry-pi-os以及其他-linux-系统上安装-ollama">在 Raspberry
+Pi OS（以及其他 Linux 系统）上安装 Ollama</h2>
+<p>安装 Ollama 的过程非常简单。要在 Linux
+上安装，你只需要获取他们的官方安装脚本并运行它。这是他们网站上描述的官方方法。</p>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/ollama-downloads-page-for-linux.png"
+alt="下载 Ollama" />
+<figcaption aria-hidden="true">下载 Ollama</figcaption>
+</figure>
+<p>你可以手动下载并阅读它的内容。或者，如果你像我一样懒，可以将两者合并为一个命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">curl https://ollama.ai/install.sh | sh<br></code></pre></td></tr></table></figure>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/ollama-script-installation-in-raspberrypi.png"
+alt="安装 Ollama" />
+<figcaption aria-hidden="true">安装 Ollama</figcaption>
+</figure>
+<h2 id="探索不同的模型">探索不同的模型</h2>
+<p>安装完成后，你就可以在 Pi 上运行 LLM 并开始与 AI 聊天了。</p>
+<p>在我的实验中，我使用了 <code>tinyllama</code>、<code>phi</code> 和
+<code>llava</code> 这三个 LLM。但你也可以尝试 Ollama
+库中其他的语言模型。<a target="_blank" rel="noopener" href="https://ollama.ai/library">Ollama
+的库</a>里有很多模型。</p>
+<p>📋要运行 7B 模型，至少需要 8 GB 的 RAM；要运行 13B 模型，需要 16
+GB；要运行 33B 模型，则需要 32 GB。</p>
+<h3 id="tinyllama">TinyLlama</h3>
+<p>我们先从 <a
+target="_blank" rel="noopener" href="https://github.com/jzhang38/TinyLlama">TinyLlama</a>开始，它有 11
+亿个参数，是第一个尝试的完美选择。</p>
+<p>要下载并运行 TinyLlama，你需要输入以下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ollama run tinyllama<br></code></pre></td></tr></table></figure>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/installing-tinyllama-llm-using-ollama-in-raspberrypi.png"
+alt="安装 TinyLlama" />
+<figcaption aria-hidden="true">安装 TinyLlama</figcaption>
+</figure>
+<p>下载语言模型需要几秒钟，下载完成后，你就可以开始与它聊天了。</p>
+<p>我问AI的问题是：“html 中的 div 标签有什么用？”</p>
+<p><a
+target="_blank" rel="noopener" href="https://itsfoss.com/content/images/2024/01/asking-question-from-tinyllama-in-ollama-in-raspberrypi.webp"><img
+src="https://itsfoss.com/content/images/2024/01/asking-question-from-tinyllama-in-ollama-in-raspberrypi.webp"
+alt="使用TinyLlama" /></a></p>
+<p>这是完整的答案和它所花费的时间：</p>
+<p><a
+target="_blank" rel="noopener" href="https://itsfoss.com/content/images/2024/01/full-answer-of-tinyllama-llm-in-ollama-inside-a-raspberrypi.png"><img
+src="https://itsfoss.com/content/images/2024/01/full-answer-of-tinyllama-llm-in-ollama-inside-a-raspberrypi.png"
+alt="TinyLlama回答" /></a></p>
+<p>好吧，谁能想到 AI 在 Raspberry Pi 上运行得这么快？</p>
+<h3 id="phi">phi</h3>
+<p>接下来，我们来试试更大的模型，比如 <a
+target="_blank" rel="noopener" href="https://huggingface.co/microsoft/phi-1_5">phi</a>，它是一个基于 27
+亿参数的语言模型。我认为我们的 Raspberry Pi 也能处理它。</p>
+<p>要安装并运行这个模型，输入以下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ollama run phi<br></code></pre></td></tr></table></figure>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/installing-phi-llm-using-ollama-in-raspberrypi.png"
+alt="下载模型" />
+<figcaption aria-hidden="true">下载模型</figcaption>
+</figure>
+<p>你可以像我一样问它一些问题：“网络交换机和集线器有什么区别？”</p>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/switch-hub-question-from-phi-llm-in-ollama-inside-raspberrypi.webp"
+alt="询问问题" />
+<figcaption aria-hidden="true">询问问题</figcaption>
+</figure>
+<p>这是 phi 给出的完整答案和其他细节：</p>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/full-answer-of-phi-llm-about-switches-in-ollama-inside-a-raspberrypi.png"
+alt="Phi LLM 的答案" />
+<figcaption aria-hidden="true">Phi LLM 的答案</figcaption>
+</figure>
+<h3 id="llava">llava</h3>
+<p>这是我测试的最大的 LLM，它有 70
+亿个参数。我要求它描述一张图片，而不是问简单的问题。</p>
+<p>我正在使用一个 4 GB 的 Raspberry Pi 4
+模型，我觉得它可能无法像之前的语言模型那样运行得很好。</p>
+<p>但我们还是来测试一下。要安装 <code>llava</code>，使用以下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ollama run llava<br></code></pre></td></tr></table></figure>
+<p>由于模型较大，大约有 3.9 GB，它需要一些时间来下载。</p>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/installing-llava-llm-using-ollama-in-raspberrypi.png"
+alt="Ollama 安装 llava LLM" />
+<figcaption aria-hidden="true">Ollama 安装 llava LLM</figcaption>
+</figure>
+<p>我将要求这个模型描述存储在 <code>/media/hdd/shared/test.jpg</code>
+目录中的一张猫的图片。</p>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/combine-picture-of-a-cat-and-full-answer-of-llava-llm-describing-a-cat-in-ollama-inside-a-raspberrypi.png"
+alt="Llava 描述图片" />
+<figcaption aria-hidden="true">Llava 描述图片</figcaption>
+</figure>
+<p><strong>我不得不在过程中终止它，因为它回答的时间太长了（超过 30
+分钟）。</strong></p>
+<p>但你可以看到，回答非常准确，如果你有最新的 8 GB RAM 的 Raspberry Pi
+5，你就可以轻松运行 <span class="math inline">\(70\)</span>
+亿参数的语言模型了。</p>
+<h2 id="结论">结论</h2>
+<p>将 Raspberry Pi 5 与 Ollama
+结合，建立了一个强大的基础，适合任何希望在本地运行开源 LLM 的人。</p>
+<p>无论你是一个开发者，努力推动紧凑计算的边界，还是一个热衷于探索语言处理领域的爱好者，这个设置都提供了无数的机会。</p>
+<p>当然，你也可以在普通的 Linux 发行版上使用 Ollama。</p>
+<p>欢迎在评论区分享你对 Ollama 的想法和体验。</p>
+
+                
+              </div>
+
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%BF%BB%E8%AF%91/" class="category-chain-item">翻译</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BF%BB%E8%AF%91/ITSFOSS/" class="category-chain-item">ITSFOSS</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Linux/" class="print-no-link">#Linux</a>
+      
+        <a href="/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/" class="print-no-link">#树莓派</a>
+      
+        <a href="/tags/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/" class="print-no-link">#大语言模型</a>
+      
+        <a href="/tags/%E5%A4%9A%E6%A8%A1%E6%80%81/" class="print-no-link">#多模态</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>在小小的树莓派中运行 70 亿参数的多模态大语言模型</div>
+      <div>https://lixuannan.github.io/posts/21637.html</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>CodingCow Lee</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年2月3日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
+                    <i class="iconfont icon-cc-nc"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
+                    <i class="iconfont icon-cc-sa"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/posts/61848.html" title="什么是 Linux？为什么 Linux 有这么多版本？">
+                        <span class="hidden-mobile">什么是 Linux？为什么 Linux 有这么多版本？</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments">
+      
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#comments', function() {
+      var light = 'github-light';
+      var dark = 'github-dark';
+      var schema = document.documentElement.getAttribute('data-user-color-scheme');
+      if (schema === 'dark') {
+        schema = dark;
+      } else {
+        schema = light;
+      }
+      window.UtterancesThemeLight = light;
+      window.UtterancesThemeDark = dark;
+      var s = document.createElement('script');
+      s.setAttribute('src', 'https://utteranc.es/client.js');
+      s.setAttribute('repo', 'Lixuannan/blog_comments');
+      s.setAttribute('issue-term', 'pathname');
+      
+      s.setAttribute('label', 'comments');
+      
+      s.setAttribute('theme', schema);
+      s.setAttribute('crossorigin', 'anonymous');
+      document.getElementById('comments').appendChild(s);
+    })
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <div> <div style="font-size: 8px;" class="about-icons">
+
+
+
+<a href="https://www.facebook.com/profile.php?id=61562077891298" class=" hint--bottom hint--rounded" aria-label="Facebook" target="_blank"> <i class="iconfont icon-facebook-fill" aria-hidden="true"></i>
+</a>
+
+
+
+<a href="https://x.com/Codingcowlee" class=" hint--bottom hint--rounded" aria-label="Twitter (X)" target="_blank"> <i class="iconfont icon-twitter-fill" aria-hidden="true"></i>
+</a>
+
+
+
+<a href="https://github.com/lixuannan" class=" hint--bottom hint--rounded" aria-label="GitHub" target="_blank"> <i class="iconfont icon-github-fill" aria-hidden="true"></i>
+</a>
+
+
+
+<a href="https://www.youtube.com/@Codingcowlee" class=" hint--bottom hint--rounded" aria-label="YouTube" target="_blank"> <i class="iconfont icon-youtube-fill" aria-hidden="true"></i>
+</a>
+
+
+
+<a href="https://space.bilibili.com/1437985467/" class=" hint--bottom hint--rounded" aria-label="BiliBili" target="_blank"> <i class="iconfont icon-bilibili-fill" aria-hidden="true"></i>
+</a>
+</div> <span style="font-size: 13px;">© 2025 Lee CodingCow</span> </div> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+
+
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

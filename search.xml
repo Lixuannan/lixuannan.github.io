@@ -4,6 +4,39 @@
   
   
   <entry>
+    <title>在小小的树莓派中运行 70 亿参数的多模态大语言模型</title>
+    <link href="/posts/21637.html"/>
+    <url>/posts/21637.html</url>
+    
+    <content type="html"><![CDATA[<h1id="在小小的树莓派中运行-70-亿参数的多模态大语言模型">在小小的树莓派中运行70 亿参数的多模态大语言模型</h1><blockquote><p>本文翻译自 <ahref="https://itsfoss.com/raspberry-pi-ollama-ai-setup/"class="uri">https://itsfoss.com/raspberry-pi-ollama-ai-setup/</a></p></blockquote><p>最近，我遇到了一个叫做 <a href="https://ollama.ai/">Ollama</a>的有趣项目。它是一个开源项目，可以让你在本地运行各种大型语言模型（LLM）。</p><p>在浏览 Reddit 社区时，我遇到了一些讨论<ahref="https://itsfoss.com/llms-for-raspberry-pi/">如何在RaspberryPi上运行LLM</a>的帖子。</p><p>我很想验证这个“说法”，所以我<ahref="https://itsfoss.com/ollama-setup-linux/">决定在我的 Raspberry Pi 4上使用 Ollama 本地运行 LLM</a>。</p><p>让我在这篇简短的文章中与大家分享我的实验。</p><p>📋本文假设你对 AI、LLM 及其他相关工具和术语有基本了解。</p><h2 id="在-raspberry-pi-os以及其他-linux-系统上安装-ollama">在 RaspberryPi OS（以及其他 Linux 系统）上安装 Ollama</h2><p>安装 Ollama 的过程非常简单。要在 Linux上安装，你只需要获取他们的官方安装脚本并运行它。这是他们网站上描述的官方方法。</p><figure><imgsrc="https://cdn.jsdelivr.net/gh/lixuannan/img/ollama-downloads-page-for-linux.png"alt="下载 Ollama" /><figcaption aria-hidden="true">下载 Ollama</figcaption></figure><p>你可以手动下载并阅读它的内容。或者，如果你像我一样懒，可以将两者合并为一个命令：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">curl https://ollama.ai/install.sh | sh<br></code></pre></td></tr></table></figure><figure><imgsrc="https://cdn.jsdelivr.net/gh/lixuannan/img/ollama-script-installation-in-raspberrypi.png"alt="安装 Ollama" /><figcaption aria-hidden="true">安装 Ollama</figcaption></figure><h2 id="探索不同的模型">探索不同的模型</h2><p>安装完成后，你就可以在 Pi 上运行 LLM 并开始与 AI 聊天了。</p><p>在我的实验中，我使用了 <code>tinyllama</code>、<code>phi</code> 和<code>llava</code> 这三个 LLM。但你也可以尝试 Ollama库中其他的语言模型。<a href="https://ollama.ai/library">Ollama的库</a>里有很多模型。</p><p>📋要运行 7B 模型，至少需要 8 GB 的 RAM；要运行 13B 模型，需要 16GB；要运行 33B 模型，则需要 32 GB。</p><h3 id="tinyllama">TinyLlama</h3><p>我们先从 <ahref="https://github.com/jzhang38/TinyLlama">TinyLlama</a>开始，它有 11亿个参数，是第一个尝试的完美选择。</p><p>要下载并运行 TinyLlama，你需要输入以下命令：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ollama run tinyllama<br></code></pre></td></tr></table></figure><figure><imgsrc="https://cdn.jsdelivr.net/gh/lixuannan/img/installing-tinyllama-llm-using-ollama-in-raspberrypi.png"alt="安装 TinyLlama" /><figcaption aria-hidden="true">安装 TinyLlama</figcaption></figure><p>下载语言模型需要几秒钟，下载完成后，你就可以开始与它聊天了。</p><p>我问AI的问题是：“html 中的 div 标签有什么用？”</p><p><ahref="https://itsfoss.com/content/images/2024/01/asking-question-from-tinyllama-in-ollama-in-raspberrypi.webp"><imgsrc="https://itsfoss.com/content/images/2024/01/asking-question-from-tinyllama-in-ollama-in-raspberrypi.webp"alt="使用TinyLlama" /></a></p><p>这是完整的答案和它所花费的时间：</p><p><ahref="https://itsfoss.com/content/images/2024/01/full-answer-of-tinyllama-llm-in-ollama-inside-a-raspberrypi.png"><imgsrc="https://itsfoss.com/content/images/2024/01/full-answer-of-tinyllama-llm-in-ollama-inside-a-raspberrypi.png"alt="TinyLlama回答" /></a></p><p>好吧，谁能想到 AI 在 Raspberry Pi 上运行得这么快？</p><h3 id="phi">phi</h3><p>接下来，我们来试试更大的模型，比如 <ahref="https://huggingface.co/microsoft/phi-1_5">phi</a>，它是一个基于 27亿参数的语言模型。我认为我们的 Raspberry Pi 也能处理它。</p><p>要安装并运行这个模型，输入以下命令：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ollama run phi<br></code></pre></td></tr></table></figure><figure><imgsrc="https://cdn.jsdelivr.net/gh/lixuannan/img/installing-phi-llm-using-ollama-in-raspberrypi.png"alt="下载模型" /><figcaption aria-hidden="true">下载模型</figcaption></figure><p>你可以像我一样问它一些问题：“网络交换机和集线器有什么区别？”</p><figure><imgsrc="https://cdn.jsdelivr.net/gh/lixuannan/img/switch-hub-question-from-phi-llm-in-ollama-inside-raspberrypi.webp"alt="询问问题" /><figcaption aria-hidden="true">询问问题</figcaption></figure><p>这是 phi 给出的完整答案和其他细节：</p><figure><imgsrc="https://cdn.jsdelivr.net/gh/lixuannan/img/full-answer-of-phi-llm-about-switches-in-ollama-inside-a-raspberrypi.png"alt="Phi LLM 的答案" /><figcaption aria-hidden="true">Phi LLM 的答案</figcaption></figure><h3 id="llava">llava</h3><p>这是我测试的最大的 LLM，它有 70亿个参数。我要求它描述一张图片，而不是问简单的问题。</p><p>我正在使用一个 4 GB 的 Raspberry Pi 4模型，我觉得它可能无法像之前的语言模型那样运行得很好。</p><p>但我们还是来测试一下。要安装 <code>llava</code>，使用以下命令：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ollama run llava<br></code></pre></td></tr></table></figure><p>由于模型较大，大约有 3.9 GB，它需要一些时间来下载。</p><figure><imgsrc="https://cdn.jsdelivr.net/gh/lixuannan/img/installing-llava-llm-using-ollama-in-raspberrypi.png"alt="Ollama 安装 llava LLM" /><figcaption aria-hidden="true">Ollama 安装 llava LLM</figcaption></figure><p>我将要求这个模型描述存储在 <code>/media/hdd/shared/test.jpg</code>目录中的一张猫的图片。</p><figure><imgsrc="https://cdn.jsdelivr.net/gh/lixuannan/img/combine-picture-of-a-cat-and-full-answer-of-llava-llm-describing-a-cat-in-ollama-inside-a-raspberrypi.png"alt="Llava 描述图片" /><figcaption aria-hidden="true">Llava 描述图片</figcaption></figure><p><strong>我不得不在过程中终止它，因为它回答的时间太长了（超过 30分钟）。</strong></p><p>但你可以看到，回答非常准确，如果你有最新的 8 GB RAM 的 Raspberry Pi5，你就可以轻松运行 <span class="math inline">\(70\)</span>亿参数的语言模型了。</p><h2 id="结论">结论</h2><p>将 Raspberry Pi 5 与 Ollama结合，建立了一个强大的基础，适合任何希望在本地运行开源 LLM 的人。</p><p>无论你是一个开发者，努力推动紧凑计算的边界，还是一个热衷于探索语言处理领域的爱好者，这个设置都提供了无数的机会。</p><p>当然，你也可以在普通的 Linux 发行版上使用 Ollama。</p><p>欢迎在评论区分享你对 Ollama 的想法和体验。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>翻译</category>
+      
+      <category>ITSFOSS</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Linux</tag>
+      
+      <tag>树莓派</tag>
+      
+      <tag>大语言模型</tag>
+      
+      <tag>多模态</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>什么是 Linux？为什么 Linux 有这么多版本？</title>
     <link href="/posts/61848.html"/>
     <url>/posts/61848.html</url>
