@@ -29,7 +29,7 @@
 <meta property="og:description" content="AT_abc255_e 题解 思路 朴素做法 首先我们考虑一定可以有一个点是幸运数，于是我们可以考虑遍历每一个 \(S_i\)，钦定 \(a_i\) 是一个幸运数，然后我们就可以反推出 \(a_1\) 的值。然后我们统计 \(a_1\) 重复被计算出的次数。因为只要有一个 \(a_i\) 被确定了，整个序列就确定了。也就是说，\(a_1\) 的重复次数就是我们要求的最多的幸运数个数，因为他们都是同">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-02-28T08:13:00.000Z">
-<meta property="article:modified_time" content="2025-02-06T03:36:13.556Z">
+<meta property="article:modified_time" content="2025-02-06T03:52:38.118Z">
 <meta property="article:author" content="CodingCow Lee">
 <meta property="article:tag" content="python">
 <meta property="article:tag" content="ml">
@@ -85,6 +85,10 @@
   <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
   
 
+
+
+  
+<link rel="stylesheet" href="/css/reward.css">
 
 
 
@@ -1044,6 +1048,27 @@ class="math inline">\(\mathcal{O}(nm)\)</span>，可以通过。</p>
 
             
             <hr/>
+            <!-- 添加打赏模块 -->
+            <div class="reward-container">
+              
+                <button id="rewardBtn" class="reward-btn">
+                   
+                    ❤ 打赏
+                  	
+                </button>
+                <p class="tea">“觉得不错的话，给点打赏吧 ୧(๑•̀⌄•́๑)૭”</p>
+                <div id="rewardImgContainer" class="reward-img-container">
+                      <div class="singleImgContainer">
+                          <img id="wechatImg" class="reward-img" src="/images/wechatpay.png" alt="微信二维码">
+                            <p class="wechatPay">微信支付</p>
+                        </div>
+                        <!-- <div class="singleImgContainer">
+                            <img id="alipayImg" class="reward-img" src="" alt="支付宝二维码">
+                            <p class="aliPay">支付宝支付</p>
+                        </div> -->
+                </div>
+              
+            </div>
             <div>
               <div class="post-metas my-3">
   
@@ -1494,6 +1519,10 @@ class="math inline">\(\mathcal{O}(nm)\)</span>，可以通过。</p>
   <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
 
 
+
+
+  
+<script src="/js/reward.js"></script>
 
 
 
