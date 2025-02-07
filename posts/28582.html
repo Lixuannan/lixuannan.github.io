@@ -29,7 +29,7 @@
 <meta property="og:description" content="CF1368E Ski Accidents 题解 思路 首先我们看到题中给出，这个图是一个 DAG，因此很容易的就可以想到拓扑排序。那么我们在思考一下，如何满足题目中给出的删除的点不超过 \(\frac{4}{7}n\) 的要求。我们可以举一个例子，看到下面的二叉树：  如果我们按照拓扑排序遍历，每次遍历到深度对 \(3\) 取模为 \(0\) 的节点，就删除。那么很显然，这个策略可以正常的分割出">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-02-23T00:39:00.000Z">
-<meta property="article:modified_time" content="2025-02-07T02:52:42.132Z">
+<meta property="article:modified_time" content="2025-02-07T03:35:37.740Z">
 <meta property="article:author" content="CodingCow Lee">
 <meta property="article:tag" content="python">
 <meta property="article:tag" content="ml">
@@ -1017,13 +1017,14 @@ class="math inline">\(\frac{4}{7}n\)</span>
                 </button>
                 <p class="tea">“觉得不错的话，给点打赏吧 ୧(๑•̀⌄•́๑)૭”</p>
                 <div id="rewardImgContainer" class="reward-img-container">
+                        <p class="tea">你的鼓励就是我持续更新的动力，祝你一路无 Error，编译见 Success，事事顺心哦 ψ(｀∇´)ψ</p>
                         <div class="singleImgContainer">
-                            <img id="wechatImg" class="reward-img" src="/images/wechatpay.png" alt="微信二维码">
+                            <img id="wechatImg" class="reward-img" onerror="this.src='/images/onerror.png'" src="/images/wechatpay.png" alt="微信二维码">
                             <p class="wechatPay">微信支付</p>
                         </div>
                         <div class="singleImgContainer">
-                            <img id="alipayImg" class="reward-img" src="" alt="支付宝二维码">
-                            <p class="aliPay">支付宝支付(暂不支持)</p>
+                            <img id="alipayImg" class="reward-img" onerror="this.src='/images/onerror.png'" src="" alt="支付宝二维码">
+                            <p class="aliPay">支付宝支付 (暂不支持)</p>
                         </div>
                 </div>
               
