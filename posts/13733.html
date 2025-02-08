@@ -652,10 +652,15 @@ NOIP 的入场券，大喜！</p>
   
 
   <div class="license-box my-3">
-    <div class="license-title tooltip">
+    <div class="license-title">
       <div>CSP 2023 游记</div>
-      <div>https://lixuannan.github.io/posts/13733.html</div>
-      <span class="tooltiptext">复制链接🔗</span>
+      <script>
+        function copyPostLink(link) {
+          const ClipBoard=navigator.clipboard;
+          ClipBoard.writeText(link);
+        }
+      </script>
+      <div class="hint--top hint--rounded" aria-label="单击复制链接🔗" onclick="copyPostLink(this.innerText)">https://lixuannan.github.io/posts/13733.html</div>
     </div>
     <div class="license-meta">
       
