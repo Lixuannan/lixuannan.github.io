@@ -14,7 +14,7 @@
 .reward-btn {
     padding: 8px 24px;
     font-size: 18px;
-    background-color: #8af5ff;
+    background-color: #53e4fac7;
     color: #fff;
     border: none;
     cursor: pointer;
@@ -41,7 +41,7 @@
 /* 单个图片的容器 */
 .singleImgContainer {
     width: 50%;
-    height: 250px;
+    height: 300px;
 }
 
 /* 微信支付和支付宝支付的文字样式 */
