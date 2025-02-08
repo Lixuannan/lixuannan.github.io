@@ -23,7 +23,7 @@
 
 .reward-img-container {
     display: none;
-    margin-top: 20px;
+    margin-top: 8px;
     /* 图片容器的透明度 */
     opacity: 0;
     /* 过渡效果,使动画更平滑 */
