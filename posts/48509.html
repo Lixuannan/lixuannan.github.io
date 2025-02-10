@@ -29,7 +29,7 @@
 <meta property="og:description" content="Luogu P1495 题解 思路 首先看一下题目，可以理解为求解下面的方程： \[ \left\{ \begin{array}{c} x \equiv b_1 \pmod {a_1} \\ x \equiv b_2 \pmod {a_2} \\ \cdots \\ x \equiv b_n \pmod {a_n} \\ \end{array} \right. \] 很显然可以用中国剩余定理求解，">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-04-29T13:15:00.000Z">
-<meta property="article:modified_time" content="2025-02-10T08:59:28.716Z">
+<meta property="article:modified_time" content="2025-02-10T09:04:30.604Z">
 <meta property="article:author" content="CodingCow Lee">
 <meta property="article:tag" content="python">
 <meta property="article:tag" content="ml">
@@ -1003,14 +1003,14 @@ inv\)</span>，注意对 <span class="math inline">\(as\)</span> 取模。</li>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> int long long</span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br>__int128 n, a[<span class="hljs-number">20</span>], b[<span class="hljs-number">20</span>], ans;<br><br><span class="hljs-function">__int128 <span class="hljs-title">exgcd</span><span class="hljs-params">(__int128 a, __int128 b, __int128 &amp;x, __int128 &amp;y)</span> </span>&#123;<br>    <span class="hljs-keyword">if</span> (b == <span class="hljs-number">0</span>) &#123;<br>        x = <span class="hljs-number">1</span>, y = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">return</span> a;<br>    &#125;<br>    __int128 d = <span class="hljs-built_in">exgcd</span>(b, a % b, x, y);<br>    __int128 t = x;<br>    x = y;<br>    y = t - a / b * y;<br>    <span class="hljs-keyword">return</span> d;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">signed</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-type">int</span> tmp;<br>    cin &gt;&gt; tmp;<br>    n = tmp;<br>    __int128 as = <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++) &#123;<br>        cin &gt;&gt; tmp;<br>        a[i] = tmp;<br>        cin &gt;&gt; tmp;<br>        b[i] = tmp;<br>        as = as * a[i];<br>    &#125;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++) &#123;<br>        __int128 mi = as / a[i], b, y;<br>        <span class="hljs-built_in">exgcd</span>(mi, a[i], b, y);<br>        ans = (ans + ::b[i] * mi * b) % as;<br>    &#125;<br>    cout &lt;&lt; (<span class="hljs-type">int</span>) ((ans % as + as) % as);<br>&#125;<br></code></pre></td></tr></table></figure>
 
                 
+                <!-- Share -->
+                <div class="social-share" data-disabled="google,diandian,tencent,linkedin,douban" style="float: right;">
+                  <span>喜欢这篇文章？分享给你的朋友吧（￣︶￣）↗ </span>
+                </div>
               </div>
 
             
             <hr/>
-            <!-- Shar e-->
-            <div class="social-share" data-disabled="google,diandian,tencent,linkedin,douban" style="float: right;">
-              <span>喜欢这篇文章？分享给你的朋友吧（￣︶￣）↗ </span>
-            </div>
             <!-- 添加打赏模块 -->
             <div class="reward-container">
               
