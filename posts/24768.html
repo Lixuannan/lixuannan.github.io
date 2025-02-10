@@ -1,0 +1,1411 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" >
+
+
+
+<head><!-- hexo injector head_begin start --><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6472864395304582"crossorigin="anonymous"></script><!-- Google tag (gtag.js) --><script async src="https://www.googletagmanager.com/gtag/js?id=G-GTDVEB7XBQ"></script><script> window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag("js", new Date()); gtag("config", "G-GTDVEB7XBQ");</script><!-- Clarity tracking code for https://lixuannan.github.io/ --><script>    (function(c,l,a,r,i,t,y){        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i+"?ref=bwt";        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);    })(window, document, "clarity", "script", "pgrkd79lqa");</script><!-- hexo injector head_begin end -->
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/images/favicon.png">
+  <link rel="icon" href="/images/favicon.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#71C9CE">
+  <meta name="author" content="CodingCow Lee">
+  <meta name="keywords" content="python,ml,deeplearning,dl,c++,c,pytorch,noi,oi,ioi,noip,csp-j,csp-s,oier,tyoi,oiclass">
+  
+    <meta name="description" content="Linux 上的 Neovim 安装使用的教程  本文翻译自 https:&#x2F;&#x2F;itsfoss.com&#x2F;install-neovim&#x2F;  你一定已经听说过著名的 Vim 文本编辑器。然而，本文将讨论的是它的一个分支：Neovim。 因为 Vim 本身就是 vi 的一个分支，所以 Neovim 是一个“分支的分支”。因此，你可以根据一些独特的特性选择使用它。 如果你决定使用 Neovim，让我帮助你在">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux 上的 Neovim 安装使用的教程">
+<meta property="og:url" content="https://lixuannan.github.io/posts/24768.html">
+<meta property="og:site_name" content="CodingCow&#39;s Blog">
+<meta property="og:description" content="Linux 上的 Neovim 安装使用的教程  本文翻译自 https:&#x2F;&#x2F;itsfoss.com&#x2F;install-neovim&#x2F;  你一定已经听说过著名的 Vim 文本编辑器。然而，本文将讨论的是它的一个分支：Neovim。 因为 Vim 本身就是 vi 的一个分支，所以 Neovim 是一个“分支的分支”。因此，你可以根据一些独特的特性选择使用它。 如果你决定使用 Neovim，让我帮助你在">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lixuannan/img/goneovim.png">
+<meta property="article:published_time" content="2025-02-10T06:23:00.000Z">
+<meta property="article:modified_time" content="2025-02-10T08:31:05.551Z">
+<meta property="article:author" content="CodingCow Lee">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="Ubuntu">
+<meta property="article:tag" content="VIM">
+<meta property="article:tag" content="Neovim">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/lixuannan/img/goneovim.png">
+<meta name="twitter:creator" content="@LeeCodingCow">
+<meta name="twitter:site" content="lixuannan.github.io">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>Linux 上的 Neovim 安装使用的教程 | CodingCow&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/reward.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"lixuannan.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":135,"cursorChar":"|","loop":false,"scope":["home"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":3},"lazyload":{"enable":false,"loading_img":"/img/loading.gif","onlypost":true,"offset_factor":2,"lazyload":true},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null},"gtag":null,"woyaola":null,"cnzz":null},"search_path":"/search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="CodingCow's Blog" type="application/atom+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>CodingCow</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>文章</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-book"></i>
+                <span>专题</span>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/categories/%E9%9B%B6%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8-OI/" target="_self">
+                    
+                    <span>零基础入门 OI</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/categories/%E6%9E%84%E5%BB%BA%E8%B6%85%E5%BC%BA-OI-%E7%B3%BB%E7%BB%9F/" target="_self">
+                    
+                    <span>构建超强 OI 系统</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/categories/%E6%B8%B8%E8%AE%B0/" target="_self">
+                    
+                    <span>游记</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/categories/%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3/" target="_self">
+                    
+                    <span>算法详解</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/categories/%E9%A2%98%E8%A7%A3/" target="_self">
+                    
+                    <span>题解</span>
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-th-large"></i>
+                <span>资源</span>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="http://codingcow.us.kg/fa9904bf-de3d-44db-bb7a-bd206036cea6" target="_self">
+                    
+                    <span>公用机场</span>
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/atom.xml" target="_self">
+                <i class="iconfont icon-rss"></i>
+                <span>RSS</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/images/banner.jpeg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle">Linux 上的 Neovim 安装使用的教程</span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        CodingCow Lee
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-02-10 14:23" pubdate>
+          2025年2月10日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          976 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          5 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar category-bar" style="margin-right: -1rem">
+    
+
+
+
+
+
+<div class="category-list">
+  
+  
+    
+    
+    
+    <div class="category row nomargin-x">
+      <a class="category-item 
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="翻译"
+        id="heading-8b3607d0f4181a3cb6ffdccf7185f09b" role="tab" data-toggle="collapse" href="#collapse-8b3607d0f4181a3cb6ffdccf7185f09b"
+        aria-expanded="true"
+      >
+        翻译
+        <span class="list-group-count">(36)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse show" id="collapse-8b3607d0f4181a3cb6ffdccf7185f09b"
+           role="tabpanel" aria-labelledby="heading-8b3607d0f4181a3cb6ffdccf7185f09b">
+        
+        
+          
+          
+  <div class="category-post-list">
+    
+    
+  </div>
+
+          
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem collapsed
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="DEBUGPOINTNEWS"
+        id="heading-73afb2609c2e7f48835b36f96b487f44" role="tab" data-toggle="collapse" href="#collapse-73afb2609c2e7f48835b36f96b487f44"
+        aria-expanded="false"
+      >
+        DEBUGPOINTNEWS
+        <span class="list-group-count">(3)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse " id="collapse-73afb2609c2e7f48835b36f96b487f44"
+           role="tabpanel" aria-labelledby="heading-73afb2609c2e7f48835b36f96b487f44">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/posts/14222.html" title="Linux 成为 Python 开发者的首选平台！"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">Linux 成为 Python 开发者的首选平台！</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/57211.html" title="Tuxedo 发布首款基于骁龙 X Elite 的 ARM 笔记本电脑"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">Tuxedo 发布首款基于骁龙 X Elite 的 ARM 笔记本电脑</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/32246.html" title="Tor 与 Tails 项目合并"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">Tor 与 Tails 项目合并</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem 
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="ITSFOSS"
+        id="heading-10c60e2686d42569c4db79639219bcd3" role="tab" data-toggle="collapse" href="#collapse-10c60e2686d42569c4db79639219bcd3"
+        aria-expanded="true"
+      >
+        ITSFOSS
+        <span class="list-group-count">(26)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse show" id="collapse-10c60e2686d42569c4db79639219bcd3"
+           role="tabpanel" aria-labelledby="heading-10c60e2686d42569c4db79639219bcd3">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/posts/24768.html" title="Linux 上的 Neovim 安装使用的教程"
+           class="list-group-item list-group-item-action
+           active">
+          <span class="category-post">Linux 上的 Neovim 安装使用的教程</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/21637.html" title="在小小的树莓派中运行 70 亿参数的多模态大语言模型"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">在小小的树莓派中运行 70 亿参数的多模态大语言模型</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/61848.html" title="什么是 Linux？为什么 Linux 有这么多版本？"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">什么是 Linux？为什么 Linux 有这么多版本？</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/9740.html" title="关于 Linux &amp; Windows 双系统的辟谣"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">关于 Linux &amp; Windows 双系统的辟谣</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/40354.html" title="KleverNotes——一个 KDE 中的实用的 Markdown 笔记软件"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">KleverNotes——一个 KDE 中的实用的 Markdown 笔记软件</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/48550.html" title="如何让你的 Linux 充满圣诞气息"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">如何让你的 Linux 充满圣诞气息</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/51214.html" title="借助 Moonlight 在树莓派上畅玩 3 A 大作"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">借助 Moonlight 在树莓派上畅玩 3 A 大作</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/60226.html" title="Linux 中自动挂载 U 盘教程"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">Linux 中自动挂载 U 盘教程</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/4716.html" title="论离线更新 Fedora"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">论离线更新 Fedora</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/23176.html" title="7 个在 2024 年值得怀念的发行版"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">7 个在 2024 年值得怀念的发行版</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/34336.html" title="随心所欲的配置 Hyprland"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">随心所欲的配置 Hyprland</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/42208.html" title="在 Hyprland 中安装并配置 Waybar"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">在 Hyprland 中安装并配置 Waybar</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/9923.html" title="Hyprland 安装与使用指南"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">Hyprland 安装与使用指南</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/35458.html" title="2023 年脱颖而出的 7 个鲜为人知的 Linux 发行版"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">2023 年脱颖而出的 7 个鲜为人知的 Linux 发行版</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/61731.html" title="2024 年的 6 个关于 Linux 和开源软件的预测"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">2024 年的 6 个关于 Linux 和开源软件的预测</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/46227.html" title="Thunderbird 中轻松管理邮件的几个小技巧"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">Thunderbird 中轻松管理邮件的几个小技巧</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/57998.html" title="VSCode 太无聊？快试试全新的 Kate！"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">VSCode 太无聊？快试试全新的 Kate！</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/1807.html" title="使用 Tiling Shell 插件为 GNOME 添加超能生产力"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">使用 Tiling Shell 插件为 GNOME 添加超能生产力</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/34503.html" title="包管理器太多太复杂？试试用 APP 管理你的包"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">包管理器太多太复杂？试试用 APP 管理你的包</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/23129.html" title="在 Linux 中使用几个工具轻松查看 NVME 盘的温度"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">在 Linux 中使用几个工具轻松查看 NVME 盘的温度</span>
+        </a>
+      
+    
+      
+      
+        <a href="/categories/%E7%BF%BB%E8%AF%91/ITSFOSS/" class="list-group-item list-group-item-action">
+          <span class="category-post">More...</span>
+        </a>
+        
+  </div>
+
+        
+      </div>
+    </div>
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem collapsed
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="ZDNET"
+        id="heading-f7536e34a654c455d79133144e9077a5" role="tab" data-toggle="collapse" href="#collapse-f7536e34a654c455d79133144e9077a5"
+        aria-expanded="false"
+      >
+        ZDNET
+        <span class="list-group-count">(7)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse " id="collapse-f7536e34a654c455d79133144e9077a5"
+           role="tabpanel" aria-labelledby="heading-f7536e34a654c455d79133144e9077a5">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/posts/435.html" title="6 个比原装安卓桌面更好的桌面启动器"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">6 个比原装安卓桌面更好的桌面启动器</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/45140.html" title="为什么这个轻量级 Linux 发行版不会赢得任何用户数比赛，但对于高级用户来说却是完美的"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">为什么这个轻量级 Linux 发行版不会赢得任何用户数比赛，但对于高级用户来说却是完美的</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/19591.html" title="5 个 Linux 初学者必须学会的命令"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">5 个 Linux 初学者必须学会的命令</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/34224.html" title="没有 GUI？只用命令行（CLI）管理密码！"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">没有 GUI？只用命令行（CLI）管理密码！</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/35073.html" title="20 年！PREEMPT_RT 最终合并入 Linux 内核"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">20 年！PREEMPT_RT 最终合并入 Linux 内核</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/10358.html" title="4 个基于 GNOME 的好看的桌面环境"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">4 个基于 GNOME 的好看的桌面环境</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/1177.html" title="5 个你值得尝试的 Linux 终端"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">5 个你值得尝试的 Linux 终端</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
+        
+      </div>
+    </div>
+  
+</div>
+
+
+  </aside>
+
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Linux 上的 Neovim 安装使用的教程</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="linux-上的-neovim-安装使用的教程">Linux 上的 Neovim
+安装使用的教程</h1>
+<blockquote>
+<p>本文翻译自 <a target="_blank" rel="noopener" href="https://itsfoss.com/install-neovim/"
+class="uri">https://itsfoss.com/install-neovim/</a></p>
+</blockquote>
+<p>你一定已经听说过著名的 Vim
+文本编辑器。然而，本文将讨论的是它的一个分支：Neovim。</p>
+<p>因为 Vim 本身就是 vi 的一个分支，所以 Neovim
+是一个“分支的分支”。因此，你可以根据一些独特的特性选择使用它。</p>
+<p>如果你决定使用 Neovim，让我帮助你在 Ubuntu 和其他 Linux
+发行版上开始使用它。</p>
+<h2 id="neovim-概述">Neovim 概述</h2>
+<figure>
+<img src="https://cdn.jsdelivr.net/gh/lixuannan/img/goneovim.png"
+alt="Neovim 截图" />
+<figcaption aria-hidden="true">Neovim 截图</figcaption>
+</figure>
+<p><a target="_blank" rel="noopener" href="https://neovim.io/">Neovim</a>
+是一个以简单维护和社区贡献多而闻名的项目。此外，其开发工作在多个开发者之间得到了很好的分配。</p>
+<p>对于用户来说，Neovim 的扩展性远超预期。Neovim
+的目标是提供更好的应用，同时不舍弃 Vim 的传统功能。</p>
+<p>通过为 Neovim 提供 <a
+target="_blank" rel="noopener" href="https://itsfoss.com/neovim-gui-editors/">GUI</a>，你可以获得更强大的编辑体验。</p>
+<h2 id="neovim-的特点">Neovim 的特点</h2>
+<p>虽然你可以在其官方网站和 <a
+target="_blank" rel="noopener" href="https://github.com/neovim/neovim">GitHub
+页面</a>上详细了解，但让我为你概述一些特点：</p>
+<ul>
+<li>现代化的图形界面</li>
+<li>多种语言的 API 访问，包括
+C/C++、C#、Go、Haskell、Java/Kotlin、JavaScript/Node.js、Lua、Perl、Python、Ruby、Rust
+等等</li>
+<li>内嵌的可脚本化终端模拟器</li>
+<li>异步任务控制</li>
+<li>多个实例之间共享数据</li>
+<li>支持 XDG 基础目录</li>
+<li>与大多数 Vim 插件兼容，包括 Ruby 和 Python 插件</li>
+</ul>
+<p>💡我们建议你在开始使用之前，先学习 Vim 和 Neovim 的基本用法。</p>
+<h2 id="在-linux-上安装-neovim">在 Linux 上安装 Neovim</h2>
+<p>由于 Neovim 非常流行，安装非常简单。Neovim
+可在你选择的任何发行版的官方仓库中找到。</p>
+<p>如果你需要，也可以参考我们的 <a
+target="_blank" rel="noopener" href="https://itsfoss.com/install-latest-vim-ubuntu/">在 Linux 上安装
+Vim 的指南</a>，如果你希望使用 Vim 的话。</p>
+<p>在 Ubuntu 上安装 Neovim，只需点 Dock 中的 Ubuntu 软件图标。然后，搜索
+Neovim。你可以根据自己的喜好选择 snap 或 deb 版本。然而，deb 包版本是
+Neovim 的过时版本。</p>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/software-center-neovim-snap.png"
+alt="neovim 在 ubuntu 软件中心中的列表" />
+<figcaption aria-hidden="true">neovim 在 ubuntu
+软件中心中的列表</figcaption>
+</figure>
+<p>如果你不想使用 snap 版本，可以从 <a
+target="_blank" rel="noopener" href="https://github.com/neovim/neovim/releases/tag/stable">Neovim 的
+Github Release页面</a> 下载最新的 deb
+文件。如果仔细查看发布页面，你还会发现有 AppImage 文件。</p>
+<p>如果你更喜欢使用终端而非 GUI，可以按以下方式操作：</p>
+<p>对于 <strong>Ubuntu 和 Debian</strong>
+系列的发行版，输入以下命令来安装：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> apt install neovim<br></code></pre></td></tr></table></figure>
+<p>对于 <strong>Manjaro 和 Arch
+Linux</strong>，使用以下命令更新系统并安装 Neovim：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> pacman -Syu neovim<br></code></pre></td></tr></table></figure>
+<p>对于 <strong>Fedora</strong>，使用以下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> dnf install -y neovim<br></code></pre></td></tr></table></figure>
+<p>要安装 <strong>Flatpak</strong>，可以使用此命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">flatpak install flathub io.neovim.nvim<br></code></pre></td></tr></table></figure>
+<p>最后，要安装 <strong>snap 包</strong>，使用以下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> snap install nvim --classic<br></code></pre></td></tr></table></figure>
+<p>如果你更喜欢从源代码构建软件，可以参考 <a
+target="_blank" rel="noopener" href="https://github.com/neovim/neovim/wiki/Installing-Neovim#install-from-source">Neovim
+项目的 Github 页面上的步骤</a>。</p>
+<h2 id="如何使用-neovim">如何使用 Neovim</h2>
+<p>安装完成后，使用 Neovim
+非常简单，只需在应用菜单中按下超级键并输入“neovim”即可打开它。这会打开一个带有
+Neovim 的终端窗口。</p>
+<p><a
+target="_blank" rel="noopener" href="https://itsfoss.com/content/images/2023/01/neovim-default-screen.png"><img
+src="https://itsfoss.com/content/images/2023/01/neovim-default-screen.png"
+alt="img" /></a></p>
+<p>或者，你也可以打开你喜欢的任何终端模拟器并输入以下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">nvim<br></code></pre></td></tr></table></figure>
+<p>是的，不是“neovim”，而是直接输入“<strong>nvim</strong>”。例如，要编辑
+<em>/etc/fstab</em> 文件，输入以下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> nvim /etc/fstab<br></code></pre></td></tr></table></figure>
+<p>此时，fstab 文件会按照下图显示的方式打开。</p>
+<p><a
+target="_blank" rel="noopener" href="https://itsfoss.com/content/images/2023/01/neovim-fstab.png"><img
+src="https://itsfoss.com/content/images/2023/01/neovim-fstab.png"
+alt="img" /></a></p>
+<p>如果你不知道如何退出编辑器，不用担心；按下
+<strong>Shift+Z+Z</strong>。例如，如果这个快捷键让你困惑，可以使用你需要的键输入“ZZ”
+大写大写，就像在任何文本编辑器中一样。</p>
+<p>在此，我要再次强调，你需要学习 Vim 或
+Neovim，并阅读相关文档，以便高效地利用它的所有功能。</p>
+<h2 id="结论">结论</h2>
+<p>安装和启动 Neovim
+非常简单，但要学习它，肯定需要很长时间对于键盘操作的适应。</p>
+<p>这只是编辑器的一个概述。我不是这方面的专家，但我希望这对所有初学者有所帮助！</p>
+<p>💬 <em>你使用 Neovim 吗？在下面的评论中分享你的使用体验吧！</em></p>
+
+                
+              </div>
+
+            
+            <hr/>
+            <!-- 添加打赏模块 -->
+            <div class="reward-container">
+              
+                <button id="rewardBtn" class="reward-btn">
+                   
+                    ❤ 打赏
+                  	
+                </button>
+                <p class="tea" id="askRewardText">“觉得不错的话，给点打赏吧 (✿◕‿◕✿)”</p>
+                <div id="rewardImgContainer" class="reward-img-container">
+                  <div class="singleImgContainer">
+                      <img id="wechatImg" class="reward-img" onerror="this.src='/images/onerror.png'" src="/images/wechatpay.png" alt="微信二维码">
+                      <p class="wechatPay">微信支付</p>
+                  </div>
+                  <div class="singleImgContainer">
+                      <img id="alipayImg" class="reward-img" onerror="this.src='/images/onerror.png'" src="/images/alipay.png" alt="支付宝二维码">
+                      <p class="aliPay">支付宝支付 (暂不支持)</p>
+                  </div>
+                </div>
+              
+            </div>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%BF%BB%E8%AF%91/" class="category-chain-item">翻译</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BF%BB%E8%AF%91/ITSFOSS/" class="category-chain-item">ITSFOSS</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Linux/" class="print-no-link">#Linux</a>
+      
+        <a href="/tags/Ubuntu/" class="print-no-link">#Ubuntu</a>
+      
+        <a href="/tags/VIM/" class="print-no-link">#VIM</a>
+      
+        <a href="/tags/Neovim/" class="print-no-link">#Neovim</a>
+      
+    </div>
+  
+  <div class="social-share" data-disabled="douban,google,linkedin" style="margin-left: auto;"></div>
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Linux 上的 Neovim 安装使用的教程</div>
+      <script>
+        function copyPostLink(link) {
+          const ClipBoard=navigator.clipboard;
+          ClipBoard.writeText(link);
+        }
+      </script>
+      <div class="hint--top hint--rounded" aria-label="单击复制链接🔗" onclick="copyPostLink(this.innerText)">https://lixuannan.github.io/posts/24768.html</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>CodingCow Lee</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年2月10日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
+                    <i class="iconfont icon-cc-nc"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
+                    <i class="iconfont icon-cc-sa"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/posts/49077.html" title="圆切线证明第二题题解">
+                        <span class="hidden-mobile">圆切线证明第二题题解</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments">
+      
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#comments', function() {
+      var light = 'github-light';
+      var dark = 'github-dark';
+      var schema = document.documentElement.getAttribute('data-user-color-scheme');
+      if (schema === 'dark') {
+        schema = dark;
+      } else {
+        schema = light;
+      }
+      window.UtterancesThemeLight = light;
+      window.UtterancesThemeDark = dark;
+      var s = document.createElement('script');
+      s.setAttribute('src', 'https://utteranc.es/client.js');
+      s.setAttribute('repo', 'Lixuannan/blog_comments');
+      s.setAttribute('issue-term', 'pathname');
+      
+      s.setAttribute('label', 'comments');
+      
+      s.setAttribute('theme', schema);
+      s.setAttribute('crossorigin', 'anonymous');
+      document.getElementById('comments').appendChild(s);
+    })
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <div> <div style="font-size: 8px;" class="about-icons">
+
+
+
+<a href="https://www.facebook.com/profile.php?id=61562077891298" class=" hint--bottom hint--rounded" aria-label="Facebook" target="_blank"> <i class="iconfont icon-facebook-fill" aria-hidden="true"></i>
+</a>
+
+
+
+<a href="https://x.com/Codingcowlee" class=" hint--bottom hint--rounded" aria-label="Twitter (X)" target="_blank"> <i class="iconfont icon-twitter-fill" aria-hidden="true"></i>
+</a>
+
+
+
+<a href="https://github.com/lixuannan" class=" hint--bottom hint--rounded" aria-label="GitHub" target="_blank"> <i class="iconfont icon-github-fill" aria-hidden="true"></i>
+</a>
+
+
+
+<a href="https://www.youtube.com/@Codingcowlee" class=" hint--bottom hint--rounded" aria-label="YouTube" target="_blank"> <i class="iconfont icon-youtube-fill" aria-hidden="true"></i>
+</a>
+
+
+
+<a href="https://space.bilibili.com/1437985467/" class=" hint--bottom hint--rounded" aria-label="BiliBili" target="_blank"> <i class="iconfont icon-bilibili-fill" aria-hidden="true"></i>
+</a>
+</div> <span style="font-size: 13px;">© 2025 Lee CodingCow</span> </div> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+
+
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  
+<script src="/js/reward.js"></script>
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
