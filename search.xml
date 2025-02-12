@@ -4,6 +4,39 @@
   
   
   <entry>
+    <title>新坑？速看新项目规划——CowDingOJ</title>
+    <link href="/posts/53925.html"/>
+    <url>/posts/53925.html</url>
+    
+    <content type="html"><![CDATA[<h1id="新坑速看新项目规划cowdingoj">新坑？速看新项目规划——CowDingOJ</h1><p>近期由于一些突发奇想，觉得 HydroOJ简直效率低的不能再低，分布式又很麻烦。于是想着自己能不能开发出一个和Hydro 一样容易部署，但是又有很强的可拓展性的分布式OJ。于是这个项目诞生了。</p><h2 id="项目介绍">项目介绍</h2><p>首先来看一下项目的架构：</p><figure><img src="https://cdn.jsdelivr.net/gh/lixuannan/img/arch.svg"alt="arch" /><figcaption aria-hidden="true">arch</figcaption></figure><p>架构可能还有些修改优化的空间，但是这是目前一个较为灵活的方案。但是不难发现，这个架构仍然存在数据库的写瓶颈，这可能会发生在大量用户同时发送讨论的时候。同时在业务集群中为了灵活每一项细分业务都只有一个容器承担（这样不会产生数据库的竞争，不用处理锁的问题），可能在极其高负载的情况下去世，后续可能会修改。对于评测集群的具体实现方法有待进一步的思考。</p><p>但是总的来说，这套架构比起 Hydro all in one的聪明设计要灵活可扩展的多，在系统运行的重灾区——评测这一方面也做了十足的优化，确保短时大评测量不会影响到系统的其他部分的运行，也可以通过灵活增加评测机来削峰填谷，做到足够省钱。</p><h2 id="求加入">求加入</h2><p>如果你也觉得项目很有意思，那么不妨联系 CodingCow (<ahref="mailto:leecodingcow@gmail.com"class="email">leecodingcow@gmail.com</a>)，然后加入我们，一起开启评测的新时代。</p><h2 id="求赞助">求赞助</h2><p>如果你是某某有钱的大老板，并且觉得这个项目不错，不妨向我们伸出您的援手，给予我们可以更快完成的资源。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>项目</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>OJ</tag>
+      
+      <tag>项目</tag>
+      
+      <tag>k8s</tag>
+      
+      <tag>docker</tag>
+      
+      <tag>kafka</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Linux 上的 Neovim 安装使用的教程</title>
     <link href="/posts/24768.html"/>
     <url>/posts/24768.html</url>
