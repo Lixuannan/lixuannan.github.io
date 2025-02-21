@@ -4,6 +4,37 @@
   
   
   <entry>
+    <title>GTK 5 将移除移除 X11 和 Broadway 支持并加入 Android 后端</title>
+    <link href="/posts/61686.html"/>
+    <url>/posts/61686.html</url>
+    
+    <content type="html"><![CDATA[<h1 id="gtk-5-将移除移除-x11-和-broadway-支持并加入-android-后端">GTK 5将移除移除 X11 和 Broadway 支持并加入 Android 后端</h1><blockquote><p>本文翻译自 <a href="https://news.itsfoss.com/gtk-drops-x11/"class="uri">https://news.itsfoss.com/gtk-drops-x11/</a></p></blockquote><p><a href="https://www.gtk.org/">GTK</a>是一个成熟的开源工具包，可用于在 Linux、Windows 和 macOS上构建直观的图形用户界面（GUI）。它为开发者和设计师提供了一整套丰富的库和工具，用于构建窗口、按钮、菜单等组件。</p><p>GTK 是许多流行桌面环境和应用程序的核心，例如 <ahref="https://www.gnome.org/">GNOME</a>、<ahref="https://github.com/linuxmint/cinnamon">Cinnamon</a>、GParted 和 <ahref="https://www.mozilla.org/en-US/firefox/">Firefox</a> 等。</p><p>恰逢 <a href="https://fosdem.org/2025/">FOSDEM 2025</a> 开幕，GTK开发团队宣布，他们将放弃两个现有后端，并新增一个正在开发中的后端。</p><h2 id="x11-和-broadway-后端被移除android-后端加入">X11 和 Broadway后端被移除，Android 后端加入</h2><p>GTK 开发团队的 <a href="https://gitlab.gnome.org/matthiasc">MatthiasClasen</a> 提出了两个 PR，宣布废弃 X11 和 Broadway 后端。</p><p><imgsrc="https://cdn.jsdelivr.net/gh/lixuannan/img/GTK_X11_Deprecated.png"alt="Gallery Image" /><imgsrc="https://cdn.jsdelivr.net/gh/lixuannan/img/GTK_Broadway_Deprecated.png"alt="Gallery Image" /></p><p>这一调整是为即将推出的 GTK 5 做准备。以下是具体原因：</p><ul><li><strong>X11 后端</strong> (<ahref="https://gitlab.gnome.org/GNOME/gtk/-/merge_requests/8060">相关PR</a>)：GTK 团队决定直接废弃 X11 API，以明确表明它将在 GTK 5中彻底移除。</li><li><strong>Broadway 后端</strong> (<ahref="https://gitlab.gnome.org/GNOME/gtk/-/merge_requests/8146">相关PR</a>)：该后端一直处于实验阶段，从未真正成熟，并且缺乏维护，因此最终被放弃。</li></ul><p>此外，GTK 还 <strong>提高了 Windows 和 macOS版本的最低要求</strong>：</p><ul><li>Windows 版本最低要求提升至 Windows 10</li><li>macOS 版本最低要求提升至 macOS 10.15</li></ul><p>GTK 开发团队表示，旧版 API维护成本过高，同时代码中充斥着“<code>#ifdef</code>迷宫”，使得开发变得复杂。</p><p>他们还决定 <strong>移除旧版 OpenGL渲染器</strong>，尽管这可能会让老旧驱动和硬件用户感到失望，但团队承诺会优化新的渲染器，以确保性能和兼容性。</p><h2 id="但也有好消息">但也有好消息！</h2><p>GTK 也带来了一些正面的变化，包括：</p><ul><li><strong>改进 <a href="https://docs.gtk.org/atspi2/">Atspi</a>后端</strong>，增强了 Linux 端的辅助功能支持。</li><li><strong>新增 <a href="https://docs.gtk.org/accesskit/">AccessKit</a>后端</strong>，为 Windows 和 macOS 提供更好的辅助功能支持。</li><li><strong>引入新的 Android后端</strong>（实验性），未来可能会正式合并到 GTK 代码库中。</li></ul><figure><imgsrc="https://cdn.jsdelivr.net/gh/lixuannan/img/GTK_New_Android_Backend.png"alt="a screenshot of the merge request for introducing a new android backend in gtk" /><figcaption aria-hidden="true">a screenshot of the merge request forintroducing a new android backend in gtk</figcaption></figure><p>GTK 开发者 Florian "sp1rit" (<ahref="https://gitlab.gnome.org/GNOME/gtk/-/merge_requests/7555">PR</a>)负责开发新的 Android 后端，目前该后端 <strong>可在 Android 12.0（SDK31）上运行</strong>，但仍然缺少许多功能，并且存在多个 bug。</p><p>如果你想抢先体验 GTK 在 Android上的效果，可以查看PR，其中包含两个可通过 ADB 安装的 APK文件，分别用于测试 Florian 的 <ahref="https://github.com/sp1ritCS/fidei">Fidei</a> 应用。</p><p>想了解更多详细信息，可以阅读 <ahref="https://blog.gtk.org/2025/02/01/whats-new-in-gtk-winter-2025-edition/">GTK官方公告博客</a>。</p><hr /><p>💬 你的看法？GTK 5 发布后，你会迁移你的应用吗？！</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>翻译</category>
+      
+      <category>ITSFOSS</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>桌面环境</tag>
+      
+      <tag>GTK</tag>
+      
+      <tag>X11</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>11 个最佳的 Linux Markdown 编辑器</title>
     <link href="/posts/36081.html"/>
     <url>/posts/36081.html</url>
