@@ -4,6 +4,35 @@
   
   
   <entry>
+    <title>如何在 Linux 本地运行 DeepSeek-R1</title>
+    <link href="/posts/8917.html"/>
+    <url>/posts/8917.html</url>
+    
+    <content type="html"><![CDATA[<h1 id="如何在-linux-本地运行-deepseek-r1">如何在 Linux 本地运行DeepSeek-R1</h1><blockquote><p>本文翻译自 <ahref="https://itsfoss.com/install-deepseek-r1-locally-linux/"class="uri">https://itsfoss.com/install-deepseek-r1-locally-linux/</a></p></blockquote><p><em>DeepSeek 引爆 AI 界！本地运行更安全</em></p><figure><imgsrc="https://cdn.jsdelivr.net/gh/lixuannan/img/the-hacker-news-deepseek-ai-1.png"alt="img" /><figcaption aria-hidden="true">img</figcaption></figure><p><a href="https://www.deepseek.com/">DeepSeek</a> 近期席卷 AI领域，许多人习惯在官方网站上使用它，但我们都知道，没有什么地方比<code>127.0.0.1</code> 更安心 😉。</p><p>不过，最近的一些事件，例如 <ahref="https://thehackernews.com/2025/01/top-rated-chinese-ai-app-deepseek.html">DeepSeekAI 遭受网络攻击，暂停新用户注册</a> 和 <ahref="https://thehackernews.com/2025/01/deepseek-ai-database-exposed-over-1.html">DeepSeekAI 数据库泄露</a>，让人不禁思考：为什么更多人不选择在本地运行LLM（大型语言模型）呢？</p><p>本地运行 AI 不仅能确保数据隐私，还能让你完全掌控 AI的行为，避免数据落入他人之手。</p><p>在本指南中，我们将向你介绍如何在 Linux 机器上安装 <strong>DeepSeekR1</strong>，并使用 <ahref="https://ollama.com/"><strong>Ollama</strong></a> 作为后端，<ahref="https://docs.openwebui.com/"><strong>Open WebUI</strong></a>作为前端，让你的 AI 随时随地可用！</p><h2 id="步骤-1安装-ollama"><strong>步骤 1：安装 Ollama</strong></h2><p>在安装 DeepSeek 之前，我们需要一个高效的 LLM 运行环境，这正是<strong>Ollama</strong> 的用武之地。</p><h3 id="ollama-是什么"><strong>Ollama 是什么？</strong></h3><p><a href="https://itsfoss.com/ollama/">Ollama</a>是一个轻量级且强大的本地 LLM 运行平台，简化了模型管理，让你可以<strong>轻松下载、运行和交互</strong>。</p><p><strong>最大亮点？</strong>它屏蔽了所有复杂性——无需手动配置依赖项或设置虚拟环境。</p><h4 id="安装-ollama"><strong>安装 Ollama</strong></h4><p>在终端运行以下命令即可安装 Ollama：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">curl -fsSL https://ollama.com/install.sh | sh<br></code></pre></td></tr></table></figure><p>安装完成后，运行以下命令确认安装成功：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ollama --version<br></code></pre></td></tr></table></figure><hr /><h2 id="步骤-2安装并运行-deepseek-模型"><strong>步骤 2：安装并运行DeepSeek 模型</strong></h2><p>有了 Ollama，运行 DeepSeek 变得极为简单。只需运行：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ollama run deepseek-r1:1.5b<br></code></pre></td></tr></table></figure><p>此命令将下载 <strong>DeepSeek-R1 1.5B模型</strong>，这是一个小巧但强大的 AI模型，支持文本生成、问答等任务。</p><p>下载完成后，你可以在终端直接与 DeepSeek 交互：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ollama run deepseek-r1:1.5b<br></code></pre></td></tr></table></figure><p>但说实话，终端界面并不够直观，我们可以选择 Web UI 方式来获得更好的使用体验。我推荐使用 <ahref="https://openwebui.com/"><strong>Open WebUI</strong></a>。</p><h2 id="步骤-3安装-open-webui"><strong>步骤 3：安装 OpenWebUI</strong></h2><p>Open WebUI 提供了一个美观的界面，使得 DeepSeek 交互更便捷。你可以选择<strong>两种安装方式</strong>：</p><ol type="1"><li><strong>直接安装</strong></li><li><strong>使用 Docker（推荐）</strong></li></ol><h3 id="方法-1直接安装"><strong>方法 1：直接安装</strong></h3><p>如果你不想使用 Docker，可以手动安装 Open WebUI。</p><h4 id="步骤-1安装-python-和虚拟环境"><strong>步骤 1：安装 Python和虚拟环境</strong></h4><p>在终端运行：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> apt install python3-venv -y<br></code></pre></td></tr></table></figure><h4 id="步骤-2创建虚拟环境"><strong>步骤 2：创建虚拟环境</strong></h4><p>创建并激活 Python 虚拟环境：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">python3 -m venv ~/open-webui-venv<br><span class="hljs-built_in">source</span> ~/open-webui-venv/bin/activate<br></code></pre></td></tr></table></figure><h4 id="步骤-3安装-open-webui-1"><strong>步骤 3：安装 OpenWebUI</strong></h4><p>在虚拟环境中运行：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">pip install open-webui<br></code></pre></td></tr></table></figure><h4 id="步骤-4运行-open-webui"><strong>步骤 4：运行 OpenWebUI</strong></h4><p>启动 Open WebUI 服务器：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">open-webui serve<br></code></pre></td></tr></table></figure><p>然后，在浏览器访问： 👉 <ahref="http://localhost:8080/">http://localhost:8080</a></p><h3 id="方法-2使用-docker推荐"><strong>方法 2：使用Docker（推荐）</strong></h3><p>如果你的系统支持 Docker，这种方式更为方便。</p><h4 id="步骤-1拉取-open-webui-docker-镜像"><strong>步骤 1：拉取 OpenWebUI Docker 镜像</strong></h4><p>运行以下命令下载最新的 Open WebUI 版本：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">docker pull ghcr.io/open-webui/open-webui:main<br></code></pre></td></tr></table></figure><h4 id="步骤-2运行-open-webui-容器"><strong>步骤 2：运行 Open WebUI容器</strong></h4><p>执行以下命令启动 Open WebUI：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs bash">docker run -d \<br>  -p 3000:8080 \<br>  --add-host=host.docker.internal:host-gateway \<br>  -v open-webui:/app/backend/data \<br>  --name open-webui \<br>  --restart always \<br>  ghcr.io/open-webui/open-webui:main<br></code></pre></td></tr></table></figure><p>完成后，在浏览器访问： 👉 <ahref="http://localhost:3000/">http://localhost:3000</a></p><h2 id="总结"><strong>总结</strong></h2><p>至此，你已经成功在 Linux 机器上 <strong>本地运行 DeepSeekR1</strong>，并通过 <strong>Open WebUI</strong> 提供友好的 Web界面进行交互。</p><p>🎯 你可以让 DeepSeek 生成诗歌、回答问题，甚至挑战它进行更高级的任务！🎯 你也可以尝试在 <strong>树莓派 5</strong> 上运行DeepSeek，看看它的表现如何！（参考 -&gt; <ahref="https://lixuannan.github.io/posts/21637.html">在小小的树莓派中运行70 亿参数的多模态大语言模型</a>）</p><p>无论你是 AI 研究者还是爱好者，本地运行 LLM都是值得尝试的选择。享受你的 <strong>AI 私有助手</strong> 吧！🚀</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>翻译</category>
+      
+      <category>ITSFOSS</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Linux</tag>
+      
+      <tag>DeepSeek</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>GTK 5 将移除移除 X11 和 Broadway 支持并加入 Android 后端</title>
     <link href="/posts/61686.html"/>
     <url>/posts/61686.html</url>
