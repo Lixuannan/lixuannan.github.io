@@ -4,6 +4,37 @@
   
   
   <entry>
+    <title>Warp 终端迎来 DeepSeek 支持：全新 AI 体验</title>
+    <link href="/posts/20382.html"/>
+    <url>/posts/20382.html</url>
+    
+    <content type="html"><![CDATA[<h1 id="warp-终端迎来-deepseek-支持全新-ai-体验">Warp 终端迎来 DeepSeek支持：全新 AI 体验</h1><blockquote><p>本文翻译自 <ahref="https://news.itsfoss.com/warp-deepseek-integration/"class="uri">https://news.itsfoss.com/warp-deepseek-integration/</a></p></blockquote><video src="https://cdn.jsdelivr.net/gh/lixuannan/img/Warp_Terminal_DeepSeek-1.mp4"></video><p><a href="https://www.warp.dev/">Warp</a> 是一款现代化的跨平台<ahref="https://itsfoss.com/linux-terminal-emulators/">终端</a>，专为速度、可靠性和协作设计。它的功能与传统终端截然不同，其中最引人注目的便是其AI 驱动的工具。</p><p>最近，Warp 团队在 <ahref="https://x.com/warpdotdev/status/1885376165910896827">X（推特）</a>上宣布，该终端现已支持备受欢迎的开源 AI 模型系列 <ahref="https://www.deepseek.com/">DeepSeek</a>，并对应用程序进行了一些优化。</p><p>🚧 <strong>非开源软件提醒</strong>：Warp不是开源软件。我们之所以报道它，是因为它可用于 Linux。</p><h2 id="deepseek-加入-warp你能期待什么"><strong>DeepSeek 加入Warp：你能期待什么？</strong></h2><p>Warp 现已在其代理模式（Agent Mode）中集成 <ahref="https://github.com/deepseek-ai/DeepSeek-R1">DeepSeek R1</a> 和 <ahref="https://github.com/deepseek-ai/DeepSeek-V3">DeepSeek V3</a>，并由<a href="https://fireworks.ai/">Fireworks AI</a>提供的美国服务器进行托管。</p><p>我在 Fedora 41 笔记本上简单体验了一下 DeepSeekR1，并让它执行了一些任务。总体表现不错，但有时处理速度会较慢，尤其是遇到复杂的输入时。这可能是服务器负载较高导致的，所以还能接受。</p><p>此外，<strong>如果你想在本地运行 DeepSeek</strong>，我们有一份<ahref="https://itsfoss.com/install-deepseek-r1-locally-linux/">详细指南</a>，可以帮助你完成安装配置。</p><p>除了新增 DeepSeek 支持，Warp 还在 <ahref="https://docs.warp.dev/getting-started/changelog#id-2025.01.29-v0.2025.01.29.08.02">2025.01.29版本</a> 中进行了多项优化：</p><ul><li>代理模式（Agent Mode）现在可以自动执行只读请求的命令；</li><li>修复了双击文本时选择范围错误的 bug；</li><li>现在可以使用 <strong>“J”</strong> 和 <strong>“K”</strong> 键在 <ahref="https://www.warp.dev/warp-drive">Warp Drive</a> 中上下导航。</li></ul><hr /><h2 id="如何获取-warp"><strong>如何获取 Warp</strong></h2><p>想要体验全新 DeepSeek 集成功能的用户，可以从 <ahref="https://app.warp.dev/referral/6N3LPK">Warp官网</a>（<em>合作链接</em>）下载最新版本，支持 <strong>Linux</strong>和 <strong>macOS</strong>。</p><p>Windows 用户需要<ahref="https://www.warp.dev/windows-terminal">加入候补名单</a>，因为 Warp仍在开发适用于该平台的版本。</p><p><ahref="https://app.warp.dev/referral/6N3LPK">Warp（合作链接）</a></p><p>如果安装后遇到问题，可以查看<ahref="https://docs.warp.dev/">官方文档</a>。现有用户的 Warp应该会在启动时自动更新，如果没有自动更新，可以参考<ahref="https://docs.warp.dev/help/updating-warp">升级指南</a>。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>翻译</category>
+      
+      <category>ITSFOSS</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>终端</tag>
+      
+      <tag>DeepSeek</tag>
+      
+      <tag>Warp</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>如何在 Linux 本地运行 DeepSeek-R1</title>
     <link href="/posts/8917.html"/>
     <url>/posts/8917.html</url>
