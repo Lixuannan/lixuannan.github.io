@@ -4,6 +4,37 @@
   
   
   <entry>
+    <title>命令行中将图片转为 ASCII 字符艺术图片</title>
+    <link href="/posts/45203.html"/>
+    <url>/posts/45203.html</url>
+    
+    <content type="html"><![CDATA[<h1 id="命令行中将图片转为-ascii-字符艺术图片">命令行中将图片转为 ASCII字符艺术图片</h1><blockquote><p>本文翻译自 <a href="https://itsfoss.com/ascii-image-converter/"class="uri">https://itsfoss.com/ascii-image-converter/</a></p></blockquote><p>想在 Linux 终端做点有趣的事吗？试试把普通图片转换成 ASCII艺术吧！</p><p>你知道<a href="https://www.computerhope.com/jargon/a/ascii.htm">ASCII是什么</a>吗？ASCII 是一种标准，它在 8 位编码的 256个插槽中分配了字母、数字和其他字符。ASCII 艺术就是用可打印的 ASCII字符组成的图像。基本上，它是由一堆字母、数字和特殊字符构成的。</p><p>你可能见过人们用 ASCII 格式显示 Linux 发行版的 logo，比如这样：</p><figure><imgsrc="https://cdn.jsdelivr.net/gh/lixuannan/img/ubuntu-mate-focal-neofetch.png"alt="Ubuntu Mate Focal Neofetch" /><figcaption aria-hidden="true">Ubuntu Mate Focal Neofetch</figcaption></figure><p>这很酷，对吧？那么，把一张普通图片转换成 ASCII艺术怎么样？这篇文章就带你探索这个有趣的工具。</p><h2 id="ascii-image-converter">Ascii Image Converter</h2><p>正如名字所示，<ahref="https://github.com/TheZoraiz/ascii-image-converter">Ascii ImageConverter</a> 是一个可以将图片转换为 ASCII艺术的工具。它是一个基于命令行的工具，由 Go语言编写，并能在终端中打印图片的 ASCII 版本。</p><p>你可能认不出来，但下面这张 ASCII 图片就是我。这是我的 8 位头像：</p><figure><imgsrc="https://cdn.jsdelivr.net/gh/lixuannan/img/abhishek-prakash-in-ascii-800x445.png"alt="Abhishek Prakash ASCII 头像" /><figcaption aria-hidden="true">Abhishek Prakash ASCII 头像</figcaption></figure><p>该工具支持以下格式的图片输入：</p><ul><li>JPEG/JPG</li><li>PNG</li><li>BMP</li><li>WEBP</li><li>TIFF/TIF</li></ul><p>下面让我们看看如何安装和使用它。</p><h2 id="在-linux-上安装-ascii-image-converter">在 Linux 上安装 AsciiImage Converter</h2><p>这个工具也可以在 Windows 上使用，但本文只讲解 Linux 的安装方法。</p><p>如果你的 Linux 发行版已启用 Snap，可以使用以下命令轻松安装 Snap包：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> snap install ascii-image-converter<br></code></pre></td></tr></table></figure><p>你也可以从其<ahref="https://github.com/TheZoraiz/ascii-image-converter/releases">发布页面</a>下载Linux 可执行文件，并将其放入 <code>/usr/local/bin/</code>目录中。这样，你就可以像普通 Linux命令一样运行它。如果你想知道原因，可以了解一下 <ahref="https://linuxhandbook.com/linux-directory-structure/">Linux目录结构</a>。</p><h2 id="使用-ascii-image-converter">使用 Ascii Image Converter</h2><p>使用方法很简单。安装完成后，只需提供要转换的图片路径即可：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ascii-image-converter path_to_image<br></code></pre></td></tr></table></figure><p>你还可以提供图片的 URL，直接从网络上转换图片为 ASCII 艺术。</p><p>下面是我的头像转换成的 ASCII 图像，并附上原始照片进行对比：</p><figure><imgsrc="https://cdn.jsdelivr.net/gh/lixuannan/img/abhishek-prakash-ascii-converted-800x437.png"alt="Abhishek Prakash ASCII 转换" /><figcaption aria-hidden="true">Abhishek Prakash ASCII 转换</figcaption></figure><p>如果想要彩色 ASCII 版本，可以使用 <code>-C</code> 选项：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ascii-image-converter -C path_to_image<br></code></pre></td></tr></table></figure><figure><imgsrc="https://cdn.jsdelivr.net/gh/lixuannan/img/abhishek-colored-ascii-800x429.png"alt="Abhishek 彩色 ASCII" /><figcaption aria-hidden="true">Abhishek 彩色 ASCII</figcaption></figure><p>此外，你可以一次性转换多张图片，它们会依次在终端显示 ASCII 版本。</p><p>该工具还提供了保存 ASCII 艺术的选项。在旧版本中，ASCII艺术只能保存为文本文件。而开发者 Zoraiz Hassan 在新版本中加入了 PNG格式的支持，因此现在可以直接保存为 PNG 图片：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ascii-image-converter path_to_image -s .<br></code></pre></td></tr></table></figure><p>此外，还有一些高级选项，比如自定义输出尺寸、使用更多 ASCII字符，甚至用你自己的字符集来绘制 ASCII 艺术。更多详情可以查看<ahref="https://github.com/TheZoraiz/ascii-image-converter">项目的 GitHub仓库</a>。</p><h2 id="你喜欢吗">你喜欢吗？</h2><p>你对更多的 Linux 终端 ASCII 艺术感兴趣吗？或者想在 Linux 终端玩 ASCII游戏？是的，这完全可行。</p><p>如果你喜欢在终端里折腾，这个工具会很有趣。不过，我在想，把图片转换成ASCII 艺术有什么实际用途呢？你有什么好点子吗？</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>翻译</category>
+      
+      <category>ITSFOSS</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Linux</tag>
+      
+      <tag>图片</tag>
+      
+      <tag>命令行</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Warp 终端迎来 DeepSeek 支持：全新 AI 体验</title>
     <link href="/posts/20382.html"/>
     <url>/posts/20382.html</url>
