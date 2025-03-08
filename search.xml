@@ -4,6 +4,68 @@
   
   
   <entry>
+    <title>Ubuntu 25.04 即将发布，速览新功能</title>
+    <link href="/posts/43678.html"/>
+    <url>/posts/43678.html</url>
+    
+    <content type="html"><![CDATA[<h1 id="ubuntu-25.04-即将发布速览新功能">Ubuntu 25.04即将发布，速览新功能</h1><blockquote><p>本文翻译自 <a href="https://news.itsfoss.com/ubuntu-25-04-features/"class="uri">https://news.itsfoss.com/ubuntu-25-04-features/</a></p></blockquote><h3 id="ubuntu-25.04-亮点概览">Ubuntu 25.04 亮点概览 👇</h3><ul><li>双系统启动体验优化</li><li>提供 Linux 内核 6.14 和 GNOME 48</li><li>新增“健康管理”功能，支持屏幕使用时间管理</li></ul><p><a href="https://ubuntu.com/">Ubuntu</a> 是全球最受欢迎的 Linux发行版之一，广泛应用于个人用户和企业环境，涵盖通用计算、边缘计算、物联网等多个领域。</p><p>安装 Ubuntu 的临时版本可以让你在新的 LTS版本发布前抢先体验新特性，并在正式过渡到长期支持版本前有充足的适应时间。</p><p>本文将带你了解 <strong>Ubuntu 25.04 “<em>Plucky Puffin</em>”</strong>的预期特性，提前一窥其新功能。</p><h2 id="ubuntu-25.04-发布时间表">Ubuntu 25.04 发布时间表</h2><p>本文参考了 <ahref="https://discourse.ubuntu.com/t/ubuntu-desktop-25-04-part-1-the-plucky-roadmap/49621">官方路线图</a>，但部分内容可能会有所变动。</p><table><thead><tr><th>日期</th><th>事件</th></tr></thead><tbody><tr><td>2024 年 10 月 17 日</td><td>开发启动</td></tr><tr><td>2024 年 12 月 19 日</td><td>Ubuntu 测试周</td></tr><tr><td>2025 年 2 月 20 日</td><td>功能冻结</td></tr><tr><td>2025 年 3 月 13 日</td><td>UI 冻结</td></tr><tr><td>2025 年 3 月 27 日</td><td>Beta 版发布</td></tr><tr><td>2025 年 4 月 10 日</td><td>候选版本发布</td></tr><tr><td>2025 年 4 月 17 日</td><td>最终版本发布</td></tr></tbody></table><h2 id="安装程序升级">1. 安装程序升级</h2><figure><imgsrc="https://cdn.jsdelivr.net/gh/lixuannan/img/Ubuntu_25.04_Features_a.png"alt="Ubuntu 25.04 安装界面截图" /><figcaption aria-hidden="true">Ubuntu 25.04 安装界面截图</figcaption></figure><p>为 <strong>优化双系统安装体验</strong>，Ubuntu开发团队改进了安装程序，在“<em>安装到空闲空间</em>”和“<em>擦除并替换现有Ubuntu 安装</em>”阶段提供更多关于现有操作系统的信息。</p><p>此外，磁盘加密支持也得到了改进，增强了对 <strong>Windows BitLocker加密磁盘</strong>的处理能力，即使用户的系统中存在未加密的磁盘或分区，也无需强制禁用BitLocker。</p><h2 id="linux-内核-6.14">2. Linux 内核 6.14</h2><p>按照 Canonical 在 2024 年的规划，Ubuntu 25.04 计划随 <strong>Linux内核 6.14</strong> 发布（预计 2025 年 3 月底）。</p><p>如果成功落地，用户可以期待以下改进：</p><ul><li><strong>支持 Ryzen AI NPU</strong>（神经处理单元）</li><li><strong>增强 AMDGPU DRM 处理</strong>，改进显卡崩溃恢复机制</li><li><strong>提升 Realtek 以太网控制器支持</strong></li></ul><p>如果内核开发进度出现延误，Ubuntu 可能会退回使用 <ahref="https://news.itsfoss.com/linux-kernel-6-13/">Linux6.13</a>，但最终情况仍有待观察。</p><h2 id="用户界面升级">3. 用户界面升级</h2><figure><imgsrc="https://cdn.jsdelivr.net/gh/lixuannan/img/Ubuntu_25.04_Features_c.png"alt="Ubuntu 25.04 GNOME 48" /><figcaption aria-hidden="true">Ubuntu 25.04 GNOME 48</figcaption></figure><p>Ubuntu 25.04 将采用 <strong>GNOME 48</strong>，预计于 2025 年 3 月 19日正式发布。</p><p>已知的新功能包括：</p><ul><li><strong>耳机连接时弹出 OSD（屏幕显示通知）</strong></li><li><strong>键盘背光快捷设置改进</strong>，提高可访问性</li><li><strong>改进的色彩管理系统</strong></li><li><strong>新增“健康管理”功能，支持屏幕使用时间限制</strong></li></ul><figure><imgsrc="https://cdn.jsdelivr.net/gh/lixuannan/img/Ubuntu_25.04_Features_c2.png"alt="Ubuntu 25.04 健康管理功能" /><figcaption aria-hidden="true">Ubuntu 25.04 健康管理功能</figcaption></figure><p>“<strong>健康管理（Wellbeing）</strong>” 功能类似于 Android的“数字健康”，可以设定 <strong>屏幕时间限制</strong>，提醒用户定期<strong>移动身体</strong>，避免<strong>视力疲劳</strong>，甚至在超时后将屏幕变为灰度模式。</p><h2 id="应用程序更新">4. 应用程序更新</h2><figure><imgsrc="https://cdn.jsdelivr.net/gh/lixuannan/img/Ubuntu_25.04_Features_d.png"alt="Firefox 智能卡支持" /><figcaption aria-hidden="true">Firefox 智能卡支持</figcaption></figure><p>Canonical 改进了 <strong>Firefox Snap 版对 OpenSC智能卡的支持</strong>，提升了基于 <strong>智能卡认证</strong>的兼容性。</p><p>此外，Ubuntu 25.04 <strong>很可能包含 GIMP3.0</strong>，该版本的第三个候选发布版（RC3）已被 <ahref="https://discourse.ubuntu.com/t/desktop-team-integration-squad-updates-monday-10th-february-2025/54933/2">打包到Ubuntu 和 Debian</a>。如果 GIMP 3.0 未能按时发布，Ubuntu 可能会暂时保留<strong>RC3 或较旧版本</strong>。</p><figure><imgsrc="https://cdn.jsdelivr.net/gh/lixuannan/img/Ubuntu_25.04_Features_d2.png"alt="Ubuntu 25.04 新 PDF 阅读器 Papers" /><figcaption aria-hidden="true">Ubuntu 25.04 新 PDF 阅读器Papers</figcaption></figure><p>另外，Ubuntu 可能用 <strong>Papers 取代 Evince 作为默认 PDF阅读器</strong>，但目前仍在讨论阶段。</p><p>在 <strong>GNOME Web（Epiphany）</strong> 方面，改进了<strong>视频播放支持</strong>，推荐安装<em>gstreamer1.0-plugins-bad</em> 插件，以增强媒体格式兼容性。</p><h2 id="其他变更">5. 其他变更</h2><p>其他可能的改动包括：</p><ul><li><strong>CUPS（打印系统）性能优化</strong></li><li><strong>应用中心新增“热门推荐”板块</strong></li><li><strong>支持即将发布的 NVIDIA 570 GPU 驱动</strong></li><li><strong>可能引入 Ubuntu Core Desktop 预览版</strong></li><li><strong>修复 Wayland + NVIDIA 相关问题，并进行补丁回溯</strong></li></ul><h2 id="想尝试-ubuntu-25.04">想尝试 Ubuntu 25.04？</h2><p>🚧 Ubuntu 25.04仍处于开发阶段，不建议用于主力系统。想尝鲜的用户可以在<strong>虚拟机</strong> 或 <strong>备用设备</strong> 上测试。</p><p>目前，Ubuntu 25.04 仅提供 <strong>每日构建版本</strong>，可在 <ahref="https://cdimage.ubuntu.com/daily-live/current/">官方网站</a>下载试用。</p><p>⚠<strong>请勿用于生产环境</strong>，因为它仍然存在不稳定因素，可能会出现问题。</p><p>最终正式版预计将在 <strong>2025 年 4 月 17 日发布</strong>，可关注 <ahref="https://discourse.ubuntu.com/t/plucky-puffin-release-schedule/36461">官方发布计划</a>以获取最新消息。</p><p><a href="https://cdimage.ubuntu.com/daily-live/current/">Ubuntu25.04（每日构建版）下载</a></p><p><em>💬 你会尝试安装 Ubuntu 25.04吗？欢迎在评论区分享你的想法！</em></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>翻译</category>
+      
+      <category>ITSFOSS</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Ubuntu</tag>
+      
+      <tag>2025</tag>
+      
+      <tag>功能</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>GNOME 48 Beta 来啦，看看更新了什么吧</title>
+    <link href="/posts/38003.html"/>
+    <url>/posts/38003.html</url>
+    
+    <content type="html"><![CDATA[<h1 id="gnome-48-beta-来啦看看更新了什么吧">GNOME 48 Beta来啦，看看更新了什么吧</h1><blockquote><p>本文翻译自 <ahref="https://9to5linux.com/gnome-48-beta-is-now-available-for-public-testing-with-adwaita-fonts-new-wallpaper"class="uri">https://9to5linux.com/gnome-48-beta-is-now-available-for-public-testing-with-adwaita-fonts-new-wallpaper</a></p></blockquote><p>今天，GNOME 项目宣布即将发布的 <strong>GNOME 48</strong>桌面环境系列的 Beta版本已正式上线，供公众测试，并带来了更多新功能和改进。</p><p>GNOME 48 Beta 版本引入了 Adwaita字体、新的默认壁纸、改进的屏幕时间限制支持、新的 GNOME显示控制（gdctl）工具、通过 DisplayConfig D-Bus API 配置 HDR的支持、在虚拟显示器上通过帧时钟更新光标的功能，以及不设限的屏幕时间历史记录跟踪能力。</p><p>GNOME 控制中心（设置）在 GNOME 48 Beta版中进行了更新，使搜索栏始终可以通过快捷键获取焦点，新增“单面板模式”，允许发行版以单面板模式启动设置（无侧边栏），在“显示”面板中实现了HDR设置，在“键盘”面板中新增了“重启”和“注销”媒体键快捷方式，并引入了全新的“健康”面板，支持屏幕时间管理。</p><figure><img src="https://cdn.jsdelivr.net/gh/lixuannan/img/g48b1.webp"alt="设置中的新“健康”面板，可用于屏幕时间管理" /><figcaptionaria-hidden="true">设置中的新“健康”面板，可用于屏幕时间管理</figcaption></figure><p>在 Wayland 纯环境下，GNOME 显示管理器（GDM）不再依赖<strong>Xwayland</strong>，并新增 <code>banner-message-path</code> 和<code>-source</code> 设置。</p><p>GNOME 计算器新增“转换”模式，GNOME日历现在允许为事件的开始和结束时间选择时区，并改进了“月份视图”中的天气信息显示。</p><figure><img src="https://cdn.jsdelivr.net/gh/lixuannan/img/g48b2.webp"alt="GNOME 计算器 48 Beta 版新增“转换”模式" /><figcaption aria-hidden="true">GNOME 计算器 48 Beta版新增“转换”模式</figcaption></figure><p>GNOME地图应用的用户位置标记经过重新设计，采用系统强调色，并改进了路线标记和公共交通路线行程的渲染。GNOME音乐应用新增了对 HiDPI 封面的支持，而 GNOME 远程桌面则支持基于 Vulkan 和VAAPI 的零拷贝渲染。</p><p>此外，GNOME 软件中心现在支持通过 <code>flatpak+https:</code> 链接安装<strong><ahref="https://9to5linux.com/flathub-now-has-over-one-million-active-flatpak-app-users">Flatpak</a></strong>应用，GNOME文本编辑器的搜索栏被移动到底部，<code>xdg-desktop-portal-gnome</code>添加了 USB 端口后端，而 Loupe图像查看器则支持从边缘拖动选择框，并新增了部分编辑操作的键盘快捷键。</p><figure><img src="https://cdn.jsdelivr.net/gh/lixuannan/img/g48b3.webp"alt="GNOME 文本编辑器 48 Beta 版的搜索栏被移动到底部" /><figcaption aria-hidden="true">GNOME 文本编辑器 48 Beta版的搜索栏被移动到底部</figcaption></figure><p>最后，GNOME 48 Beta 版本引入了全新的 Papers 应用，作为 GNOME桌面环境的默认文档查看器，取代了 Evince。GNOME Papers支持查看、搜索和注释多种格式的文档，包括PDF、PS、EPS、XPS、DjVu、TIFF，以及 CBR、CBT、CBZ、CB7等漫画书档案格式。</p><figure><img src="https://cdn.jsdelivr.net/gh/lixuannan/img/g48b4.webp"alt="Papers 是 GNOME 48 Beta 版中的全新默认文档查看器" /><figcaption aria-hidden="true">Papers 是 GNOME 48 Beta版中的全新默认文档查看器</figcaption></figure><p>想要了解完整的变更日志，请查看 <em><ahref="https://discourse.gnome.org/t/gnome-48-beta-released/27094">官方发布公告</a></em>。GNOME48 的最终版本预计将于 2025 年 3 月 19 日发布，而发布候选版本（RC）将在 3月初开放公众测试。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>翻译</category>
+      
+      <category>9to5linux</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>GNOME</tag>
+      
+      <tag>字体</tag>
+      
+      <tag>壁纸</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>命令行中将图片转为 ASCII 字符艺术图片</title>
     <link href="/posts/45203.html"/>
     <url>/posts/45203.html</url>
