@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Sitemap: https://lixuannan.guthub.io/sitemap.txt
 Sitemap: https://lixuannan.guthub.io/sitemap.xml
-Sitemap: https://lixuannan.github.io/sitemap-250308.xml
+Sitemap: https://lixuannan.github.io/sitemap-250300.xml
