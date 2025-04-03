@@ -4,6 +4,35 @@
   
   
   <entry>
+    <title>什么是虚拟机？能吃吗？</title>
+    <link href="/posts/49092.html"/>
+    <url>/posts/49092.html</url>
+    
+    <content type="html"><![CDATA[<h1 id="什么是虚拟机能吃吗">什么是虚拟机？能吃吗？</h1><blockquote><p>本文翻译自 <a href="https://itsfoss.com/virtual-machine/"class="uri">https://itsfoss.com/virtual-machine/</a></p></blockquote><p><strong>虚拟机（VM）是物理计算机的模拟版本，它在虚拟环境中模拟计算机功能并分配资源。</strong></p><p>简单来说，你可以在当前操作系统中运行另一个操作系统，就像运行媒体播放器或网页浏览器一样。</p><figure><imgsrc="https://cdn.jsdelivr.net/gh/lixuannan/img/windows-without-menu.png"alt="在 Manjaro Linux 中运行的 VirtualBox 里的 Windows 10" /><figcaption aria-hidden="true">在 Manjaro Linux 中运行的 VirtualBox 里的Windows 10</figcaption></figure><p>虚拟机与物理计算机（如你的笔记本或 PC）功能相似，例如：</p><ul><li>连接网络</li><li>下载软件</li><li>更新操作系统等</li></ul><p>但具体体验会与真实计算机有所不同，取决于使用场景。接下来，我们将探讨虚拟机的起源、用途及其工作原理。</p><h2 id="虚拟机的起源">虚拟机的起源</h2><p>虚拟机是软件领域的重要创新之一。最早可追溯至 <strong>1966年</strong>，当时 <strong>IBM CP-40 和 CP-67</strong>虚拟机操作系统研究了虚拟内存和资源管理的概念。</p><p>发展至 <strong>2023年</strong>，虚拟机已无处不在，从个人计算机到企业和中小型公司，几乎每个人都会在某种程度上使用虚拟机。</p><p>那么，虚拟机究竟是如何工作的？它的用途是什么？</p><p>💡 <strong>基本术语解释</strong></p><ul><li><strong>裸机（Bare Metal）</strong>：实际的物理计算机，如你的 PC或笔记本电脑</li><li><strong>宿主操作系统（HostOS）</strong>：运行在物理计算机上的操作系统</li><li><strong>客户操作系统（GuestOS）</strong>：运行在虚拟机中的操作系统</li><li><strong>虚拟机（VM）</strong>：通用术语，指用于虚拟化的应用程序</li></ul><h2 id="虚拟机的工作原理">虚拟机的工作原理</h2><figure><img src="https://cdn.jsdelivr.net/gh/lixuannan/img/vm.png"alt="虚拟机工作原理" /><figcaption aria-hidden="true">虚拟机工作原理</figcaption></figure><p><strong>虚拟化</strong> 技术是理解虚拟机工作原理的关键。</p><p><strong>虚拟化</strong>允许用户在虚拟环境中使用物理系统资源，使得不同进程可以独立运行，而不会影响物理计算机。</p><p><strong>虚拟机</strong> 便是这一概念的具体应用，它通过虚拟磁盘、虚拟RAM 及其他配置文件，为操作系统提供运行环境。</p><p>你可能已经听说过一些常见的 <strong>Linux虚拟化软件</strong>，这些软件可以帮助你创建虚拟机，例如<strong>VirtualBox</strong> 和 <strong>VMware</strong>。</p><h2 id="为什么要使用虚拟机">为什么要使用虚拟机？</h2><p>虚拟机用途广泛，适用于多个场景。例如：</p><ul><li><strong>软件测试</strong></li><li><strong>操作系统测试</strong></li><li><strong>匿名上网，提高隐私性</strong></li><li><strong>网络安全研究，防止影响物理计算机</strong></li><li><strong>作为服务器，运行多个 VM，提高硬件利用率</strong></li><li><strong>开发环境，便于迁移和克隆</strong></li><li><strong>云计算环境中的系统模拟</strong></li></ul><p>虚拟机的<strong>隔离性</strong>使其成为测试和开发的理想工具，同时也是服务器扩展的核心技术。</p><h2 id="虚拟机会占用系统资源吗">虚拟机会占用系统资源吗？</h2><p>在创建虚拟机时，你需要为其分配系统资源，包括：</p><ul><li><strong>CPU</strong>：仅在虚拟机运行时消耗 CPU 资源</li><li><strong>RAM</strong>：仅在虚拟机运行时占用内存</li><li><strong>磁盘空间</strong>：创建 VM 时即分配空间，无论 VM是否运行都会占用磁盘</li></ul><p>有些人误以为虚拟机始终占用 CPU 和 RAM，实际上，这些资源<strong>只有在VM 运行时才会被占用</strong>，但磁盘空间始终被预留。</p><h2 id="使虚拟机成为可能的虚拟化技术">使虚拟机成为可能的虚拟化技术</h2><p>虚拟化的核心在于<strong>Hypervisor（管理程序）</strong>，它管理硬件并将系统资源分配给虚拟环境，也称为<strong>虚拟机监视器（VMM）</strong>。</p><h3 id="管理程序分为两种类型"><strong>管理程序分为两种类型</strong></h3><ul><li><strong>Type 1（裸机型）</strong>：直接运行在物理机上，例如<strong>KVM</strong>（Linux 内置的虚拟化技术）</li><li><strong>Type2（托管型）</strong>：作为宿主操作系统中的应用运行，例如<strong>VirtualBox</strong></li></ul><p>此外，还有不同类型的虚拟化技术：</p><ul><li><strong>存储虚拟化</strong>：将磁盘空间划分为多个小块，以供虚拟机使用</li><li><strong>网络虚拟化</strong>：允许物理网络连接通过虚拟网络适配器连接到虚拟机</li><li><strong>桌面虚拟化</strong>：可以在多台物理计算机上部署多个虚拟桌面，并进行集中管理</li></ul><p>你可以参考 <ahref="https://aws.amazon.com/what-is/virtualization/">AWS的虚拟化技术文档</a> 了解更详细的技术细节。</p><h2 id="虚拟机的优势">虚拟机的优势</h2><ul><li><strong>高效利用硬件资源</strong>，而不会影响宿主操作系统</li><li><strong>支持测试和实验</strong>，可以随意安装、修改或破坏，而不会影响宿主系统</li><li><strong>可以同时运行多个操作系统</strong>，无需双系统或额外的物理磁盘</li><li><strong>支持克隆和迁移</strong>，无需额外的硬件即可快速复制配置</li></ul><h2 id="虚拟机的劣势">虚拟机的劣势</h2><ul><li><strong>可能占用大量系统资源</strong>，如果运行多个虚拟机，可能会影响宿主系统性能</li><li><strong>无法完全替代物理机</strong>，即使硬件强大，VM的运行速度仍不及真实计算机</li><li><strong>存在安全风险</strong>，如果与宿主系统共享文件，可能会导致恶意软件传播</li></ul><h2 id="总结">总结</h2><p>虚拟机技术极大地推动了计算机行业的发展。</p><p>如果没有虚拟机，<strong>云计算</strong>行业可能不会像今天这样蓬勃发展。你也可能需要反复安装不同的操作系统，而无法轻松切换和测试。</p><p>💬<strong>你是否使用过虚拟机？你认为它最有用的地方是什么？欢迎分享你的看法！</strong></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>翻译</category>
+      
+      <category>ITSFOSS</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>科普</tag>
+      
+      <tag>虚拟机</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Ubuntu 和 其他 Linux 发行版上的最佳浏览器</title>
     <link href="/posts/28663.html"/>
     <url>/posts/28663.html</url>
