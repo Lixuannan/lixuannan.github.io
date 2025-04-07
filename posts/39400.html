@@ -1,0 +1,1505 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" >
+
+
+
+<head><!-- hexo injector head_begin start --><!-- Google tag (gtag.js) --><script async src="https://www.googletagmanager.com/gtag/js?id=G-GTDVEB7XBQ"></script><script> window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag("js", new Date()); gtag("config", "G-GTDVEB7XBQ");</script><!-- Clarity tracking code for https://lixuannan.github.io/ --><script>    (function(c,l,a,r,i,t,y){        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i+"?ref=bwt";        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);    })(window, document, "clarity", "script", "pgrkd79lqa");</script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css"><script src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script><!-- hexo injector head_begin end -->
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/images/favicon.png">
+  <link rel="icon" href="/images/favicon.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#71C9CE">
+  <meta name="author" content="CodingCow Lee">
+  <meta name="keywords" content="python,ml,deeplearning,dl,c++,c,pytorch,noi,oi,ioi,noip,csp-j,csp-s,oier,tyoi,oiclass">
+  
+    <meta name="description" content="Kindle 电子书转 PDF 并移除 DRM 教程  本文翻译自 https:&#x2F;&#x2F;itsfoss.com&#x2F;calibre-remove-drm-kindle&#x2F;  你从 Amazon Kindle 购买了电子书，现在想在个人电脑或其他没有 Kindle 应用的设备上阅读？但由于 Kindle 电子书受到 DRM（数字版权管理）保护，它们只能在 Amazon 生态系统内阅读，例如使用 Kindle">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kindle 电子书转 PDF 并移除 DRM 教程">
+<meta property="og:url" content="https://lixuannan.github.io/posts/39400.html">
+<meta property="og:site_name" content="CodingCow&#39;s Blog">
+<meta property="og:description" content="Kindle 电子书转 PDF 并移除 DRM 教程  本文翻译自 https:&#x2F;&#x2F;itsfoss.com&#x2F;calibre-remove-drm-kindle&#x2F;  你从 Amazon Kindle 购买了电子书，现在想在个人电脑或其他没有 Kindle 应用的设备上阅读？但由于 Kindle 电子书受到 DRM（数字版权管理）保护，它们只能在 Amazon 生态系统内阅读，例如使用 Kindle">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-04-07T02:20:00.000Z">
+<meta property="article:modified_time" content="2025-04-07T05:04:37.515Z">
+<meta property="article:author" content="CodingCow Lee">
+<meta property="article:tag" content="Kindle">
+<meta property="article:tag" content="电子书">
+<meta property="article:tag" content="PDF">
+<meta property="article:tag" content="DRM">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:creator" content="@LeeCodingCow">
+<meta name="twitter:site" content="lixuannan.github.io">
+  
+  
+  
+  <title>Kindle 电子书转 PDF 并移除 DRM 教程 | CodingCow&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/reward.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"lixuannan.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":135,"cursorChar":"|","loop":false,"scope":["home"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":3},"lazyload":{"enable":false,"loading_img":"/img/loading.gif","onlypost":true,"offset_factor":2,"lazyload":true},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null},"gtag":null,"woyaola":null,"cnzz":null},"search_path":"/search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="CodingCow's Blog" type="application/atom+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>CodingCow</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>文章</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-book"></i>
+                <span>专题</span>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/categories/%E9%9B%B6%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8-OI/" target="_self">
+                    
+                    <span>零基础入门 OI</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/categories/%E6%9E%84%E5%BB%BA%E8%B6%85%E5%BC%BA-OI-%E7%B3%BB%E7%BB%9F/" target="_self">
+                    
+                    <span>构建超强 OI 系统</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/categories/%E6%B8%B8%E8%AE%B0/" target="_self">
+                    
+                    <span>游记</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/categories/%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3/" target="_self">
+                    
+                    <span>算法详解</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/categories/%E9%A2%98%E8%A7%A3/" target="_self">
+                    
+                    <span>题解</span>
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-th-large"></i>
+                <span>资源</span>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="http://codingcow.us.kg/fa9904bf-de3d-44db-bb7a-bd206036cea6" target="_self">
+                    
+                    <span>公用机场</span>
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/atom.xml" target="_self">
+                <i class="iconfont icon-rss"></i>
+                <span>RSS</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/images/banner.jpeg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle">Kindle 电子书转 PDF 并移除 DRM 教程</span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        CodingCow Lee
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-04-07 10:20" pubdate>
+          2025年4月7日 上午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          774 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          4 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar category-bar" style="margin-right: -1rem">
+    
+
+
+
+
+
+<div class="category-list">
+  
+  
+    
+    
+    
+    <div class="category row nomargin-x">
+      <a class="category-item 
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="翻译"
+        id="heading-8b3607d0f4181a3cb6ffdccf7185f09b" role="tab" data-toggle="collapse" href="#collapse-8b3607d0f4181a3cb6ffdccf7185f09b"
+        aria-expanded="true"
+      >
+        翻译
+        <span class="list-group-count">(48)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse show" id="collapse-8b3607d0f4181a3cb6ffdccf7185f09b"
+           role="tabpanel" aria-labelledby="heading-8b3607d0f4181a3cb6ffdccf7185f09b">
+        
+        
+          
+          
+  <div class="category-post-list">
+    
+    
+  </div>
+
+          
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem collapsed
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="9to5linux"
+        id="heading-784cd74617259feffa0254dbd500af90" role="tab" data-toggle="collapse" href="#collapse-784cd74617259feffa0254dbd500af90"
+        aria-expanded="false"
+      >
+        9to5linux
+        <span class="list-group-count">(1)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse " id="collapse-784cd74617259feffa0254dbd500af90"
+           role="tabpanel" aria-labelledby="heading-784cd74617259feffa0254dbd500af90">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/posts/38003.html" title="GNOME 48 Beta 来啦，看看更新了什么吧"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">GNOME 48 Beta 来啦，看看更新了什么吧</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem collapsed
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="DEBUGPOINTNEWS"
+        id="heading-73afb2609c2e7f48835b36f96b487f44" role="tab" data-toggle="collapse" href="#collapse-73afb2609c2e7f48835b36f96b487f44"
+        aria-expanded="false"
+      >
+        DEBUGPOINTNEWS
+        <span class="list-group-count">(3)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse " id="collapse-73afb2609c2e7f48835b36f96b487f44"
+           role="tabpanel" aria-labelledby="heading-73afb2609c2e7f48835b36f96b487f44">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/posts/14222.html" title="Linux 成为 Python 开发者的首选平台！"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">Linux 成为 Python 开发者的首选平台！</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/57211.html" title="Tuxedo 发布首款基于骁龙 X Elite 的 ARM 笔记本电脑"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">Tuxedo 发布首款基于骁龙 X Elite 的 ARM 笔记本电脑</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/32246.html" title="Tor 与 Tails 项目合并"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">Tor 与 Tails 项目合并</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem collapsed
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="ITFOSS"
+        id="heading-540e1222ff9cdc52b9c09d87d726aa9f" role="tab" data-toggle="collapse" href="#collapse-540e1222ff9cdc52b9c09d87d726aa9f"
+        aria-expanded="false"
+      >
+        ITFOSS
+        <span class="list-group-count">(1)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse " id="collapse-540e1222ff9cdc52b9c09d87d726aa9f"
+           role="tabpanel" aria-labelledby="heading-540e1222ff9cdc52b9c09d87d726aa9f">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/posts/28663.html" title="Ubuntu 和 其他 Linux 发行版上的最佳浏览器"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">Ubuntu 和 其他 Linux 发行版上的最佳浏览器</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem 
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="ITSFOSS"
+        id="heading-10c60e2686d42569c4db79639219bcd3" role="tab" data-toggle="collapse" href="#collapse-10c60e2686d42569c4db79639219bcd3"
+        aria-expanded="true"
+      >
+        ITSFOSS
+        <span class="list-group-count">(35)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse show" id="collapse-10c60e2686d42569c4db79639219bcd3"
+           role="tabpanel" aria-labelledby="heading-10c60e2686d42569c4db79639219bcd3">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/posts/39400.html" title="Kindle 电子书转 PDF 并移除 DRM 教程"
+           class="list-group-item list-group-item-action
+           active">
+          <span class="category-post">Kindle 电子书转 PDF 并移除 DRM 教程</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/49092.html" title="什么是虚拟机？能吃吗？"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">什么是虚拟机？能吃吗？</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/42883.html" title="Linux 剪贴板管理器推荐"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">Linux 剪贴板管理器推荐</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/43678.html" title="Ubuntu 25.04 即将发布，速览新功能"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">Ubuntu 25.04 即将发布，速览新功能</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/45203.html" title="命令行中将图片转为 ASCII 字符艺术图片"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">命令行中将图片转为 ASCII 字符艺术图片</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/20382.html" title="Warp 终端迎来 DeepSeek 支持：全新 AI 体验"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">Warp 终端迎来 DeepSeek 支持：全新 AI 体验</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/8917.html" title="如何在 Linux 本地运行 DeepSeek-R1"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">如何在 Linux 本地运行 DeepSeek-R1</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/61686.html" title="GTK 5 将移除移除 X11 和 Broadway 支持并加入 Android 后端"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">GTK 5 将移除移除 X11 和 Broadway 支持并加入 Android 后端</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/36081.html" title="11 个最佳的 Linux Markdown 编辑器"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">11 个最佳的 Linux Markdown 编辑器</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/24768.html" title="Linux 上的 Neovim 安装使用的教程"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">Linux 上的 Neovim 安装使用的教程</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/21637.html" title="在小小的树莓派中运行 70 亿参数的多模态大语言模型"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">在小小的树莓派中运行 70 亿参数的多模态大语言模型</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/61848.html" title="什么是 Linux？为什么 Linux 有这么多版本？"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">什么是 Linux？为什么 Linux 有这么多版本？</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/9740.html" title="关于 Linux &amp; Windows 双系统的辟谣"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">关于 Linux &amp; Windows 双系统的辟谣</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/40354.html" title="KleverNotes——一个 KDE 中的实用的 Markdown 笔记软件"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">KleverNotes——一个 KDE 中的实用的 Markdown 笔记软件</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/48550.html" title="如何让你的 Linux 充满圣诞气息"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">如何让你的 Linux 充满圣诞气息</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/51214.html" title="借助 Moonlight 在树莓派上畅玩 3 A 大作"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">借助 Moonlight 在树莓派上畅玩 3 A 大作</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/60226.html" title="Linux 中自动挂载 U 盘教程"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">Linux 中自动挂载 U 盘教程</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/4716.html" title="论离线更新 Fedora"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">论离线更新 Fedora</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/23176.html" title="7 个在 2024 年值得怀念的发行版"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">7 个在 2024 年值得怀念的发行版</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/34336.html" title="随心所欲的配置 Hyprland"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">随心所欲的配置 Hyprland</span>
+        </a>
+      
+    
+      
+      
+        <a href="/categories/%E7%BF%BB%E8%AF%91/ITSFOSS/" class="list-group-item list-group-item-action">
+          <span class="category-post">More...</span>
+        </a>
+        
+  </div>
+
+        
+      </div>
+    </div>
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem collapsed
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="TECMINT"
+        id="heading-fed43f001e7e3993135e43d60c3ef7db" role="tab" data-toggle="collapse" href="#collapse-fed43f001e7e3993135e43d60c3ef7db"
+        aria-expanded="false"
+      >
+        TECMINT
+        <span class="list-group-count">(1)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse " id="collapse-fed43f001e7e3993135e43d60c3ef7db"
+           role="tabpanel" aria-labelledby="heading-fed43f001e7e3993135e43d60c3ef7db">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/posts/378.html" title="Systemd 使用全解"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">Systemd 使用全解</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem collapsed
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="ZDNET"
+        id="heading-f7536e34a654c455d79133144e9077a5" role="tab" data-toggle="collapse" href="#collapse-f7536e34a654c455d79133144e9077a5"
+        aria-expanded="false"
+      >
+        ZDNET
+        <span class="list-group-count">(7)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse " id="collapse-f7536e34a654c455d79133144e9077a5"
+           role="tabpanel" aria-labelledby="heading-f7536e34a654c455d79133144e9077a5">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/posts/435.html" title="6 个比原装安卓桌面更好的桌面启动器"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">6 个比原装安卓桌面更好的桌面启动器</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/45140.html" title="为什么这个轻量级 Linux 发行版不会赢得任何用户数比赛，但对于高级用户来说却是完美的"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">为什么这个轻量级 Linux 发行版不会赢得任何用户数比赛，但对于高级用户来说却是完美的</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/19591.html" title="5 个 Linux 初学者必须学会的命令"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">5 个 Linux 初学者必须学会的命令</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/34224.html" title="没有 GUI？只用命令行（CLI）管理密码！"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">没有 GUI？只用命令行（CLI）管理密码！</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/35073.html" title="20 年！PREEMPT_RT 最终合并入 Linux 内核"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">20 年！PREEMPT_RT 最终合并入 Linux 内核</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/10358.html" title="4 个基于 GNOME 的好看的桌面环境"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">4 个基于 GNOME 的好看的桌面环境</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/1177.html" title="5 个你值得尝试的 Linux 终端"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">5 个你值得尝试的 Linux 终端</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
+        
+      </div>
+    </div>
+  
+</div>
+
+
+  </aside>
+
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="kindle-电子书转-pdf-并移除-drm-教程">Kindle 电子书转 PDF 并移除
+DRM 教程</h1>
+<blockquote>
+<p>本文翻译自 <a target="_blank" rel="noopener" href="https://itsfoss.com/calibre-remove-drm-kindle/"
+class="uri">https://itsfoss.com/calibre-remove-drm-kindle/</a></p>
+</blockquote>
+<p>你从 Amazon Kindle 购买了电子书，现在想在个人电脑或其他没有 Kindle
+应用的设备上阅读？但由于 Kindle 电子书受到
+DRM（数字版权管理）保护，它们只能在 Amazon 生态系统内阅读，例如使用
+Kindle 应用或 Kindle Cloud Reader，而无法直接导出为 PDF。</p>
+<p>不过，你可以借助开源软件 <strong>Calibre</strong> 及其插件
+<strong>DeDRM</strong>，将 Kindle 电子书转换为 PDF。以下是详细步骤。</p>
+<blockquote>
+<p>⚠ <strong>注意：</strong></p>
+<p><strong>本方法不适用于 Kindle Fire 平板。</strong></p>
+</blockquote>
+<h2 id="步骤-1安装最新版本的-calibre7.x"><strong>步骤 1：安装最新版本的
+Calibre（7.x）</strong></h2>
+<p>在 Linux 上，你可以使用以下命令安装最新的 Calibre 7.x 版本（推荐
+7.6.0）：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> -v &amp;&amp; wget -nv -O- https://download.calibre-ebook.com/linux-installer.sh | <span class="hljs-built_in">sudo</span> sh /dev/stdin<br></code></pre></td></tr></table></figure>
+<h2 id="步骤-2安装-dedrm-插件"><strong>步骤 2：安装 DeDRM
+插件</strong></h2>
+<p><strong>⚠ DeDRM_tools 插件已停止维护</strong>，但目前仍可在 Calibre
+的新旧版本中使用。如有问题，可查找 GitHub 上的最新分支。</p>
+<ol type="1">
+<li>访问 <a
+target="_blank" rel="noopener" href="https://github.com/apprenticeharper/DeDRM_tools/releases">DeDRM_tools
+的 GitHub 下载页面</a>。</li>
+<li>下载最新版本的 ZIP 文件。</li>
+</ol>
+<h2 id="步骤-3加载-dedrm-插件"><strong>步骤 3：加载 DeDRM
+插件</strong></h2>
+<ol type="1">
+<li>解压下载的 ZIP 文件（其中包含两个插件，我们需要选择
+<code>DeDRM_plugin.zip</code>）。</li>
+<li>打开 Calibre，按 <code>Ctrl + P</code> 进入
+<strong>首选项（Preferences）</strong> 。</li>
+<li>点击 <strong>插件（Plugins）</strong> → <strong>从文件加载插件（Load
+plugin from file）</strong>。</li>
+<li>选择 <code>DeDRM_plugin.zip</code> 文件并打开。</li>
+<li>可能会弹出安全警告，点击 <strong>“是”</strong> 确认安装。</li>
+<li>看到插件成功添加后，点击 <strong>“应用（Apply）”</strong>，然后重启
+Calibre 使插件生效。</li>
+</ol>
+<h2 id="步骤-4添加-kindle-设备的序列号到-dedrm-插件"><strong>步骤
+4：添加 Kindle 设备的序列号到 DeDRM 插件</strong></h2>
+<p>要移除 DRM，需要获取 Kindle 设备的 <strong>序列号（Serial
+Number）</strong>，然后输入到 DeDRM 插件中。</p>
+<h3 id="获取-kindle-序列号">获取 Kindle 序列号</h3>
+<ol type="1">
+<li>访问 <a target="_blank" rel="noopener" href="https://www.amazon.com/">Amazon 账户</a> 并点击
+<strong>账户与列表（Account &amp; Lists）</strong>。</li>
+<li>找到 <strong>设备（Devices）</strong> 选项。</li>
+<li>选择你的 Kindle 设备，点击设备名称查看详细信息。</li>
+<li>复制 Kindle <strong>序列号</strong>。</li>
+</ol>
+<h3 id="添加到-dedrm-插件">添加到 DeDRM 插件</h3>
+<ol type="1">
+<li>在 Calibre 中，依次打开 <strong>首选项（Preferences）</strong> →
+<strong>插件（Plugins）</strong> → <strong>文件类型（File
+Type）</strong>。</li>
+<li>双击 <code>DeDRM</code> 插件，点击 <strong>eInk Kindle
+ebooks</strong>。</li>
+<li>点击 <strong>➕</strong> 按钮，输入 Kindle 序列号并保存。</li>
+</ol>
+<h2 id="步骤-5下载-kindle-电子书"><strong>步骤 5：下载 Kindle
+电子书</strong></h2>
+<ol type="1">
+<li>进入 <strong>Amazon 账户</strong> → <strong>内容库（Content
+Library）</strong>。</li>
+<li>找到已购买的 Kindle 电子书，点击 <strong>更多操作（More
+actions）</strong> → <strong>下载并通过 USB 传输（Download &amp;
+transfer via USB）</strong>。</li>
+<li>选择与你的 Kindle 设备匹配的选项后，点击
+<strong>下载</strong>。</li>
+</ol>
+<h2 id="步骤-6将-kindle-电子书转换为-pdf"><strong>步骤 6：将 Kindle
+电子书转换为 PDF</strong></h2>
+<ol type="1">
+<li>在 Calibre 中点击 <strong>添加书籍（Add
+books）</strong>，选择刚下载的电子书文件。</li>
+<li>选中书籍，点击 <strong>转换书籍（Convert books）</strong>。</li>
+<li>在 <strong>输出格式（Output format）</strong> 中选择
+<strong>PDF</strong>，然后点击 <strong>确定（OK）</strong>。</li>
+<li>等待转换完成后，在书籍列表中右键点击 <strong>PDF 版本</strong>，选择
+<strong>保存到磁盘（Save to disk）</strong>。</li>
+</ol>
+<h2 id="常见问题"><strong>常见问题</strong></h2>
+<p>如果转换失败，并提示 DRM 保护仍然存在，可以尝试使用旧版本的 Calibre
+和 DeDRM 工具：</p>
+<ul>
+<li><p>安装 <strong>Calibre 4.23</strong>：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> -v &amp;&amp; <span class="hljs-built_in">sudo</span> calibre-uninstall &amp;&amp; wget -nv -O- https://download.calibre-ebook.com/linux-installer.sh | <span class="hljs-built_in">sudo</span> sh /dev/stdin version=4.23.0<br></code></pre></td></tr></table></figure></li>
+<li><p>下载 <strong>DeDRM 6.8.1</strong>：<a
+target="_blank" rel="noopener" href="https://github.com/apprenticeharper/DeDRM_tools/releases/tag/v6.8.1">GitHub
+下载链接</a></p></li>
+</ul>
+<p>如果仍有问题，可尝试最新的 DeDRM 分支，或在 GitHub
+相关论坛寻求帮助。</p>
+<p>你现在可以自由地在任何设备上阅读你的 Kindle 电子书了！📖💻</p>
+
+                
+                <!-- Share -->
+                <div class="social-share" data-disabled="google,diandian,tencent,linkedin,douban" style="float: right;">
+                  <span>喜欢这篇文章？分享给你的朋友吧（￣︶￣）↗ </span>
+                </div>
+              </div>
+
+            
+            <!-- 添加打赏模块 -->
+            <div class="reward-container">
+              
+                <button id="rewardBtn" class="reward-btn">
+                   
+                    ❤ 打赏
+                  	
+                </button>
+                <p class="tea" id="askRewardText">“觉得不错的话，给点打赏吧 (✿◕‿◕✿)”</p>
+                <div id="rewardImgContainer" class="reward-img-container">
+                  <div class="singleImgContainer">
+                      <img id="wechatImg" class="reward-img" onerror="this.src='/images/onerror.png'" src="/images/wechatpay.png" alt="微信二维码">
+                      <p class="wechatPay">微信支付</p>
+                  </div>
+                  <div class="singleImgContainer">
+                      <img id="alipayImg" class="reward-img" onerror="this.src='/images/onerror.png'" src="/images/alipay.png" alt="支付宝二维码">
+                      <p class="aliPay">支付宝支付 (暂不支持)</p>
+                  </div>
+                </div>
+              
+            </div>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%BF%BB%E8%AF%91/" class="category-chain-item">翻译</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BF%BB%E8%AF%91/ITSFOSS/" class="category-chain-item">ITSFOSS</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Kindle/" class="print-no-link">#Kindle</a>
+      
+        <a href="/tags/%E7%94%B5%E5%AD%90%E4%B9%A6/" class="print-no-link">#电子书</a>
+      
+        <a href="/tags/PDF/" class="print-no-link">#PDF</a>
+      
+        <a href="/tags/DRM/" class="print-no-link">#DRM</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Kindle 电子书转 PDF 并移除 DRM 教程</div>
+      <script>
+        function copyPostLink(link) {
+          const ClipBoard=navigator.clipboard;
+          ClipBoard.writeText(link);
+        }
+      </script>
+      <div class="hint--top hint--rounded" aria-label="单击复制链接🔗" onclick="copyPostLink(this.innerText)">https://lixuannan.github.io/posts/39400.html</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>CodingCow Lee</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年4月7日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
+                    <i class="iconfont icon-cc-nc"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
+                    <i class="iconfont icon-cc-sa"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/posts/49092.html" title="什么是虚拟机？能吃吗？">
+                        <span class="hidden-mobile">什么是虚拟机？能吃吗？</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments">
+      
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#comments', function() {
+      var light = 'github-light';
+      var dark = 'github-dark';
+      var schema = document.documentElement.getAttribute('data-user-color-scheme');
+      if (schema === 'dark') {
+        schema = dark;
+      } else {
+        schema = light;
+      }
+      window.UtterancesThemeLight = light;
+      window.UtterancesThemeDark = dark;
+      var s = document.createElement('script');
+      s.setAttribute('src', 'https://utteranc.es/client.js');
+      s.setAttribute('repo', 'Lixuannan/blog_comments');
+      s.setAttribute('issue-term', 'pathname');
+      
+      s.setAttribute('label', 'comments');
+      
+      s.setAttribute('theme', schema);
+      s.setAttribute('crossorigin', 'anonymous');
+      document.getElementById('comments').appendChild(s);
+    })
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <div> <div style="font-size: 8px;" class="about-icons">
+
+
+
+<a href="https://www.facebook.com/profile.php?id=61562077891298" class=" hint--bottom hint--rounded" aria-label="Facebook" target="_blank"> <i class="iconfont icon-facebook-fill" aria-hidden="true"></i>
+</a>
+
+
+
+<a href="https://x.com/Codingcowlee" class=" hint--bottom hint--rounded" aria-label="Twitter (X)" target="_blank"> <i class="iconfont icon-twitter-fill" aria-hidden="true"></i>
+</a>
+
+
+
+<a href="https://github.com/lixuannan" class=" hint--bottom hint--rounded" aria-label="GitHub" target="_blank"> <i class="iconfont icon-github-fill" aria-hidden="true"></i>
+</a>
+
+
+
+<a href="https://www.youtube.com/@Codingcowlee" class=" hint--bottom hint--rounded" aria-label="YouTube" target="_blank"> <i class="iconfont icon-youtube-fill" aria-hidden="true"></i>
+</a>
+
+
+
+<a href="https://space.bilibili.com/1437985467/" class=" hint--bottom hint--rounded" aria-label="BiliBili" target="_blank"> <i class="iconfont icon-bilibili-fill" aria-hidden="true"></i>
+</a>
+</div> <span style="font-size: 13px;">© 2025 Lee CodingCow</span> </div> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+
+
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+  
+<script src="/js/reward.js"></script>
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
