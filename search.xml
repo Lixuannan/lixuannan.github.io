@@ -4,6 +4,37 @@
   
   
   <entry>
+    <title>Unix 诞生记</title>
+    <link href="/posts/10161.html"/>
+    <url>/posts/10161.html</url>
+    
+    <content type="html"><![CDATA[<h1 id="unix-诞生记">Unix 诞生记</h1><blockquote><p>本文翻译自 <a href="https://itsfoss.com/birth-of-unix/"class="uri">https://itsfoss.com/birth-of-unix/</a></p></blockquote><p>对许多使用 Linux 或 BSD 超过十年的用户来说，Unix仿佛早已存在了一个世纪。</p><p>Unix 的理念为 Linux 奠定了基础，并且也是 macOS 的支柱。现代版本的Unix（如 FreeBSD）被广泛部署在数以千计的服务器上，而 Linux则主宰着服务器市场和超级计算机领域。</p><p>虽然 Unix 的最初形态已成为历史，但它依旧是推动 Linux乃至更多技术诞生的重要基石。</p><p>不过，Unix 的诞生之路并不平坦，最初的开发甚至是秘密进行的。</p><h2 id="穿孔卡与-multics">穿孔卡与 Multics</h2><figure><imgsrc="https://cdn.jsdelivr.net/gh/lixuannan/img/1024px-This_is_a_card_puncher-_an_integral_part_of_the_tabulation_system_used_by_the_United_States_Census_Bureau_to_compile..._-_NARA_-_513295.jpg"alt="穿孔卡" /><figcaption aria-hidden="true">穿孔卡</figcaption></figure><p>在计算机还占满整个房间的年代，人们主要通过穿孔卡片与计算机交互。当时的计算机并没有操作系统，而是内置某种编程语言。若要运行程序，就需使用穿孔设备将程序和数据输入一组卡片中。</p><p>据 Unix 共同创始人之一 <ahref="https://en.wikipedia.org/wiki/Brian_Kernighan">Brian Kernighan</a>在一次<ahref="https://corecursive.com/brian-kernighan-unix-bell-labs1/">采访</a>中所说：“如果你有一个1000 行的程序，那你就需要 1000张卡。没有屏幕，没有交互输出。你把卡交给计算机操作员，然后等待程序结果的打印输出。”</p><figure><imgsrc="https://cdn.jsdelivr.net/gh/lixuannan/img/1024px-Keypunch_operator_1950_census_IBM_016.jpg"alt="穿孔卡" /><figcaption aria-hidden="true">穿孔卡</figcaption></figure><p>那时所有文本输出都为大写。Kernighan自己写了一个程序来排版他的论文。“我的论文就是三箱穿孔卡，每箱大约有 6000张卡片，大概重 10 到 12 磅（约 5 公斤）。第一箱前半部分是程序，其余的5000张卡是论文内容。你把这三箱卡交给操作员，一两个小时后，拿回来的就是一份打印好的论文。”</p><p>可以想象，现在写论文是不是轻松多了？</p><p>1950年代末期，AT&amp;T、麻省理工学院和通用电气联合发起了一个划时代的项目，旨在推动计算机从穿孔卡进入新纪元。</p><p>这个项目名为 <ahref="https://en.wikipedia.org/wiki/Multics">Multics</a>，即“多路信息与计算服务系统”。根据<a href="https://www.multicians.org/history.html">这篇论文</a>，Multics的目标包括：</p><ul><li>提供便捷的远程终端访问<br /></li><li>类似电力或电话服务的持续运行能力<br /></li><li>支持系统配置灵活变更，且无需重构程序<br /></li><li>内部文件系统具有高可靠性<br /></li><li>支持信息的有选择共享<br /></li><li>具有层级结构以便于管理和用户自治<br /></li><li>能满足各种应用场景<br /></li><li>支持多种编程环境与用户接口<br /></li><li>随技术与用户需求不断进化的能力</li></ul><figure><img src="https://cdn.jsdelivr.net/gh/lixuannan/img/Multics-Login.png"alt="Multics" /><figcaption aria-hidden="true">Multics</figcaption></figure><p>Multics是一个“分时系统”，用户可通过终端登录使用计算机，而不再依赖穿孔卡。这种模式打破了“祭司阶层”对计算资源的垄断（StevenLevy 在其著作 <ahref="https://www.amazon.in/Hackers-Steven-Levy/dp/1449388396"><em>黑客</em></a>中曾提出此概念），让懂技术的人都能接触到计算资源。</p><p>这个项目雄心勃勃，但理想很丰满，现实很骨感。由于进展缓慢，贝尔实验室于1969 年退出项目。他们原本是为了获取一个分时操作系统而加入的。</p><p>尽管 Multics 没有成功，但从中吸取的教训最终促成了 Unix 的诞生。</p><h2 id="飞向太空">飞向太空</h2><figure><img src="https://cdn.jsdelivr.net/gh/lixuannan/img/ge645-paris.jpg"alt="一支团队正在巴黎安装 GE 645 主机 图片来源：Multicians" /><figcaption aria-hidden="true">一支团队正在巴黎安装 GE 645 主机图片来源：Multicians</figcaption></figure><p>参与 Multics 的贝尔实验室工程师（包括 Ken Thompson 和 DennisRitchie）手头虽然没有操作系统了，但灵感满满。在退出 Multics项目前，他们曾在 <a href="https://en.wikipedia.org/wiki/GE_645">GE-645主机</a> 上写了一部分系统。</p><p>项目解散后，他们申请购买一台小型计算机以继续开发，却被拒绝。他们转而秘密开展工作，讨论系统架构并草拟设计。</p><p>其间，Thompson 编写了一款名为 <strong>Space Travel</strong>的游戏，这款游戏<ahref="https://spectrum.ieee.org/the-strange-birth-and-long-life-of-unix">模拟</a>了太阳系的主要天体和一艘能绕行它们的飞船。</p><p>然而，这个游戏在主机上运行成本高昂——一次游戏需花费 75美元。于是他另觅便宜设备，发现有一台项目遗留的 <ahref="https://en.wikipedia.org/wiki/PDP-7">PDP-7</a>，便将游戏移植到该平台上。</p><figure><img src="https://cdn.jsdelivr.net/gh/lixuannan/img/pd7.jpeg"alt="PDP-7 图片来源：Wikipedia" /><figcaption aria-hidden="true">PDP-7 图片来源：Wikipedia</figcaption></figure><p>1969 年夏，Thompson的妻子带着新生儿回娘家探亲，他借机利用空闲时间和新学到的编程知识，开始为PDP-7 编写一个全新的操作系统。由于这是 Multics的“精简版”，他为其取名“Un-multiplexed Information and ComputingService”，简称 <strong>Unics</strong>，后演变为<strong>Unix</strong>。</p><p>越来越多的贝尔实验室员工加入了项目。然而 PDP-7的硬件局限性很快显现，他们急需一台更新的计算机。</p><p>他们想到一个妙计：当时实验室需处理大量专利申请，而专利局对排版格式有严格要求，市面上尚无合适的软件工具。Unix团队提议开发一套专利文档编辑软件，运行在一台全新的 <ahref="https://en.wikipedia.org/wiki/PDP-11">PDP-11</a>上，并承诺比商业软件更早完成。</p><p>他们隐瞒了要开发操作系统的事实。1970 年 5 月，管理层同意了建议并订购PDP-11。计算机很快到货，但硬盘却拖了六个月才到。</p><figure><img src="https://cdn.jsdelivr.net/gh/lixuannan/img/PDP-11-70.JPG"alt="PDP-11" /><figcaption aria-hidden="true">PDP-11</figcaption></figure><p>在等待硬盘期间，团队继续在 PDP-7 上开发 Unix，这成为 Unix的最初平台。待 PDP-11就绪后，他们将系统移植过来，最终顺利交付了专利文档软件，反响极佳。管理层大受鼓舞，又购入一台PDP-11 专供 Unix 团队使用。</p><h2 id="扩展与法律限制">扩展与法律限制</h2><figure><img src="https://cdn.jsdelivr.net/gh/lixuannan/img/unix-manual.jpg"alt="Unix 程序员手册 图片来源：Amazon" /><figcaption aria-hidden="true">Unix 程序员手册图片来源：Amazon</figcaption></figure><p>有了更强大的设备，Unix 开发提速。1971年，团队发布了第一本官方手册：<ahref="https://man.cat-v.org/unix-1st/">《UNIX 程序员手册》</a>。1973年，他们在计算机协会（ACM）年会上正式发布论文介绍Unix，引发了外界的强烈关注与大量请求。</p><p>然而新的问题也随之而来：AT&amp;T（贝尔实验室的母公司）由于 1956年与美国政府签署的反垄断协议，<strong>被禁止销售与电话业务无关的产品</strong>。</p><p>解决方案是：<strong>以授权形式公开 Unix源码，仅收取象征性费用</strong>。</p><p>同时，AT&amp;T 也不得提供技术支持。因此，Unix的发布本质上是“裸代码”，用户需自力更生。这也催生了最早的用户社群，以互帮互助为主。</p><h2 id="c-语言unix-的催化剂">C 语言：Unix 的催化剂</h2><p>Unix 的演化离不开 Dennis Ritchie 在贝尔实验室开发的 C语言，它不仅促进了 Unix 的后续版本，也间接促成了 BSD 和 Linux的诞生。</p><p>而如今，我们拥有无数编程语言、操作系统，以及各种 Linux、BSD 与类 Unix系统。Unix 的影响，早已深入整个科技世界。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>翻译</category>
+      
+      <category>ITSFOSS</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>科普</tag>
+      
+      <tag>unix</tag>
+      
+      <tag>历史</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Kindle 电子书转 PDF 并移除 DRM 教程</title>
     <link href="/posts/39400.html"/>
     <url>/posts/39400.html</url>
