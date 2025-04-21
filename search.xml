@@ -547,9 +547,9 @@
     
     <tags>
       
-      <tag>Linux</tag>
-      
       <tag>Ubuntu</tag>
+      
+      <tag>Linux</tag>
       
       <tag>VIM</tag>
       
@@ -998,9 +998,9 @@
     
     <tags>
       
-      <tag>Hyprland</tag>
-      
       <tag>Wayland</tag>
+      
+      <tag>Hyprland</tag>
       
       <tag>配置</tag>
       
@@ -1029,9 +1029,9 @@
     
     <tags>
       
-      <tag>Hyprland</tag>
-      
       <tag>Wayland</tag>
+      
+      <tag>Hyprland</tag>
       
       <tag>Waybar</tag>
       
@@ -1060,9 +1060,9 @@
     
     <tags>
       
-      <tag>Wayland</tag>
-      
       <tag>窗口管理器</tag>
+      
+      <tag>Wayland</tag>
       
     </tags>
     
@@ -1633,11 +1633,11 @@
     
     <tags>
       
-      <tag>翻译</tag>
-      
       <tag>Ubuntu</tag>
       
       <tag>发布</tag>
+      
+      <tag>翻译</tag>
       
     </tags>
     
@@ -1664,11 +1664,11 @@
     
     <tags>
       
+      <tag>翻译</tag>
+      
       <tag>Linux</tag>
       
       <tag>终端</tag>
-      
-      <tag>翻译</tag>
       
     </tags>
     
