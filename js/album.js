@@ -81,7 +81,7 @@ window.onload = () => {
   };
 
   $.getJSON('/album.json', function (data) {
-    imgInfo = data;
+    imgInfo = data.sort(() => Math.random() - 0.5);
     resize();
   });
 
