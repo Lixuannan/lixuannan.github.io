@@ -1,0 +1,1845 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" >
+
+
+
+<head><!-- hexo injector head_begin start --><!-- Google tag (gtag.js) --><script async src="https://www.googletagmanager.com/gtag/js?id=G-GTDVEB7XBQ"></script><script> window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag("js", new Date()); gtag("config", "G-GTDVEB7XBQ");</script><!-- Clarity tracking code for https://lixuannan.github.io/ --><script>    (function(c,l,a,r,i,t,y){        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i+"?ref=bwt";        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);    })(window, document, "clarity", "script", "pgrkd79lqa");</script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css"><script src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script><!-- hexo injector head_begin end -->
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/images/favicon.png">
+  <link rel="icon" href="/images/favicon.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#71C9CE">
+  <meta name="author" content="CodingCow Lee">
+  <meta name="keywords" content="摄影,信息学,Photograph,python,ml,deeplearning,dl,c++,c,pytorch,noi,oi,ioi,noip,csp-j,csp-s,oier,tyoi,oiclass">
+  
+    <meta name="description" content="如何安装带有 BTRFS 和磁盘加密的 Arch Linux  本文翻译自 https:&#x2F;&#x2F;itsfoss.com&#x2F;arch-linux-install-encrypted-btrfs&#x2F;  我将使用官方的 archinstall 脚本。虽然是命令行工具，但这个引导式安装器能让即使是中等水平的用户也能体验 Arch Linux 的“强大”。 🚧 本教程介绍的方法会清除你电脑上现有的操作系统并安装">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何安装带有 BTRFS 和磁盘加密的 Arch Linux">
+<meta property="og:url" content="https://lixuannan.github.io/posts/5793.html">
+<meta property="og:site_name" content="CodingCow&#39;s Site">
+<meta property="og:description" content="如何安装带有 BTRFS 和磁盘加密的 Arch Linux  本文翻译自 https:&#x2F;&#x2F;itsfoss.com&#x2F;arch-linux-install-encrypted-btrfs&#x2F;  我将使用官方的 archinstall 脚本。虽然是命令行工具，但这个引导式安装器能让即使是中等水平的用户也能体验 Arch Linux 的“强大”。 🚧 本教程介绍的方法会清除你电脑上现有的操作系统并安装">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lixuannan/img/boot-screen.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lixuannan/img/list-devices.jpg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lixuannan/img/use-compression.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lixuannan/img/select-pipewire.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lixuannan/img/shutdown-now.png">
+<meta property="article:published_time" content="2025-04-22T17:22:00.000Z">
+<meta property="article:modified_time" content="2025-04-23T05:28:51.983Z">
+<meta property="article:author" content="CodingCow Lee">
+<meta property="article:tag" content="Arch Linux">
+<meta property="article:tag" content="BTRFS">
+<meta property="article:tag" content="磁盘加密">
+<meta property="article:tag" content="教程">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/lixuannan/img/boot-screen.png">
+<meta name="twitter:creator" content="@LeeCodingCow">
+<meta name="twitter:site" content="lixuannan.github.io">
+  
+  
+  
+  <title>如何安装带有 BTRFS 和磁盘加密的 Arch Linux | CodingCow&#39;s Site</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/reward.css">
+<link rel="stylesheet" href="/css/album.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"lixuannan.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":135,"cursorChar":"|","loop":false,"scope":["home"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":3},"lazyload":{"enable":false,"loading_img":"/img/loading.gif","onlypost":true,"offset_factor":2,"lazyload":true},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null},"gtag":null,"woyaola":null,"cnzz":null},"search_path":"/search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="CodingCow's Site" type="application/atom+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>CodingCow</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>文章</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/album/" target="_self">
+                <i class="iconfont icon-image"></i>
+                <span>相册</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-book"></i>
+                <span>专题</span>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/categories/%E9%9B%B6%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8-OI/" target="_self">
+                    
+                    <span>零基础入门 OI</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/categories/%E6%9E%84%E5%BB%BA%E8%B6%85%E5%BC%BA-OI-%E7%B3%BB%E7%BB%9F/" target="_self">
+                    
+                    <span>构建超强 OI 系统</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/categories/%E6%B8%B8%E8%AE%B0/" target="_self">
+                    
+                    <span>游记</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/categories/%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3/" target="_self">
+                    
+                    <span>算法详解</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/categories/%E9%A2%98%E8%A7%A3/" target="_self">
+                    
+                    <span>题解</span>
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/atom.xml" target="_self">
+                <i class="iconfont icon-rss"></i>
+                <span>RSS</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/images/banner.jpeg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle">如何安装带有 BTRFS 和磁盘加密的 Arch Linux</span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        CodingCow Lee
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-04-23 01:22" pubdate>
+          2025年4月23日 凌晨
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          2.4k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          10 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar category-bar" style="margin-right: -1rem">
+    
+
+
+
+
+
+<div class="category-list">
+  
+  
+    
+    
+    
+    <div class="category row nomargin-x">
+      <a class="category-item 
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="翻译"
+        id="heading-8b3607d0f4181a3cb6ffdccf7185f09b" role="tab" data-toggle="collapse" href="#collapse-8b3607d0f4181a3cb6ffdccf7185f09b"
+        aria-expanded="true"
+      >
+        翻译
+        <span class="list-group-count">(51)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse show" id="collapse-8b3607d0f4181a3cb6ffdccf7185f09b"
+           role="tabpanel" aria-labelledby="heading-8b3607d0f4181a3cb6ffdccf7185f09b">
+        
+        
+          
+          
+  <div class="category-post-list">
+    
+    
+  </div>
+
+          
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem collapsed
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="9to5linux"
+        id="heading-784cd74617259feffa0254dbd500af90" role="tab" data-toggle="collapse" href="#collapse-784cd74617259feffa0254dbd500af90"
+        aria-expanded="false"
+      >
+        9to5linux
+        <span class="list-group-count">(1)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse " id="collapse-784cd74617259feffa0254dbd500af90"
+           role="tabpanel" aria-labelledby="heading-784cd74617259feffa0254dbd500af90">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/posts/38003.html" title="GNOME 48 Beta 来啦，看看更新了什么吧"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">GNOME 48 Beta 来啦，看看更新了什么吧</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem collapsed
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="DEBUGPOINTNEWS"
+        id="heading-73afb2609c2e7f48835b36f96b487f44" role="tab" data-toggle="collapse" href="#collapse-73afb2609c2e7f48835b36f96b487f44"
+        aria-expanded="false"
+      >
+        DEBUGPOINTNEWS
+        <span class="list-group-count">(3)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse " id="collapse-73afb2609c2e7f48835b36f96b487f44"
+           role="tabpanel" aria-labelledby="heading-73afb2609c2e7f48835b36f96b487f44">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/posts/14222.html" title="Linux 成为 Python 开发者的首选平台！"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">Linux 成为 Python 开发者的首选平台！</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/57211.html" title="Tuxedo 发布首款基于骁龙 X Elite 的 ARM 笔记本电脑"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">Tuxedo 发布首款基于骁龙 X Elite 的 ARM 笔记本电脑</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/32246.html" title="Tor 与 Tails 项目合并"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">Tor 与 Tails 项目合并</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem collapsed
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="ITFOSS"
+        id="heading-540e1222ff9cdc52b9c09d87d726aa9f" role="tab" data-toggle="collapse" href="#collapse-540e1222ff9cdc52b9c09d87d726aa9f"
+        aria-expanded="false"
+      >
+        ITFOSS
+        <span class="list-group-count">(1)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse " id="collapse-540e1222ff9cdc52b9c09d87d726aa9f"
+           role="tabpanel" aria-labelledby="heading-540e1222ff9cdc52b9c09d87d726aa9f">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/posts/28663.html" title="Ubuntu 和 其他 Linux 发行版上的最佳浏览器"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">Ubuntu 和 其他 Linux 发行版上的最佳浏览器</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem 
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="ITSFOSS"
+        id="heading-10c60e2686d42569c4db79639219bcd3" role="tab" data-toggle="collapse" href="#collapse-10c60e2686d42569c4db79639219bcd3"
+        aria-expanded="true"
+      >
+        ITSFOSS
+        <span class="list-group-count">(38)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse show" id="collapse-10c60e2686d42569c4db79639219bcd3"
+           role="tabpanel" aria-labelledby="heading-10c60e2686d42569c4db79639219bcd3">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/posts/5793.html" title="如何安装带有 BTRFS 和磁盘加密的 Arch Linux"
+           class="list-group-item list-group-item-action
+           active">
+          <span class="category-post">如何安装带有 BTRFS 和磁盘加密的 Arch Linux</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/10161.html" title="Unix 诞生记"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">Unix 诞生记</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/39400.html" title="Kindle 电子书转 PDF 并移除 DRM 教程"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">Kindle 电子书转 PDF 并移除 DRM 教程</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/49092.html" title="什么是虚拟机？能吃吗？"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">什么是虚拟机？能吃吗？</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/15962.html" title="什么？在 PDF 中运行 Linux，还能在浏览器中运行？"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">什么？在 PDF 中运行 Linux，还能在浏览器中运行？</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/42883.html" title="Linux 剪贴板管理器推荐"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">Linux 剪贴板管理器推荐</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/43678.html" title="Ubuntu 25.04 即将发布，速览新功能"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">Ubuntu 25.04 即将发布，速览新功能</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/45203.html" title="命令行中将图片转为 ASCII 字符艺术图片"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">命令行中将图片转为 ASCII 字符艺术图片</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/20382.html" title="Warp 终端迎来 DeepSeek 支持：全新 AI 体验"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">Warp 终端迎来 DeepSeek 支持：全新 AI 体验</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/8917.html" title="如何在 Linux 本地运行 DeepSeek-R1"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">如何在 Linux 本地运行 DeepSeek-R1</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/61686.html" title="GTK 5 将移除移除 X11 和 Broadway 支持并加入 Android 后端"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">GTK 5 将移除移除 X11 和 Broadway 支持并加入 Android 后端</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/36081.html" title="11 个最佳的 Linux Markdown 编辑器"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">11 个最佳的 Linux Markdown 编辑器</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/24768.html" title="Linux 上的 Neovim 安装使用的教程"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">Linux 上的 Neovim 安装使用的教程</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/21637.html" title="在小小的树莓派中运行 70 亿参数的多模态大语言模型"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">在小小的树莓派中运行 70 亿参数的多模态大语言模型</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/61848.html" title="什么是 Linux？为什么 Linux 有这么多版本？"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">什么是 Linux？为什么 Linux 有这么多版本？</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/9740.html" title="关于 Linux &amp; Windows 双系统的辟谣"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">关于 Linux &amp; Windows 双系统的辟谣</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/40354.html" title="KleverNotes——一个 KDE 中的实用的 Markdown 笔记软件"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">KleverNotes——一个 KDE 中的实用的 Markdown 笔记软件</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/48550.html" title="如何让你的 Linux 充满圣诞气息"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">如何让你的 Linux 充满圣诞气息</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/51214.html" title="借助 Moonlight 在树莓派上畅玩 3 A 大作"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">借助 Moonlight 在树莓派上畅玩 3 A 大作</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/60226.html" title="Linux 中自动挂载 U 盘教程"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">Linux 中自动挂载 U 盘教程</span>
+        </a>
+      
+    
+      
+      
+        <a href="/categories/%E7%BF%BB%E8%AF%91/ITSFOSS/" class="list-group-item list-group-item-action">
+          <span class="category-post">More...</span>
+        </a>
+        
+  </div>
+
+        
+      </div>
+    </div>
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem collapsed
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="TECMINT"
+        id="heading-fed43f001e7e3993135e43d60c3ef7db" role="tab" data-toggle="collapse" href="#collapse-fed43f001e7e3993135e43d60c3ef7db"
+        aria-expanded="false"
+      >
+        TECMINT
+        <span class="list-group-count">(1)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse " id="collapse-fed43f001e7e3993135e43d60c3ef7db"
+           role="tabpanel" aria-labelledby="heading-fed43f001e7e3993135e43d60c3ef7db">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/posts/378.html" title="Systemd 使用全解"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">Systemd 使用全解</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem collapsed
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="ZDNET"
+        id="heading-f7536e34a654c455d79133144e9077a5" role="tab" data-toggle="collapse" href="#collapse-f7536e34a654c455d79133144e9077a5"
+        aria-expanded="false"
+      >
+        ZDNET
+        <span class="list-group-count">(7)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse " id="collapse-f7536e34a654c455d79133144e9077a5"
+           role="tabpanel" aria-labelledby="heading-f7536e34a654c455d79133144e9077a5">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/posts/435.html" title="6 个比原装安卓桌面更好的桌面启动器"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">6 个比原装安卓桌面更好的桌面启动器</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/45140.html" title="为什么这个轻量级 Linux 发行版不会赢得任何用户数比赛，但对于高级用户来说却是完美的"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">为什么这个轻量级 Linux 发行版不会赢得任何用户数比赛，但对于高级用户来说却是完美的</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/19591.html" title="5 个 Linux 初学者必须学会的命令"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">5 个 Linux 初学者必须学会的命令</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/34224.html" title="没有 GUI？只用命令行（CLI）管理密码！"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">没有 GUI？只用命令行（CLI）管理密码！</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/35073.html" title="20 年！PREEMPT_RT 最终合并入 Linux 内核"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">20 年！PREEMPT_RT 最终合并入 Linux 内核</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/10358.html" title="4 个基于 GNOME 的好看的桌面环境"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">4 个基于 GNOME 的好看的桌面环境</span>
+        </a>
+      
+    
+      
+      
+        <a href="/posts/1177.html" title="5 个你值得尝试的 Linux 终端"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">5 个你值得尝试的 Linux 终端</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
+        
+      </div>
+    </div>
+  
+</div>
+
+
+  </aside>
+
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="如何安装带有-btrfs-和磁盘加密的-arch-linux">如何安装带有 BTRFS
+和磁盘加密的 Arch Linux</h1>
+<blockquote>
+<p>本文翻译自 <a
+target="_blank" rel="noopener" href="https://itsfoss.com/arch-linux-install-encrypted-btrfs/"
+class="uri">https://itsfoss.com/arch-linux-install-encrypted-btrfs/</a></p>
+</blockquote>
+<p>我将使用官方的 archinstall
+脚本。虽然是命令行工具，但这个引导式安装器能让即使是中等水平的用户也能体验
+Arch Linux 的“强大”。</p>
+<p>🚧
+本教程介绍的方法<strong>会清除你电脑上现有的操作系统</strong>并安装 Arch
+Linux。因此，如果你打算按照本教程操作，请务必提前备份你的数据，否则将全部丢失。造成的数据丢失本网站概不负责。</p>
+<h2 id="准备工作">准备工作</h2>
+<p>建议你准备如下内容：</p>
+<ul>
+<li>一台兼容 x86_64 架构（即 64 位）的电脑</li>
+<li>至少 2 GB 内存（推荐 4-8
+GB，取决于你选择的桌面环境或窗口管理器）</li>
+<li>至少 10 GB 可用磁盘空间（建议 20
+GB，适用于带桌面环境的基本使用）</li>
+<li>有效的网络连接</li>
+<li>一个容量至少 4 GB 的 U 盘</li>
+<li>熟悉 Linux 命令行操作</li>
+</ul>
+<p>确认以上都具备后，我们开始安装 Arch Linux 吧。</p>
+<h2 id="下载-arch-linux-iso-镜像">下载 Arch Linux ISO 镜像</h2>
+<p>从官网下载安装镜像。你可以选择直接下载或使用种子链接。</p>
+<p><a target="_blank" rel="noopener" href="https://www.archlinux.org/download/">下载 Arch Linux</a></p>
+<h2 id="创建-arch-linux-启动-u-盘">创建 Arch Linux 启动 U 盘</h2>
+<p>你需要使用刚下载的 ISO 镜像制作一个可启动的 U 盘。</p>
+<p>你可以使用 <a target="_blank" rel="noopener" href="https://etcher.balena.io/">Etcher
+图形界面工具</a> 来创建启动盘，支持 Windows 和 Linux。</p>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/use-etcher-to-create-live-usb.png"
+alt="使用 Etcher 创建 Arch Linux 启动 U 盘" />
+<figcaption aria-hidden="true">使用 Etcher 创建 Arch Linux 启动 U
+盘</figcaption>
+</figure>
+<p>也可以在 Linux 系统上使用 <code>dd</code> 命令来创建启动盘：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">dd</span> bs=4M <span class="hljs-keyword">if</span>=/path/to/archlinux.iso of=/dev/sdx status=progress &amp;&amp; <span class="hljs-built_in">sync</span><br></code></pre></td></tr></table></figure>
+<p>将 <code>/path/to/archlinux.iso</code> 替换为你的 ISO
+路径，<code>/dev/sdx</code> 替换为 U 盘设备名。可以用 <code>lsblk</code>
+命令查看设备信息。</p>
+<h2 id="从启动-u-盘启动系统">从启动 U 盘启动系统</h2>
+<p>🚧 某些设备在启用 Secure Boot（安全启动）时可能无法从启动 U
+盘启动。如果你遇到这种情况，请先<a
+target="_blank" rel="noopener" href="https://itsfoss.com/disable-secure-boot-windows/">关闭 Secure
+Boot</a>。</p>
+<p>制作好 U 盘后，关机插入 U 盘，并开机。在启动时不停按 F2、F10 或
+F12（具体按键取决于主板）进入 <a
+target="_blank" rel="noopener" href="https://itsfoss.com/access-uefi-settings-windows-10/">UEFI
+启动设置</a>。</p>
+<p>选择从 USB 或可移动磁盘启动。成功后应看到如下界面：</p>
+<figure>
+<img src="https://cdn.jsdelivr.net/gh/lixuannan/img/boot-screen.png"
+alt="Arch Linux UEFI 启动界面" />
+<figcaption aria-hidden="true">Arch Linux UEFI 启动界面</figcaption>
+</figure>
+<p>选择 <code>Arch Linux UEFI (x86_64)</code> 启动镜像。</p>
+<p>📋 使用传统 BIOS 的用户应选择 <code>x86_64 BIOS</code> 选项。</p>
+<h2 id="连接-wi-fi">连接 Wi-Fi</h2>
+<p>你需要联网才能安装 Arch Linux。</p>
+<p>如果使用有线连接，那很好；否则你需要手动连接 Wi-Fi。</p>
+<p>在 Arch live 环境中输入命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">iwctl<br></code></pre></td></tr></table></figure>
+<p>这是用于配置 Wi-Fi 的命令。输入后，提示符会变为
+<code>iwd&gt;</code>。</p>
+<p>接着，列出网络设备来确认你的无线网卡设备名称：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">device list<br></code></pre></td></tr></table></figure>
+<p>例如可能是 <code>wlan0</code>。</p>
+<figure>
+<img src="https://cdn.jsdelivr.net/gh/lixuannan/img/list-devices.jpg"
+alt="列出设备" />
+<figcaption aria-hidden="true">列出设备</figcaption>
+</figure>
+<p>然后用该设备扫描附近的 Wi-Fi：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">station wlan0 scan<br>station wlan0 get-networks<br></code></pre></td></tr></table></figure>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/add-a-wifi-network.jpg"
+alt="连接到 Wi-Fi" />
+<figcaption aria-hidden="true">连接到 Wi-Fi</figcaption>
+</figure>
+<p>找到目标网络名后，连接 Wi-Fi：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">station wlan0 connect <span class="hljs-string">&quot;网络名称&quot;</span><br></code></pre></td></tr></table></figure>
+<p>输入密码，连接成功后用 <code>CTRL+D</code> 退出 iwd 提示符。</p>
+<p>确认联网可使用 <code>ping</code> 命令测试：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ping google.com<br></code></pre></td></tr></table></figure>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/ping-for-connection.png"
+alt="使用 Ping 命令验证链接" />
+<figcaption aria-hidden="true">使用 Ping 命令验证链接</figcaption>
+</figure>
+<h2 id="配置-pacman-下载设置">配置 Pacman 下载设置</h2>
+<p>在启动 archinstall 脚本前，先调整 pacman 的下载限制。</p>
+<p>使用以下命令编辑 pacman 配置文件：</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">nano <span class="hljs-regexp">/etc/</span>pacman.conf<br></code></pre></td></tr></table></figure>
+<p>在文件中，取消注释 <code>ParallelDownloads</code>
+选项，并根据你的网速设定合适的数值。</p>
+<p>如果你的网速不错，可以设置并行下载数为 10。</p>
+<p>📋在我测试的系统中，我需要先运行 <code>pacman -Sy</code>，然后运行
+<code>pacman -S archlinux-keyring</code>（安装 Arch Linux
+密钥环），否则安装程序会因为某些错误而崩溃。你可能也需要仔细阅读错误提示信息。</p>
+<h2 id="启动-archinstall-脚本">启动 Archinstall 脚本</h2>
+<p>确保网络连接正常后，使用以下命令启动 archinstall 脚本：</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">archinstall</span><br></code></pre></td></tr></table></figure>
+<p>这将启动基于文本界面的 Arch 安装脚本。</p>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/archinstall-script.png"
+alt="Arch 安装脚本" />
+<figcaption aria-hidden="true">Arch 安装脚本</figcaption>
+</figure>
+<h3 id="设置安装语言">设置安装语言</h3>
+<p>安装器的第一个设置是安装语言，它决定了终端界面的显示语言。</p>
+<p>新版的 archinstall
+会为每种语言显示一个百分比，表示翻译完成的程度。</p>
+<p>我选择使用默认的英文。</p>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/installation-language.png"
+alt="设置安装语言" />
+<figcaption aria-hidden="true">设置安装语言</figcaption>
+</figure>
+<h3 id="区域设置">区域设置</h3>
+<p>你应该设置本地化（locale）和键盘布局。如果默认设置没问题，可以跳过此步。</p>
+<p>💡 某些程序（如 Rofi 启动器）在非 en_US locale
+下可能无法启动，因此建议保留 en_US 作为一个 locale 以避免未来问题。</p>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/set-keyboard-and-locale.png"
+alt="区域设置和本地化" />
+<figcaption aria-hidden="true">区域设置和本地化</figcaption>
+</figure>
+<p>按下回车进入设置，并选择具体项。</p>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/inside-locale-settings.png"
+alt="具体本地化选项" />
+<figcaption aria-hidden="true">具体本地化选项</figcaption>
+</figure>
+<h3 id="镜像源设置">镜像源设置</h3>
+<p>在主菜单中选择 <strong>Mirrors</strong>，进入镜像源设置。</p>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/select-mirror-region-option.png"
+alt="进入镜像列表" />
+<figcaption aria-hidden="true">进入镜像列表</figcaption>
+</figure>
+<p>进入“Mirror
+Region”选项后，会显示国家列表，选择靠近你所在地的国家以获得更快下载速度。</p>
+<p>💡 使用 “/” 键搜索，TAB 键选中条目。标记多个国家后，按 ENTER
+设置这些国家为镜像源。</p>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/marking-mirror-countries.png"
+alt="镜像国家列表" />
+<figcaption aria-hidden="true">镜像国家列表</figcaption>
+</figure>
+<p>镜像将按照国家列出。移动到“Back”并按回车返回。</p>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/mirrors-listed-country-wise.png"
+alt="各国镜像列表" />
+<figcaption aria-hidden="true">各国镜像列表</figcaption>
+</figure>
+<h3 id="磁盘分区设置">磁盘分区设置</h3>
+<p>你需要进行磁盘分区，archinstall 提供了方便的机制来辅助操作。</p>
+<p>主菜单中选择 “Disk Partition”，再选择 “Partitioning”。</p>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/select-partitioning.png"
+alt="选择“硬盘分区”" />
+<figcaption aria-hidden="true">选择“硬盘分区”</figcaption>
+</figure>
+<p>选择 “Use a best-effort default partition layout”。</p>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/best-effort-partition-layout.png"
+alt="选择 “Use a best-effort default partition layout”" />
+<figcaption aria-hidden="true">选择 “Use a best-effort default partition
+layout”</figcaption>
+</figure>
+<p>接下来使用 TAB 键选择硬盘设备，按 ENTER。</p>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/select-the-harddisk.png"
+alt="选择硬盘设备" />
+<figcaption aria-hidden="true">选择硬盘设备</figcaption>
+</figure>
+<p>选择分区类型：我选择了 BTRFS，你也可以选 EXT4（成熟稳定）、XFS、f2fs
+等。</p>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/select-btrfs-file-system.png"
+alt="选择分区类型" />
+<figcaption aria-hidden="true">选择分区类型</figcaption>
+</figure>
+<p>然后询问是否使用默认子卷结构，建议选择 “Yes”。</p>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/subvolume-choice.png"
+alt="是否使用默认子卷结构" />
+<figcaption aria-hidden="true">是否使用默认子卷结构</figcaption>
+</figure>
+<p>接着可选择是否启用压缩，建议选择 Zstd 压缩方式。</p>
+<figure>
+<img src="https://cdn.jsdelivr.net/gh/lixuannan/img/use-compression.png"
+alt="是否启用压缩" />
+<figcaption aria-hidden="true">是否启用压缩</figcaption>
+</figure>
+<p>这将为你创建包含
+<code>/</code>、<code>/home</code>、<code>/var/log</code>、<code>/var/cache/pacman/pkg</code>
+和 <code>/.snapshots</code> 的子卷。</p>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/subvolumes-listing.png"
+alt="创建子卷" />
+<figcaption aria-hidden="true">创建子卷</figcaption>
+</figure>
+<p>📋
+子卷适合需要精细控制和使用快照等功能的用户。若不需要，可选择“不使用子卷”。</p>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/no-for-subvolumes.png"
+alt="不适用子卷的选择" />
+<figcaption aria-hidden="true">不适用子卷的选择</figcaption>
+</figure>
+<p>之后选择是否启用压缩，即使不使用子卷，也建议使用压缩。</p>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/simple-partition-without-subvolumes.png"
+alt="无子卷启用压缩的分区" />
+<figcaption aria-hidden="true">无子卷启用压缩的分区</figcaption>
+</figure>
+<p>点击“Back”返回主菜单。</p>
+<h3 id="磁盘加密">磁盘加密</h3>
+<p>🚧
+加密可能带来轻微性能损失。如果你用的是普通家用电脑或不存放重要数据，可跳过此步。</p>
+<p>在主菜单选择“Disk Encryption”，选择 LUKS 加密类型。</p>
+<p>输入加密密码并选择要加密的分区（使用 TAB 键）。</p>
+<p>🚧
+请务必记住加密密码，否则将无法访问硬盘数据，只能格式化重装系统。</p>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/encryption-overview.png"
+alt="磁盘加密概览" />
+<figcaption aria-hidden="true">磁盘加密概览</figcaption>
+</figure>
+<h3 id="swap-设置">Swap 设置</h3>
+<p>默认启用了基于 zram 的 swap，如无特殊需求可保持默认。</p>
+<h3 id="启动引导器">启动引导器</h3>
+<p>默认使用 systemd-boot，它适合追求简洁的用户。</p>
+<p>如果需要传统功能，可选择 GRUB 引导器。</p>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/select-grub-bootloader.png"
+alt="启动引导器" />
+<figcaption aria-hidden="true">启动引导器</figcaption>
+</figure>
+<h3 id="主机名设置">主机名设置</h3>
+<p>可设置主机名，默认是 <code>archlinux</code>。</p>
+<h3 id="root-密码设置">Root 密码设置</h3>
+<p>选择“Root password”并设置一个强密码。</p>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/enter-root-password-and-confiirm.png"
+alt="根用户密码设置" />
+<figcaption aria-hidden="true">根用户密码设置</figcaption>
+</figure>
+<h3 id="用户创建">用户创建</h3>
+<p>除了 root，建议创建普通用户账户以用于日常操作。</p>
+<p>选择“Add a user”，输入用户名和密码。</p>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/add-a-user-option.png"
+alt="选择“Add a user”" />
+<figcaption aria-hidden="true">选择“Add a user”</figcaption>
+</figure>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/enter-username-for-user.png"
+alt="输入用户名" />
+<figcaption aria-hidden="true">输入用户名</figcaption>
+</figure>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/enter-a-password-for-user.png"
+alt="输入密码" />
+<figcaption aria-hidden="true">输入密码</figcaption>
+</figure>
+<p>确认密码后选择是否赋予该用户管理员权限（superuser），建议选择
+“Yes”。</p>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/new-user-super-user.png"
+alt="授予用户管理员权限" />
+<figcaption aria-hidden="true">授予用户管理员权限</figcaption>
+</figure>
+<p>最后选择“Confirm and exit”。</p>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/confirm-and-exit-user-creation.png"
+alt="确定并退出" />
+<figcaption aria-hidden="true">确定并退出</figcaption>
+</figure>
+<h3 id="选择安装桌面环境profile">选择安装桌面环境（Profile）</h3>
+<p>选择 “Profile → Type”，然后选择 “Desktop”。</p>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/select-desktop-option.png"
+alt="桌面环境选择" />
+<figcaption aria-hidden="true">桌面环境选择</figcaption>
+</figure>
+<p>🚧 避免一次安装多个重量级桌面环境，如 KDE Plasma 和 GNOME。</p>
+<p>可选择一个主桌面（如 GNOME/Plasma），也可以加一个平铺窗口管理器。</p>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/select-gnome-to-install-as-desktop.png"
+alt="选择 GNOME 作为桌面环境" />
+<figcaption aria-hidden="true">选择 GNOME 作为桌面环境</figcaption>
+</figure>
+<p>选择桌面后进入显卡驱动设置，通常系统会自动分配开源驱动。</p>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/driver-selection-automatic-suggestion.png"
+alt="显卡驱动设置" />
+<figcaption aria-hidden="true">显卡驱动设置</figcaption>
+</figure>
+<p>你也可以手动选择显卡驱动。</p>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/available-drivers-listed.png"
+alt="系统会显示可用的显卡驱动" />
+<figcaption aria-hidden="true">系统会显示可用的显卡驱动</figcaption>
+</figure>
+<p>登录管理器（GDM、SDDM）通常会自动设置。</p>
+<h3 id="音频设置">音频设置</h3>
+<p>可以选择 Pipewire 或 PulseAudio，推荐使用 Pipewire。</p>
+<figure>
+<img src="https://cdn.jsdelivr.net/gh/lixuannan/img/select-pipewire.png"
+alt="选择 Pipewire" />
+<figcaption aria-hidden="true">选择 Pipewire</figcaption>
+</figure>
+<h3 id="内核选择">内核选择</h3>
+<p>你可以选择默认 Linux 内核，或同时选择多个内核（如 linux 和
+linux-lts）。（译者注：推荐使用 linux-zen 内核，详情参考：<a
+href="https://lixuannan.github.io/posts/60947.html#%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6">构建超强
+OI 环境之安装 Arch Linux</a>）</p>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/kernel-selection.png"
+alt="内核选择" />
+<figcaption aria-hidden="true">内核选择</figcaption>
+</figure>
+<h3 id="网络设置">网络设置</h3>
+<p>选择 “Use NetworkManager” 进行网络配置。</p>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/use-network-manager.png"
+alt="选择 NetWorkManager" />
+<figcaption aria-hidden="true">选择 NetWorkManager</figcaption>
+</figure>
+<h3 id="安装额外软件包">安装额外软件包</h3>
+<p>可在安装时一并添加额外软件包。</p>
+<p>选择 “Additional package” 选项并输入软件包名称，用空格分隔。</p>
+<p>例如：<code>firefox htop fastfetch starship</code></p>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/specify-additional-packages.png"
+alt="额外软件包" />
+<figcaption aria-hidden="true">额外软件包</figcaption>
+</figure>
+<h3 id="可选软件源">可选软件源</h3>
+<p>你可以启用 <code>multilib</code> 仓库，使用 TAB
+键选择并回车确认。</p>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/multilib-and-testing-repo.png"
+alt="可选软件源" />
+<figcaption aria-hidden="true">可选软件源</figcaption>
+</figure>
+<h3 id="时区设置">时区设置</h3>
+<p>搜索并设置你所在地区的时区，例如：Asia/Shanghai、US/Central。</p>
+<p>系统会默认启用 NTP 自动时间同步。</p>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/timezone-settings.png"
+alt="选择时区" />
+<figcaption aria-hidden="true">选择时区</figcaption>
+</figure>
+<p>然后选择“Install”选项开始安装。</p>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/use-the-install-button.png"
+alt="选择“Install”" />
+<figcaption aria-hidden="true">选择“Install”</figcaption>
+</figure>
+<p>你会被询问道是否保存安装配置，请选择“Yes”。</p>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/confirm-installation-to-start.png"
+alt="保存安装配置" />
+<figcaption aria-hidden="true">保存安装配置</figcaption>
+</figure>
+<p>安装将花费一定时间，请耐心等待。</p>
+<h2 id="安装完成后的操作">安装完成后的操作</h2>
+<p>当 <code>archinstall</code>
+安装脚本完成后，它会询问你是否进入新系统的 chroot
+环境以进行进一步设置。如果你没有额外的配置要做，可以选择
+<strong>NO</strong>。</p>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/no-chroot-arch-post.png"
+alt="安装完成后不进入 chroot 环境" />
+<figcaption aria-hidden="true">安装完成后不进入 chroot 环境</figcaption>
+</figure>
+<p>此时你可以关闭系统：</p>
+<figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs arcade">shutdown <span class="hljs-built_in">now</span><br></code></pre></td></tr></table></figure>
+<figure>
+<img src="https://cdn.jsdelivr.net/gh/lixuannan/img/shutdown-now.png"
+alt="使用 shutdown now 命令关闭系统" />
+<figcaption aria-hidden="true">使用 shutdown now
+命令关闭系统</figcaption>
+</figure>
+<p>系统关闭后，请移除 USB 安装盘，然后重新启动系统。</p>
+<p>如果你启用了磁盘加密，启动时会出现输入密码的界面，请输入你设置的加密密码。</p>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/enter-encryption-password-to-unlock-the-system.png"
+alt="输入加密密码解锁系统" />
+<figcaption aria-hidden="true">输入加密密码解锁系统</figcaption>
+</figure>
+<p>你会进入登录界面，输入你的用户密码登录系统。</p>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/lixuannan/img/log-in-to-arch-linux-gnome.png"
+alt="登录 Arch Linux GNOME 桌面" />
+<figcaption aria-hidden="true">登录 Arch Linux GNOME 桌面</figcaption>
+</figure>
+<p>现在，你已经可以愉快地使用启用了 BTRFS 和加密功能的 Arch Linux
+了！</p>
+
+                
+                <!-- Share -->
+                <div class="social-share" data-disabled="google,diandian,tencent,linkedin,douban" style="float: right;">
+                  <span>喜欢这篇文章？分享给你的朋友吧（￣︶￣）↗ </span>
+                </div>
+              </div>
+
+            
+            <!-- 添加打赏模块 -->
+            <div class="reward-container">
+              
+                <button id="rewardBtn" class="reward-btn">
+                   
+                    ❤ 打赏
+                  	
+                </button>
+                <p class="tea" id="askRewardText">“觉得不错的话，给点打赏吧 (✿◕‿◕✿)”</p>
+                <div id="rewardImgContainer" class="reward-img-container">
+                  <div class="singleImgContainer">
+                      <img id="wechatImg" class="reward-img" onerror="this.src='/images/onerror.png'" src="/images/wechatpay.png" alt="微信二维码">
+                      <p class="wechatPay">微信支付</p>
+                  </div>
+                  <div class="singleImgContainer">
+                      <img id="alipayImg" class="reward-img" onerror="this.src='/images/onerror.png'" src="/images/alipay.png" alt="支付宝二维码">
+                      <p class="aliPay">支付宝支付 (暂不支持)</p>
+                  </div>
+                </div>
+              
+            </div>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%BF%BB%E8%AF%91/" class="category-chain-item">翻译</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BF%BB%E8%AF%91/ITSFOSS/" class="category-chain-item">ITSFOSS</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Arch-Linux/" class="print-no-link">#Arch Linux</a>
+      
+        <a href="/tags/BTRFS/" class="print-no-link">#BTRFS</a>
+      
+        <a href="/tags/%E7%A3%81%E7%9B%98%E5%8A%A0%E5%AF%86/" class="print-no-link">#磁盘加密</a>
+      
+        <a href="/tags/%E6%95%99%E7%A8%8B/" class="print-no-link">#教程</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>如何安装带有 BTRFS 和磁盘加密的 Arch Linux</div>
+      <script>
+        function copyPostLink(link) {
+          const ClipBoard=navigator.clipboard;
+          ClipBoard.writeText(link);
+        }
+      </script>
+      <div class="hint--top hint--rounded" aria-label="单击复制链接🔗" onclick="copyPostLink(this.innerText)">https://lixuannan.github.io/posts/5793.html</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>CodingCow Lee</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年4月23日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
+                    <i class="iconfont icon-cc-nc"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
+                    <i class="iconfont icon-cc-sa"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/posts/10161.html" title="Unix 诞生记">
+                        <span class="hidden-mobile">Unix 诞生记</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments">
+      
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#comments', function() {
+      var light = 'github-light';
+      var dark = 'github-dark';
+      var schema = document.documentElement.getAttribute('data-user-color-scheme');
+      if (schema === 'dark') {
+        schema = dark;
+      } else {
+        schema = light;
+      }
+      window.UtterancesThemeLight = light;
+      window.UtterancesThemeDark = dark;
+      var s = document.createElement('script');
+      s.setAttribute('src', 'https://utteranc.es/client.js');
+      s.setAttribute('repo', 'Lixuannan/blog_comments');
+      s.setAttribute('issue-term', 'pathname');
+      
+      s.setAttribute('label', 'comments');
+      
+      s.setAttribute('theme', schema);
+      s.setAttribute('crossorigin', 'anonymous');
+      document.getElementById('comments').appendChild(s);
+    })
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <div> <div style="font-size: 8px;" class="about-icons">
+
+
+
+<a href="https://www.facebook.com/profile.php?id=61562077891298" class=" hint--bottom hint--rounded" aria-label="Facebook" target="_blank"> <i class="iconfont icon-facebook-fill" aria-hidden="true"></i>
+</a>
+
+
+
+<a href="https://x.com/Codingcowlee" class=" hint--bottom hint--rounded" aria-label="Twitter (X)" target="_blank"> <i class="iconfont icon-twitter-fill" aria-hidden="true"></i>
+</a>
+
+
+
+<a href="https://github.com/lixuannan" class=" hint--bottom hint--rounded" aria-label="GitHub" target="_blank"> <i class="iconfont icon-github-fill" aria-hidden="true"></i>
+</a>
+
+
+
+<a href="https://www.youtube.com/@Codingcowlee" class=" hint--bottom hint--rounded" aria-label="YouTube" target="_blank"> <i class="iconfont icon-youtube-fill" aria-hidden="true"></i>
+</a>
+
+
+
+<a href="https://space.bilibili.com/1437985467/" class=" hint--bottom hint--rounded" aria-label="BiliBili" target="_blank"> <i class="iconfont icon-bilibili-fill" aria-hidden="true"></i>
+</a>
+</div> <span style="font-size: 13px;">© 2025 Lee CodingCow</span> </div> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+
+
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+  
+<script src="/js/reward.js"></script>
+<script src="/js/album.js"></script>
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
